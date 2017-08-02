@@ -1,3 +1,6 @@
+// Please note: This is an example of what discovery might look like.
+// It is not a working example.
+
 var coap = require('coap');
 var zcl = require('../zcl')(coap);
 
