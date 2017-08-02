@@ -4,17 +4,6 @@
 //
 // Help:  `node examples/bind.js --help`
 
-// Setup cli command
-require('commander')
-  .name('node examples/bind.js')
-  .usage('<sourceIp> <destinationIp>')
-  .arguments('<sourceIp> <destinationIp>')
-  .option('--sourceEndpoint <endpoint>', 'Specify a source endpoint. Defaults to 1.')
-  .option('--destinationEndpoint <endpoint>', 'Specify a destination endpoint. Defaults to 1.')
-  .option('--reportId <id>', 'Specify a report id. Defaults to null.')
-  .action(bindExample)
-  .parse(process.argv);
-
 // Bind Example
 var coap = require('coap');
 var zcl = require('../zcl')(coap);
@@ -34,3 +23,13 @@ function bindExample(sourceIp, destinationIp, options) {
 
 }
 
+// Setup cli command
+require('commander')
+  .name('node examples/bind.js')
+  .usage('<sourceIp> <destinationIp>')
+  .arguments('<sourceIp> <destinationIp>')
+  .option('--sourceEndpoint <endpoint>', 'Specify a source endpoint. Defaults to 1.')
+  .option('--destinationEndpoint <endpoint>', 'Specify a destination endpoint. Defaults to 1.')
+  .option('--reportId <id>', 'Specify a report id. Defaults to null.')
+  .action(bindExample)
+  .parse(process.argv);
