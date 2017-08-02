@@ -1,3 +1,9 @@
+// FYI, no effort has been put into drying this up. 
+// I am only driving out the api.
+
+
+var cbor = require('cbor');
+
 module.exports = function(coap) {
   function OnOffCluster(attrs) {
     this.ip = attrs.ip;
@@ -20,6 +26,30 @@ module.exports = function(coap) {
     request.on('error', (e) => {
       console.error(e);
     });
+
+    request.end();
+  }
+
+  OnOffCluster.prototype.bind = function(attrs, callback) {
+    var request = coap.request({
+      hostname: this.ip,
+      port: this.port || 5683,
+      method: 'POST',
+      pathname: `/zcl/e/1/s6/b`
+    });
+
+    request.on('response', (response) => {
+      console.log(`Response: ${response.code} ${response.payload.toString()}`);
+    });
+
+    request.on('error', (e) => {
+      console.error(e);
+    });
+
+    var destinationUri = `coap://[${attrs.destinationIp}]/zcl/e/${attrs.endpoint}`
+    var payload = { u: destinationUri };
+    var encodedPayload = cbor.encode(payload);
+    request.write(encodedPayload);
 
     request.end();
   }

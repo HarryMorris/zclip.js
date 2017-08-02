@@ -10,7 +10,7 @@ zcl.discover(function(err, devices) {
 
   var endpoint = device.endpoints[0];
 
-  if (endpoint.hasOnOffCluster) {
+  if (endpoint.hasOnOffCluster()) {
     endpoint.onOffCluster.toggle();
   }
 });
