@@ -39,6 +39,22 @@ otaCluster.on('imageBlockRequest', function(request, response) {
   response.send(fs.readFileSync(IMAGE_PATH));
 });
 
+otaCluster.on('upgradeEndRequest', function(request, response) {
+  console.log('upgradeEndRequest request');
+
+  console.log('Status: ', request.status);
+  console.log('Manufacturer Code: ', request.manufacturerCode);
+  console.log('Image Type: ', request.imageType);
+  console.log('File Version: ', request.fileVersion);
+
+  response.send({
+    manufacturerCode: request.manufacturerCode,
+    imageType: request.imageType,
+    fileVersion: request.fileVersion,
+    currentTime: 0,
+    upgradeTime: 0
+  });
+});
 
 otaCluster.listen(coapServer);
 

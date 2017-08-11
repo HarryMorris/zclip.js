@@ -15,10 +15,17 @@ module.exports = function(coap) {
     var that = this;
 
     coapServer.on('request', function(req, res) {
-      if (req.url.match(/zcl\/e\/1\/s19/)) {
+      if (req.url.match(/zcl\/e\/1\/s19\/c\/1/)) {
         var payload = parseQueryNextImageRequest(req.payload);
         try {
           that.emit('queryNextImageRequest', payload, new BasicResponse(res));
+        } catch(e) {
+          console.log('err', e);
+        }
+      } else if (req.url.match(/zcl\/e\/1\/s19\/c\/6/)) {
+        var payload = parseUpgradeEndRequest(req.payload);
+        try {
+          that.emit('upgradeEndRequest', payload, new UpgradeEndResponse(res));
         } catch(e) {
           console.log('err', e);
         }
@@ -39,6 +46,16 @@ module.exports = function(coap) {
     }
   };
 
+  function parseUpgradeEndRequest(payload) {
+    var map = cbor.decodeFirstSync(payload);
+    return {
+      status: map.get(0),
+      manufacturerCode: map.get(1),
+      imageType: map.get(2),
+      fileVersion: map.get(3)
+    }
+  };
+
   function QueryNextImageResponse(res) {
     this.send = function(data) {
       var map = new Map();
@@ -53,12 +70,25 @@ module.exports = function(coap) {
     }
   }
 
+  function UpgradeEndResponse(res) {
+    this.send = function(data) {
+      var map = new Map();
+      map.set(0, data.manufacturerCode);
+      map.set(1, data.imageType);
+      map.set(2, data.fileVersion);
+      map.set(3, data.currentTime);
+      map.set(4, data.upgradeTime);
+
+      var encodedPayload = cbor.encode(map);
+      res.end(encodedPayload);
+    }
+  }
+
   function BasicResponse(res) {
     this.send = function(data) {
       res.end(data);
     }
   }
-
 
   return OTAUpgradeCluster;
 }
