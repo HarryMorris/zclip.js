@@ -18,10 +18,12 @@ module.exports = function(coap) {
       if (req.url.match(/zcl\/e\/1\/s19/)) {
         var payload = parseQueryNextImageRequest(req.payload);
         try {
-          that.emit('queryNextImage', payload, new QueryNextImageResponse(res));
+          that.emit('queryNextImageRequest', payload, new BasicResponse(res));
         } catch(e) {
           console.log('err', e);
         }
+      } else if (req.url.match(/ota/)) {
+        that.emit('imageBlockRequest', {}, new BasicResponse(res));
       }
     });
   };
@@ -48,6 +50,12 @@ module.exports = function(coap) {
 
       var encodedPayload = cbor.encode(map);
       res.end(encodedPayload);
+    }
+  }
+
+  function BasicResponse(res) {
+    this.send = function(data) {
+      res.end(data);
     }
   }
 
