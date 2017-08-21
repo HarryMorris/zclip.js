@@ -18,7 +18,7 @@ module.exports = function(coap) {
       if (req.url.match(/zcl\/e\/1\/s19\/c\/1/)) {
         var payload = parseQueryNextImageRequest(req.payload);
         try {
-          that.emit('queryNextImageRequest', payload, new BasicResponse(res));
+          that.emit('queryNextImageRequest', payload, new QueryNextImageResponse(res));
         } catch(e) {
           console.log('err', e);
         }

@@ -2,7 +2,6 @@ var coap = require('coap');
 var fs = require('fs');
 var zcl = require('../zcl')(coap);
 
-var IMAGE_PATH = './1234-5678-80000000.ota';
 var coapServer = coap.createServer();
 
 coapServer.listen(function() {
@@ -20,23 +19,37 @@ otaCluster.on('queryNextImageRequest', function(request, response) {
   console.log('Status: ', request.status);
   console.log('Manufacturer Code: ', request.manufacturerCode);
   console.log('Image Type: ', request.imageType);
-  console.log('File Version: ', request.fileVersion);
-  console.log('Image Size: ', request.imageSize);
-	console.log('size=', getFilesizeInBytes(IMAGE_PATH));
+
+  var fileVersion = 0;
+  var fileSize = 0;
+  fs.readdirSync('.').forEach(file => {
+      var matchArr;
+      if(matchArr = file.match(/(\d\d\d\d)-(\d\d\d\d)-(\d\d\d\d\d\d\d\d)\.ota$/)) {
+        if((parseInt(matchArr[1],16) == request.manufacturerCode) && (parseInt(matchArr[2],16) == request.imageType)) {
+          if(parseInt(matchArr[3],16) >= fileVersion) {
+            fileVersion = parseInt(matchArr[3],16);
+            fileSize = fs.statSync(file).size;
+          }
+        }
+      }
+  });
+
+  console.log('File Version: ', fileVersion);
+	console.log('Image Size=', fileSize);
 
   response.send({
     status: 0x0000,
     manufacturerCode: request.manufacturerCode,
     imageType: request.imageType,
-    fileVersion: request.fileVersion + 1,
-    imageSize: getFilesizeInBytes(IMAGE_PATH)
+    fileVersion: fileVersion,
+    imageSize: fileSize
   });
 });
 
 otaCluster.on('imageBlockRequest', function(request, response) {
   console.log('ota request');
 
-  response.send(fs.readFileSync(IMAGE_PATH));
+  response.send(fs.readFileSync('1234-5678-80000000.ota'));
 });
 
 otaCluster.on('upgradeEndRequest', function(request, response) {
@@ -57,9 +70,4 @@ otaCluster.on('upgradeEndRequest', function(request, response) {
 });
 
 otaCluster.listen(coapServer);
-
-function getFilesizeInBytes(filename) {
-  var stats = fs.statSync(filename)
-  return stats.size;
-}
 
