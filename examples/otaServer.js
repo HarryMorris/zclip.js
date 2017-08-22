@@ -24,7 +24,7 @@ otaCluster.on('queryNextImageRequest', function(request, response) {
   var fileSize = 0;
   fs.readdirSync('.').forEach(file => {
       var matchArr;
-      if(matchArr = file.match(/(\d\d\d\d)-(\d\d\d\d)-(\d\d\d\d\d\d\d\d)\.ota$/)) {
+      if(matchArr = file.match(/([0-9a-fA-F]{4})-([0-9a-fA-F]{4})-([0-9a-fA-F]{8})\.ota$/)) {
         if((parseInt(matchArr[1],16) == request.manufacturerCode) && (parseInt(matchArr[2],16) == request.imageType)) {
           if(parseInt(matchArr[3],16) >= fileVersion) {
             fileVersion = parseInt(matchArr[3],16);
@@ -35,10 +35,10 @@ otaCluster.on('queryNextImageRequest', function(request, response) {
   });
 
   console.log('File Version: ', fileVersion);
-	console.log('Image Size=', fileSize);
+  console.log('Image Size=', fileSize);
 
   response.send({
-    status: 0x0000,
+    status: (fileSize == 0) ? 0x98 : 0x00, // return NO_IMAGE_AVAILABLE on failure
     manufacturerCode: request.manufacturerCode,
     imageType: request.imageType,
     fileVersion: fileVersion,
