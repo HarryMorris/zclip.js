@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<configurator>
+  <cluster singleton="true">
+    <name>Basic</name>
+    <code>0x0000</code>
+    <client tick="false" init="false">true</client>
+    <server tick="false" init="false">true</server>
+    <attribute side="server" code="0x0000" define="VERSION"              type="INT8U"       min="0x00" max="0xFF"             writable="false" default="0x02" optional="false">ZCL version</attribute> <!-- ZCL_VERSION -->
+    <attribute side="server" code="0x0014" define="DISABLE_LOCAL_CONFIG" type="BITMAP8"     min="0x00" max="0x03"             writable="true"  default="0x00" optional="true" >disable local config</attribute>
+    <command source="client" code="0x00" name="ResetToFactoryDefaults" optional="true" cli="zcl basic rtfd">
+      <description>Command that resets all attribute values to factory default.</description>
+    </command>
+  </cluster>
+</configurator>

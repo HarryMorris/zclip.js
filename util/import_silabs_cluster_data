@@ -1,0 +1,33 @@
+#! /usr/bin/env node
+
+var fs = require('fs');
+var jsonfile = require('jsonfile');
+var importFile = process.argv[2];
+var importSilabsMetaData = require('./lib/importSilabsMetaData');
+var CLUSTER_META_DATA_FILE = './clusterMetaData.json';
+
+if (!importFile) {
+  console.error('Provide an SiLabs xml meta data file to import');
+  process.exit(1);
+}
+
+if (!fs.existsSync(importFile)) {
+  console.error('Cannot find file:', importFile);
+  process.exit(1);
+}
+
+console.log('Importing', importFile);
+
+var xmlData = fs.readFileSync(importFile);
+var clusterMetaData = {};
+
+importSilabsMetaData(xmlData, clusterMetaData, function(err) {
+  if (err) {
+    console.error(err.message);
+    process.exit(1);
+  }
+
+  // fs.writeFileSync(CLUSTER_META_DATA_FILE, JSON.stringify(clusterMetaData));
+  jsonfile.writeFileSync(CLUSTER_META_DATA_FILE, clusterMetaData, {spaces: 2})
+});
+

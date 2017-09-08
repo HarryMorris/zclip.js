@@ -7,7 +7,7 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config=test/jestConfig.json"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,13 @@
   "license": "ISC",
   "dependencies": {
     "cbor": "^3.0.2",
-    "coap": "^0.21.0",
-    "commander": "^2.11.0"
+    "coap": "^0.21.0"
+  },
+  "devDependencies": {
+    "commander": "^2.11.0",
+    "jest": "^21.0.1",
+    "jsonfile": "^3.0.1",
+    "prettyjson": "^1.2.1",
+    "xml2js": "^0.4.19"
   }
 }
