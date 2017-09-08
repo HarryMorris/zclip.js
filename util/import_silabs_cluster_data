@@ -27,7 +27,7 @@ importSilabsMetaData(xmlData, clusterMetaData, function(err) {
     process.exit(1);
   }
 
-  // fs.writeFileSync(CLUSTER_META_DATA_FILE, JSON.stringify(clusterMetaData));
   jsonfile.writeFileSync(CLUSTER_META_DATA_FILE, clusterMetaData, {spaces: 2})
+  console.log('Imported successfully to', CLUSTER_META_DATA_FILE);
 });
 

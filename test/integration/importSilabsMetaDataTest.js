@@ -16,6 +16,41 @@ test('can import an empty cluster', () => {
 
   importSilabsMetaData(xml, target, function(err) {
     expect(target['0x0000'].name).toEqual('Basic');
+    expect(target['0x0000'].code).toEqual('0x0000');
+  });
+});
+
+test('removes special characters in cluster name', () => {
+  var xml = '\
+    <configurator>\
+      <cluster>\
+        <name>Basic/Name</name>\
+        <code>0x0000</code>\
+      </cluster>\
+    </configurator>\
+  ';
+
+  var target = {};
+
+  importSilabsMetaData(xml, target, function(err) {
+    expect(target['0x0000'].name).toEqual('Basic Name');
+  });
+});
+
+test('titlize cluster name', () => {
+  var xml = '\
+    <configurator>\
+      <cluster>\
+        <name>basic name</name>\
+        <code>0x0000</code>\
+      </cluster>\
+    </configurator>\
+  ';
+
+  var target = {};
+
+  importSilabsMetaData(xml, target, function(err) {
+    expect(target['0x0000'].name).toEqual('Basic Name');
   });
 });
 

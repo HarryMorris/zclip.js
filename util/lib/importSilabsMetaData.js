@@ -19,8 +19,20 @@ function importSilabsMetaData(rawData, target, callback) {
 }
 
 function importRootClusterData(clusterNode, cluster) {
-  cluster.code = clusterNode.code;
-  cluster.name = clusterNode.name[0];
+  cluster.code = clusterNode.code[0];
+  cluster.name = formatClusterName(clusterNode.name[0]);
+}
+
+function formatClusterName(name) {
+  return titalize(stripSymbols(name));
+}
+
+function titalize(str) {
+  return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+}
+
+function stripSymbols(str) {
+  return str.replace(/[^a-zA-Z0-9 $]/g, ' ');
 }
 
 function importCommands(commandNodes, cluster) {

@@ -1,8 +1,6 @@
 {
   "0x0000": {
-    "code": [
-      "0x0000"
-    ],
+    "code": "0x0000",
     "name": "Basic",
     "commands": {
       "0x00": {
@@ -120,9 +118,7 @@
     }
   },
   "0x0001": {
-    "code": [
-      "0x0001"
-    ],
+    "code": "0x0001",
     "name": "Power Configuration",
     "commands": {},
     "attributes": {
@@ -522,9 +518,7 @@
     }
   },
   "0x0002": {
-    "code": [
-      "0x0002"
-    ],
+    "code": "0x0002",
     "name": "Device Temperature Configuration",
     "commands": {},
     "attributes": {
@@ -594,9 +588,7 @@
     }
   },
   "0x0003": {
-    "code": [
-      "0x0003"
-    ],
+    "code": "0x0003",
     "name": "Identify",
     "commands": {
       "0x00": {
@@ -630,9 +622,7 @@
     }
   },
   "0x0004": {
-    "code": [
-      "0x0004"
-    ],
+    "code": "0x0004",
     "name": "Groups",
     "commands": {
       "0x00": {
@@ -665,9 +655,7 @@
     }
   },
   "0x0005": {
-    "code": [
-      "0x0005"
-    ],
+    "code": "0x0005",
     "name": "Scenes",
     "commands": {
       "0x00": {
@@ -736,10 +724,8 @@
     }
   },
   "0x0006": {
-    "code": [
-      "0x0006"
-    ],
-    "name": "On/off",
+    "code": "0x0006",
+    "name": "On Off",
     "commands": {
       "0x00": {
         "name": "Off"
@@ -769,10 +755,8 @@
     }
   },
   "0x0007": {
-    "code": [
-      "0x0007"
-    ],
-    "name": "On/off Switch Configuration",
+    "code": "0x0007",
+    "name": "On Off Switch Configuration",
     "commands": {},
     "attributes": {
       "0x0000": {
@@ -792,9 +776,7 @@
     }
   },
   "0x0008": {
-    "code": [
-      "0x0008"
-    ],
+    "code": "0x0008",
     "name": "Level Control",
     "commands": {
       "0x00": {
@@ -889,9 +871,7 @@
     }
   },
   "0x0009": {
-    "code": [
-      "0x0009"
-    ],
+    "code": "0x0009",
     "name": "Alarms",
     "commands": {
       "0x00": {
@@ -917,9 +897,7 @@
     }
   },
   "0x000A": {
-    "code": [
-      "0x000A"
-    ],
+    "code": "0x000A",
     "name": "Time",
     "commands": {},
     "attributes": {
@@ -996,10 +974,8 @@
     }
   },
   "0x000B": {
-    "code": [
-      "0x000B"
-    ],
-    "name": "RSSI Location",
+    "code": "0x000B",
+    "name": "Rssi Location",
     "commands": {
       "0x00": {
         "name": "DeviceConfigurationResponse"
@@ -1121,10 +1097,8 @@
     }
   },
   "0x000F": {
-    "code": [
-      "0x000F"
-    ],
-    "name": "Binary Input (Basic)",
+    "code": "0x000F",
+    "name": "Binary Input  Basic ",
     "commands": {},
     "attributes": {
       "0x0004": {
@@ -1181,9 +1155,7 @@
     }
   },
   "0x0015": {
-    "code": [
-      "0x0015"
-    ],
+    "code": "0x0015",
     "name": "Commissioning",
     "commands": {
       "0x00": {
