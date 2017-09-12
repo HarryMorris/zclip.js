@@ -17,7 +17,7 @@
   "license": "ISC",
   "dependencies": {
     "cbor": "^3.0.2",
-    "coap": "^0.21.0"
+    "coap": "git://github.com/SiliconLabs/node-coap.git#multicast-fix"
   },
   "devDependencies": {
     "commander": "^2.11.0",
