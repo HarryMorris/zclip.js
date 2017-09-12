@@ -1,5 +1,5 @@
 var coap = require('coap');
-var zcl = require('../zcl')(coap);
+var zcl = require('../.')(coap);
 
 var onOffCluster = new zcl.OnOffCluster({
   ip: '2001::1',
@@ -9,6 +9,6 @@ var onOffCluster = new zcl.OnOffCluster({
 onOffCluster.bind({
   destinationIp: '2001::2'
   endpoint: 1,
-  reportId: null 
+  reportId: null
 });
 

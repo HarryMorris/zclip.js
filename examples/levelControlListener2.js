@@ -5,7 +5,7 @@ coapServer.listen(function() {
   console.log('Coap server listening on 5683');
 });
 
-var zcl = require('../zcl')(coap);
+var zcl = require('../.')(coap);
 
 var levelControlCluster = new zcl.LevelControlCluster({
   ip: '127.0.0.1',

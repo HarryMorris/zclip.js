@@ -1,14 +1,28 @@
+// Ex.: node cli/blinky.js <deviceIp>
+
 var coap = require('coap');
-var zcl = require('../zcl')(coap);
-var ip = process.argv[2];
+var zcl = require('../.')(coap);
 
-var onOffCluster = new zcl.OnOffCluster({
-  ip: ip,
-  endpoint: 1
-});
+function blink(deviceIp) {
+  var onOffCluster = new zcl.OnOffCluster({
+    ip: deviceIp,
+    endpoint: 1
+  });
 
-setInterval(function() {
-  onOffCluster.toggle();
-}, 500);
+  setInterval(function() {
+    onOffCluster.toggle();
+  }, 500);
+}
 
+// Setup cli command
+var cli = require('commander')
+            .name('node cli/blinky.js')
+            .usage('<deviceIp>')
+            .arguments('<deviceIp>')
+            .action(blink)
+            .parse(process.argv);
 
+if (!process.argv.slice(2).length) {
+  cli.outputHelp();
+  return;
+}

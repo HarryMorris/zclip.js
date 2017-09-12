@@ -1,6 +1,6 @@
 var coap = require('coap');
 var coapServer = coap.createServer();
-var zcl = require('../zcl')(coap);
+var zcl = require('../.')(coap);
 
 var onOffServerCluster = new zcl.OnOffCluster({
   ip: '127.0.0.1',

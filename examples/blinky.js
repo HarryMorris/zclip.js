@@ -1,9 +1,8 @@
 var coap = require('coap');
-var zcl = require('../zcl')(coap);
-var ip = process.argv[2] || "127.0.0.1"
+var zcl = require('../.')(coap);
 
 var onOffCluster = new zcl.OnOffCluster({
-  ip: ip,
+  ip: '::1',
   endpoint: 1
 });
 

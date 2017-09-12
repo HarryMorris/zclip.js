@@ -2,7 +2,7 @@
 // It is not a working example.
 
 var coap = require('coap');
-var zcl = require('../zcl')(coap);
+var zcl = require('../.')(coap);
 
 zcl.discover(function(err, devices) {
   var device = devices[0];

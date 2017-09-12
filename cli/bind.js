@@ -6,7 +6,7 @@
 
 // Bind Example
 var coap = require('coap');
-var zcl = require('../zcl')(coap);
+var zcl = require('../.')(coap);
 
 function bindExample(sourceIp, destinationIp, options) {
 
