@@ -1,3 +1,4 @@
+// Make a light (on/off cluster) blink
 // Ex.: node cli/blinky.js <deviceIp>
 
 var coap = require('coap');

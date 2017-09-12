@@ -1,3 +1,5 @@
+// Have a device report attribute updates.
+//
 // Ex.: `node cli/report.js <sourceIp> <destinationIp>`
 
 var coap = require('coap');
