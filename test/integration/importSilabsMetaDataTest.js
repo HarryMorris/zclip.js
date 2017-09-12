@@ -15,8 +15,8 @@ test('can import an empty cluster', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].name).toEqual('Basic');
-    expect(target['0x0000'].code).toEqual('0x0000');
+    expect(target[0].name).toEqual('Basic');
+    expect(target[0].code).toEqual('0x0000');
   });
 });
 
@@ -33,7 +33,7 @@ test('removes special characters in cluster name', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].name).toEqual('Basic Name');
+    expect(target[0].name).toEqual('Basic Name');
   });
 });
 
@@ -50,7 +50,7 @@ test('titlize cluster name', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].name).toEqual('Basic Name');
+    expect(target['0'].name).toEqual('Basic Name');
   });
 });
 
@@ -68,7 +68,7 @@ test('can import a single command', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].commands['0x01'].name).toEqual('Command 1');
+    expect(target['0'].commands['1'].name).toEqual('Command 1');
   });
 });
 
@@ -87,8 +87,8 @@ test('can import multiple commands', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].commands['0x01'].name).toEqual('Command 1');
-    expect(target['0x0000'].commands['0x02'].name).toEqual('Command 2');
+    expect(target['0'].commands['1'].name).toEqual('Command 1');
+    expect(target['0'].commands['2'].name).toEqual('Command 2');
   });
 });
 
@@ -106,7 +106,7 @@ test('can import a single attribute', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].attributes['0x0001'].name).toEqual('Attribute 1');
+    expect(target['0'].attributes['1'].name).toEqual('Attribute 1');
   });
 });
 
@@ -125,8 +125,8 @@ test('can import multiple attributes', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0x0000'].attributes['0x0001'].name).toEqual('Attribute 1');
-    expect(target['0x0000'].attributes['0x0002'].name).toEqual('Attribute 2');
+    expect(target['0'].attributes['1'].name).toEqual('Attribute 1');
+    expect(target['0'].attributes['2'].name).toEqual('Attribute 2');
   });
 });
 

@@ -15,6 +15,5 @@ module.exports = function(coap) {
 
   zclip.discover = require(__appRoot + 'lib/discover')(coap, zclip);
 
-
   return zclip;
 }

@@ -11,7 +11,7 @@ function importSilabsMetaData(rawData, target, callback) {
       importCommands(clusterNode.command, cluster);
       importAttributes(clusterNode.attribute, cluster);
 
-      target[cluster.code] = cluster;
+      target[parseInt(cluster.code)] = cluster;
     });
 
     callback();
@@ -43,7 +43,7 @@ function importCommands(commandNodes, cluster) {
   }
 
   commandNodes.forEach(function(commandNode) {
-    cluster.commands[commandNode.$.code] = {
+    cluster.commands[parseInt(commandNode.$.code)] = {
       name: commandNode.$.name
     }
   });
@@ -57,7 +57,7 @@ function importAttributes(attributeNodes, cluster) {
   }
 
   attributeNodes.forEach(function(attributeNode) {
-    cluster.attributes[attributeNode.$.code] = {
+    cluster.attributes[parseInt(attributeNode.$.code)] = {
       name: attributeNode._,
       side: attributeNode.$.side,
       type: attributeNode.$.type,

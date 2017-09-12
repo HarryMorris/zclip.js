@@ -10,6 +10,7 @@ function blink(deviceIp) {
   });
 
   setInterval(function() {
+    console.log('Sending toggle');
     onOffCluster.toggle();
   }, 500);
 }

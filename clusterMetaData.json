@@ -1,114 +1,114 @@
 {
-  "0x0000": {
+  "0": {
     "code": "0x0000",
     "name": "Basic",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "ResetToFactoryDefaults"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "ZCL version",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0001": {
+      "1": {
         "name": "application version",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0002": {
+      "2": {
         "name": "stack version",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0003": {
+      "3": {
         "name": "hardware version",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0004": {
+      "4": {
         "name": "manufacturer name",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0005": {
+      "5": {
         "name": "model identifier",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0006": {
+      "6": {
         "name": "date code",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0007": {
+      "7": {
         "name": "power source",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0008": {
+      "8": {
         "name": "generic device class",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0009": {
+      "9": {
         "name": "generic device type",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x000A": {
+      "10": {
         "name": "product code",
         "side": "server",
         "type": "OCTET_STRING"
       },
-      "0x000B": {
+      "11": {
         "name": "product url",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0010": {
+      "16": {
         "name": "location description",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0011": {
+      "17": {
         "name": "physical environment",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0012": {
+      "18": {
         "name": "device enabled",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0013": {
+      "19": {
         "name": "alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x03"
       },
-      "0x0014": {
+      "20": {
         "name": "disable local config",
         "side": "server",
         "type": "BITMAP8",
@@ -117,398 +117,398 @@
       }
     }
   },
-  "0x0001": {
+  "1": {
     "code": "0x0001",
     "name": "Power Configuration",
     "commands": {},
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "mains voltage",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0001": {
+      "1": {
         "name": "mains frequency",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0010": {
+      "16": {
         "name": "mains alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x03"
       },
-      "0x0011": {
+      "17": {
         "name": "mains voltage min threshold",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0012": {
+      "18": {
         "name": "mains voltage max threshold",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0013": {
+      "19": {
         "name": "mains voltage dwell trip",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0020": {
+      "32": {
         "name": "battery voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0021": {
+      "33": {
         "name": "battery percentage remaining",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0030": {
+      "48": {
         "name": "battery manufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0031": {
+      "49": {
         "name": "battery size",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0032": {
+      "50": {
         "name": "battery ahr rating",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0033": {
+      "51": {
         "name": "battery quantity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0034": {
+      "52": {
         "name": "battery rated voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0035": {
+      "53": {
         "name": "battery alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0036": {
+      "54": {
         "name": "battery voltage min threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0037": {
+      "55": {
         "name": "battery voltage threshold 1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0038": {
+      "56": {
         "name": "battery voltage threshold 2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0039": {
+      "57": {
         "name": "battery voltage threshold 3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x003a": {
+      "58": {
         "name": "battery percentage min threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x003b": {
+      "59": {
         "name": "battery percentage threshold 1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x003c": {
+      "60": {
         "name": "battery percentage threshold 2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x003d": {
+      "61": {
         "name": "battery percentage threshold 3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x003e": {
+      "62": {
         "name": "battery alarm state",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x00000000",
         "max": "0xFFFFFFFF"
       },
-      "0x0040": {
+      "64": {
         "name": "battery 2 voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0041": {
+      "65": {
         "name": "battery 2 percentage remaining",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0050": {
+      "80": {
         "name": "battery 2 manufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0051": {
+      "81": {
         "name": "battery 2 size",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0052": {
+      "82": {
         "name": "battery 2 ahr rating",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0053": {
+      "83": {
         "name": "battery 2 quantity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0054": {
+      "84": {
         "name": "battery 2 rated voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0055": {
+      "85": {
         "name": "battery 2 alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0056": {
+      "86": {
         "name": "battery 2 voltage min threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0057": {
+      "87": {
         "name": "battery 2 voltage threshold 1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0058": {
+      "88": {
         "name": "battery 2 voltage threshold 2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0059": {
+      "89": {
         "name": "battery 2 voltage threshold 3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x005a": {
+      "90": {
         "name": "battery 2 percentage min threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x005b": {
+      "91": {
         "name": "battery 2 percentage threshold 1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x005c": {
+      "92": {
         "name": "battery 2 percentage threshold 2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x005d": {
+      "93": {
         "name": "battery 2 percentage threshold 3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x005e": {
+      "94": {
         "name": "battery 2 alarm state",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x00000000",
         "max": "0xFFFFFFFF"
       },
-      "0x0060": {
+      "96": {
         "name": "battery 3 voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0061": {
+      "97": {
         "name": "battery 3 percentage remaining",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0070": {
+      "112": {
         "name": "battery 3 manufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0071": {
+      "113": {
         "name": "battery 3 size",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0072": {
+      "114": {
         "name": "battery 3 ahr rating",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0073": {
+      "115": {
         "name": "battery 3 quantity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0074": {
+      "116": {
         "name": "battery 3 rated voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0075": {
+      "117": {
         "name": "battery 3 alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0076": {
+      "118": {
         "name": "battery 3 voltage min threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0077": {
+      "119": {
         "name": "battery 3 voltage threshold 1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0078": {
+      "120": {
         "name": "battery 3 voltage threshold 2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0079": {
+      "121": {
         "name": "battery 3 voltage threshold 3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x007a": {
+      "122": {
         "name": "battery 3 percentage min threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x007b": {
+      "123": {
         "name": "battery 3 percentage threshold 1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x007c": {
+      "124": {
         "name": "battery 3 percentage threshold 2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x007d": {
+      "125": {
         "name": "battery 3 percentage threshold 3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x007e": {
+      "126": {
         "name": "battery 3 alarm state",
         "side": "server",
         "type": "BITMAP32",
@@ -517,68 +517,68 @@
       }
     }
   },
-  "0x0002": {
+  "2": {
     "code": "0x0002",
     "name": "Device Temperature Configuration",
     "commands": {},
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "current temperature",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
-      "0x0001": {
+      "1": {
         "name": "min temp experienced",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
-      "0x0002": {
+      "2": {
         "name": "max temp experienced",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
-      "0x0003": {
+      "3": {
         "name": "over temp total dwell",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0010": {
+      "16": {
         "name": "device temp alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x00C8"
       },
-      "0x0011": {
+      "17": {
         "name": "low temp threshold",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
-      "0x0012": {
+      "18": {
         "name": "high temp threshold",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
-      "0x0013": {
+      "19": {
         "name": "low temp dwell trip point",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
         "max": "0xFFFFFF"
       },
-      "0x0014": {
+      "20": {
         "name": "high temp dwell trip point",
         "side": "server",
         "type": "INT24U",
@@ -587,32 +587,32 @@
       }
     }
   },
-  "0x0003": {
+  "3": {
     "code": "0x0003",
     "name": "Identify",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "IdentifyQueryResponse"
       },
-      "0x01": {
+      "1": {
         "name": "IdentifyQuery"
       },
-      "0x02": {
+      "2": {
         "name": "EZModeInvoke"
       },
-      "0x03": {
+      "3": {
         "name": "UpdateCommissionState"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "identify time",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0001": {
+      "1": {
         "name": "commission state",
         "side": "server",
         "type": "BITMAP8",
@@ -621,31 +621,31 @@
       }
     }
   },
-  "0x0004": {
+  "4": {
     "code": "0x0004",
     "name": "Groups",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "AddGroupResponse"
       },
-      "0x01": {
+      "1": {
         "name": "ViewGroupResponse"
       },
-      "0x02": {
+      "2": {
         "name": "GetGroupMembershipResponse"
       },
-      "0x03": {
+      "3": {
         "name": "RemoveGroupResponse"
       },
-      "0x04": {
+      "4": {
         "name": "RemoveAllGroups"
       },
-      "0x05": {
+      "5": {
         "name": "AddGroupIfIdentifying"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "name support",
         "side": "server",
         "type": "BITMAP8",
@@ -654,98 +654,98 @@
       }
     }
   },
-  "0x0005": {
+  "5": {
     "code": "0x0005",
     "name": "Scenes",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "AddSceneResponse"
       },
-      "0x01": {
+      "1": {
         "name": "ViewSceneResponse"
       },
-      "0x02": {
+      "2": {
         "name": "RemoveSceneResponse"
       },
-      "0x03": {
+      "3": {
         "name": "RemoveAllScenesResponse"
       },
-      "0x04": {
+      "4": {
         "name": "StoreSceneResponse"
       },
-      "0x05": {
+      "5": {
         "name": "RecallScene"
       },
-      "0x06": {
+      "6": {
         "name": "GetSceneMembershipResponse"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "scene count",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0001": {
+      "1": {
         "name": "current scene",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0002": {
+      "2": {
         "name": "current group",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFF7"
       },
-      "0x0003": {
+      "3": {
         "name": "scene valid",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0004": {
+      "4": {
         "name": "name support",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x80"
       },
-      "0x0005": {
+      "5": {
         "name": "last configured by",
         "side": "server",
         "type": "IEEE_ADDRESS"
       }
     }
   },
-  "0x0006": {
+  "6": {
     "code": "0x0006",
     "name": "On Off",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "Off"
       },
-      "0x01": {
+      "1": {
         "name": "On"
       },
-      "0x02": {
+      "2": {
         "name": "Toggle"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "on/off",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x4003": {
+      "16387": {
         "name": "start up on off",
         "side": "server",
         "type": "ENUM8",
@@ -754,19 +754,19 @@
       }
     }
   },
-  "0x0007": {
+  "7": {
     "code": "0x0007",
     "name": "On Off Switch Configuration",
     "commands": {},
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "switch type",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0010": {
+      "16": {
         "name": "switch actions",
         "side": "server",
         "type": "ENUM8",
@@ -775,93 +775,93 @@
       }
     }
   },
-  "0x0008": {
+  "8": {
     "code": "0x0008",
     "name": "Level Control",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "MoveToLevel"
       },
-      "0x01": {
+      "1": {
         "name": "Move"
       },
-      "0x02": {
+      "2": {
         "name": "Step"
       },
-      "0x03": {
+      "3": {
         "name": "Stop"
       },
-      "0x04": {
+      "4": {
         "name": "MoveToLevelWithOnOff"
       },
-      "0x05": {
+      "5": {
         "name": "MoveWithOnOff"
       },
-      "0x06": {
+      "6": {
         "name": "StepWithOnOff"
       },
-      "0x07": {
+      "7": {
         "name": "StopWithOnOff"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "current level",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0001": {
+      "1": {
         "name": "remaining time",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0010": {
-        "name": "on off transition time",
-        "side": "server",
-        "type": "INT16U",
-        "min": "0x0000",
-        "max": "0xFFFF"
-      },
-      "0x0011": {
-        "name": "on level",
-        "side": "server",
-        "type": "INT8U",
-        "min": "0x00",
-        "max": "0xFF"
-      },
-      "0x0012": {
-        "name": "on transition time",
-        "side": "server",
-        "type": "INT16U",
-        "min": "0x0000",
-        "max": "0xFFFE"
-      },
-      "0x0013": {
-        "name": "off transition time",
-        "side": "server",
-        "type": "INT16U",
-        "min": "0x0000",
-        "max": "0xFFFE"
-      },
-      "0x0014": {
-        "name": "default move rate",
-        "side": "server",
-        "type": "INT8U",
-        "min": "0x00",
-        "max": "0xFE"
-      },
-      "0x000F": {
+      "15": {
         "name": "options",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x03"
       },
-      "0x4000": {
+      "16": {
+        "name": "on off transition time",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "17": {
+        "name": "on level",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "18": {
+        "name": "on transition time",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFE"
+      },
+      "19": {
+        "name": "off transition time",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFE"
+      },
+      "20": {
+        "name": "default move rate",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFE"
+      },
+      "16384": {
         "name": "start up current level",
         "side": "server",
         "type": "INT8U",
@@ -870,25 +870,25 @@
       }
     }
   },
-  "0x0009": {
+  "9": {
     "code": "0x0009",
     "name": "Alarms",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "Alarm"
       },
-      "0x01": {
+      "1": {
         "name": "GetAlarmResponse"
       },
-      "0x02": {
+      "2": {
         "name": "GetAlarm"
       },
-      "0x03": {
+      "3": {
         "name": "ResetAlarmLog"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "alarm count",
         "side": "server",
         "type": "INT16U",
@@ -896,75 +896,75 @@
       }
     }
   },
-  "0x000A": {
+  "10": {
     "code": "0x000A",
     "name": "Time",
     "commands": {},
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "time",
         "side": "server",
         "type": "UTC_TIME",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
-      "0x0001": {
+      "1": {
         "name": "time status",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x0F"
       },
-      "0x0002": {
+      "2": {
         "name": "time zone",
         "side": "server",
         "type": "INT32S",
         "min": "0xFFFEAE80",
         "max": "0x00015180"
       },
-      "0x0003": {
+      "3": {
         "name": "dst start",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
-      "0x0004": {
+      "4": {
         "name": "dst end",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
-      "0x0005": {
+      "5": {
         "name": "dst shift",
         "side": "server",
         "type": "INT32S",
         "min": "0xFFFEAE80",
         "max": "0x00015180"
       },
-      "0x0006": {
+      "6": {
         "name": "standard time",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
-      "0x0007": {
+      "7": {
         "name": "local time",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
-      "0x0008": {
+      "8": {
         "name": "last set time",
         "side": "server",
         "type": "UTC_TIME",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
-      "0x0009": {
+      "9": {
         "name": "valid until time",
         "side": "server",
         "type": "UTC_TIME",
@@ -973,121 +973,121 @@
       }
     }
   },
-  "0x000B": {
+  "11": {
     "code": "0x000B",
     "name": "Rssi Location",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "DeviceConfigurationResponse"
       },
-      "0x01": {
+      "1": {
         "name": "LocationDataResponse"
       },
-      "0x02": {
+      "2": {
         "name": "LocationDataNotification"
       },
-      "0x03": {
+      "3": {
         "name": "CompactLocationDataNotification"
       },
-      "0x04": {
+      "4": {
         "name": "RssiPing"
       },
-      "0x05": {
+      "5": {
         "name": "RssiRequest"
       },
-      "0x06": {
+      "6": {
         "name": "ReportRssiMeasurements"
       },
-      "0x07": {
+      "7": {
         "name": "RequestOwnLocation"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "location type",
         "side": "server",
         "type": "DATA8",
         "min": "0x00",
         "max": "0x0F"
       },
-      "0x0001": {
+      "1": {
         "name": "location method",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0002": {
+      "2": {
         "name": "location age",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0003": {
+      "3": {
         "name": "quality measure",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
-      "0x0004": {
+      "4": {
         "name": "number of devices",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0010": {
+      "16": {
         "name": "coordinate 1",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
         "max": "0x7FFF"
       },
-      "0x0011": {
+      "17": {
         "name": "coordinate 2",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
         "max": "0x7FFF"
       },
-      "0x0012": {
+      "18": {
         "name": "coordinate 3",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
         "max": "0x7FFF"
       },
-      "0x0013": {
+      "19": {
         "name": "power",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
         "max": "0x7FFF"
       },
-      "0x0014": {
+      "20": {
         "name": "path loss exponent",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0015": {
+      "21": {
         "name": "reporting period",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0016": {
+      "22": {
         "name": "calculation period",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0017": {
+      "23": {
         "name": "number rssi measurements",
         "side": "server",
         "type": "INT8U",
@@ -1096,56 +1096,56 @@
       }
     }
   },
-  "0x000F": {
+  "15": {
     "code": "0x000F",
     "name": "Binary Input  Basic ",
     "commands": {},
     "attributes": {
-      "0x0004": {
+      "4": {
         "name": "active text",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x001C": {
+      "28": {
         "name": "description",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x002E": {
+      "46": {
         "name": "inactive text",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "0x0051": {
+      "81": {
         "name": "out of service",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0054": {
+      "84": {
         "name": "polarity",
         "side": "server",
         "type": "ENUM8"
       },
-      "0x0055": {
+      "85": {
         "name": "present value",
         "side": "server",
         "type": "BOOLEAN"
       },
-      "0x0067": {
+      "103": {
         "name": "reliability",
         "side": "server",
         "type": "ENUM8"
       },
-      "0x006F": {
+      "111": {
         "name": "status flags",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x0F"
       },
-      "0x0100": {
+      "256": {
         "name": "application type",
         "side": "server",
         "type": "INT32U",
@@ -1154,172 +1154,172 @@
       }
     }
   },
-  "0x0015": {
+  "21": {
     "code": "0x0015",
     "name": "Commissioning",
     "commands": {
-      "0x00": {
+      "0": {
         "name": "RestartDeviceResponse"
       },
-      "0x01": {
+      "1": {
         "name": "SaveStartupParametersResponse"
       },
-      "0x02": {
+      "2": {
         "name": "RestoreStartupParametersResponse"
       },
-      "0x03": {
+      "3": {
         "name": "ResetStartupParametersResponse"
       }
     },
     "attributes": {
-      "0x0000": {
+      "0": {
         "name": "short address",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFF7"
       },
-      "0x0001": {
+      "1": {
         "name": "extended pan id",
         "side": "server",
         "type": "IEEE_ADDRESS",
         "min": "0x0000000000000000",
         "max": "0xFFFFFFFFFFFFFFFE"
       },
-      "0x0002": {
+      "2": {
         "name": "pan id",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0003": {
+      "3": {
         "name": "channel mask",
         "side": "server",
         "type": "BITMAP32"
       },
-      "0x0004": {
+      "4": {
         "name": "protocol version",
         "side": "server",
         "type": "INT8U",
         "min": "0x02",
         "max": "0x02"
       },
-      "0x0005": {
+      "5": {
         "name": "stack profile",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0x02"
       },
-      "0x0006": {
+      "6": {
         "name": "startup control",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x03"
       },
-      "0x0010": {
+      "16": {
         "name": "trust center address",
         "side": "server",
         "type": "IEEE_ADDRESS"
       },
-      "0x0011": {
+      "17": {
         "name": "trust center master key",
         "side": "server",
         "type": "SECURITY_KEY"
       },
-      "0x0012": {
+      "18": {
         "name": "network key",
         "side": "server",
         "type": "SECURITY_KEY"
       },
-      "0x0013": {
+      "19": {
         "name": "use insecure join",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0014": {
+      "20": {
         "name": "preconfigured link key",
         "side": "server",
         "type": "SECURITY_KEY"
       },
-      "0x0015": {
+      "21": {
         "name": "network key sequence number",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0016": {
+      "22": {
         "name": "network key type",
         "side": "server",
         "type": "ENUM8"
       },
-      "0x0017": {
+      "23": {
         "name": "network manager address",
         "side": "server",
         "type": "INT16U"
       },
-      "0x0020": {
+      "32": {
         "name": "scan attempts",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFF"
       },
-      "0x0021": {
+      "33": {
         "name": "time between scans",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
-      "0x0022": {
+      "34": {
         "name": "rejoin interval",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
-      "0x0023": {
+      "35": {
         "name": "max rejoin interval",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
-      "0x0030": {
+      "48": {
         "name": "indirect poll rate",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
-      "0x0031": {
+      "49": {
         "name": "parent retry threshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0040": {
+      "64": {
         "name": "concentrator flag",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "0x0041": {
+      "65": {
         "name": "concentrator radius",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
-      "0x0042": {
+      "66": {
         "name": "concentrator discovery time",
         "side": "server",
         "type": "INT8U",
