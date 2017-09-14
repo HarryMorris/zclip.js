@@ -31,7 +31,7 @@ You can use this library for development or via cli commands for sending quick z
 CLI commands are located in `/cli`
 
 ```sh
-node cli/blinky.js <deviceIp>
+./cli/blink <deviceIp>
 ```
 
 ### Development
