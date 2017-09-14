@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 // Discover devices that implement a specified cluster
 //
 // Important: This should be run on the same link

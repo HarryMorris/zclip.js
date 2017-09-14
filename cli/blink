@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 // Make a light (on/off cluster) blink
 // Ex.: node cli/blinky.js <deviceIp>
 
