@@ -23,7 +23,7 @@ function report(sourceIp, destinationIp, options) {
     endpoint: options.sourceEndpoint || 1
   });
 
-  onOffCluster.report({
+  onOffCluster.bind({
     destinationIp: destinationIp,
     destinationPort: destinationPort,
     endpoint: options.destinationEndpoint || 1,
