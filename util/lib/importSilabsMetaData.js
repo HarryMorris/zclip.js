@@ -43,8 +43,16 @@ function importCommands(commandNodes, cluster) {
   }
 
   commandNodes.forEach(function(commandNode) {
-    cluster.commands[parseInt(commandNode.$.code)] = {
-      name: commandNode.$.name
+    var commandId = parseInt(commandNode.$.code);
+    cluster.commands[commandId] = {
+      name: commandNode.$.name,
+      args: []
+    }
+
+    if (commandNode.arg) {
+      commandNode.arg.forEach(function(argNode) {
+        cluster.commands[commandId].args.push(argNode.$.name);
+      });
     }
   });
 }

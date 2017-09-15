@@ -68,7 +68,9 @@ test('can import a single command', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0'].commands['1'].name).toEqual('Command 1');
+    var command = target['0'].commands['1'];
+    expect(command.name).toEqual('Command 1');
+    expect(command.args).toEqual([]);
   });
 });
 
@@ -91,6 +93,30 @@ test('can import multiple commands', () => {
     expect(target['0'].commands['2'].name).toEqual('Command 2');
   });
 });
+
+test('can import commands with arguments', () => {
+  var xml = '\
+    <configurator>\
+      <cluster>\
+        <name>Cluster Name</name>\
+        <code>0x0000</code>\
+        <command code="0x01" name="Command 1">\
+          <arg name="arg1" />\
+          <arg name="arg2" />\
+        </command>\
+      </cluster>\
+    </configurator>\
+  ';
+
+  var target = {};
+
+  importSilabsMetaData(xml, target, function(err) {
+    var command = target['0'].commands['1'];
+    expect(command.name).toEqual('Command 1');
+    expect(command.args).toEqual(['arg1', 'arg2']);
+  });
+});
+
 
 test('can import a single attribute', () => {
   var xml = '\

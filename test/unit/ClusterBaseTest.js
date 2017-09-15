@@ -1,5 +1,7 @@
 require(__dirname + '/support/testHelper');
 
+var cbor = require('cbor');
+
 var ClusterBase;
 var fakeCoap;
 
@@ -61,6 +63,42 @@ test('Commands send coap', function() {
   expect(fakeCoap.lastRequest.ended).toBeTruthy();
 });
 
+test('Commands map arguments in cbor', function() {
+  var metaData = {
+    "commands": {
+      "0": {
+        "name": "cmd",
+        "args": [
+          "arg1",
+          "arg2",
+          "arg3"
+        ]
+      }
+    }
+  }
+
+  var ip = '192.168.1.1';
+  var port = 5683;
+  var basePath = '/zcl/e/1/s6/';
+
+  var clusterBase = new ClusterBase(metaData, fakeCoap);
+  clusterBase.ip = ip;
+  clusterBase.port = port;
+  clusterBase.basePath = basePath;
+
+  clusterBase.cmd({
+    arg1: 'foo',
+    arg3: 'bar'
+  });
+
+  var encodedPayload = fakeCoap.lastRequest.payload;
+  expect(encodedPayload).toBeDefined();
+
+  var payload = cbor.decodeFirstSync(encodedPayload);
+  expect(payload.get(0)).toEqual('foo');
+  expect(payload.get(2)).toEqual('bar');
+});
+
 function FakeCoap() {
   this.request = function(params) {
     this.lastRequest = new FakeRequest(params);
@@ -73,6 +111,10 @@ function FakeRequest(params) {
 
   this.on = function(event, callback) {
 
+  }
+
+  this.write = function(payload) {
+    this.payload = payload;
   }
 
   this.end = function() {

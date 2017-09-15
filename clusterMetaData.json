@@ -4,7 +4,8 @@
     "name": "Basic",
     "commands": {
       "0": {
-        "name": "ResetToFactoryDefaults"
+        "name": "ResetToFactoryDefaults",
+        "args": []
       }
     },
     "attributes": {
@@ -592,16 +593,27 @@
     "name": "Identify",
     "commands": {
       "0": {
-        "name": "IdentifyQueryResponse"
+        "name": "IdentifyQueryResponse",
+        "args": [
+          "timeout"
+        ]
       },
       "1": {
-        "name": "IdentifyQuery"
+        "name": "IdentifyQuery",
+        "args": []
       },
       "2": {
-        "name": "EZModeInvoke"
+        "name": "EZModeInvoke",
+        "args": [
+          "action"
+        ]
       },
       "3": {
-        "name": "UpdateCommissionState"
+        "name": "UpdateCommissionState",
+        "args": [
+          "action",
+          "commissionStateMask"
+        ]
       }
     },
     "attributes": {
@@ -626,22 +638,45 @@
     "name": "Groups",
     "commands": {
       "0": {
-        "name": "AddGroupResponse"
+        "name": "AddGroupResponse",
+        "args": [
+          "status",
+          "groupId"
+        ]
       },
       "1": {
-        "name": "ViewGroupResponse"
+        "name": "ViewGroupResponse",
+        "args": [
+          "status",
+          "groupId",
+          "groupName"
+        ]
       },
       "2": {
-        "name": "GetGroupMembershipResponse"
+        "name": "GetGroupMembershipResponse",
+        "args": [
+          "capacity",
+          "groupCount",
+          "groupList"
+        ]
       },
       "3": {
-        "name": "RemoveGroupResponse"
+        "name": "RemoveGroupResponse",
+        "args": [
+          "status",
+          "groupId"
+        ]
       },
       "4": {
-        "name": "RemoveAllGroups"
+        "name": "RemoveAllGroups",
+        "args": []
       },
       "5": {
-        "name": "AddGroupIfIdentifying"
+        "name": "AddGroupIfIdentifying",
+        "args": [
+          "groupId",
+          "groupName"
+        ]
       }
     },
     "attributes": {
@@ -659,25 +694,63 @@
     "name": "Scenes",
     "commands": {
       "0": {
-        "name": "AddSceneResponse"
+        "name": "AddSceneResponse",
+        "args": [
+          "status",
+          "groupId",
+          "sceneId"
+        ]
       },
       "1": {
-        "name": "ViewSceneResponse"
+        "name": "ViewSceneResponse",
+        "args": [
+          "status",
+          "groupId",
+          "sceneId",
+          "transitionTime",
+          "sceneName",
+          "extensionFieldSets"
+        ]
       },
       "2": {
-        "name": "RemoveSceneResponse"
+        "name": "RemoveSceneResponse",
+        "args": [
+          "status",
+          "groupId",
+          "sceneId"
+        ]
       },
       "3": {
-        "name": "RemoveAllScenesResponse"
+        "name": "RemoveAllScenesResponse",
+        "args": [
+          "status",
+          "groupId"
+        ]
       },
       "4": {
-        "name": "StoreSceneResponse"
+        "name": "StoreSceneResponse",
+        "args": [
+          "status",
+          "groupId",
+          "sceneId"
+        ]
       },
       "5": {
-        "name": "RecallScene"
+        "name": "RecallScene",
+        "args": [
+          "groupId",
+          "sceneId"
+        ]
       },
       "6": {
-        "name": "GetSceneMembershipResponse"
+        "name": "GetSceneMembershipResponse",
+        "args": [
+          "status",
+          "capacity",
+          "groupId",
+          "sceneCount",
+          "sceneList"
+        ]
       }
     },
     "attributes": {
@@ -728,13 +801,16 @@
     "name": "On Off",
     "commands": {
       "0": {
-        "name": "Off"
+        "name": "Off",
+        "args": []
       },
       "1": {
-        "name": "On"
+        "name": "On",
+        "args": []
       },
       "2": {
-        "name": "Toggle"
+        "name": "Toggle",
+        "args": []
       }
     },
     "attributes": {
@@ -780,28 +856,56 @@
     "name": "Level Control",
     "commands": {
       "0": {
-        "name": "MoveToLevel"
+        "name": "MoveToLevel",
+        "args": [
+          "level",
+          "transitionTime"
+        ]
       },
       "1": {
-        "name": "Move"
+        "name": "Move",
+        "args": [
+          "moveMode",
+          "rate"
+        ]
       },
       "2": {
-        "name": "Step"
+        "name": "Step",
+        "args": [
+          "stepMode",
+          "stepSize",
+          "transitionTime"
+        ]
       },
       "3": {
-        "name": "Stop"
+        "name": "Stop",
+        "args": []
       },
       "4": {
-        "name": "MoveToLevelWithOnOff"
+        "name": "MoveToLevelWithOnOff",
+        "args": [
+          "level",
+          "transitionTime"
+        ]
       },
       "5": {
-        "name": "MoveWithOnOff"
+        "name": "MoveWithOnOff",
+        "args": [
+          "moveMode",
+          "rate"
+        ]
       },
       "6": {
-        "name": "StepWithOnOff"
+        "name": "StepWithOnOff",
+        "args": [
+          "stepMode",
+          "stepSize",
+          "transitionTime"
+        ]
       },
       "7": {
-        "name": "StopWithOnOff"
+        "name": "StopWithOnOff",
+        "args": []
       }
     },
     "attributes": {
@@ -875,16 +979,28 @@
     "name": "Alarms",
     "commands": {
       "0": {
-        "name": "Alarm"
+        "name": "Alarm",
+        "args": [
+          "alarmCode",
+          "clusterId"
+        ]
       },
       "1": {
-        "name": "GetAlarmResponse"
+        "name": "GetAlarmResponse",
+        "args": [
+          "status",
+          "alarmCode",
+          "clusterId",
+          "timeStamp"
+        ]
       },
       "2": {
-        "name": "GetAlarm"
+        "name": "GetAlarm",
+        "args": []
       },
       "3": {
-        "name": "ResetAlarmLog"
+        "name": "ResetAlarmLog",
+        "args": []
       }
     },
     "attributes": {
@@ -978,28 +1094,79 @@
     "name": "Rssi Location",
     "commands": {
       "0": {
-        "name": "DeviceConfigurationResponse"
+        "name": "DeviceConfigurationResponse",
+        "args": [
+          "status",
+          "power",
+          "pathLossExponent",
+          "calculationPeriod",
+          "numberRssiMeasurements",
+          "reportingPeriod"
+        ]
       },
       "1": {
-        "name": "LocationDataResponse"
+        "name": "LocationDataResponse",
+        "args": [
+          "status",
+          "locationType",
+          "coordinate1",
+          "coordinate2",
+          "coordinate3",
+          "power",
+          "pathLossExponent",
+          "locationMethod",
+          "qualityMeasure",
+          "locationAge"
+        ]
       },
       "2": {
-        "name": "LocationDataNotification"
+        "name": "LocationDataNotification",
+        "args": [
+          "locationType",
+          "coordinate1",
+          "coordinate2",
+          "coordinate3",
+          "power",
+          "pathLossExponent",
+          "locationMethod",
+          "qualityMeasure",
+          "locationAge"
+        ]
       },
       "3": {
-        "name": "CompactLocationDataNotification"
+        "name": "CompactLocationDataNotification",
+        "args": [
+          "locationType",
+          "coordinate1",
+          "coordinate2",
+          "coordinate3",
+          "qualityMeasure",
+          "locationAge"
+        ]
       },
       "4": {
-        "name": "RssiPing"
+        "name": "RssiPing",
+        "args": [
+          "locationType"
+        ]
       },
       "5": {
-        "name": "RssiRequest"
+        "name": "RssiRequest",
+        "args": []
       },
       "6": {
-        "name": "ReportRssiMeasurements"
+        "name": "ReportRssiMeasurements",
+        "args": [
+          "measuringDevice",
+          "neighbors",
+          "neighborsInfo"
+        ]
       },
       "7": {
-        "name": "RequestOwnLocation"
+        "name": "RequestOwnLocation",
+        "args": [
+          "blindNode"
+        ]
       }
     },
     "attributes": {
@@ -1159,16 +1326,28 @@
     "name": "Commissioning",
     "commands": {
       "0": {
-        "name": "RestartDeviceResponse"
+        "name": "RestartDeviceResponse",
+        "args": [
+          "status"
+        ]
       },
       "1": {
-        "name": "SaveStartupParametersResponse"
+        "name": "SaveStartupParametersResponse",
+        "args": [
+          "status"
+        ]
       },
       "2": {
-        "name": "RestoreStartupParametersResponse"
+        "name": "RestoreStartupParametersResponse",
+        "args": [
+          "status"
+        ]
       },
       "3": {
-        "name": "ResetStartupParametersResponse"
+        "name": "ResetStartupParametersResponse",
+        "args": [
+          "status"
+        ]
       }
     },
     "attributes": {
