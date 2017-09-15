@@ -17,6 +17,8 @@ test('Cluster assigns attributes', function() {
   });
 
   expect(cluster.ip).toEqual(ip);
+
   expect(cluster.port).toEqual(port);
   expect(cluster.endpoint).toEqual(endpoint);
 });
+
