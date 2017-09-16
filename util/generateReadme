@@ -1,0 +1,36 @@
+#! /usr/bin/env node
+
+var fs = require('fs');
+var Handlebars = require('handlebars');
+
+var clustersData = JSON.parse(fs.readFileSync('clusterMetaData.json').toString());
+
+var templateData = { clusters: [] };
+Object.getOwnPropertyNames(clustersData).forEach(function(clusterId) {
+  var clusterData = clustersData[clusterId];
+
+  var clusterTemplate = {
+    name: clusterData.name,
+    commands: []
+  };
+
+  var commands = clustersData[clusterId].commands;
+
+  Object.getOwnPropertyNames(commands).forEach(function(commandId) {
+    var commandData = commands[commandId];
+    var commandTemplate = {
+      name: commandData.name
+    };
+
+    clusterTemplate.commands.push(commandTemplate);
+  })
+
+  templateData.clusters.push(clusterTemplate);
+});
+console.log(templateData.clusters[0]);
+
+var rawTemplate= fs.readFileSync('README.md.handlebars');
+var template = Handlebars.compile(rawTemplate.toString());
+var data = template(templateData);
+fs.writeFileSync('README.md', data);
+

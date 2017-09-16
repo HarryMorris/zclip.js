@@ -50,6 +50,68 @@ var onOffCluster = new zcl.OnOffCluster({
 onOffCluster.toggle();
 ```
 
+## Supported clusters and commands
+
+- Basic
+  * ResetToFactoryDefaults
+- Power Configuration
+- Device Temperature Configuration
+- Identify
+  * IdentifyQueryResponse
+  * IdentifyQuery
+  * EZModeInvoke
+  * UpdateCommissionState
+- Groups
+  * AddGroupResponse
+  * ViewGroupResponse
+  * GetGroupMembershipResponse
+  * RemoveGroupResponse
+  * RemoveAllGroups
+  * AddGroupIfIdentifying
+- Scenes
+  * AddSceneResponse
+  * ViewSceneResponse
+  * RemoveSceneResponse
+  * RemoveAllScenesResponse
+  * StoreSceneResponse
+  * RecallScene
+  * GetSceneMembershipResponse
+- On Off
+  * Off
+  * On
+  * Toggle
+- On Off Switch Configuration
+- Level Control
+  * MoveToLevel
+  * Move
+  * Step
+  * Stop
+  * MoveToLevelWithOnOff
+  * MoveWithOnOff
+  * StepWithOnOff
+  * StopWithOnOff
+- Alarms
+  * Alarm
+  * GetAlarmResponse
+  * GetAlarm
+  * ResetAlarmLog
+- Time
+- Rssi Location
+  * DeviceConfigurationResponse
+  * LocationDataResponse
+  * LocationDataNotification
+  * CompactLocationDataNotification
+  * RssiPing
+  * RssiRequest
+  * ReportRssiMeasurements
+  * RequestOwnLocation
+- Binary Input  Basic 
+- Commissioning
+  * RestartDeviceResponse
+  * SaveStartupParametersResponse
+  * RestoreStartupParametersResponse
+  * ResetStartupParametersResponse
+
 ## Run the tests
 
 ```sh
