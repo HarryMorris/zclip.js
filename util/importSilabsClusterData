@@ -1,29 +1,23 @@
 #! /usr/bin/env node
 
 var fs = require('fs');
+var async = require('async');
 var jsonfile = require('jsonfile');
-var importFile = process.argv[2];
 var importSilabsMetaData = require('./lib/importSilabsMetaData');
 var CLUSTER_META_DATA_FILE = './clusterMetaData.json';
 
-if (!importFile) {
-  console.error('Provide an SiLabs xml meta data file to import');
+var importFiles = process.argv.slice(2);
+
+if (!importFiles.length) {
+  console.error('Usage: ./util/importSilabsClusterData ~/clusterMetaData1.xml ~/clusterMetaData2.xml');
   process.exit(1);
 }
 
-if (!fs.existsSync(importFile)) {
-  console.error('Cannot find file:', importFile);
-  process.exit(1);
-}
-
-console.log('Importing', importFile);
-
-var xmlData = fs.readFileSync(importFile);
 var clusterMetaData = {};
 
-importSilabsMetaData(xmlData, clusterMetaData, function(err) {
+async.eachSeries(importFiles, importFile, function(err) {
   if (err) {
-    console.error(err.message);
+    console.error('ERR:', err.message || err);
     process.exit(1);
   }
 
@@ -31,3 +25,22 @@ importSilabsMetaData(xmlData, clusterMetaData, function(err) {
   console.log('Imported successfully to', CLUSTER_META_DATA_FILE);
 });
 
+function importFile(file, done) {
+  if (!fs.existsSync(file)) {
+    done('Cannot find file:', file);
+    return;
+  }
+
+  console.log('Importing', file);
+
+  var xmlData = fs.readFileSync(file);
+
+  importSilabsMetaData(xmlData, clusterMetaData, function(err) {
+    if (err) {
+      done(err);
+      return;
+    }
+
+    done();
+  });
+}

@@ -16,6 +16,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "async": "^2.5.0",
     "cbor": "^3.0.2",
     "coap": "git://github.com/SiliconLabs/node-coap.git#multicast-fix"
   },
