@@ -10,10 +10,6 @@ Definitely a work in progress. Current tasks are:
 - Create examples and callable cli examples
 - Implement OTA server example
 
-## Supported Clusters
-
-- OnOffCluster
-
 ## Installation
 
 ```sh
@@ -50,67 +46,167 @@ var onOffCluster = new zcl.OnOffCluster({
 onOffCluster.toggle();
 ```
 
-## Supported clusters and commands
+## Supported clusters, commands and arguments
 
-- Basic
+- Basic Cluster
   * ResetToFactoryDefaults
-- Power Configuration
-- Device Temperature Configuration
-- Identify
+- Power Configuration Cluster
+- Device Temperature Configuration Cluster
+- Identify Cluster
   * IdentifyQueryResponse
+      * timeout
   * IdentifyQuery
   * EZModeInvoke
+      * action
   * UpdateCommissionState
-- Groups
+      * action
+      * commissionStateMask
+- Groups Cluster
   * AddGroupResponse
+      * status
+      * groupId
   * ViewGroupResponse
+      * status
+      * groupId
+      * groupName
   * GetGroupMembershipResponse
+      * capacity
+      * groupCount
+      * groupList
   * RemoveGroupResponse
+      * status
+      * groupId
   * RemoveAllGroups
   * AddGroupIfIdentifying
-- Scenes
+      * groupId
+      * groupName
+- Scenes Cluster
   * AddSceneResponse
+      * status
+      * groupId
+      * sceneId
   * ViewSceneResponse
+      * status
+      * groupId
+      * sceneId
+      * transitionTime
+      * sceneName
+      * extensionFieldSets
   * RemoveSceneResponse
+      * status
+      * groupId
+      * sceneId
   * RemoveAllScenesResponse
+      * status
+      * groupId
   * StoreSceneResponse
+      * status
+      * groupId
+      * sceneId
   * RecallScene
+      * groupId
+      * sceneId
   * GetSceneMembershipResponse
-- On Off
+      * status
+      * capacity
+      * groupId
+      * sceneCount
+      * sceneList
+- On Off Cluster
   * Off
   * On
   * Toggle
-- On Off Switch Configuration
-- Level Control
+- On Off Switch Configuration Cluster
+- Level Control Cluster
   * MoveToLevel
+      * level
+      * transitionTime
   * Move
+      * moveMode
+      * rate
   * Step
+      * stepMode
+      * stepSize
+      * transitionTime
   * Stop
   * MoveToLevelWithOnOff
+      * level
+      * transitionTime
   * MoveWithOnOff
+      * moveMode
+      * rate
   * StepWithOnOff
+      * stepMode
+      * stepSize
+      * transitionTime
   * StopWithOnOff
-- Alarms
+- Alarms Cluster
   * Alarm
+      * alarmCode
+      * clusterId
   * GetAlarmResponse
+      * status
+      * alarmCode
+      * clusterId
+      * timeStamp
   * GetAlarm
   * ResetAlarmLog
-- Time
-- Rssi Location
+- Time Cluster
+- Rssi Location Cluster
   * DeviceConfigurationResponse
+      * status
+      * power
+      * pathLossExponent
+      * calculationPeriod
+      * numberRssiMeasurements
+      * reportingPeriod
   * LocationDataResponse
+      * status
+      * locationType
+      * coordinate1
+      * coordinate2
+      * coordinate3
+      * power
+      * pathLossExponent
+      * locationMethod
+      * qualityMeasure
+      * locationAge
   * LocationDataNotification
+      * locationType
+      * coordinate1
+      * coordinate2
+      * coordinate3
+      * power
+      * pathLossExponent
+      * locationMethod
+      * qualityMeasure
+      * locationAge
   * CompactLocationDataNotification
+      * locationType
+      * coordinate1
+      * coordinate2
+      * coordinate3
+      * qualityMeasure
+      * locationAge
   * RssiPing
+      * locationType
   * RssiRequest
   * ReportRssiMeasurements
+      * measuringDevice
+      * neighbors
+      * neighborsInfo
   * RequestOwnLocation
-- Binary Input  Basic 
-- Commissioning
+      * blindNode
+- Binary Input  Basic  Cluster
+- Commissioning Cluster
   * RestartDeviceResponse
+      * status
   * SaveStartupParametersResponse
+      * status
   * RestoreStartupParametersResponse
+      * status
   * ResetStartupParametersResponse
+      * status
 
 ## Run the tests
 

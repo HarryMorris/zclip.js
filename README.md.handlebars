@@ -10,10 +10,6 @@ Definitely a work in progress. Current tasks are:
 - Create examples and callable cli examples
 - Implement OTA server example
 
-## Supported Clusters
-
-- OnOffCluster
-
 ## Installation
 
 ```sh
@@ -50,12 +46,15 @@ var onOffCluster = new zcl.OnOffCluster({
 onOffCluster.toggle();
 ```
 
-## Supported clusters and commands
+## Supported clusters, commands and arguments
 
 {{#each clusters}}
-- {{name}}
+- {{name}} Cluster
   {{#each commands}}
   * {{name}}
+    {{#each args}}
+      * {{this}}
+    {{/each }}
   {{/each }}
 {{/each }}
 

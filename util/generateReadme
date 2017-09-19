@@ -19,7 +19,8 @@ Object.getOwnPropertyNames(clustersData).forEach(function(clusterId) {
   Object.getOwnPropertyNames(commands).forEach(function(commandId) {
     var commandData = commands[commandId];
     var commandTemplate = {
-      name: commandData.name
+      name: commandData.name,
+      args: commandData.args
     };
 
     clusterTemplate.commands.push(commandTemplate);
@@ -27,7 +28,6 @@ Object.getOwnPropertyNames(clustersData).forEach(function(clusterId) {
 
   templateData.clusters.push(clusterTemplate);
 });
-console.log(templateData.clusters[0]);
 
 var rawTemplate= fs.readFileSync('README.md.handlebars');
 var template = Handlebars.compile(rawTemplate.toString());
