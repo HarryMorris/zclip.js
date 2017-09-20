@@ -7,7 +7,7 @@ var coap = require('coap');
 var zcl = require('../.')(coap);
 
 function blink(deviceIp) {
-  var onOffCluster = new zcl.OnOffCluster({
+  var onOffCluster = new zcl.clusters.OnOffCluster({
     ip: deviceIp,
     endpoint: 1
   });

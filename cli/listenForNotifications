@@ -18,7 +18,7 @@ function report(sourceIp, destinationIp, options) {
   });
 
   // Tell On Off cluster to report
-  var onOffCluster = new zclip.OnOffCluster({
+  var onOffCluster = new zclip.clusters.OnOffCluster({
     ip: sourceIp,
     endpoint: options.sourceEndpoint || 1
   });

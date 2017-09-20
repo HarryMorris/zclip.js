@@ -13,7 +13,7 @@ var zclip = require('../.')(coap);
 
 // Find On Off servers
 var query = {
-  cluster: zclip.OnOffCluster,
+  cluster: zclip.clusters.OnOffCluster,
   side: zclip.SERVER
 }
 

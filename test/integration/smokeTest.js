@@ -7,10 +7,10 @@ beforeAll(() => {
 });
 
 test('Clusters are loaded', () => {
-  expect(zclip.OnOffCluster).toBeDefined();
+  expect(zclip.clusters.OnOffCluster).toBeDefined();
 });
 
 test('Overrides are loaded', () => {
-  var onOffCluster = new zclip.OnOffCluster();
+  var onOffCluster = new zclip.clusters.OnOffCluster();
   expect(onOffCluster.toggle).toBeDefined();
 });

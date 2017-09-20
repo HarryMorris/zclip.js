@@ -1,0 +1,29 @@
+#! /usr/bin/env node
+
+var _ = require('lodash');
+var minimist = require('minimist');
+var coap = require('coap');
+var zclip = require(__dirname + '/../')(coap);
+var zcl = require(__dirname + '/lib/zcl')(zclip.clusters);
+
+var argv = minimist(process.argv.slice(2));
+
+var keywords = argv._;
+
+var optionKeys = _.reject(_.keys(argv), function(f) {
+  return f === '_';
+});
+
+var options = _.pick(argv, optionKeys);
+
+zcl(keywords, options, function(error, message, exitCode) {
+  if (message)
+    console.log(message);
+
+  if (error)
+    console.error(error)
+
+  if (exitCode)
+    process.exit(exitCode);
+});
+
