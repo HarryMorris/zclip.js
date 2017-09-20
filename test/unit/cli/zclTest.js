@@ -25,6 +25,28 @@ test('instantiates clusters with ip', function() {
   expect(cluster.ip).toEqual('2001::1');
 });
 
+test('instantiates clusters with port', function() {
+  var callback = new Callback();
+
+  zcl(['fakeCluster', 'command1', '2001::1'], { port: 5900 }, callback.handler);
+
+  expect(fakeClusters.length).toEqual(1);
+
+  var cluster = fakeClusters[0];
+  expect(cluster.port).toEqual(5900);
+});
+
+test('instantiates clusters with endpoint', function() {
+  var callback = new Callback();
+
+  zcl(['fakeCluster', 'command1', '2001::1'], { endpoint: 100 }, callback.handler);
+
+  expect(fakeClusters.length).toEqual(1);
+
+  var cluster = fakeClusters[0];
+  expect(cluster.endpoint).toEqual(100);
+});
+
 test('calls the specified command on the specified cluster', function() {
   var callback = new Callback();
 
@@ -89,6 +111,8 @@ test('calls callback with error if function not found', function() {
 
 function FakeCluster(attrs) {
   this.ip = attrs.ip;
+  this.port = attrs.port;
+  this.endpoint = attrs.endpoint;
 
   fakeClusters.push(this);
 

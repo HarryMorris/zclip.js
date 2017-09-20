@@ -16,7 +16,9 @@ module.exports = function(clusters) {
     }
 
     var cluster = new Cluster({
-      ip: ip
+      ip: ip,
+      port: options.port,
+      endpoint: options.endpoint
     });
 
     if (!cluster[commandName]) {
