@@ -99,26 +99,3 @@ test('Commands map arguments in cbor', function() {
   expect(payload.get(2)).toEqual('bar');
 });
 
-function FakeCoap() {
-  this.request = function(params) {
-    this.lastRequest = new FakeRequest(params);
-    return this.lastRequest;
-  }
-}
-
-function FakeRequest(params) {
-  this.params = params;
-
-  this.on = function(event, callback) {
-
-  }
-
-  this.write = function(payload) {
-    this.payload = payload;
-  }
-
-  this.end = function() {
-    this.ended = true;
-  }
-}
-

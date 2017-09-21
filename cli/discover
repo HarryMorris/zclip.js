@@ -9,22 +9,52 @@
 // Ex.: node cli/discover.js
 
 var coap = require('coap');
+var minimist = require('minimist');
+var _ = require('lodash');
+_.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
+
 var zclip = require('../.')(coap);
 
-// Find On Off servers
-var query = {
-  cluster: zclip.clusters.OnOffCluster,
-  side: zclip.SERVER
+var argv = minimist(process.argv.slice(2));
+var clusterName = argv._[0];
+
+if (argv.h || argv.help) {
+  printUsage();
+  process.exit(0);
 }
 
-zclip.discover(query, function(err, device) {
+var query = (clusterName ? clusterQuery : wildcardQuery)(clusterName, argv);
+
+zclip.discover(query, function(err, ip) {
   if (err) {
     console.error(err);
     return;
   }
 
-  console.log(device.meta.name, 'device found!');
-  console.log('Ip:', device.ip);
-  console.log('Endpoint:', device.endpoint);
+  console.log(ip);
 });
+
+function clusterQuery(clusterName, options) {
+  var cluster = zclip.clusters[_.pascalCase(clusterName)];
+
+  if (!cluster) {
+    console.log('Unknown cluster:', clusterName);
+    process.exit(1);
+  }
+
+  return {
+    cluster: cluster,
+    side: options.client ? zclip.CLIENT : zclip.SERVER
+  }
+}
+
+function wildcardQuery() {
+  return {};
+}
+
+function printUsage() {
+  console.log('Usage:\n\
+  discover\n\
+  discover <clusterName> [--server | --client]\n');
+}
 
