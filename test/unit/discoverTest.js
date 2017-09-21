@@ -57,6 +57,6 @@ test('supports wildcard discovery', function(done) {
     }
   });
 
-  expect(fakeCoap.lastRequest.params.query).toBeUndefined();
+  expect(fakeCoap.lastRequest.params.query).toEqual('rt=urn:zcl:c.*');
   done();
 });
