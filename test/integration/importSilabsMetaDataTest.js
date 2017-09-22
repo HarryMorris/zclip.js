@@ -28,6 +28,10 @@ test('uses hex as key', () => {
         <name>Basic</name>\
         <code>0x0300</code>\
       </cluster>\
+      <cluster>\
+        <name>Basic 2</name>\
+        <code>0x00FF</code>\
+      </cluster>\
     </configurator>\
   ';
 
@@ -35,6 +39,7 @@ test('uses hex as key', () => {
 
   importSilabsMetaData(xml, target, function(err) {
     expect(target[300].name).toEqual('Basic');
+    expect(target['FF'].name).toEqual('Basic 2');
   });
 });
 

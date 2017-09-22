@@ -1,60 +1,121 @@
 {
   "0": {
-    "name": "Binary Input  Basic ",
-    "code": "0x000F",
+    "name": "Basic",
+    "code": "0x0000",
     "clusterId": "0",
-    "commands": {},
+    "commands": {
+      "0": {
+        "name": "ResetToFactoryDefaults",
+        "args": []
+      }
+    },
     "attributes": {
+      "0": {
+        "name": "ZCL version",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "1": {
+        "name": "application version",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "2": {
+        "name": "stack version",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "3": {
+        "name": "hardware version",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
       "4": {
-        "name": "active text",
+        "name": "manufacturer name",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "28": {
-        "name": "description",
+      "5": {
+        "name": "model identifier",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "46": {
-        "name": "inactive text",
+      "6": {
+        "name": "date code",
         "side": "server",
         "type": "CHAR_STRING"
       },
-      "81": {
-        "name": "out of service",
+      "7": {
+        "name": "power source",
+        "side": "server",
+        "type": "ENUM8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "8": {
+        "name": "generic device class",
+        "side": "server",
+        "type": "ENUM8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "9": {
+        "name": "generic device type",
+        "side": "server",
+        "type": "ENUM8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "10": {
+        "name": "product code",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "11": {
+        "name": "product url",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "16": {
+        "name": "location description",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "17": {
+        "name": "physical environment",
+        "side": "server",
+        "type": "ENUM8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "18": {
+        "name": "device enabled",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
-      "84": {
-        "name": "polarity",
-        "side": "server",
-        "type": "ENUM8"
-      },
-      "85": {
-        "name": "present value",
-        "side": "server",
-        "type": "BOOLEAN"
-      },
-      "103": {
-        "name": "reliability",
-        "side": "server",
-        "type": "ENUM8"
-      },
-      "111": {
-        "name": "status flags",
+      "19": {
+        "name": "alarm mask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
-        "max": "0x0F"
+        "max": "0x03"
       },
-      "256": {
-        "name": "application type",
+      "20": {
+        "name": "disable local config",
         "side": "server",
-        "type": "INT32U",
-        "min": "0x00000000",
-        "max": "0xFFFFFFFF"
+        "type": "BITMAP8",
+        "min": "0x00",
+        "max": "0x03"
       }
     }
   },
@@ -3509,6 +3570,1874 @@
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
+      }
+    }
+  },
+  "A": {
+    "name": "Time",
+    "code": "0x000A",
+    "clusterId": "A",
+    "commands": {},
+    "attributes": {
+      "0": {
+        "name": "time",
+        "side": "server",
+        "type": "UTC_TIME",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      },
+      "1": {
+        "name": "time status",
+        "side": "server",
+        "type": "BITMAP8",
+        "min": "0x00",
+        "max": "0x0F"
+      },
+      "2": {
+        "name": "time zone",
+        "side": "server",
+        "type": "INT32S",
+        "min": "0xFFFEAE80",
+        "max": "0x00015180"
+      },
+      "3": {
+        "name": "dst start",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      },
+      "4": {
+        "name": "dst end",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      },
+      "5": {
+        "name": "dst shift",
+        "side": "server",
+        "type": "INT32S",
+        "min": "0xFFFEAE80",
+        "max": "0x00015180"
+      },
+      "6": {
+        "name": "standard time",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      },
+      "7": {
+        "name": "local time",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      },
+      "8": {
+        "name": "last set time",
+        "side": "server",
+        "type": "UTC_TIME",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      },
+      "9": {
+        "name": "valid until time",
+        "side": "server",
+        "type": "UTC_TIME",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFE"
+      }
+    }
+  },
+  "B": {
+    "name": "Rssi Location",
+    "code": "0x000B",
+    "clusterId": "B",
+    "commands": {
+      "0": {
+        "name": "DeviceConfigurationResponse",
+        "args": [
+          "status",
+          "power",
+          "pathLossExponent",
+          "calculationPeriod",
+          "numberRssiMeasurements",
+          "reportingPeriod"
+        ]
+      },
+      "1": {
+        "name": "LocationDataResponse",
+        "args": [
+          "status",
+          "locationType",
+          "coordinate1",
+          "coordinate2",
+          "coordinate3",
+          "power",
+          "pathLossExponent",
+          "locationMethod",
+          "qualityMeasure",
+          "locationAge"
+        ]
+      },
+      "2": {
+        "name": "LocationDataNotification",
+        "args": [
+          "locationType",
+          "coordinate1",
+          "coordinate2",
+          "coordinate3",
+          "power",
+          "pathLossExponent",
+          "locationMethod",
+          "qualityMeasure",
+          "locationAge"
+        ]
+      },
+      "3": {
+        "name": "CompactLocationDataNotification",
+        "args": [
+          "locationType",
+          "coordinate1",
+          "coordinate2",
+          "coordinate3",
+          "qualityMeasure",
+          "locationAge"
+        ]
+      },
+      "4": {
+        "name": "RssiPing",
+        "args": [
+          "locationType"
+        ]
+      },
+      "5": {
+        "name": "RssiRequest",
+        "args": []
+      },
+      "6": {
+        "name": "ReportRssiMeasurements",
+        "args": [
+          "measuringDevice",
+          "neighbors",
+          "neighborsInfo"
+        ]
+      },
+      "7": {
+        "name": "RequestOwnLocation",
+        "args": [
+          "blindNode"
+        ]
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "location type",
+        "side": "server",
+        "type": "DATA8",
+        "min": "0x00",
+        "max": "0x0F"
+      },
+      "1": {
+        "name": "location method",
+        "side": "server",
+        "type": "ENUM8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "2": {
+        "name": "location age",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "3": {
+        "name": "quality measure",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0x64"
+      },
+      "4": {
+        "name": "number of devices",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "16": {
+        "name": "coordinate 1",
+        "side": "server",
+        "type": "INT16S",
+        "min": "0x8000",
+        "max": "0x7FFF"
+      },
+      "17": {
+        "name": "coordinate 2",
+        "side": "server",
+        "type": "INT16S",
+        "min": "0x8000",
+        "max": "0x7FFF"
+      },
+      "18": {
+        "name": "coordinate 3",
+        "side": "server",
+        "type": "INT16S",
+        "min": "0x8000",
+        "max": "0x7FFF"
+      },
+      "19": {
+        "name": "power",
+        "side": "server",
+        "type": "INT16S",
+        "min": "0x8000",
+        "max": "0x7FFF"
+      },
+      "20": {
+        "name": "path loss exponent",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "21": {
+        "name": "reporting period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "22": {
+        "name": "calculation period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "23": {
+        "name": "number rssi measurements",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x01",
+        "max": "0xFF"
+      }
+    }
+  },
+  "F": {
+    "name": "Binary Input  Basic ",
+    "code": "0x000F",
+    "clusterId": "F",
+    "commands": {},
+    "attributes": {
+      "4": {
+        "name": "active text",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "28": {
+        "name": "description",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "46": {
+        "name": "inactive text",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "81": {
+        "name": "out of service",
+        "side": "server",
+        "type": "BOOLEAN",
+        "min": "0x00",
+        "max": "0x01"
+      },
+      "84": {
+        "name": "polarity",
+        "side": "server",
+        "type": "ENUM8"
+      },
+      "85": {
+        "name": "present value",
+        "side": "server",
+        "type": "BOOLEAN"
+      },
+      "103": {
+        "name": "reliability",
+        "side": "server",
+        "type": "ENUM8"
+      },
+      "111": {
+        "name": "status flags",
+        "side": "server",
+        "type": "BITMAP8",
+        "min": "0x00",
+        "max": "0x0F"
+      },
+      "256": {
+        "name": "application type",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFF"
+      }
+    }
+  },
+  "1B": {
+    "name": "Appliance Control",
+    "code": "0x001B",
+    "clusterId": "1B",
+    "commands": {
+      "0": {
+        "name": "SignalStateResponse",
+        "args": [
+          "applianceStatus",
+          "remoteEnableFlagsAndDeviceStatus2",
+          "applianceStatus2"
+        ]
+      },
+      "1": {
+        "name": "SignalStateNotification",
+        "args": [
+          "applianceStatus",
+          "remoteEnableFlagsAndDeviceStatus2",
+          "applianceStatus2"
+        ]
+      },
+      "2": {
+        "name": "WriteFunctions",
+        "args": [
+          "functionId",
+          "functionDataType",
+          "functionData"
+        ]
+      },
+      "3": {
+        "name": "OverloadPauseResume",
+        "args": []
+      },
+      "4": {
+        "name": "OverloadPause",
+        "args": []
+      },
+      "5": {
+        "name": "OverloadWarning",
+        "args": [
+          "warningEvent"
+        ]
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "start time",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1": {
+        "name": "finish time",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "2": {
+        "name": "remaining time",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      }
+    }
+  },
+  "1A": {
+    "name": "Power Profile",
+    "code": "0x001A",
+    "clusterId": "1A",
+    "commands": {
+      "0": {
+        "name": "GetPowerProfilePriceExtended",
+        "args": [
+          "options",
+          "powerProfileId",
+          "powerProfileStartTime"
+        ]
+      },
+      "1": {
+        "name": "PowerProfileResponse",
+        "args": [
+          "totalProfileNum",
+          "powerProfileId",
+          "numOfTransferredPhases",
+          "transferredPhases"
+        ]
+      },
+      "2": {
+        "name": "PowerProfileStateResponse",
+        "args": [
+          "powerProfileCount",
+          "powerProfileRecords"
+        ]
+      },
+      "3": {
+        "name": "GetPowerProfilePrice",
+        "args": [
+          "powerProfileId"
+        ]
+      },
+      "4": {
+        "name": "PowerProfilesStateNotification",
+        "args": [
+          "powerProfileCount",
+          "powerProfileRecords"
+        ]
+      },
+      "5": {
+        "name": "GetOverallSchedulePrice",
+        "args": []
+      },
+      "6": {
+        "name": "EnergyPhasesScheduleRequest",
+        "args": [
+          "powerProfileId"
+        ]
+      },
+      "7": {
+        "name": "EnergyPhasesScheduleStateResponse",
+        "args": [
+          "powerProfileId",
+          "numOfScheduledPhases",
+          "scheduledPhases"
+        ]
+      },
+      "8": {
+        "name": "EnergyPhasesScheduleStateNotification",
+        "args": [
+          "powerProfileId",
+          "numOfScheduledPhases",
+          "scheduledPhases"
+        ]
+      },
+      "9": {
+        "name": "PowerProfileScheduleConstraintsNotification",
+        "args": [
+          "powerProfileId",
+          "startAfter",
+          "stopBefore"
+        ]
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "total profile num",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x01",
+        "max": "0xFE"
+      },
+      "1": {
+        "name": "multiple scheduling",
+        "side": "server",
+        "type": "BOOLEAN",
+        "min": "0x00",
+        "max": "0x01"
+      },
+      "2": {
+        "name": "energy formatting",
+        "side": "server",
+        "type": "BITMAP8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "3": {
+        "name": "energy remote",
+        "side": "server",
+        "type": "BOOLEAN",
+        "min": "0x00",
+        "max": "0x01"
+      },
+      "4": {
+        "name": "schedule mode",
+        "side": "server",
+        "type": "BITMAP8",
+        "min": "0x00",
+        "max": "0xFF"
+      }
+    }
+  },
+  "B00": {
+    "name": "Appliance Identification",
+    "code": "0x0B00",
+    "clusterId": "B00",
+    "commands": {},
+    "attributes": {
+      "0": {
+        "name": "basic identification",
+        "side": "server",
+        "type": "INT56U"
+      },
+      "16": {
+        "name": "company name",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "17": {
+        "name": "company id",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "18": {
+        "name": "brand name",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "19": {
+        "name": "brand id",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "20": {
+        "name": "model",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "21": {
+        "name": "part number",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "22": {
+        "name": "product revision",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "23": {
+        "name": "software revision",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "24": {
+        "name": "product type name",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "25": {
+        "name": "product type id",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "26": {
+        "name": "ceced specification version",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      }
+    }
+  },
+  "B01": {
+    "name": "Meter Identification",
+    "code": "0x0B01",
+    "clusterId": "B01",
+    "commands": {},
+    "attributes": {
+      "0": {
+        "name": "company name",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "1": {
+        "name": "meter type id",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "4": {
+        "name": "data quality id",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "5": {
+        "name": "customer name",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "6": {
+        "name": "model",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "7": {
+        "name": "part number",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "8": {
+        "name": "product revision",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "10": {
+        "name": "software revision",
+        "side": "server",
+        "type": "OCTET_STRING"
+      },
+      "11": {
+        "name": "utility name",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "12": {
+        "name": "pod",
+        "side": "server",
+        "type": "CHAR_STRING"
+      },
+      "13": {
+        "name": "available power",
+        "side": "server",
+        "type": "INT24S",
+        "min": "0x000000",
+        "max": "0xFFFFFF"
+      },
+      "14": {
+        "name": "power threshold",
+        "side": "server",
+        "type": "INT24S",
+        "min": "0x000000",
+        "max": "0xFFFFFF"
+      }
+    }
+  },
+  "B02": {
+    "name": "Appliance Events And Alert",
+    "code": "0x0B02",
+    "clusterId": "B02",
+    "commands": {
+      "0": {
+        "name": "GetAlertsResponse",
+        "args": [
+          "alertsCount",
+          "alertStructures"
+        ]
+      },
+      "1": {
+        "name": "AlertsNotification",
+        "args": [
+          "alertsCount",
+          "alertStructures"
+        ]
+      },
+      "2": {
+        "name": "EventsNotification",
+        "args": [
+          "eventHeader",
+          "eventId"
+        ]
+      }
+    },
+    "attributes": {}
+  },
+  "B03": {
+    "name": "Appliance Statistics",
+    "code": "0x0B03",
+    "clusterId": "B03",
+    "commands": {
+      "0": {
+        "name": "LogRequest",
+        "args": [
+          "logId"
+        ]
+      },
+      "1": {
+        "name": "LogQueueRequest",
+        "args": []
+      },
+      "2": {
+        "name": "LogQueueResponse",
+        "args": [
+          "logQueueSize",
+          "logIds"
+        ]
+      },
+      "3": {
+        "name": "StatisticsAvailable",
+        "args": [
+          "logQueueSize",
+          "logIds"
+        ]
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "log max size",
+        "side": "server",
+        "type": "INT32U"
+      },
+      "1": {
+        "name": "log queue max size",
+        "side": "server",
+        "type": "INT8U"
+      }
+    }
+  },
+  "B04": {
+    "name": "Electrical Measurement",
+    "code": "0x0B04",
+    "clusterId": "B04",
+    "commands": {
+      "0": {
+        "name": "GetProfileInfoCommand",
+        "args": []
+      },
+      "1": {
+        "name": "GetMeasurementProfileCommand",
+        "args": [
+          "attributeId",
+          "startTime",
+          "numberOfIntervals"
+        ]
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "measurement type",
+        "side": "server",
+        "type": "BITMAP32",
+        "min": "0x00000000",
+        "max": "0xFFFFFFFF"
+      },
+      "256": {
+        "name": "dc voltage",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "257": {
+        "name": "dc voltage min",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "258": {
+        "name": "dc voltage max",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "259": {
+        "name": "dc current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "260": {
+        "name": "dc current min",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "261": {
+        "name": "dc current max",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "262": {
+        "name": "dc power",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "263": {
+        "name": "dc power min",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "264": {
+        "name": "dc power max",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "512": {
+        "name": "dc voltage multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "513": {
+        "name": "dc voltage divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "514": {
+        "name": "dc current multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "515": {
+        "name": "dc current divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "516": {
+        "name": "dc power multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "517": {
+        "name": "dc power divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "768": {
+        "name": "ac frequency",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "769": {
+        "name": "ac frequency min",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "770": {
+        "name": "ac frequency max",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "771": {
+        "name": "neutral current",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "772": {
+        "name": "total active power",
+        "side": "server",
+        "type": "INT32S",
+        "min": "0x800001",
+        "max": "0x7FFFFF"
+      },
+      "773": {
+        "name": "total reactive power",
+        "side": "server",
+        "type": "INT32S",
+        "min": "0x800001",
+        "max": "0x7FFFFF"
+      },
+      "774": {
+        "name": "total apparent power",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0",
+        "max": "0xFFFFFF"
+      },
+      "775": {
+        "name": "measured 1st harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "776": {
+        "name": "measured 3rd harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "777": {
+        "name": "measured 5th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "778": {
+        "name": "measured 7th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "779": {
+        "name": "measured 9th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "780": {
+        "name": "measured 11th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "781": {
+        "name": "measured phase 1st harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "782": {
+        "name": "measured phase 3rd harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "783": {
+        "name": "measured phase 5th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "784": {
+        "name": "measured phase 7th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "785": {
+        "name": "measured phase 9th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "786": {
+        "name": "measured phase 11th harmonic current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "323767"
+      },
+      "1024": {
+        "name": "ac frequency multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1025": {
+        "name": "ac frequency divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1026": {
+        "name": "power multiplier",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0",
+        "max": "0xFFFFFF"
+      },
+      "1027": {
+        "name": "power divisor",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0",
+        "max": "0xFFFFFF"
+      },
+      "1028": {
+        "name": "harmonic current multiplier",
+        "side": "server",
+        "type": "INT8S",
+        "min": "-127",
+        "max": "127"
+      },
+      "1029": {
+        "name": "phase harmonic current multiplier",
+        "side": "server",
+        "type": "INT8S",
+        "min": "-127",
+        "max": "127"
+      },
+      "1280": {
+        "name": "instantaneous voltage",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1281": {
+        "name": "instantaneous line current",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1282": {
+        "name": "instantaneous active current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1283": {
+        "name": "instantaneous reactive current",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1284": {
+        "name": "instantaneous power",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1285": {
+        "name": "rms voltage",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1286": {
+        "name": "rms voltage min",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1287": {
+        "name": "rms voltage max",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1288": {
+        "name": "rms current",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1289": {
+        "name": "rms current min",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1290": {
+        "name": "rms current max",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1291": {
+        "name": "active power",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1292": {
+        "name": "active power min",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1293": {
+        "name": "active power max",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1294": {
+        "name": "reactive power",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1295": {
+        "name": "apparent power",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0",
+        "max": "0xFFFF"
+      },
+      "1296": {
+        "name": "power factor",
+        "side": "server",
+        "type": "INT8S",
+        "min": "-100",
+        "max": "100"
+      },
+      "1297": {
+        "name": "average rms voltage measurement period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1299": {
+        "name": "average rms under voltage counter",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1300": {
+        "name": "rms extreme over voltage period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1301": {
+        "name": "rms extreme under voltage period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1302": {
+        "name": "rms voltage sag period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1303": {
+        "name": "rms voltage swell period",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1536": {
+        "name": "ac voltage multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1537": {
+        "name": "ac voltage divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1538": {
+        "name": "ac current multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1539": {
+        "name": "ac current divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1540": {
+        "name": "ac power multiplier",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1541": {
+        "name": "ac power divisor",
+        "side": "server",
+        "type": "INT16U",
+        "min": "1",
+        "max": "0xFFFF"
+      },
+      "1792": {
+        "name": "overload alarms mask",
+        "side": "server",
+        "type": "BITMAP8",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "1793": {
+        "name": "voltage overload",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "1794": {
+        "name": "current overload",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2048": {
+        "name": "ac overload alarms mask",
+        "side": "server",
+        "type": "BITMAP16",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "2049": {
+        "name": "ac voltage overload",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2050": {
+        "name": "ac current overload",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2051": {
+        "name": "ac active power overload",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2052": {
+        "name": "ac reactive power overload",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2053": {
+        "name": "average rms over voltage",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2054": {
+        "name": "average rms under voltage",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2055": {
+        "name": "rms extreme over voltage",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2056": {
+        "name": "rms extreme under voltage",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2057": {
+        "name": "rms voltage sag",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2058": {
+        "name": "rms voltage swell",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2305": {
+        "name": "line current phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2306": {
+        "name": "active current phase b",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2307": {
+        "name": "reactive current phase b",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2309": {
+        "name": "rms voltage phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2310": {
+        "name": "rms voltage min phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2311": {
+        "name": "rms voltage max phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2312": {
+        "name": "rms current phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2313": {
+        "name": "rms current min phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2314": {
+        "name": "rms current max phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2315": {
+        "name": "active power phase b",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2316": {
+        "name": "active power min phase b",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2317": {
+        "name": "active power max phase b",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2318": {
+        "name": "reactive power phase b",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2319": {
+        "name": "apparent power phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2320": {
+        "name": "power factor phase b",
+        "side": "server",
+        "type": "INT8S",
+        "min": "-100",
+        "max": "100"
+      },
+      "2321": {
+        "name": "average rms voltage measurement period phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2322": {
+        "name": "average rms over voltage counter phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2323": {
+        "name": "average rms under voltage counter phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2324": {
+        "name": "rms extreme over voltage period phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2325": {
+        "name": "rms extreme under voltage period phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2326": {
+        "name": "rms voltage sag period phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2327": {
+        "name": "rms voltage swell period phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2561": {
+        "name": "line current phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2562": {
+        "name": "active current phase c",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2563": {
+        "name": "reactive current phase c",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2565": {
+        "name": "rms voltage phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2566": {
+        "name": "rms voltage min phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2567": {
+        "name": "rms voltage max phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2568": {
+        "name": "rms current phase b",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2569": {
+        "name": "rms current min phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2570": {
+        "name": "rms current max phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2571": {
+        "name": "active power phase c",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2572": {
+        "name": "active power min phase c",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2573": {
+        "name": "active power max phase c",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2574": {
+        "name": "reactive power phase c",
+        "side": "server",
+        "type": "INT16S",
+        "min": "-32768",
+        "max": "32767"
+      },
+      "2575": {
+        "name": "apparent power phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2576": {
+        "name": "power factor phase c",
+        "side": "server",
+        "type": "INT8S",
+        "min": "-100",
+        "max": "100"
+      },
+      "2577": {
+        "name": "average rms voltage measurement period phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2578": {
+        "name": "average rms over voltage counter phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2579": {
+        "name": "average rms under voltage counter phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2580": {
+        "name": "rms extreme over voltage period phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2581": {
+        "name": "rms extreme under voltage period phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2582": {
+        "name": "rms voltage sag period phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      },
+      "2583": {
+        "name": "rms voltage swell period phase c",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xffff"
+      }
+    }
+  },
+  "B05": {
+    "name": "Diagnostics",
+    "code": "0x0B05",
+    "clusterId": "B05",
+    "commands": {},
+    "attributes": {
+      "0": {
+        "name": "number of resets",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "1": {
+        "name": "persistent memory writes",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "256": {
+        "name": "mac rx broadcast",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x0000",
+        "max": "0xFFFFFFFF"
+      },
+      "257": {
+        "name": "mac tx broadcast",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x0000",
+        "max": "0xFFFFFFFF"
+      },
+      "258": {
+        "name": "mac rx unicast",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x0000",
+        "max": "0xFFFFFFFF"
+      },
+      "259": {
+        "name": "mac tx unicast",
+        "side": "server",
+        "type": "INT32U",
+        "min": "0x0000",
+        "max": "0xFFFFFFFF"
+      },
+      "260": {
+        "name": "mac tx unicast retry",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "261": {
+        "name": "mac tx unicast fail",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "262": {
+        "name": "aps rx broadcast",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "263": {
+        "name": "aps tx broadcast",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "264": {
+        "name": "aps rx unicast",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "265": {
+        "name": "aps unicast success",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "266": {
+        "name": "aps tx unicast retries",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "267": {
+        "name": "aps tx unicast failures",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "268": {
+        "name": "route discovery initiated",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "269": {
+        "name": "neighbor added",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "270": {
+        "name": "neighbor moved",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "271": {
+        "name": "neighbor stale",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "272": {
+        "name": "join indication",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "273": {
+        "name": "child moved",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "274": {
+        "name": "network frame control failure",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "275": {
+        "name": "aps frame control failure",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "276": {
+        "name": "aps unauthorized key",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "277": {
+        "name": "network decryption failure",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "278": {
+        "name": "aps decryption failure",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "279": {
+        "name": "packet buffer allocation failures",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "280": {
+        "name": "relayed unicasts",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "281": {
+        "name": "phy to mac queue limit reached",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "282": {
+        "name": "packet validate drop count",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "283": {
+        "name": "average mac retry per aps message sent",
+        "side": "server",
+        "type": "INT16U",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "284": {
+        "name": "last message lqi",
+        "side": "server",
+        "type": "INT8U",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "285": {
+        "name": "last message rssi",
+        "side": "server",
+        "type": "INT8S",
+        "min": "0x00",
+        "max": "0xFF"
       }
     }
   }

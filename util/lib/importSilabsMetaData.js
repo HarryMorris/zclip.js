@@ -11,7 +11,7 @@ function importSilabsMetaData(rawData, target, callback) {
       importCommands(clusterNode.command, cluster);
       importAttributes(clusterNode.attribute, cluster);
 
-      var clusterIdMatch = /0x[0]*(\d+)/.exec(cluster.code);
+      var clusterIdMatch = /0x[0]*([a-fA-F0-9]+)/.exec(cluster.code);
       var clusterId = clusterIdMatch[1];
       target[clusterId] = cluster;
     });
@@ -24,7 +24,7 @@ function importRootClusterData(clusterNode, cluster) {
   cluster.name = formatClusterName(clusterNode.name[0]);
   cluster.code = clusterNode.code[0];
 
-  var clusterIdMatch = /0x[0]*(\d+)/.exec(cluster.code);
+  var clusterIdMatch = /0x[0]*([a-fA-F0-9]+)/.exec(cluster.code);
   var clusterId = clusterIdMatch[1];
   cluster.clusterId = clusterId;
 }
