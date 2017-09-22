@@ -10,7 +10,7 @@ function FakeCluster(attrs) {
 }
 
 FakeCluster.prototype.meta = {
-  code: '0x0006'
+  clusterId: '6'
 }
 
 beforeAll(function() {

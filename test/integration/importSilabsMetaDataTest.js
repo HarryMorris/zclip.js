@@ -17,6 +17,24 @@ test('can import an empty cluster', () => {
   importSilabsMetaData(xml, target, function(err) {
     expect(target[0].name).toEqual('Basic');
     expect(target[0].code).toEqual('0x0000');
+    expect(target[0].clusterId).toEqual('0');
+  });
+});
+
+test('uses hex as key', () => {
+  var xml = '\
+    <configurator>\
+      <cluster>\
+        <name>Basic</name>\
+        <code>0x0300</code>\
+      </cluster>\
+    </configurator>\
+  ';
+
+  var target = {};
+
+  importSilabsMetaData(xml, target, function(err) {
+    expect(target[300].name).toEqual('Basic');
   });
 });
 

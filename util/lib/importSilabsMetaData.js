@@ -11,7 +11,9 @@ function importSilabsMetaData(rawData, target, callback) {
       importCommands(clusterNode.command, cluster);
       importAttributes(clusterNode.attribute, cluster);
 
-      target[parseInt(cluster.code)] = cluster;
+      var clusterIdMatch = /0x[0]*(\d+)/.exec(cluster.code);
+      var clusterId = clusterIdMatch[1];
+      target[clusterId] = cluster;
     });
 
     callback();
@@ -19,8 +21,12 @@ function importSilabsMetaData(rawData, target, callback) {
 }
 
 function importRootClusterData(clusterNode, cluster) {
-  cluster.code = clusterNode.code[0];
   cluster.name = formatClusterName(clusterNode.name[0]);
+  cluster.code = clusterNode.code[0];
+
+  var clusterIdMatch = /0x[0]*(\d+)/.exec(cluster.code);
+  var clusterId = clusterIdMatch[1];
+  cluster.clusterId = clusterId;
 }
 
 function formatClusterName(name) {
@@ -43,7 +49,13 @@ function importCommands(commandNodes, cluster) {
   }
 
   commandNodes.forEach(function(commandNode) {
-    var commandId = parseInt(commandNode.$.code);
+    var commandIdMatch = /0x[0]*(\d+)/.exec(commandNode.$.code);
+
+    if (!commandIdMatch || !commandIdMatch[1]) {
+      return;
+    }
+
+    var commandId = commandIdMatch[1];
     cluster.commands[commandId] = {
       name: commandNode.$.name,
       args: []
