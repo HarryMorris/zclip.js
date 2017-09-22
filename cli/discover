@@ -18,7 +18,12 @@ var zclip = require('../.')(coap);
 var argv = minimist(process.argv.slice(2));
 var clusterName = argv._[0];
 
-if (clusterName && clusterName.indexOf('Cluster') == -1) {
+if (!clusterName) {
+  printUsage();
+  process.exit(1);
+}
+
+if (clusterName.indexOf('Cluster') == -1) {
   clusterName = clusterName + 'Cluster';
 }
 
@@ -27,7 +32,7 @@ if (argv.h || argv.help) {
   process.exit(0);
 }
 
-var query = (clusterName ? clusterQuery : wildcardQuery)(clusterName, argv);
+var query = clusterQuery(clusterName, argv);
 
 zclip.discover(query, function(err, ip) {
   if (err) {
@@ -52,13 +57,13 @@ function clusterQuery(clusterName, options) {
   }
 }
 
-function wildcardQuery() {
-  return {};
-}
-
 function printUsage() {
   console.log('Usage:\n\
-  discover\n\
-  discover <clusterName> [--server | --client]\n');
+  discover <clusterName> [--server | --client]\n\
+\
+Hint: Use basic to find all devices.\n\
+  discover basic');
+
+
 }
 
