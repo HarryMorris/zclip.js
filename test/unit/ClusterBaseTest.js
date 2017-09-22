@@ -91,6 +91,8 @@ test('Commands map arguments in cbor', function() {
     arg3: 'bar'
   });
 
+  expect(fakeCoap.lastRequest).toBeDefined();
+
   var encodedPayload = fakeCoap.lastRequest.payload;
   expect(encodedPayload).toBeDefined();
 
