@@ -47,6 +47,14 @@ test('instantiates clusters with endpoint', function() {
   expect(cluster.endpoint).toEqual(100);
 });
 
+test('finds cluster by shorthand', function() {
+  var callback = new Callback();
+
+  zcl(['fake', 'command1', '2001::1'], {}, callback.handler);
+
+  expect(fakeClusters.length).toEqual(1);
+});
+
 test('calls the specified command on the specified cluster', function() {
   var callback = new Callback();
 

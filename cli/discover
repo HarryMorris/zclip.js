@@ -18,6 +18,10 @@ var zclip = require('../.')(coap);
 var argv = minimist(process.argv.slice(2));
 var clusterName = argv._[0];
 
+if (clusterName.indexOf('Cluster') == -1) {
+  clusterName = clusterName + 'Cluster';
+}
+
 if (argv.h || argv.help) {
   printUsage();
   process.exit(0);

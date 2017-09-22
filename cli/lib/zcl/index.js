@@ -8,6 +8,10 @@ module.exports = function(clusters) {
     var commandName = keywords[1];
     var ip = keywords[2];
 
+    if (clusterName.indexOf('Cluster') == -1) {
+      clusterName = clusterName + 'Cluster';
+    }
+
     var Cluster = clusters[clusterName];
 
     if (!Cluster) {
