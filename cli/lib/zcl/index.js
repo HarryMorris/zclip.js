@@ -35,7 +35,16 @@ module.exports = function(clusters) {
       return;
     }
 
-    cluster[commandName](options);
-    callback(null, 'Command Sent', 0);
+    cluster[commandName](options, function(err, result) {
+      var resultStr = result.responseCode + ' ';
+
+      if (result.response) {
+        resultStr = resultStr + JSON.stringify(result.response);
+      } else {
+        resultStr = resultStr + 'Empty response';
+      }
+
+      callback(err, resultStr, 0)
+    });
   }
 }

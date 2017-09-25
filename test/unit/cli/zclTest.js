@@ -78,15 +78,18 @@ test('passes arguments to cluster', function() {
   expect(cluster.command1Args).toEqual(args);
 });
 
-test('calls callback with message and exit code on success', function() {
+test('calls callback with result and exit code on success', function() {
   var callback = new Callback();
+  FakeCluster.response = { attr: 100 }
+  FakeCluster.responseCode = '2.01'
 
   zcl(['fakeCluster', 'command1', '2001::1'], {}, callback.handler);
 
   expect(fakeClusters.length).toEqual(1);
 
   var cluster = fakeClusters[0];
-  expect(callback.message).toBeDefined();
+  expect(callback.message).toMatch(/2.01/);
+  expect(callback.message).toMatch(JSON.stringify(FakeCluster.response));
   expect(callback.exitCode).toEqual(0);
 });
 
@@ -124,9 +127,14 @@ function FakeCluster(attrs) {
 
   fakeClusters.push(this);
 
-  this.command1 = function(args) {
+  this.command1 = function(args, callback) {
     this.command1Args = args;
     this.command1Called = true;
+
+    callback('', {
+      response: FakeCluster.response,
+      responseCode: FakeCluster.responseCode
+    });
   }
 }
 
