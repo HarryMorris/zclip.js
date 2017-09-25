@@ -179,7 +179,6 @@ test('read decodes attribute response', function(done) {
     }
   };
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
   var ip = '192.168.1.1';
   var port = 5683;
   var basePath = '/zcl/e/1/s6/';
