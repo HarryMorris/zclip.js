@@ -1,5 +1,5 @@
 {
   "name": "zclip.js",
-  "testRegex": "\\/test\\/(unit|integration)\\/.*Test\\.js$"
+  "testRegex": "\\/test\\/.*Test\\.js$"
 }
 
