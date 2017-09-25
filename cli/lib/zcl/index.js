@@ -4,9 +4,9 @@ _.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
 
 module.exports = function(clusters) {
   return function(keywords, options, callback) {
-    var clusterName = _.pascalCase(keywords[0]);
-    var commandName = keywords[1];
-    var ip = keywords[2];
+    var clusterName = _.pascalCase(keywords[1]);
+    var commandName = keywords[2];
+    var ip = keywords[3];
 
     if (clusterName.indexOf('Cluster') == -1) {
       clusterName = clusterName + 'Cluster';
