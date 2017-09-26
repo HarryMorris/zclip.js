@@ -20,8 +20,12 @@ describe('cli', function() {
   describe('zcl cmd', function() {
     test('instantiates clusters with ip', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: {}
+      }
 
-      zcl(['cmd', 'fakeCluster', 'command1', '2001::1'], {}, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
 
@@ -31,8 +35,12 @@ describe('cli', function() {
 
     test('instantiates clusters with port', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: { port: 5900 }
+      }
 
-      zcl(['cmd', 'fakeCluster', 'command1', '2001::1'], { port: 5900 }, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
 
@@ -42,8 +50,12 @@ describe('cli', function() {
 
     test('instantiates clusters with endpoint', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: { endpoint: 100 }
+      }
 
-      zcl(['cmd', 'fakeCluster', 'command1', '2001::1'], { endpoint: 100 }, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
 
@@ -53,16 +65,24 @@ describe('cli', function() {
 
     test('finds cluster by shorthand', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: {}
+      }
 
-      zcl(['cmd', 'fake', 'command1', '2001::1'], {}, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
     });
 
     test('calls the specified command on the specified cluster', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: {}
+      }
 
-      zcl(['cmd', 'fakeCluster', 'command1', '2001::1'], {}, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
 
@@ -72,22 +92,30 @@ describe('cli', function() {
 
     test('passes arguments to cluster', function() {
       var callback = new Callback();
-      var args = { foo: 'bar' };
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: { foo: 'bar' }
+      }
 
-      zcl(['cmd', 'fakeCluster', 'command1', '2001::1'], args, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
 
       var cluster = fakeClusters[0];
-      expect(cluster.command1Args).toEqual(args);
+      expect(cluster.command1Args).toEqual({ foo: 'bar' });
     });
 
     test('calls callback with result and exit code on success', function() {
-      var callback = new Callback();
       FakeCluster.response = { attr: 100 }
       FakeCluster.responseCode = '2.01'
 
-      zcl(['cmd', 'fakeCluster', 'command1', '2001::1'], {}, callback.handler);
+      var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1', '2001::1'],
+        options: { foo: 'bar' }
+      }
+
+      zcl(zclCommand, callback.handler);
 
       expect(fakeClusters.length).toEqual(1);
 
@@ -99,8 +127,12 @@ describe('cli', function() {
 
     test('calls callback with error if ip not provided', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'command1'],
+        options: { foo: 'bar' }
+      }
 
-      zcl(['cmd', 'fakeCluster', 'command1'], {}, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(callback.error).toBeDefined();
       expect(callback.exitCode).toEqual(1);
@@ -108,8 +140,12 @@ describe('cli', function() {
 
     test('calls callback with error if cluster not found', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fooCluster', 'command1', '2001::1'],
+        options: { foo: 'bar' }
+      }
 
-      zcl(['cmd', 'fooCluster', 'command1', '2001::1'], {}, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(callback.error).toBeDefined();
       expect(callback.exitCode).toEqual(1);
@@ -117,8 +153,12 @@ describe('cli', function() {
 
     test('calls callback with error if function not found', function() {
       var callback = new Callback();
+      var zclCommand = {
+        keywords: ['cmd', 'fakeCluster', 'missingCommand', '2001::1'],
+        options: { foo: 'bar' }
+      }
 
-      zcl(['cmd', 'fakeCluster', 'fooCommand', '2001::1'], {}, callback.handler);
+      zcl(zclCommand, callback.handler);
 
       expect(callback.error).toBeDefined();
       expect(callback.exitCode).toEqual(1);

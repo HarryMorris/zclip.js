@@ -3,10 +3,10 @@ var _ = require('lodash');
 _.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
 
 module.exports = function(zclip) {
-  return function(keywords, options, callback) {
-    var clusterName = _.pascalCase(keywords[1]);
-    var commandName = keywords[2];
-    var ip = keywords[3];
+  return function(zclCommand, callback) {
+    var clusterName = _.pascalCase(zclCommand.keywords[1]);
+    var commandName = zclCommand.keywords[2];
+    var ip = zclCommand.keywords[3];
 
     if (clusterName.indexOf('Cluster') == -1) {
       clusterName = clusterName + 'Cluster';
@@ -21,8 +21,8 @@ module.exports = function(zclip) {
 
     var cluster = new Cluster({
       ip: ip,
-      port: options.port,
-      endpoint: options.endpoint
+      port: zclCommand.options.port,
+      endpoint: zclCommand.options.endpoint
     });
 
     if (!cluster[commandName]) {
@@ -35,7 +35,7 @@ module.exports = function(zclip) {
       return;
     }
 
-    cluster[commandName](options, function(err, result) {
+    cluster[commandName](zclCommand.options, function(err, result) {
       var resultStr = result.responseCode + ' ';
 
       if (result.response) {
