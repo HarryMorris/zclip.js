@@ -71,8 +71,8 @@ module.exports = function(zclip) {
   }
 
   function printUsage(cli) {
-    var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> [args]\n';
-    var example = 'Example:\n  zcl cmd level moveToLevel --level 0 --transitionTime 0\n';
+    var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> <ip> [args]\n';
+    var example = 'Example:\n  zcl cmd levelControl moveToLevel ::1 --level 0 --transitionTime 0\n';
     cli.print(usage);
     cli.print(example);
   }
