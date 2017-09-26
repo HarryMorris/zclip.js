@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 _.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
 
-module.exports = function(clusters) {
+module.exports = function(zclip) {
   return function(keywords, options, callback) {
     var clusterName = _.pascalCase(keywords[1]);
     var commandName = keywords[2];
@@ -12,7 +12,7 @@ module.exports = function(clusters) {
       clusterName = clusterName + 'Cluster';
     }
 
-    var Cluster = clusters[clusterName];
+    var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {
       callback(clusterName + ' not found', null, 1);

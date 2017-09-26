@@ -4,7 +4,7 @@ var _ = require('lodash');
 var minimist = require('minimist');
 var coap = require('coap');
 var zclip = require(__dirname + '/../')(coap);
-var zcl = require(__dirname + '/lib/zcl')(zclip.clusters);
+var zcl = require(__dirname + '/lib/zcl')(zclip);
 
 var argv = minimist(process.argv.slice(2));
 

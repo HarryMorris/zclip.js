@@ -4,18 +4,20 @@ var _ = require('lodash');
 
 var fakeClusters = [];
 
-var clusters = {
-  FakeCluster: FakeCluster
+var zclip = {
+  clusters: {
+    FakeCluster: FakeCluster
+  }
 }
 
-var zcl = require(__appRoot + 'cli/lib/zcl')(clusters);
+var zcl = require(__appRoot + 'cli/lib/zcl')(zclip);
 
-describe('cli zcl', function() {
+describe('cli', function() {
   beforeEach(function() {
     fakeClusters = [];
   });
 
-  describe('cmd', function() {
+  describe('zcl cmd', function() {
     test('instantiates clusters with ip', function() {
       var callback = new Callback();
 
