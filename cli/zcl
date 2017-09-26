@@ -3,17 +3,19 @@
 var coap = require('coap');
 
 var zclip = require(__dirname + '/../')(coap);
-var zcl = require(__dirname + '/lib/zcl')(zclip);
 var zclCommand = require(__dirname + '/lib/zclCommand')(process.argv);
-
-zcl(zclCommand, function(error, message, exitCode) {
-  if (error)
-    console.error(error)
-
-  if (message)
-    console.log(message);
-
-  if (exitCode)
-    process.exit(exitCode);
+var zcl = require(__dirname + '/lib/zcl')({
+  cmd: require(__dirname + '/lib/cmdHandler')(zclip),
+  discover: require(__dirname + '/lib/discoverHandler')(zclip),
+  read: require(__dirname + '/lib/readHandler')(zclip)
 });
+
+var cli = {
+  print: console.log,
+  printError: console.error,
+  exit: process.exit,
+  TAB: '  '
+}
+
+zcl(zclCommand, cli);
 
