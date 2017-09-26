@@ -15,7 +15,9 @@ module.exports = function(zclip) {
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {
-      printErrorAndExit(cli, 'Error: Cluster not found');
+      printErrorAndUsage(cli, 'Error: Cluster not found');
+      printAvailableOptions(cli, _.keys(zclip.clusters).sort());
+      cli.exit(1);
       return;
     }
 
@@ -26,12 +28,20 @@ module.exports = function(zclip) {
     });
 
     if (!cluster[commandName]) {
-      printErrorAndExit(cli, 'Error: Command not found');
+      printErrorAndUsage(cli, 'Error: Command not found');
+
+      var commandNames = _.map(Object.getOwnPropertyNames(cluster.meta.commands), function(commandId) {
+        return cluster.meta.commands[commandId].name;
+      });
+
+      printAvailableOptions(cli, commandNames.sort());
+      cli.exit(1);
       return;
     }
 
     if (!ip) {
-      printErrorAndExit(cli, 'Error: IP required');
+      printErrorAndUsage(cli, 'Error: IP required');
+      cli.exit(1);
       return;
     }
 
@@ -55,10 +65,9 @@ module.exports = function(zclip) {
     });
   }
 
-  function printErrorAndExit(cli, error) {
-    cli.printError(error + '\n');
+  function printErrorAndUsage(cli, error) {
     printUsage(cli);
-    cli.exit(1);
+    cli.printError(error + '\n');
   }
 
   function printUsage(cli) {
@@ -66,6 +75,17 @@ module.exports = function(zclip) {
     var example = 'Example:\n  zcl cmd level moveToLevel --level 0 --transitionTime 0\n';
     cli.print(usage);
     cli.print(example);
+  }
+
+  function printAvailableOptions(cli, options) {
+    cli.print('Available Options:');
+    options.forEach(function(option) {
+      cli.print(cli.TAB + camelcase(option));
+    });
+  }
+
+  function camelcase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toLowerCase() + txt.substr(1);});
   }
 }
 

@@ -128,7 +128,7 @@ describe('cli zcl', function() {
       expect(cli.printedErrors.toString()).toMatch('IP')
     });
 
-    test('prints error if cluster not found', function() {
+    test('prints help if cluster not found', function() {
       var cli = new FakeCli();
       var zclCommand = {
         keywords: ['cmd', 'fooCluster', 'command1', '2001::1'],
@@ -138,9 +138,10 @@ describe('cli zcl', function() {
       cmdHandler(zclCommand, cli);
 
       expect(cli.printedErrors.toString()).toMatch('Error: Cluster not found')
+      expect(cli.printed.toString()).toMatch('fakeCluster')
     });
 
-    test('prints error if command not found', function() {
+    test('prints help if command not found', function() {
       var cli = new FakeCli();
       var zclCommand = {
         keywords: ['cmd', 'fakeCluster', 'missingCommand', '2001::1'],
@@ -150,6 +151,7 @@ describe('cli zcl', function() {
       cmdHandler(zclCommand, cli);
 
       expect(cli.printedErrors.toString()).toMatch('Error: Command not found')
+      expect(cli.printed.toString()).toMatch('command1')
     });
   });
 });
@@ -158,6 +160,13 @@ function FakeCluster(attrs) {
   this.ip = attrs.ip;
   this.port = attrs.port;
   this.endpoint = attrs.endpoint;
+  this.meta = {
+    commands: {
+      0: {
+           name: 'Command1'
+      }
+    }
+  }
 
   fakeClusters.push(this);
 
