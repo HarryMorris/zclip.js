@@ -15,8 +15,7 @@ module.exports = function(zclip) {
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {
-      cli.printError(clusterName + ' cluster not found');
-      cli.exit(1);
+      printErrorAndExit(cli, 'Error: Cluster not found');
       return;
     }
 
@@ -27,14 +26,12 @@ module.exports = function(zclip) {
     });
 
     if (!cluster[commandName]) {
-      cli.printError('Command ' + commandName + ' not found for cluster ' + clusterName);
-      cli.exit(1);
+      printErrorAndExit(cli, 'Error: Command not found');
       return;
     }
 
     if (!ip) {
-      cli.printError('IP not provided');
-      cli.exit(1);
+      printErrorAndExit(cli, 'Error: IP required');
       return;
     }
 
@@ -56,6 +53,19 @@ module.exports = function(zclip) {
       cli.print(resultStr);
       cli.exit(0);
     });
+  }
+
+  function printErrorAndExit(cli, error) {
+    cli.printError(error + '\n');
+    printUsage(cli);
+    cli.exit(1);
+  }
+
+  function printUsage(cli) {
+    var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> [args]\n';
+    var example = 'Example:\n  zcl cmd level moveToLevel --level 0 --transitionTime 0\n';
+    cli.print(usage);
+    cli.print(example);
   }
 }
 

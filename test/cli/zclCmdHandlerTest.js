@@ -137,7 +137,7 @@ describe('cli zcl', function() {
 
       cmdHandler(zclCommand, cli);
 
-      expect(cli.printedErrors.toString()).toMatch('cluster not found')
+      expect(cli.printedErrors.toString()).toMatch('Error: Cluster not found')
     });
 
     test('prints error if command not found', function() {
@@ -149,7 +149,7 @@ describe('cli zcl', function() {
 
       cmdHandler(zclCommand, cli);
 
-      expect(cli.printedErrors.toString()).toMatch(/Command .* not found/)
+      expect(cli.printedErrors.toString()).toMatch('Error: Command not found')
     });
   });
 });
