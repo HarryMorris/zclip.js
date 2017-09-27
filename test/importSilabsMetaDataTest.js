@@ -93,7 +93,7 @@ test('can import a single command', () => {
   importSilabsMetaData(xml, target, function(err) {
     var command = target['0'].commands['1'];
     expect(command.name).toEqual('Command 1');
-    expect(command.args).toEqual([]);
+    expect(command.args).toEqual({});
   });
 });
 
@@ -136,7 +136,8 @@ test('can import commands with arguments', () => {
   importSilabsMetaData(xml, target, function(err) {
     var command = target['0'].commands['1'];
     expect(command.name).toEqual('Command 1');
-    expect(command.args).toEqual(['arg1', 'arg2']);
+    expect(command.args['0'].name).toEqual('arg1');
+    expect(command.args['1'].name).toEqual('arg2');
   });
 });
 

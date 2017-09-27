@@ -6,7 +6,7 @@
     "commands": {
       "0": {
         "name": "ResetToFactoryDefaults",
-        "args": []
+        "args": {}
       }
     },
     "attributes": {
@@ -598,26 +598,34 @@
     "commands": {
       "0": {
         "name": "IdentifyQueryResponse",
-        "args": [
-          "timeout"
-        ]
+        "args": {
+          "0": {
+            "name": "timeout"
+          }
+        }
       },
       "1": {
         "name": "IdentifyQuery",
-        "args": []
+        "args": {}
       },
       "2": {
         "name": "EZModeInvoke",
-        "args": [
-          "action"
-        ]
+        "args": {
+          "0": {
+            "name": "action"
+          }
+        }
       },
       "3": {
         "name": "UpdateCommissionState",
-        "args": [
-          "action",
-          "commissionStateMask"
-        ]
+        "args": {
+          "0": {
+            "name": "action"
+          },
+          "1": {
+            "name": "commissionStateMask"
+          }
+        }
       }
     },
     "attributes": {
@@ -644,44 +652,68 @@
     "commands": {
       "0": {
         "name": "AddGroupResponse",
-        "args": [
-          "status",
-          "groupId"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          }
+        }
       },
       "1": {
         "name": "ViewGroupResponse",
-        "args": [
-          "status",
-          "groupId",
-          "groupName"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          },
+          "2": {
+            "name": "groupName"
+          }
+        }
       },
       "2": {
         "name": "GetGroupMembershipResponse",
-        "args": [
-          "capacity",
-          "groupCount",
-          "groupList"
-        ]
+        "args": {
+          "0": {
+            "name": "capacity"
+          },
+          "1": {
+            "name": "groupCount"
+          },
+          "2": {
+            "name": "groupList"
+          }
+        }
       },
       "3": {
         "name": "RemoveGroupResponse",
-        "args": [
-          "status",
-          "groupId"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          }
+        }
       },
       "4": {
         "name": "RemoveAllGroups",
-        "args": []
+        "args": {}
       },
       "5": {
         "name": "AddGroupIfIdentifying",
-        "args": [
-          "groupId",
-          "groupName"
-        ]
+        "args": {
+          "0": {
+            "name": "groupId"
+          },
+          "1": {
+            "name": "groupName"
+          }
+        }
       }
     },
     "attributes": {
@@ -701,62 +733,110 @@
     "commands": {
       "0": {
         "name": "AddSceneResponse",
-        "args": [
-          "status",
-          "groupId",
-          "sceneId"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          },
+          "2": {
+            "name": "sceneId"
+          }
+        }
       },
       "1": {
         "name": "ViewSceneResponse",
-        "args": [
-          "status",
-          "groupId",
-          "sceneId",
-          "transitionTime",
-          "sceneName",
-          "extensionFieldSets"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          },
+          "2": {
+            "name": "sceneId"
+          },
+          "3": {
+            "name": "transitionTime"
+          },
+          "4": {
+            "name": "sceneName"
+          },
+          "5": {
+            "name": "extensionFieldSets"
+          }
+        }
       },
       "2": {
         "name": "RemoveSceneResponse",
-        "args": [
-          "status",
-          "groupId",
-          "sceneId"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          },
+          "2": {
+            "name": "sceneId"
+          }
+        }
       },
       "3": {
         "name": "RemoveAllScenesResponse",
-        "args": [
-          "status",
-          "groupId"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          }
+        }
       },
       "4": {
         "name": "StoreSceneResponse",
-        "args": [
-          "status",
-          "groupId",
-          "sceneId"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "groupId"
+          },
+          "2": {
+            "name": "sceneId"
+          }
+        }
       },
       "5": {
         "name": "RecallScene",
-        "args": [
-          "groupId",
-          "sceneId"
-        ]
+        "args": {
+          "0": {
+            "name": "groupId"
+          },
+          "1": {
+            "name": "sceneId"
+          }
+        }
       },
       "6": {
         "name": "GetSceneMembershipResponse",
-        "args": [
-          "status",
-          "capacity",
-          "groupId",
-          "sceneCount",
-          "sceneList"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "capacity"
+          },
+          "2": {
+            "name": "groupId"
+          },
+          "3": {
+            "name": "sceneCount"
+          },
+          "4": {
+            "name": "sceneList"
+          }
+        }
       }
     },
     "attributes": {
@@ -809,15 +889,15 @@
     "commands": {
       "0": {
         "name": "Off",
-        "args": []
+        "args": {}
       },
       "1": {
         "name": "On",
-        "args": []
+        "args": {}
       },
       "2": {
         "name": "Toggle",
-        "args": []
+        "args": {}
       }
     },
     "attributes": {
@@ -866,55 +946,83 @@
     "commands": {
       "0": {
         "name": "MoveToLevel",
-        "args": [
-          "level",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "level"
+          },
+          "1": {
+            "name": "transitionTime"
+          }
+        }
       },
       "1": {
         "name": "Move",
-        "args": [
-          "moveMode",
-          "rate"
-        ]
+        "args": {
+          "0": {
+            "name": "moveMode"
+          },
+          "1": {
+            "name": "rate"
+          }
+        }
       },
       "2": {
         "name": "Step",
-        "args": [
-          "stepMode",
-          "stepSize",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "stepMode"
+          },
+          "1": {
+            "name": "stepSize"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       },
       "3": {
         "name": "Stop",
-        "args": []
+        "args": {}
       },
       "4": {
         "name": "MoveToLevelWithOnOff",
-        "args": [
-          "level",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "level"
+          },
+          "1": {
+            "name": "transitionTime"
+          }
+        }
       },
       "5": {
         "name": "MoveWithOnOff",
-        "args": [
-          "moveMode",
-          "rate"
-        ]
+        "args": {
+          "0": {
+            "name": "moveMode"
+          },
+          "1": {
+            "name": "rate"
+          }
+        }
       },
       "6": {
         "name": "StepWithOnOff",
-        "args": [
-          "stepMode",
-          "stepSize",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "stepMode"
+          },
+          "1": {
+            "name": "stepSize"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       },
       "7": {
         "name": "StopWithOnOff",
-        "args": []
+        "args": {}
       }
     },
     "attributes": {
@@ -990,27 +1098,39 @@
     "commands": {
       "0": {
         "name": "Alarm",
-        "args": [
-          "alarmCode",
-          "clusterId"
-        ]
+        "args": {
+          "0": {
+            "name": "alarmCode"
+          },
+          "1": {
+            "name": "clusterId"
+          }
+        }
       },
       "1": {
         "name": "GetAlarmResponse",
-        "args": [
-          "status",
-          "alarmCode",
-          "clusterId",
-          "timeStamp"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "alarmCode"
+          },
+          "2": {
+            "name": "clusterId"
+          },
+          "3": {
+            "name": "timeStamp"
+          }
+        }
       },
       "2": {
         "name": "GetAlarm",
-        "args": []
+        "args": {}
       },
       "3": {
         "name": "ResetAlarmLog",
-        "args": []
+        "args": {}
       }
     },
     "attributes": {
@@ -1029,27 +1149,35 @@
     "commands": {
       "0": {
         "name": "RestartDeviceResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "1": {
         "name": "SaveStartupParametersResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "2": {
         "name": "RestoreStartupParametersResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "3": {
         "name": "ResetStartupParametersResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       }
     },
     "attributes": {
@@ -1216,26 +1344,34 @@
     "commands": {
       "0": {
         "name": "CheckInResponse",
-        "args": [
-          "startFastPolling",
-          "fastPollTimeout"
-        ]
+        "args": {
+          "0": {
+            "name": "startFastPolling"
+          },
+          "1": {
+            "name": "fastPollTimeout"
+          }
+        }
       },
       "1": {
         "name": "FastPollStop",
-        "args": []
+        "args": {}
       },
       "2": {
         "name": "SetLongPollInterval",
-        "args": [
-          "newLongPollInterval"
-        ]
+        "args": {
+          "0": {
+            "name": "newLongPollInterval"
+          }
+        }
       },
       "3": {
         "name": "SetShortPollInterval",
-        "args": [
-          "newShortPollInterval"
-        ]
+        "args": {
+          "0": {
+            "name": "newShortPollInterval"
+          }
+        }
       }
     },
     "attributes": {
@@ -1334,168 +1470,278 @@
     "commands": {
       "0": {
         "name": "GetYeardayScheduleResponse",
-        "args": [
-          "scheduleId",
-          "userId",
-          "status",
-          "localStartTime",
-          "localEndTime"
-        ]
+        "args": {
+          "0": {
+            "name": "scheduleId"
+          },
+          "1": {
+            "name": "userId"
+          },
+          "2": {
+            "name": "status"
+          },
+          "3": {
+            "name": "localStartTime"
+          },
+          "4": {
+            "name": "localEndTime"
+          }
+        }
       },
       "1": {
         "name": "UnlockDoorResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "2": {
         "name": "ToggleResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "3": {
         "name": "UnlockWithTimeoutResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "4": {
         "name": "GetLogRecordResponse",
-        "args": [
-          "logEntryId",
-          "timestamp",
-          "eventType",
-          "source",
-          "eventIdOrAlarmCode",
-          "userId",
-          "pin"
-        ]
+        "args": {
+          "0": {
+            "name": "logEntryId"
+          },
+          "1": {
+            "name": "timestamp"
+          },
+          "2": {
+            "name": "eventType"
+          },
+          "3": {
+            "name": "source"
+          },
+          "4": {
+            "name": "eventIdOrAlarmCode"
+          },
+          "5": {
+            "name": "userId"
+          },
+          "6": {
+            "name": "pin"
+          }
+        }
       },
       "5": {
         "name": "SetPinResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "6": {
         "name": "GetPinResponse",
-        "args": [
-          "userId",
-          "userStatus",
-          "userType",
-          "pin"
-        ]
+        "args": {
+          "0": {
+            "name": "userId"
+          },
+          "1": {
+            "name": "userStatus"
+          },
+          "2": {
+            "name": "userType"
+          },
+          "3": {
+            "name": "pin"
+          }
+        }
       },
       "7": {
         "name": "ClearPinResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "8": {
         "name": "ClearAllPinsResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "9": {
         "name": "SetUserStatusResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "10": {
         "name": "ClearYeardayScheduleResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "11": {
         "name": "SetHolidayScheduleResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "12": {
         "name": "GetHolidayScheduleResponse",
-        "args": [
-          "scheduleId",
-          "status",
-          "localStartTime",
-          "localEndTime",
-          "operatingModeDuringHoliday"
-        ]
+        "args": {
+          "0": {
+            "name": "scheduleId"
+          },
+          "1": {
+            "name": "status"
+          },
+          "2": {
+            "name": "localStartTime"
+          },
+          "3": {
+            "name": "localEndTime"
+          },
+          "4": {
+            "name": "operatingModeDuringHoliday"
+          }
+        }
       },
       "13": {
         "name": "ClearHolidayScheduleResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "14": {
         "name": "SetUserTypeResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "15": {
         "name": "GetUserTypeResponse",
-        "args": [
-          "userId",
-          "userType"
-        ]
+        "args": {
+          "0": {
+            "name": "userId"
+          },
+          "1": {
+            "name": "userType"
+          }
+        }
       },
       "16": {
         "name": "SetRfidResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "17": {
         "name": "GetRfidResponse",
-        "args": [
-          "userId",
-          "userStatus",
-          "userType",
-          "rfid"
-        ]
+        "args": {
+          "0": {
+            "name": "userId"
+          },
+          "1": {
+            "name": "userStatus"
+          },
+          "2": {
+            "name": "userType"
+          },
+          "3": {
+            "name": "rfid"
+          }
+        }
       },
       "18": {
         "name": "ClearRfidResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "19": {
         "name": "ClearAllRfidsResponse",
-        "args": [
-          "status"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          }
+        }
       },
       "20": {
         "name": "OperationEventNotification",
-        "args": [
-          "source",
-          "eventCode",
-          "userId",
-          "pin",
-          "timeStamp",
-          "data"
-        ]
+        "args": {
+          "0": {
+            "name": "source"
+          },
+          "1": {
+            "name": "eventCode"
+          },
+          "2": {
+            "name": "userId"
+          },
+          "3": {
+            "name": "pin"
+          },
+          "4": {
+            "name": "timeStamp"
+          },
+          "5": {
+            "name": "data"
+          }
+        }
       },
       "21": {
         "name": "ProgrammingEventNotification",
-        "args": [
-          "source",
-          "eventCode",
-          "userId",
-          "pin",
-          "userType",
-          "userStatus",
-          "timeStamp",
-          "data"
-        ]
+        "args": {
+          "0": {
+            "name": "source"
+          },
+          "1": {
+            "name": "eventCode"
+          },
+          "2": {
+            "name": "userId"
+          },
+          "3": {
+            "name": "pin"
+          },
+          "4": {
+            "name": "userType"
+          },
+          "5": {
+            "name": "userStatus"
+          },
+          "6": {
+            "name": "timeStamp"
+          },
+          "7": {
+            "name": "data"
+          }
+        }
       }
     },
     "attributes": {
@@ -1787,39 +2033,47 @@
     "commands": {
       "0": {
         "name": "WindowCoveringUpOpen",
-        "args": []
+        "args": {}
       },
       "1": {
         "name": "WindowCoveringDownClose",
-        "args": []
+        "args": {}
       },
       "2": {
         "name": "WindowCoveringStop",
-        "args": []
+        "args": {}
       },
       "4": {
         "name": "WindowCoveringGoToLiftValue",
-        "args": [
-          "liftValue"
-        ]
+        "args": {
+          "0": {
+            "name": "liftValue"
+          }
+        }
       },
       "5": {
         "name": "WindowCoveringGoToLiftPercentage",
-        "args": [
-          "percentageLiftValue"
-        ]
+        "args": {
+          "0": {
+            "name": "percentageLiftValue"
+          }
+        }
       },
       "7": {
         "name": "WindowCoveringGoToTiltValue",
-        "args": [
-          "tiltValue"
-        ]
+        "args": {
+          "0": {
+            "name": "tiltValue"
+          }
+        }
       },
       "8": {
         "name": "WindowCoveringGoToTiltPercentage",
-        "args": [
-          "percentageTiltValue"
-        ]
+        "args": {
+          "0": {
+            "name": "percentageTiltValue"
+          }
+        }
       }
     },
     "attributes": {
@@ -2140,38 +2394,62 @@
     "commands": {
       "0": {
         "name": "CurrentWeeklySchedule",
-        "args": [
-          "numberOfTransitionsForSequence",
-          "dayOfWeekForSequence",
-          "modeForSequence",
-          "payload"
-        ]
+        "args": {
+          "0": {
+            "name": "numberOfTransitionsForSequence"
+          },
+          "1": {
+            "name": "dayOfWeekForSequence"
+          },
+          "2": {
+            "name": "modeForSequence"
+          },
+          "3": {
+            "name": "payload"
+          }
+        }
       },
       "1": {
         "name": "RelayStatusLog",
-        "args": [
-          "timeOfDay",
-          "relayStatus",
-          "localTemperature",
-          "humidityInPercentage",
-          "setpoint",
-          "unreadEntries"
-        ]
+        "args": {
+          "0": {
+            "name": "timeOfDay"
+          },
+          "1": {
+            "name": "relayStatus"
+          },
+          "2": {
+            "name": "localTemperature"
+          },
+          "3": {
+            "name": "humidityInPercentage"
+          },
+          "4": {
+            "name": "setpoint"
+          },
+          "5": {
+            "name": "unreadEntries"
+          }
+        }
       },
       "2": {
         "name": "GetWeeklySchedule",
-        "args": [
-          "daysToReturn",
-          "modeToReturn"
-        ]
+        "args": {
+          "0": {
+            "name": "daysToReturn"
+          },
+          "1": {
+            "name": "modeToReturn"
+          }
+        }
       },
       "3": {
         "name": "ClearWeeklySchedule",
-        "args": []
+        "args": {}
       },
       "4": {
         "name": "GetRelayStatusLog",
-        "args": []
+        "args": {}
       }
     },
     "attributes": {
@@ -2583,78 +2861,128 @@
     "commands": {
       "0": {
         "name": "MoveToColorTemperature",
-        "args": [
-          "colorTemperature",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "colorTemperature"
+          },
+          "1": {
+            "name": "transitionTime"
+          }
+        }
       },
       "1": {
         "name": "MoveHue",
-        "args": [
-          "moveMode",
-          "rate"
-        ]
+        "args": {
+          "0": {
+            "name": "moveMode"
+          },
+          "1": {
+            "name": "rate"
+          }
+        }
       },
       "2": {
         "name": "StepHue",
-        "args": [
-          "stepMode",
-          "stepSize",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "stepMode"
+          },
+          "1": {
+            "name": "stepSize"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       },
       "3": {
         "name": "MoveToSaturation",
-        "args": [
-          "saturation",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "saturation"
+          },
+          "1": {
+            "name": "transitionTime"
+          }
+        }
       },
       "4": {
         "name": "MoveSaturation",
-        "args": [
-          "moveMode",
-          "rate"
-        ]
+        "args": {
+          "0": {
+            "name": "moveMode"
+          },
+          "1": {
+            "name": "rate"
+          }
+        }
       },
       "5": {
         "name": "StepSaturation",
-        "args": [
-          "stepMode",
-          "stepSize",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "stepMode"
+          },
+          "1": {
+            "name": "stepSize"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       },
       "6": {
         "name": "MoveToHueAndSaturation",
-        "args": [
-          "hue",
-          "saturation",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "hue"
+          },
+          "1": {
+            "name": "saturation"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       },
       "7": {
         "name": "MoveToColor",
-        "args": [
-          "colorX",
-          "colorY",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "colorX"
+          },
+          "1": {
+            "name": "colorY"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       },
       "8": {
         "name": "MoveColor",
-        "args": [
-          "rateX",
-          "rateY"
-        ]
+        "args": {
+          "0": {
+            "name": "rateX"
+          },
+          "1": {
+            "name": "rateY"
+          }
+        }
       },
       "9": {
         "name": "StepColor",
-        "args": [
-          "stepX",
-          "stepY",
-          "transitionTime"
-        ]
+        "args": {
+          "0": {
+            "name": "stepX"
+          },
+          "1": {
+            "name": "stepY"
+          },
+          "2": {
+            "name": "transitionTime"
+          }
+        }
       }
     },
     "attributes": {
@@ -3379,27 +3707,39 @@
     "commands": {
       "0": {
         "name": "ZoneStatusChangeNotification",
-        "args": [
-          "zoneStatus",
-          "extendedStatus",
-          "zoneId",
-          "delay"
-        ]
+        "args": {
+          "0": {
+            "name": "zoneStatus"
+          },
+          "1": {
+            "name": "extendedStatus"
+          },
+          "2": {
+            "name": "zoneId"
+          },
+          "3": {
+            "name": "delay"
+          }
+        }
       },
       "1": {
         "name": "ZoneEnrollRequest",
-        "args": [
-          "zoneType",
-          "manufacturerCode"
-        ]
+        "args": {
+          "0": {
+            "name": "zoneType"
+          },
+          "1": {
+            "name": "manufacturerCode"
+          }
+        }
       },
       "2": {
         "name": "InitiateNormalOperationModeResponse",
-        "args": []
+        "args": {}
       },
       "3": {
         "name": "InitiateTestModeResponse",
-        "args": []
+        "args": {}
       }
     },
     "attributes": {
@@ -3447,97 +3787,185 @@
     "commands": {
       "0": {
         "name": "ArmResponse",
-        "args": [
-          "armNotification"
-        ]
+        "args": {
+          "0": {
+            "name": "armNotification"
+          }
+        }
       },
       "1": {
         "name": "GetZoneIdMapResponse",
-        "args": [
-          "section0",
-          "section1",
-          "section2",
-          "section3",
-          "section4",
-          "section5",
-          "section6",
-          "section7",
-          "section8",
-          "section9",
-          "section10",
-          "section11",
-          "section12",
-          "section13",
-          "section14",
-          "section15"
-        ]
+        "args": {
+          "0": {
+            "name": "section0"
+          },
+          "1": {
+            "name": "section1"
+          },
+          "2": {
+            "name": "section2"
+          },
+          "3": {
+            "name": "section3"
+          },
+          "4": {
+            "name": "section4"
+          },
+          "5": {
+            "name": "section5"
+          },
+          "6": {
+            "name": "section6"
+          },
+          "7": {
+            "name": "section7"
+          },
+          "8": {
+            "name": "section8"
+          },
+          "9": {
+            "name": "section9"
+          },
+          "10": {
+            "name": "section10"
+          },
+          "11": {
+            "name": "section11"
+          },
+          "12": {
+            "name": "section12"
+          },
+          "13": {
+            "name": "section13"
+          },
+          "14": {
+            "name": "section14"
+          },
+          "15": {
+            "name": "section15"
+          }
+        }
       },
       "2": {
         "name": "GetZoneInformationResponse",
-        "args": [
-          "zoneId",
-          "zoneType",
-          "ieeeAddress",
-          "zoneLabel"
-        ]
+        "args": {
+          "0": {
+            "name": "zoneId"
+          },
+          "1": {
+            "name": "zoneType"
+          },
+          "2": {
+            "name": "ieeeAddress"
+          },
+          "3": {
+            "name": "zoneLabel"
+          }
+        }
       },
       "3": {
         "name": "ZoneStatusChanged",
-        "args": [
-          "zoneId",
-          "zoneStatus",
-          "audibleNotification",
-          "zoneLabel"
-        ]
+        "args": {
+          "0": {
+            "name": "zoneId"
+          },
+          "1": {
+            "name": "zoneStatus"
+          },
+          "2": {
+            "name": "audibleNotification"
+          },
+          "3": {
+            "name": "zoneLabel"
+          }
+        }
       },
       "4": {
         "name": "PanelStatusChanged",
-        "args": [
-          "panelStatus",
-          "secondsRemaining",
-          "audibleNotification",
-          "alarmStatus"
-        ]
+        "args": {
+          "0": {
+            "name": "panelStatus"
+          },
+          "1": {
+            "name": "secondsRemaining"
+          },
+          "2": {
+            "name": "audibleNotification"
+          },
+          "3": {
+            "name": "alarmStatus"
+          }
+        }
       },
       "5": {
         "name": "GetPanelStatusResponse",
-        "args": [
-          "panelStatus",
-          "secondsRemaining",
-          "audibleNotification",
-          "alarmStatus"
-        ]
+        "args": {
+          "0": {
+            "name": "panelStatus"
+          },
+          "1": {
+            "name": "secondsRemaining"
+          },
+          "2": {
+            "name": "audibleNotification"
+          },
+          "3": {
+            "name": "alarmStatus"
+          }
+        }
       },
       "6": {
         "name": "SetBypassedZoneList",
-        "args": [
-          "numberOfZones",
-          "zoneIds"
-        ]
+        "args": {
+          "0": {
+            "name": "numberOfZones"
+          },
+          "1": {
+            "name": "zoneIds"
+          }
+        }
       },
       "7": {
         "name": "BypassResponse",
-        "args": [
-          "numberOfZones",
-          "bypassResult"
-        ]
+        "args": {
+          "0": {
+            "name": "numberOfZones"
+          },
+          "1": {
+            "name": "bypassResult"
+          }
+        }
       },
       "8": {
         "name": "GetZoneStatusResponse",
-        "args": [
-          "zoneStatusComplete",
-          "numberOfZones",
-          "zoneStatusResult"
-        ]
+        "args": {
+          "0": {
+            "name": "zoneStatusComplete"
+          },
+          "1": {
+            "name": "numberOfZones"
+          },
+          "2": {
+            "name": "zoneStatusResult"
+          }
+        }
       },
       "9": {
         "name": "GetZoneStatus",
-        "args": [
-          "startingZoneId",
-          "maxNumberOfZoneIds",
-          "zoneStatusMaskFlag",
-          "zoneStatusMask"
-        ]
+        "args": {
+          "0": {
+            "name": "startingZoneId"
+          },
+          "1": {
+            "name": "maxNumberOfZoneIds"
+          },
+          "2": {
+            "name": "zoneStatusMaskFlag"
+          },
+          "3": {
+            "name": "zoneStatusMask"
+          }
+        }
       }
     },
     "attributes": {}
@@ -3549,18 +3977,28 @@
     "commands": {
       "0": {
         "name": "StartWarning",
-        "args": [
-          "warningInfo",
-          "warningDuration",
-          "strobeDutyCycle",
-          "strobeLevel"
-        ]
+        "args": {
+          "0": {
+            "name": "warningInfo"
+          },
+          "1": {
+            "name": "warningDuration"
+          },
+          "2": {
+            "name": "strobeDutyCycle"
+          },
+          "3": {
+            "name": "strobeLevel"
+          }
+        }
       },
       "1": {
         "name": "Squawk",
-        "args": [
-          "squawkInfo"
-        ]
+        "args": {
+          "0": {
+            "name": "squawkInfo"
+          }
+        }
       }
     },
     "attributes": {
@@ -3658,78 +4096,150 @@
     "commands": {
       "0": {
         "name": "DeviceConfigurationResponse",
-        "args": [
-          "status",
-          "power",
-          "pathLossExponent",
-          "calculationPeriod",
-          "numberRssiMeasurements",
-          "reportingPeriod"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "power"
+          },
+          "2": {
+            "name": "pathLossExponent"
+          },
+          "3": {
+            "name": "calculationPeriod"
+          },
+          "4": {
+            "name": "numberRssiMeasurements"
+          },
+          "5": {
+            "name": "reportingPeriod"
+          }
+        }
       },
       "1": {
         "name": "LocationDataResponse",
-        "args": [
-          "status",
-          "locationType",
-          "coordinate1",
-          "coordinate2",
-          "coordinate3",
-          "power",
-          "pathLossExponent",
-          "locationMethod",
-          "qualityMeasure",
-          "locationAge"
-        ]
+        "args": {
+          "0": {
+            "name": "status"
+          },
+          "1": {
+            "name": "locationType"
+          },
+          "2": {
+            "name": "coordinate1"
+          },
+          "3": {
+            "name": "coordinate2"
+          },
+          "4": {
+            "name": "coordinate3"
+          },
+          "5": {
+            "name": "power"
+          },
+          "6": {
+            "name": "pathLossExponent"
+          },
+          "7": {
+            "name": "locationMethod"
+          },
+          "8": {
+            "name": "qualityMeasure"
+          },
+          "9": {
+            "name": "locationAge"
+          }
+        }
       },
       "2": {
         "name": "LocationDataNotification",
-        "args": [
-          "locationType",
-          "coordinate1",
-          "coordinate2",
-          "coordinate3",
-          "power",
-          "pathLossExponent",
-          "locationMethod",
-          "qualityMeasure",
-          "locationAge"
-        ]
+        "args": {
+          "0": {
+            "name": "locationType"
+          },
+          "1": {
+            "name": "coordinate1"
+          },
+          "2": {
+            "name": "coordinate2"
+          },
+          "3": {
+            "name": "coordinate3"
+          },
+          "4": {
+            "name": "power"
+          },
+          "5": {
+            "name": "pathLossExponent"
+          },
+          "6": {
+            "name": "locationMethod"
+          },
+          "7": {
+            "name": "qualityMeasure"
+          },
+          "8": {
+            "name": "locationAge"
+          }
+        }
       },
       "3": {
         "name": "CompactLocationDataNotification",
-        "args": [
-          "locationType",
-          "coordinate1",
-          "coordinate2",
-          "coordinate3",
-          "qualityMeasure",
-          "locationAge"
-        ]
+        "args": {
+          "0": {
+            "name": "locationType"
+          },
+          "1": {
+            "name": "coordinate1"
+          },
+          "2": {
+            "name": "coordinate2"
+          },
+          "3": {
+            "name": "coordinate3"
+          },
+          "4": {
+            "name": "qualityMeasure"
+          },
+          "5": {
+            "name": "locationAge"
+          }
+        }
       },
       "4": {
         "name": "RssiPing",
-        "args": [
-          "locationType"
-        ]
+        "args": {
+          "0": {
+            "name": "locationType"
+          }
+        }
       },
       "5": {
         "name": "RssiRequest",
-        "args": []
+        "args": {}
       },
       "6": {
         "name": "ReportRssiMeasurements",
-        "args": [
-          "measuringDevice",
-          "neighbors",
-          "neighborsInfo"
-        ]
+        "args": {
+          "0": {
+            "name": "measuringDevice"
+          },
+          "1": {
+            "name": "neighbors"
+          },
+          "2": {
+            "name": "neighborsInfo"
+          }
+        }
       },
       "7": {
         "name": "RequestOwnLocation",
-        "args": [
-          "blindNode"
-        ]
+        "args": {
+          "0": {
+            "name": "blindNode"
+          }
+        }
       }
     },
     "attributes": {
@@ -3892,41 +4402,61 @@
     "commands": {
       "0": {
         "name": "SignalStateResponse",
-        "args": [
-          "applianceStatus",
-          "remoteEnableFlagsAndDeviceStatus2",
-          "applianceStatus2"
-        ]
+        "args": {
+          "0": {
+            "name": "applianceStatus"
+          },
+          "1": {
+            "name": "remoteEnableFlagsAndDeviceStatus2"
+          },
+          "2": {
+            "name": "applianceStatus2"
+          }
+        }
       },
       "1": {
         "name": "SignalStateNotification",
-        "args": [
-          "applianceStatus",
-          "remoteEnableFlagsAndDeviceStatus2",
-          "applianceStatus2"
-        ]
+        "args": {
+          "0": {
+            "name": "applianceStatus"
+          },
+          "1": {
+            "name": "remoteEnableFlagsAndDeviceStatus2"
+          },
+          "2": {
+            "name": "applianceStatus2"
+          }
+        }
       },
       "2": {
         "name": "WriteFunctions",
-        "args": [
-          "functionId",
-          "functionDataType",
-          "functionData"
-        ]
+        "args": {
+          "0": {
+            "name": "functionId"
+          },
+          "1": {
+            "name": "functionDataType"
+          },
+          "2": {
+            "name": "functionData"
+          }
+        }
       },
       "3": {
         "name": "OverloadPauseResume",
-        "args": []
+        "args": {}
       },
       "4": {
         "name": "OverloadPause",
-        "args": []
+        "args": {}
       },
       "5": {
         "name": "OverloadWarning",
-        "args": [
-          "warningEvent"
-        ]
+        "args": {
+          "0": {
+            "name": "warningEvent"
+          }
+        }
       }
     },
     "attributes": {
@@ -3960,74 +4490,118 @@
     "commands": {
       "0": {
         "name": "GetPowerProfilePriceExtended",
-        "args": [
-          "options",
-          "powerProfileId",
-          "powerProfileStartTime"
-        ]
+        "args": {
+          "0": {
+            "name": "options"
+          },
+          "1": {
+            "name": "powerProfileId"
+          },
+          "2": {
+            "name": "powerProfileStartTime"
+          }
+        }
       },
       "1": {
         "name": "PowerProfileResponse",
-        "args": [
-          "totalProfileNum",
-          "powerProfileId",
-          "numOfTransferredPhases",
-          "transferredPhases"
-        ]
+        "args": {
+          "0": {
+            "name": "totalProfileNum"
+          },
+          "1": {
+            "name": "powerProfileId"
+          },
+          "2": {
+            "name": "numOfTransferredPhases"
+          },
+          "3": {
+            "name": "transferredPhases"
+          }
+        }
       },
       "2": {
         "name": "PowerProfileStateResponse",
-        "args": [
-          "powerProfileCount",
-          "powerProfileRecords"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileCount"
+          },
+          "1": {
+            "name": "powerProfileRecords"
+          }
+        }
       },
       "3": {
         "name": "GetPowerProfilePrice",
-        "args": [
-          "powerProfileId"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileId"
+          }
+        }
       },
       "4": {
         "name": "PowerProfilesStateNotification",
-        "args": [
-          "powerProfileCount",
-          "powerProfileRecords"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileCount"
+          },
+          "1": {
+            "name": "powerProfileRecords"
+          }
+        }
       },
       "5": {
         "name": "GetOverallSchedulePrice",
-        "args": []
+        "args": {}
       },
       "6": {
         "name": "EnergyPhasesScheduleRequest",
-        "args": [
-          "powerProfileId"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileId"
+          }
+        }
       },
       "7": {
         "name": "EnergyPhasesScheduleStateResponse",
-        "args": [
-          "powerProfileId",
-          "numOfScheduledPhases",
-          "scheduledPhases"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileId"
+          },
+          "1": {
+            "name": "numOfScheduledPhases"
+          },
+          "2": {
+            "name": "scheduledPhases"
+          }
+        }
       },
       "8": {
         "name": "EnergyPhasesScheduleStateNotification",
-        "args": [
-          "powerProfileId",
-          "numOfScheduledPhases",
-          "scheduledPhases"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileId"
+          },
+          "1": {
+            "name": "numOfScheduledPhases"
+          },
+          "2": {
+            "name": "scheduledPhases"
+          }
+        }
       },
       "9": {
         "name": "PowerProfileScheduleConstraintsNotification",
-        "args": [
-          "powerProfileId",
-          "startAfter",
-          "stopBefore"
-        ]
+        "args": {
+          "0": {
+            "name": "powerProfileId"
+          },
+          "1": {
+            "name": "startAfter"
+          },
+          "2": {
+            "name": "stopBefore"
+          }
+        }
       }
     },
     "attributes": {
@@ -4227,24 +4801,36 @@
     "commands": {
       "0": {
         "name": "GetAlertsResponse",
-        "args": [
-          "alertsCount",
-          "alertStructures"
-        ]
+        "args": {
+          "0": {
+            "name": "alertsCount"
+          },
+          "1": {
+            "name": "alertStructures"
+          }
+        }
       },
       "1": {
         "name": "AlertsNotification",
-        "args": [
-          "alertsCount",
-          "alertStructures"
-        ]
+        "args": {
+          "0": {
+            "name": "alertsCount"
+          },
+          "1": {
+            "name": "alertStructures"
+          }
+        }
       },
       "2": {
         "name": "EventsNotification",
-        "args": [
-          "eventHeader",
-          "eventId"
-        ]
+        "args": {
+          "0": {
+            "name": "eventHeader"
+          },
+          "1": {
+            "name": "eventId"
+          }
+        }
       }
     },
     "attributes": {}
@@ -4256,27 +4842,37 @@
     "commands": {
       "0": {
         "name": "LogRequest",
-        "args": [
-          "logId"
-        ]
+        "args": {
+          "0": {
+            "name": "logId"
+          }
+        }
       },
       "1": {
         "name": "LogQueueRequest",
-        "args": []
+        "args": {}
       },
       "2": {
         "name": "LogQueueResponse",
-        "args": [
-          "logQueueSize",
-          "logIds"
-        ]
+        "args": {
+          "0": {
+            "name": "logQueueSize"
+          },
+          "1": {
+            "name": "logIds"
+          }
+        }
       },
       "3": {
         "name": "StatisticsAvailable",
-        "args": [
-          "logQueueSize",
-          "logIds"
-        ]
+        "args": {
+          "0": {
+            "name": "logQueueSize"
+          },
+          "1": {
+            "name": "logIds"
+          }
+        }
       }
     },
     "attributes": {
@@ -4299,15 +4895,21 @@
     "commands": {
       "0": {
         "name": "GetProfileInfoCommand",
-        "args": []
+        "args": {}
       },
       "1": {
         "name": "GetMeasurementProfileCommand",
-        "args": [
-          "attributeId",
-          "startTime",
-          "numberOfIntervals"
-        ]
+        "args": {
+          "0": {
+            "name": "attributeId"
+          },
+          "1": {
+            "name": "startTime"
+          },
+          "2": {
+            "name": "numberOfIntervals"
+          }
+        }
       }
     },
     "attributes": {

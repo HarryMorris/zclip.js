@@ -68,11 +68,17 @@ test('Commands map arguments in cbor', function() {
     "commands": {
       "0": {
         "name": "cmd",
-        "args": [
-          "arg1",
-          "arg2",
-          "arg3"
-        ]
+        "args": {
+          "0": {
+            "name": "arg1",
+          },
+          "1": {
+            "name": "arg2",
+          },
+          "2": {
+            "name": "arg3",
+          }
+        }
       }
     }
   }
