@@ -7,22 +7,17 @@ beforeAll(() => {
 });
 
 
-test('Builds clusters from meta data', () => {
-  var target = {};
-
+test('returns clusters from meta data', () => {
   var clusters = require(__appRoot + 'lib/clusters')(clusterMetaData);
-  clusters.build(target);
 
-  expect(target.clusters.OnOffCluster).toBeDefined();
+  expect(clusters.OnOffCluster).toBeDefined();
 });
 
 test('Adds metadata to cluster instances', () => {
-  var target = {};
 
   var clusters = require(__appRoot + 'lib/clusters')(clusterMetaData);
-  clusters.build(target);
 
-  var onOffCluster = new target.clusters.OnOffCluster();
+  var onOffCluster = new clusters.OnOffCluster();
 
   expect(onOffCluster.meta).toBeDefined();
   expect(onOffCluster.meta.code).toEqual('0x0006');
