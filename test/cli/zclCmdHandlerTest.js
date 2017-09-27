@@ -153,6 +153,47 @@ describe('cli zcl', function() {
       expect(cli.printedErrors.toString()).toMatch('Error: Command not found')
       expect(cli.printed.toString()).toMatch('command1')
     });
+
+    describe('with --help', function() {
+      test('prints cluster help if cluster not provided', function() {
+        var cli = new FakeCli();
+        var zclCommand = {
+          keywords: ['cmd'],
+          options: { help: true }
+        }
+
+        cmdHandler(zclCommand, cli);
+
+        expect(cli.printedErrors.toString()).not.toMatch('Error: Cluster not found')
+        expect(cli.printed.toString()).toMatch('fakeCluster')
+      });
+
+      test('prints command help if command not provided', function() {
+        var cli = new FakeCli();
+        var zclCommand = {
+          keywords: ['cmd', 'fakeCluster'],
+          options: { help: true }
+        }
+
+        cmdHandler(zclCommand, cli);
+
+        expect(cli.printedErrors.toString()).not.toMatch('Error')
+        expect(cli.printed.toString()).toMatch('command1')
+      });
+
+      xtest('prints attribute help if command provided', function() {
+        var cli = new FakeCli();
+        var zclCommand = {
+          keywords: ['cmd', 'fakeCluster', 'command1'],
+          options: { help: true }
+        }
+
+        cmdHandler(zclCommand, cli);
+
+        expect(cli.printedErrors.toString()).not.toMatch('Error')
+        expect(cli.printed.toString()).toMatch('command1')
+      });
+    });
   });
 });
 
@@ -163,7 +204,7 @@ function FakeCluster(attrs) {
   this.meta = {
     commands: {
       0: {
-           name: 'Command1'
+        name: 'Command1'
       }
     }
   }

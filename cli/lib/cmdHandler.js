@@ -8,6 +8,13 @@ module.exports = function(zclip) {
     var commandName = zclCommand.keywords[2];
     var ip = zclCommand.keywords[3];
 
+    if (!clusterName && zclCommand.options.help) {
+      printUsage(cli);
+      printAvailableOptions(cli, _.keys(zclip.clusters).sort());
+      cli.exit(0);
+      return;
+    }
+
     if (clusterName.indexOf('Cluster') == -1) {
       clusterName = clusterName + 'Cluster';
     }
@@ -26,6 +33,18 @@ module.exports = function(zclip) {
       port: zclCommand.options.port,
       endpoint: zclCommand.options.endpoint
     });
+
+    if (!commandName && zclCommand.options.help) {
+      printUsage(cli);
+
+      var commandNames = _.map(Object.getOwnPropertyNames(cluster.meta.commands), function(commandId) {
+        return cluster.meta.commands[commandId].name;
+      });
+
+      printAvailableOptions(cli, commandNames.sort());
+      cli.exit(0);
+      return;
+    }
 
     if (!cluster[commandName]) {
       printErrorAndUsage(cli, 'Error: Command not found');
