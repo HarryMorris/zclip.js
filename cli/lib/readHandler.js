@@ -5,10 +5,6 @@ module.exports = function(zclip) {
     var clusterName = _.pascalCase(zclCommand.keywords[1]);
     var ip = zclCommand.keywords[2];
 
-    if (clusterName.indexOf('Cluster') == -1) {
-      clusterName = clusterName + 'Cluster';
-    }
-
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {

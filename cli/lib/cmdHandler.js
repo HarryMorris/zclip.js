@@ -15,10 +15,6 @@ module.exports = function(zclip) {
       return;
     }
 
-    if (clusterName.indexOf('Cluster') == -1) {
-      clusterName = clusterName + 'Cluster';
-    }
-
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {

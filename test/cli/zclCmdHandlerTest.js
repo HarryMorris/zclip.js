@@ -40,19 +40,6 @@ describe('cli zcl', function() {
       expect(cluster.endpoint).toEqual(1);
     });
 
-    test('finds cluster by shorthand', function() {
-      var cli = new FakeCli();
-      var zclCommand = {
-        keywords: ['cmd', 'fake', 'command1', '2001::1'],
-        options: {}
-      }
-
-      cmdHandler(zclCommand, cli);
-
-      expect(fakeClusters.length).toEqual(1);
-      expect(fakeClusters[0]).toBeInstanceOf(FakeCluster);
-    });
-
     test('calls the specified command on the specified cluster', function() {
       var cli = new FakeCli();
       var zclCommand = {

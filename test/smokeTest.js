@@ -12,16 +12,16 @@ beforeAll(() => {
 });
 
 test('Clusters are loaded', () => {
-  expect(zclip.clusters.OnOffCluster).toBeDefined();
+  expect(zclip.clusters.OnOff).toBeDefined();
 });
 
 test('Overrides are loaded', () => {
-  var onOffCluster = new zclip.clusters.OnOffCluster();
-  expect(onOffCluster.toggle).toBeDefined();
+  var onOff = new zclip.clusters.OnOff();
+  expect(onOff.toggle).toBeDefined();
 });
 
 test('Sends commands', function() {
-  var levelControl = new zclip.clusters.LevelControlCluster({
+  var levelControl = new zclip.clusters.LevelControl({
     ip: '::1',
     port: 5600,
     endpoint: 2
