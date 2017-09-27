@@ -5,5 +5,5 @@ test('Loads meta data', () => {
 
   var levelControlCluster = clusterMetaData['8'];
   expect(levelControlCluster).toBeDefined();
-  expect(levelControlCluster.name).toEqual('Level Control');
+  expect(levelControlCluster.name).toEqual('levelControl');
 });

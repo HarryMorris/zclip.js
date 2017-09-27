@@ -1,4 +1,5 @@
 var parseString = require('xml2js').parseString;
+var _ = require('lodash');
 
 module.exports = importSilabsMetaData;
 
@@ -30,7 +31,7 @@ function importRootClusterData(clusterNode, cluster) {
 }
 
 function formatClusterName(name) {
-  return titalize(stripSymbols(name));
+  return _.camelCase(stripSymbols(name));
 }
 
 function titalize(str) {
@@ -57,7 +58,7 @@ function importCommands(commandNodes, cluster) {
 
     var commandId = commandIdMatch[1];
     cluster.commands[commandId] = {
-      name: commandNode.$.name,
+      name: _.camelCase(commandNode.$.name),
       args: {}
     }
 
@@ -65,7 +66,7 @@ function importCommands(commandNodes, cluster) {
       commandNode.arg.forEach(function(argNode) {
         var argId = commandNode.arg.indexOf(argNode);
         cluster.commands[commandId].args[argId] = {
-          name: argNode.$.name
+          name: _.camelCase(argNode.$.name)
         }
       });
     }
@@ -81,7 +82,7 @@ function importAttributes(attributeNodes, cluster) {
 
   attributeNodes.forEach(function(attributeNode) {
     cluster.attributes[parseInt(attributeNode.$.code)] = {
-      name: attributeNode._,
+      name: _.camelCase(attributeNode._),
       side: attributeNode.$.side,
       type: attributeNode.$.type,
       min: attributeNode.$.min,

@@ -1,117 +1,117 @@
 {
   "0": {
-    "name": "Basic",
+    "name": "basic",
     "code": "0x0000",
     "clusterId": "0",
     "commands": {
       "0": {
-        "name": "ResetToFactoryDefaults",
+        "name": "resetToFactoryDefaults",
         "args": {}
       }
     },
     "attributes": {
       "0": {
-        "name": "ZCL version",
+        "name": "zclVersion",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "1": {
-        "name": "application version",
+        "name": "applicationVersion",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "2": {
-        "name": "stack version",
+        "name": "stackVersion",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "3": {
-        "name": "hardware version",
+        "name": "hardwareVersion",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "4": {
-        "name": "manufacturer name",
+        "name": "manufacturerName",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "5": {
-        "name": "model identifier",
+        "name": "modelIdentifier",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "6": {
-        "name": "date code",
+        "name": "dateCode",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "7": {
-        "name": "power source",
+        "name": "powerSource",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "8": {
-        "name": "generic device class",
+        "name": "genericDeviceClass",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "9": {
-        "name": "generic device type",
+        "name": "genericDeviceType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "10": {
-        "name": "product code",
+        "name": "productCode",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "11": {
-        "name": "product url",
+        "name": "productUrl",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "16": {
-        "name": "location description",
+        "name": "locationDescription",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "17": {
-        "name": "physical environment",
+        "name": "physicalEnvironment",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "18": {
-        "name": "device enabled",
+        "name": "deviceEnabled",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "19": {
-        "name": "alarm mask",
+        "name": "alarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x03"
       },
       "20": {
-        "name": "disable local config",
+        "name": "disableLocalConfig",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
@@ -120,399 +120,399 @@
     }
   },
   "1": {
-    "name": "Power Configuration",
+    "name": "powerConfiguration",
     "code": "0x0001",
     "clusterId": "1",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "mains voltage",
+        "name": "mainsVoltage",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1": {
-        "name": "mains frequency",
+        "name": "mainsFrequency",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "16": {
-        "name": "mains alarm mask",
+        "name": "mainsAlarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x03"
       },
       "17": {
-        "name": "mains voltage min threshold",
+        "name": "mainsVoltageMinThreshold",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "18": {
-        "name": "mains voltage max threshold",
+        "name": "mainsVoltageMaxThreshold",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "19": {
-        "name": "mains voltage dwell trip",
+        "name": "mainsVoltageDwellTrip",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "32": {
-        "name": "battery voltage",
+        "name": "batteryVoltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "33": {
-        "name": "battery percentage remaining",
+        "name": "batteryPercentageRemaining",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "48": {
-        "name": "battery manufacturer",
+        "name": "batteryManufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "49": {
-        "name": "battery size",
+        "name": "batterySize",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "50": {
-        "name": "battery ahr rating",
+        "name": "batteryAhrRating",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "51": {
-        "name": "battery quantity",
+        "name": "batteryQuantity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "52": {
-        "name": "battery rated voltage",
+        "name": "batteryRatedVoltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "53": {
-        "name": "battery alarm mask",
+        "name": "batteryAlarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
       "54": {
-        "name": "battery voltage min threshold",
+        "name": "batteryVoltageMinThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "55": {
-        "name": "battery voltage threshold 1",
+        "name": "batteryVoltageThreshold1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "56": {
-        "name": "battery voltage threshold 2",
+        "name": "batteryVoltageThreshold2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "57": {
-        "name": "battery voltage threshold 3",
+        "name": "batteryVoltageThreshold3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "58": {
-        "name": "battery percentage min threshold",
+        "name": "batteryPercentageMinThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "59": {
-        "name": "battery percentage threshold 1",
+        "name": "batteryPercentageThreshold1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "60": {
-        "name": "battery percentage threshold 2",
+        "name": "batteryPercentageThreshold2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "61": {
-        "name": "battery percentage threshold 3",
+        "name": "batteryPercentageThreshold3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "62": {
-        "name": "battery alarm state",
+        "name": "batteryAlarmState",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x00000000",
         "max": "0xFFFFFFFF"
       },
       "64": {
-        "name": "battery 2 voltage",
+        "name": "battery2Voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "65": {
-        "name": "battery 2 percentage remaining",
+        "name": "battery2PercentageRemaining",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "80": {
-        "name": "battery 2 manufacturer",
+        "name": "battery2Manufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "81": {
-        "name": "battery 2 size",
+        "name": "battery2Size",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "82": {
-        "name": "battery 2 ahr rating",
+        "name": "battery2AhrRating",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "83": {
-        "name": "battery 2 quantity",
+        "name": "battery2Quantity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "84": {
-        "name": "battery 2 rated voltage",
+        "name": "battery2RatedVoltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "85": {
-        "name": "battery 2 alarm mask",
+        "name": "battery2AlarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
       "86": {
-        "name": "battery 2 voltage min threshold",
+        "name": "battery2VoltageMinThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "87": {
-        "name": "battery 2 voltage threshold 1",
+        "name": "battery2VoltageThreshold1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "88": {
-        "name": "battery 2 voltage threshold 2",
+        "name": "battery2VoltageThreshold2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "89": {
-        "name": "battery 2 voltage threshold 3",
+        "name": "battery2VoltageThreshold3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "90": {
-        "name": "battery 2 percentage min threshold",
+        "name": "battery2PercentageMinThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "91": {
-        "name": "battery 2 percentage threshold 1",
+        "name": "battery2PercentageThreshold1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "92": {
-        "name": "battery 2 percentage threshold 2",
+        "name": "battery2PercentageThreshold2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "93": {
-        "name": "battery 2 percentage threshold 3",
+        "name": "battery2PercentageThreshold3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "94": {
-        "name": "battery 2 alarm state",
+        "name": "battery2AlarmState",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x00000000",
         "max": "0xFFFFFFFF"
       },
       "96": {
-        "name": "battery 3 voltage",
+        "name": "battery3Voltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "97": {
-        "name": "battery 3 percentage remaining",
+        "name": "battery3PercentageRemaining",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "112": {
-        "name": "battery 3 manufacturer",
+        "name": "battery3Manufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "113": {
-        "name": "battery 3 size",
+        "name": "battery3Size",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "114": {
-        "name": "battery 3 ahr rating",
+        "name": "battery3AhrRating",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "115": {
-        "name": "battery 3 quantity",
+        "name": "battery3Quantity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "116": {
-        "name": "battery 3 rated voltage",
+        "name": "battery3RatedVoltage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "117": {
-        "name": "battery 3 alarm mask",
+        "name": "battery3AlarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
       "118": {
-        "name": "battery 3 voltage min threshold",
+        "name": "battery3VoltageMinThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "119": {
-        "name": "battery 3 voltage threshold 1",
+        "name": "battery3VoltageThreshold1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "120": {
-        "name": "battery 3 voltage threshold 2",
+        "name": "battery3VoltageThreshold2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "121": {
-        "name": "battery 3 voltage threshold 3",
+        "name": "battery3VoltageThreshold3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "122": {
-        "name": "battery 3 percentage min threshold",
+        "name": "battery3PercentageMinThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "123": {
-        "name": "battery 3 percentage threshold 1",
+        "name": "battery3PercentageThreshold1",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "124": {
-        "name": "battery 3 percentage threshold 2",
+        "name": "battery3PercentageThreshold2",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "125": {
-        "name": "battery 3 percentage threshold 3",
+        "name": "battery3PercentageThreshold3",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "126": {
-        "name": "battery 3 alarm state",
+        "name": "battery3AlarmState",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x00000000",
@@ -521,69 +521,69 @@
     }
   },
   "2": {
-    "name": "Device Temperature Configuration",
+    "name": "deviceTemperatureConfiguration",
     "code": "0x0002",
     "clusterId": "2",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "current temperature",
+        "name": "currentTemperature",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
       "1": {
-        "name": "min temp experienced",
+        "name": "minTempExperienced",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
       "2": {
-        "name": "max temp experienced",
+        "name": "maxTempExperienced",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
       "3": {
-        "name": "over temp total dwell",
+        "name": "overTempTotalDwell",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "16": {
-        "name": "device temp alarm mask",
+        "name": "deviceTempAlarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x00C8"
       },
       "17": {
-        "name": "low temp threshold",
+        "name": "lowTempThreshold",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
       "18": {
-        "name": "high temp threshold",
+        "name": "highTempThreshold",
         "side": "server",
         "type": "INT16S",
         "min": "0xFF38",
         "max": "0x00C8"
       },
       "19": {
-        "name": "low temp dwell trip point",
+        "name": "lowTempDwellTripPoint",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
         "max": "0xFFFFFF"
       },
       "20": {
-        "name": "high temp dwell trip point",
+        "name": "highTempDwellTripPoint",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
@@ -592,12 +592,12 @@
     }
   },
   "3": {
-    "name": "Identify",
+    "name": "identify",
     "code": "0x0003",
     "clusterId": "3",
     "commands": {
       "0": {
-        "name": "IdentifyQueryResponse",
+        "name": "identifyQueryResponse",
         "args": {
           "0": {
             "name": "timeout"
@@ -605,11 +605,11 @@
         }
       },
       "1": {
-        "name": "IdentifyQuery",
+        "name": "identifyQuery",
         "args": {}
       },
       "2": {
-        "name": "EZModeInvoke",
+        "name": "ezModeInvoke",
         "args": {
           "0": {
             "name": "action"
@@ -617,7 +617,7 @@
         }
       },
       "3": {
-        "name": "UpdateCommissionState",
+        "name": "updateCommissionState",
         "args": {
           "0": {
             "name": "action"
@@ -630,14 +630,14 @@
     },
     "attributes": {
       "0": {
-        "name": "identify time",
+        "name": "identifyTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1": {
-        "name": "commission state",
+        "name": "commissionState",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
@@ -646,12 +646,12 @@
     }
   },
   "4": {
-    "name": "Groups",
+    "name": "groups",
     "code": "0x0004",
     "clusterId": "4",
     "commands": {
       "0": {
-        "name": "AddGroupResponse",
+        "name": "addGroupResponse",
         "args": {
           "0": {
             "name": "status"
@@ -662,7 +662,7 @@
         }
       },
       "1": {
-        "name": "ViewGroupResponse",
+        "name": "viewGroupResponse",
         "args": {
           "0": {
             "name": "status"
@@ -676,7 +676,7 @@
         }
       },
       "2": {
-        "name": "GetGroupMembershipResponse",
+        "name": "getGroupMembershipResponse",
         "args": {
           "0": {
             "name": "capacity"
@@ -690,7 +690,7 @@
         }
       },
       "3": {
-        "name": "RemoveGroupResponse",
+        "name": "removeGroupResponse",
         "args": {
           "0": {
             "name": "status"
@@ -701,11 +701,11 @@
         }
       },
       "4": {
-        "name": "RemoveAllGroups",
+        "name": "removeAllGroups",
         "args": {}
       },
       "5": {
-        "name": "AddGroupIfIdentifying",
+        "name": "addGroupIfIdentifying",
         "args": {
           "0": {
             "name": "groupId"
@@ -718,7 +718,7 @@
     },
     "attributes": {
       "0": {
-        "name": "name support",
+        "name": "nameSupport",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
@@ -727,12 +727,12 @@
     }
   },
   "5": {
-    "name": "Scenes",
+    "name": "scenes",
     "code": "0x0005",
     "clusterId": "5",
     "commands": {
       "0": {
-        "name": "AddSceneResponse",
+        "name": "addSceneResponse",
         "args": {
           "0": {
             "name": "status"
@@ -746,7 +746,7 @@
         }
       },
       "1": {
-        "name": "ViewSceneResponse",
+        "name": "viewSceneResponse",
         "args": {
           "0": {
             "name": "status"
@@ -769,7 +769,7 @@
         }
       },
       "2": {
-        "name": "RemoveSceneResponse",
+        "name": "removeSceneResponse",
         "args": {
           "0": {
             "name": "status"
@@ -783,7 +783,7 @@
         }
       },
       "3": {
-        "name": "RemoveAllScenesResponse",
+        "name": "removeAllScenesResponse",
         "args": {
           "0": {
             "name": "status"
@@ -794,7 +794,7 @@
         }
       },
       "4": {
-        "name": "StoreSceneResponse",
+        "name": "storeSceneResponse",
         "args": {
           "0": {
             "name": "status"
@@ -808,7 +808,7 @@
         }
       },
       "5": {
-        "name": "RecallScene",
+        "name": "recallScene",
         "args": {
           "0": {
             "name": "groupId"
@@ -819,7 +819,7 @@
         }
       },
       "6": {
-        "name": "GetSceneMembershipResponse",
+        "name": "getSceneMembershipResponse",
         "args": {
           "0": {
             "name": "status"
@@ -841,75 +841,75 @@
     },
     "attributes": {
       "0": {
-        "name": "scene count",
+        "name": "sceneCount",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "1": {
-        "name": "current scene",
+        "name": "currentScene",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "2": {
-        "name": "current group",
+        "name": "currentGroup",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFF7"
       },
       "3": {
-        "name": "scene valid",
+        "name": "sceneValid",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "4": {
-        "name": "name support",
+        "name": "nameSupport",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x80"
       },
       "5": {
-        "name": "last configured by",
+        "name": "lastConfiguredBy",
         "side": "server",
         "type": "IEEE_ADDRESS"
       }
     }
   },
   "6": {
-    "name": "On Off",
+    "name": "onOff",
     "code": "0x0006",
     "clusterId": "6",
     "commands": {
       "0": {
-        "name": "Off",
+        "name": "off",
         "args": {}
       },
       "1": {
-        "name": "On",
+        "name": "on",
         "args": {}
       },
       "2": {
-        "name": "Toggle",
+        "name": "toggle",
         "args": {}
       }
     },
     "attributes": {
       "0": {
-        "name": "on/off",
+        "name": "onOff",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "16387": {
-        "name": "start up on off",
+        "name": "startUpOnOff",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -918,20 +918,20 @@
     }
   },
   "7": {
-    "name": "On Off Switch Configuration",
+    "name": "onOffSwitchConfiguration",
     "code": "0x0007",
     "clusterId": "7",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "switch type",
+        "name": "switchType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x01"
       },
       "16": {
-        "name": "switch actions",
+        "name": "switchActions",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -940,12 +940,12 @@
     }
   },
   "8": {
-    "name": "Level Control",
+    "name": "levelControl",
     "code": "0x0008",
     "clusterId": "8",
     "commands": {
       "0": {
-        "name": "MoveToLevel",
+        "name": "moveToLevel",
         "args": {
           "0": {
             "name": "level"
@@ -956,7 +956,7 @@
         }
       },
       "1": {
-        "name": "Move",
+        "name": "move",
         "args": {
           "0": {
             "name": "moveMode"
@@ -967,7 +967,7 @@
         }
       },
       "2": {
-        "name": "Step",
+        "name": "step",
         "args": {
           "0": {
             "name": "stepMode"
@@ -981,11 +981,11 @@
         }
       },
       "3": {
-        "name": "Stop",
+        "name": "stop",
         "args": {}
       },
       "4": {
-        "name": "MoveToLevelWithOnOff",
+        "name": "moveToLevelWithOnOff",
         "args": {
           "0": {
             "name": "level"
@@ -996,7 +996,7 @@
         }
       },
       "5": {
-        "name": "MoveWithOnOff",
+        "name": "moveWithOnOff",
         "args": {
           "0": {
             "name": "moveMode"
@@ -1007,7 +1007,7 @@
         }
       },
       "6": {
-        "name": "StepWithOnOff",
+        "name": "stepWithOnOff",
         "args": {
           "0": {
             "name": "stepMode"
@@ -1021,20 +1021,20 @@
         }
       },
       "7": {
-        "name": "StopWithOnOff",
+        "name": "stopWithOnOff",
         "args": {}
       }
     },
     "attributes": {
       "0": {
-        "name": "current level",
+        "name": "currentLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "1": {
-        "name": "remaining time",
+        "name": "remainingTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -1048,42 +1048,42 @@
         "max": "0x03"
       },
       "16": {
-        "name": "on off transition time",
+        "name": "onOffTransitionTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "17": {
-        "name": "on level",
+        "name": "onLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "18": {
-        "name": "on transition time",
+        "name": "onTransitionTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "19": {
-        "name": "off transition time",
+        "name": "offTransitionTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "20": {
-        "name": "default move rate",
+        "name": "defaultMoveRate",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFE"
       },
       "16384": {
-        "name": "start up current level",
+        "name": "startUpCurrentLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
@@ -1092,12 +1092,12 @@
     }
   },
   "9": {
-    "name": "Alarms",
+    "name": "alarms",
     "code": "0x0009",
     "clusterId": "9",
     "commands": {
       "0": {
-        "name": "Alarm",
+        "name": "alarm",
         "args": {
           "0": {
             "name": "alarmCode"
@@ -1108,7 +1108,7 @@
         }
       },
       "1": {
-        "name": "GetAlarmResponse",
+        "name": "getAlarmResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1125,17 +1125,17 @@
         }
       },
       "2": {
-        "name": "GetAlarm",
+        "name": "getAlarm",
         "args": {}
       },
       "3": {
-        "name": "ResetAlarmLog",
+        "name": "resetAlarmLog",
         "args": {}
       }
     },
     "attributes": {
       "0": {
-        "name": "alarm count",
+        "name": "alarmCount",
         "side": "server",
         "type": "INT16U",
         "min": "0x00"
@@ -1143,12 +1143,12 @@
     }
   },
   "15": {
-    "name": "Commissioning",
+    "name": "commissioning",
     "code": "0x0015",
     "clusterId": "15",
     "commands": {
       "0": {
-        "name": "RestartDeviceResponse",
+        "name": "restartDeviceResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1156,7 +1156,7 @@
         }
       },
       "1": {
-        "name": "SaveStartupParametersResponse",
+        "name": "saveStartupParametersResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1164,7 +1164,7 @@
         }
       },
       "2": {
-        "name": "RestoreStartupParametersResponse",
+        "name": "restoreStartupParametersResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1172,7 +1172,7 @@
         }
       },
       "3": {
-        "name": "ResetStartupParametersResponse",
+        "name": "resetStartupParametersResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1182,154 +1182,154 @@
     },
     "attributes": {
       "0": {
-        "name": "short address",
+        "name": "shortAddress",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFF7"
       },
       "1": {
-        "name": "extended pan id",
+        "name": "extendedPanId",
         "side": "server",
         "type": "IEEE_ADDRESS",
         "min": "0x0000000000000000",
         "max": "0xFFFFFFFFFFFFFFFE"
       },
       "2": {
-        "name": "pan id",
+        "name": "panId",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "3": {
-        "name": "channel mask",
+        "name": "channelMask",
         "side": "server",
         "type": "BITMAP32"
       },
       "4": {
-        "name": "protocol version",
+        "name": "protocolVersion",
         "side": "server",
         "type": "INT8U",
         "min": "0x02",
         "max": "0x02"
       },
       "5": {
-        "name": "stack profile",
+        "name": "stackProfile",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0x02"
       },
       "6": {
-        "name": "startup control",
+        "name": "startupControl",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x03"
       },
       "16": {
-        "name": "trust center address",
+        "name": "trustCenterAddress",
         "side": "server",
         "type": "IEEE_ADDRESS"
       },
       "17": {
-        "name": "trust center master key",
+        "name": "trustCenterMasterKey",
         "side": "server",
         "type": "SECURITY_KEY"
       },
       "18": {
-        "name": "network key",
+        "name": "networkKey",
         "side": "server",
         "type": "SECURITY_KEY"
       },
       "19": {
-        "name": "use insecure join",
+        "name": "useInsecureJoin",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "20": {
-        "name": "preconfigured link key",
+        "name": "preconfiguredLinkKey",
         "side": "server",
         "type": "SECURITY_KEY"
       },
       "21": {
-        "name": "network key sequence number",
+        "name": "networkKeySequenceNumber",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "22": {
-        "name": "network key type",
+        "name": "networkKeyType",
         "side": "server",
         "type": "ENUM8"
       },
       "23": {
-        "name": "network manager address",
+        "name": "networkManagerAddress",
         "side": "server",
         "type": "INT16U"
       },
       "32": {
-        "name": "scan attempts",
+        "name": "scanAttempts",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFF"
       },
       "33": {
-        "name": "time between scans",
+        "name": "timeBetweenScans",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
       "34": {
-        "name": "rejoin interval",
+        "name": "rejoinInterval",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
       "35": {
-        "name": "max rejoin interval",
+        "name": "maxRejoinInterval",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
       "48": {
-        "name": "indirect poll rate",
+        "name": "indirectPollRate",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "49": {
-        "name": "parent retry threshold",
+        "name": "parentRetryThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "64": {
-        "name": "concentrator flag",
+        "name": "concentratorFlag",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "65": {
-        "name": "concentrator radius",
+        "name": "concentratorRadius",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "66": {
-        "name": "concentrator discovery time",
+        "name": "concentratorDiscoveryTime",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
@@ -1338,12 +1338,12 @@
     }
   },
   "20": {
-    "name": "Poll Control",
+    "name": "pollControl",
     "code": "0x0020",
     "clusterId": "20",
     "commands": {
       "0": {
-        "name": "CheckInResponse",
+        "name": "checkInResponse",
         "args": {
           "0": {
             "name": "startFastPolling"
@@ -1354,11 +1354,11 @@
         }
       },
       "1": {
-        "name": "FastPollStop",
+        "name": "fastPollStop",
         "args": {}
       },
       "2": {
-        "name": "SetLongPollInterval",
+        "name": "setLongPollInterval",
         "args": {
           "0": {
             "name": "newLongPollInterval"
@@ -1366,7 +1366,7 @@
         }
       },
       "3": {
-        "name": "SetShortPollInterval",
+        "name": "setShortPollInterval",
         "args": {
           "0": {
             "name": "newShortPollInterval"
@@ -1376,65 +1376,65 @@
     },
     "attributes": {
       "0": {
-        "name": "check-in interval",
+        "name": "checkInInterval",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0x006E0000"
       },
       "1": {
-        "name": "long poll interval",
+        "name": "longPollInterval",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000004",
         "max": "0x006E0000"
       },
       "2": {
-        "name": "short poll interval",
+        "name": "shortPollInterval",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
       "3": {
-        "name": "fast poll timeout",
+        "name": "fastPollTimeout",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFF"
       },
       "4": {
-        "name": "check in interval min",
+        "name": "checkInIntervalMin",
         "side": "server",
         "type": "INT32U"
       },
       "5": {
-        "name": "long poll interval min",
+        "name": "longPollIntervalMin",
         "side": "server",
         "type": "INT32U"
       },
       "6": {
-        "name": "fast poll timeout max",
+        "name": "fastPollTimeoutMax",
         "side": "server",
         "type": "INT16U"
       }
     }
   },
   "100": {
-    "name": "Shade Configuration",
+    "name": "shadeConfiguration",
     "code": "0x0100",
     "clusterId": "100",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "physical closed limit",
+        "name": "physicalClosedLimit",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFE"
       },
       "1": {
-        "name": "motor step size",
+        "name": "motorStepSize",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
@@ -1448,7 +1448,7 @@
         "max": "0x0F"
       },
       "16": {
-        "name": "closed limit",
+        "name": "closedLimit",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
@@ -1464,12 +1464,12 @@
     }
   },
   "101": {
-    "name": "Door Lock",
+    "name": "doorLock",
     "code": "0x0101",
     "clusterId": "101",
     "commands": {
       "0": {
-        "name": "GetYeardayScheduleResponse",
+        "name": "getYeardayScheduleResponse",
         "args": {
           "0": {
             "name": "scheduleId"
@@ -1489,7 +1489,7 @@
         }
       },
       "1": {
-        "name": "UnlockDoorResponse",
+        "name": "unlockDoorResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1497,7 +1497,7 @@
         }
       },
       "2": {
-        "name": "ToggleResponse",
+        "name": "toggleResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1505,7 +1505,7 @@
         }
       },
       "3": {
-        "name": "UnlockWithTimeoutResponse",
+        "name": "unlockWithTimeoutResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1513,7 +1513,7 @@
         }
       },
       "4": {
-        "name": "GetLogRecordResponse",
+        "name": "getLogRecordResponse",
         "args": {
           "0": {
             "name": "logEntryId"
@@ -1539,7 +1539,7 @@
         }
       },
       "5": {
-        "name": "SetPinResponse",
+        "name": "setPinResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1547,7 +1547,7 @@
         }
       },
       "6": {
-        "name": "GetPinResponse",
+        "name": "getPinResponse",
         "args": {
           "0": {
             "name": "userId"
@@ -1564,7 +1564,7 @@
         }
       },
       "7": {
-        "name": "ClearPinResponse",
+        "name": "clearPinResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1572,7 +1572,7 @@
         }
       },
       "8": {
-        "name": "ClearAllPinsResponse",
+        "name": "clearAllPinsResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1580,7 +1580,7 @@
         }
       },
       "9": {
-        "name": "SetUserStatusResponse",
+        "name": "setUserStatusResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1588,7 +1588,7 @@
         }
       },
       "10": {
-        "name": "ClearYeardayScheduleResponse",
+        "name": "clearYeardayScheduleResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1596,7 +1596,7 @@
         }
       },
       "11": {
-        "name": "SetHolidayScheduleResponse",
+        "name": "setHolidayScheduleResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1604,7 +1604,7 @@
         }
       },
       "12": {
-        "name": "GetHolidayScheduleResponse",
+        "name": "getHolidayScheduleResponse",
         "args": {
           "0": {
             "name": "scheduleId"
@@ -1624,7 +1624,7 @@
         }
       },
       "13": {
-        "name": "ClearHolidayScheduleResponse",
+        "name": "clearHolidayScheduleResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1632,7 +1632,7 @@
         }
       },
       "14": {
-        "name": "SetUserTypeResponse",
+        "name": "setUserTypeResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1640,7 +1640,7 @@
         }
       },
       "15": {
-        "name": "GetUserTypeResponse",
+        "name": "getUserTypeResponse",
         "args": {
           "0": {
             "name": "userId"
@@ -1651,7 +1651,7 @@
         }
       },
       "16": {
-        "name": "SetRfidResponse",
+        "name": "setRfidResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1659,7 +1659,7 @@
         }
       },
       "17": {
-        "name": "GetRfidResponse",
+        "name": "getRfidResponse",
         "args": {
           "0": {
             "name": "userId"
@@ -1676,7 +1676,7 @@
         }
       },
       "18": {
-        "name": "ClearRfidResponse",
+        "name": "clearRfidResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1684,7 +1684,7 @@
         }
       },
       "19": {
-        "name": "ClearAllRfidsResponse",
+        "name": "clearAllRfidsResponse",
         "args": {
           "0": {
             "name": "status"
@@ -1692,7 +1692,7 @@
         }
       },
       "20": {
-        "name": "OperationEventNotification",
+        "name": "operationEventNotification",
         "args": {
           "0": {
             "name": "source"
@@ -1715,7 +1715,7 @@
         }
       },
       "21": {
-        "name": "ProgrammingEventNotification",
+        "name": "programmingEventNotification",
         "args": {
           "0": {
             "name": "source"
@@ -1746,119 +1746,119 @@
     },
     "attributes": {
       "0": {
-        "name": "lock state",
+        "name": "lockState",
         "side": "server",
         "type": "ENUM8"
       },
       "1": {
-        "name": "lock type",
+        "name": "lockType",
         "side": "server",
         "type": "ENUM8"
       },
       "2": {
-        "name": "actuator enabled",
+        "name": "actuatorEnabled",
         "side": "server",
         "type": "BOOLEAN"
       },
       "3": {
-        "name": "door state",
+        "name": "doorState",
         "side": "server",
         "type": "ENUM8"
       },
       "4": {
-        "name": "door open events",
+        "name": "doorOpenEvents",
         "side": "server",
         "type": "INT32U"
       },
       "5": {
-        "name": "door closed events",
+        "name": "doorClosedEvents",
         "side": "server",
         "type": "INT32U"
       },
       "6": {
-        "name": "open period",
+        "name": "openPeriod",
         "side": "server",
         "type": "INT16U"
       },
       "16": {
-        "name": "num lock records supported",
+        "name": "numLockRecordsSupported",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "17": {
-        "name": "num total users supported",
+        "name": "numTotalUsersSupported",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "18": {
-        "name": "num PIN users supported",
+        "name": "numPinUsersSupported",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "19": {
-        "name": "num RFID users supported",
+        "name": "numRfidUsersSupported",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "20": {
-        "name": "num weekday schedules supported per user",
+        "name": "numWeekdaySchedulesSupportedPerUser",
         "side": "server",
         "type": "INT8U",
         "min": "0x0000",
         "max": "0xFF"
       },
       "21": {
-        "name": "num yearday schedules supported per user",
+        "name": "numYeardaySchedulesSupportedPerUser",
         "side": "server",
         "type": "INT8U",
         "min": "0x0000",
         "max": "0xFF"
       },
       "22": {
-        "name": "num holiday schedules supported per user",
+        "name": "numHolidaySchedulesSupportedPerUser",
         "side": "server",
         "type": "INT8U",
         "min": "0x0000",
         "max": "0xFF"
       },
       "23": {
-        "name": "max pin length",
+        "name": "maxPinLength",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "24": {
-        "name": "min pin length",
+        "name": "minPinLength",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "25": {
-        "name": "max rfid code length",
+        "name": "maxRfidCodeLength",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "26": {
-        "name": "min rfid code length",
+        "name": "minRfidCodeLength",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "32": {
-        "name": "enable logging",
+        "name": "enableLogging",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
@@ -1870,155 +1870,155 @@
         "type": "CHAR_STRING"
       },
       "34": {
-        "name": "led settings",
+        "name": "ledSettings",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "35": {
-        "name": "auto relock time",
+        "name": "autoRelockTime",
         "side": "server",
         "type": "INT32U",
         "min": "0x00",
         "max": "0xFFFFFFFF"
       },
       "36": {
-        "name": "sound volume",
+        "name": "soundVolume",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "37": {
-        "name": "operating mode",
+        "name": "operatingMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x05"
       },
       "38": {
-        "name": "supported operating modes",
+        "name": "supportedOperatingModes",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "39": {
-        "name": "default configuration register",
+        "name": "defaultConfigurationRegister",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "40": {
-        "name": "enable local programming",
+        "name": "enableLocalProgramming",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "41": {
-        "name": "enable one touch locking",
+        "name": "enableOneTouchLocking",
         "side": "server",
         "type": "BOOLEAN"
       },
       "42": {
-        "name": "enable inside status led",
+        "name": "enableInsideStatusLed",
         "side": "server",
         "type": "BOOLEAN"
       },
       "43": {
-        "name": "enable privacy mode button",
+        "name": "enablePrivacyModeButton",
         "side": "server",
         "type": "BOOLEAN"
       },
       "48": {
-        "name": "wrong code entry limit",
+        "name": "wrongCodeEntryLimit",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "49": {
-        "name": "user code temporary disable time",
+        "name": "userCodeTemporaryDisableTime",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "50": {
-        "name": "send pin over the air",
+        "name": "sendPinOverTheAir",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "51": {
-        "name": "require pin for rf operation",
+        "name": "requirePinForRfOperation",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "52": {
-        "name": "zigbee security level",
+        "name": "zigbeeSecurityLevel",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "64": {
-        "name": "alarm mask",
+        "name": "alarmMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "65": {
-        "name": "keypad operation event mask",
+        "name": "keypadOperationEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "66": {
-        "name": "RF operation event mask",
+        "name": "rfOperationEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "67": {
-        "name": "manual operation event mask",
+        "name": "manualOperationEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "68": {
-        "name": "rfid operation event mask",
+        "name": "rfidOperationEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "69": {
-        "name": "keypad programming event mask",
+        "name": "keypadProgrammingEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "70": {
-        "name": "rf programming event mask",
+        "name": "rfProgrammingEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "71": {
-        "name": "rfid programming event mask",
+        "name": "rfidProgrammingEventMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
@@ -2027,24 +2027,24 @@
     }
   },
   "102": {
-    "name": "Window Covering",
+    "name": "windowCovering",
     "code": "0x0102",
     "clusterId": "102",
     "commands": {
       "0": {
-        "name": "WindowCoveringUpOpen",
+        "name": "windowCoveringUpOpen",
         "args": {}
       },
       "1": {
-        "name": "WindowCoveringDownClose",
+        "name": "windowCoveringDownClose",
         "args": {}
       },
       "2": {
-        "name": "WindowCoveringStop",
+        "name": "windowCoveringStop",
         "args": {}
       },
       "4": {
-        "name": "WindowCoveringGoToLiftValue",
+        "name": "windowCoveringGoToLiftValue",
         "args": {
           "0": {
             "name": "liftValue"
@@ -2052,7 +2052,7 @@
         }
       },
       "5": {
-        "name": "WindowCoveringGoToLiftPercentage",
+        "name": "windowCoveringGoToLiftPercentage",
         "args": {
           "0": {
             "name": "percentageLiftValue"
@@ -2060,7 +2060,7 @@
         }
       },
       "7": {
-        "name": "WindowCoveringGoToTiltValue",
+        "name": "windowCoveringGoToTiltValue",
         "args": {
           "0": {
             "name": "tiltValue"
@@ -2068,7 +2068,7 @@
         }
       },
       "8": {
-        "name": "WindowCoveringGoToTiltPercentage",
+        "name": "windowCoveringGoToTiltPercentage",
         "args": {
           "0": {
             "name": "percentageTiltValue"
@@ -2078,119 +2078,119 @@
     },
     "attributes": {
       "0": {
-        "name": "window covering type",
+        "name": "windowCoveringType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x09"
       },
       "1": {
-        "name": "physical closed limit - lift",
+        "name": "physicalClosedLimitLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "2": {
-        "name": "physical closed limit - tilt",
+        "name": "physicalClosedLimitTilt",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "3": {
-        "name": "current position - lift",
+        "name": "currentPositionLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "4": {
-        "name": "current position - tilt",
+        "name": "currentPositionTilt",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "5": {
-        "name": "number of actuations - lift",
+        "name": "numberOfActuationsLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "6": {
-        "name": "number of actuations - tilt",
+        "name": "numberOfActuationsTilt",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "7": {
-        "name": "config status",
+        "name": "configStatus",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x7F"
       },
       "8": {
-        "name": "current position lift percentage",
+        "name": "currentPositionLiftPercentage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
       "9": {
-        "name": "current position tilt percentage",
+        "name": "currentPositionTiltPercentage",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
       "16": {
-        "name": "installed open limit - lift",
+        "name": "installedOpenLimitLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "17": {
-        "name": "installed closed limit - lift",
+        "name": "installedClosedLimitLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "18": {
-        "name": "installed open limit - tilt",
+        "name": "installedOpenLimitTilt",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "19": {
-        "name": "installed closed limit - tilt",
+        "name": "installedClosedLimitTilt",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "20": {
-        "name": "velocity - lift",
+        "name": "velocityLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "21": {
-        "name": "acceleration time - lift",
+        "name": "accelerationTimeLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "22": {
-        "name": "deceleration time - lift",
+        "name": "decelerationTimeLift",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -2204,128 +2204,128 @@
         "max": "0xE0"
       },
       "24": {
-        "name": "intermediate setpoints - lift",
+        "name": "intermediateSetpointsLift",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "25": {
-        "name": "intermediate setpoints - tilt",
+        "name": "intermediateSetpointsTilt",
         "side": "server",
         "type": "OCTET_STRING"
       }
     }
   },
   "200": {
-    "name": "Pump Configuration And Control",
+    "name": "pumpConfigurationAndControl",
     "code": "0x0200",
     "clusterId": "200",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "max pressure",
+        "name": "maxPressure",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFF"
       },
       "1": {
-        "name": "max speed",
+        "name": "maxSpeed",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "2": {
-        "name": "max flow",
+        "name": "maxFlow",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "3": {
-        "name": "min const pressure",
+        "name": "minConstPressure",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFF"
       },
       "4": {
-        "name": "max const pressure",
+        "name": "maxConstPressure",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFF"
       },
       "5": {
-        "name": "min comp pressure",
+        "name": "minCompPressure",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFF"
       },
       "6": {
-        "name": "max comp pressure",
+        "name": "maxCompPressure",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFF"
       },
       "7": {
-        "name": "min const speed",
+        "name": "minConstSpeed",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "8": {
-        "name": "max const speed",
+        "name": "maxConstSpeed",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "9": {
-        "name": "min const flow",
+        "name": "minConstFlow",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "10": {
-        "name": "max const flow",
+        "name": "maxConstFlow",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "11": {
-        "name": "min const temp",
+        "name": "minConstTemp",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "12": {
-        "name": "max const temp",
+        "name": "maxConstTemp",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "16": {
-        "name": "pump status",
+        "name": "pumpStatus",
         "side": "server",
         "type": "BITMAP16"
       },
       "17": {
-        "name": "effective operation mode",
+        "name": "effectiveOperationMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFE"
       },
       "18": {
-        "name": "effective control mode",
+        "name": "effectiveControlMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -2346,7 +2346,7 @@
         "max": "0xFFFE"
       },
       "21": {
-        "name": "lifetime running hours",
+        "name": "lifetimeRunningHours",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
@@ -2360,40 +2360,40 @@
         "max": "0xFFFFFE"
       },
       "23": {
-        "name": "lifetime energy consumed",
+        "name": "lifetimeEnergyConsumed",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
       "32": {
-        "name": "operation mode",
+        "name": "operationMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFE"
       },
       "33": {
-        "name": "control mode",
+        "name": "controlMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFe"
       },
       "34": {
-        "name": "alarm mask",
+        "name": "alarmMask",
         "side": "server",
         "type": "BITMAP16"
       }
     }
   },
   "201": {
-    "name": "Thermostat",
+    "name": "thermostat",
     "code": "0x0201",
     "clusterId": "201",
     "commands": {
       "0": {
-        "name": "CurrentWeeklySchedule",
+        "name": "currentWeeklySchedule",
         "args": {
           "0": {
             "name": "numberOfTransitionsForSequence"
@@ -2410,7 +2410,7 @@
         }
       },
       "1": {
-        "name": "RelayStatusLog",
+        "name": "relayStatusLog",
         "args": {
           "0": {
             "name": "timeOfDay"
@@ -2433,7 +2433,7 @@
         }
       },
       "2": {
-        "name": "GetWeeklySchedule",
+        "name": "getWeeklySchedule",
         "args": {
           "0": {
             "name": "daysToReturn"
@@ -2444,24 +2444,24 @@
         }
       },
       "3": {
-        "name": "ClearWeeklySchedule",
+        "name": "clearWeeklySchedule",
         "args": {}
       },
       "4": {
-        "name": "GetRelayStatusLog",
+        "name": "getRelayStatusLog",
         "args": {}
       }
     },
     "attributes": {
       "0": {
-        "name": "local temperature",
+        "name": "localTemperature",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "1": {
-        "name": "outdoor temperature",
+        "name": "outdoorTemperature",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
@@ -2475,264 +2475,264 @@
         "max": "0x01"
       },
       "3": {
-        "name": "abs min heat setpoint limit",
+        "name": "absMinHeatSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "4": {
-        "name": "abs max heat setpoint limit",
+        "name": "absMaxHeatSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "5": {
-        "name": "abs min cool setpoint limit",
+        "name": "absMinCoolSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "6": {
-        "name": "abs max cool setpoint limit",
+        "name": "absMaxCoolSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "7": {
-        "name": "pi cooling demand",
+        "name": "piCoolingDemand",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
       "8": {
-        "name": "pi heating demand",
+        "name": "piHeatingDemand",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
       "9": {
-        "name": "HVAC system type configuration",
+        "name": "hvacSystemTypeConfiguration",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0xFF"
       },
       "16": {
-        "name": "local temperature calibration",
+        "name": "localTemperatureCalibration",
         "side": "server",
         "type": "INT8S",
         "min": "0xE7",
         "max": "0x19"
       },
       "17": {
-        "name": "occupied cooling setpoint",
+        "name": "occupiedCoolingSetpoint",
         "side": "server",
         "type": "INT16S"
       },
       "18": {
-        "name": "occupied heating setpoint",
+        "name": "occupiedHeatingSetpoint",
         "side": "server",
         "type": "INT16S"
       },
       "19": {
-        "name": "unoccupied cooling setpoint",
+        "name": "unoccupiedCoolingSetpoint",
         "side": "server",
         "type": "INT16S"
       },
       "20": {
-        "name": "unoccupied heating setpoint",
+        "name": "unoccupiedHeatingSetpoint",
         "side": "server",
         "type": "INT16S"
       },
       "21": {
-        "name": "min heat setpoint limit",
+        "name": "minHeatSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "22": {
-        "name": "max heat setpoint limit",
+        "name": "maxHeatSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "23": {
-        "name": "min cool setpoint limit",
+        "name": "minCoolSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "24": {
-        "name": "max cool setpoint limit",
+        "name": "maxCoolSetpointLimit",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "25": {
-        "name": "min setpoint dead band",
+        "name": "minSetpointDeadBand",
         "side": "server",
         "type": "INT8S",
         "min": "0x0A",
         "max": "0x19"
       },
       "26": {
-        "name": "remote sensing",
+        "name": "remoteSensing",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x07"
       },
       "27": {
-        "name": "control sequence of operation",
+        "name": "controlSequenceOfOperation",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x05"
       },
       "28": {
-        "name": "system mode",
+        "name": "systemMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x07"
       },
       "29": {
-        "name": "alarm mask",
+        "name": "alarmMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x07"
       },
       "30": {
-        "name": "thermostat running mode",
+        "name": "thermostatRunningMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x04"
       },
       "32": {
-        "name": "start of week",
+        "name": "startOfWeek",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x06"
       },
       "33": {
-        "name": "number of weekly transitions",
+        "name": "numberOfWeeklyTransitions",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "34": {
-        "name": "number of daily transitions",
+        "name": "numberOfDailyTransitions",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "35": {
-        "name": "temperature setpoint hold",
+        "name": "temperatureSetpointHold",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x01"
       },
       "36": {
-        "name": "temperature setpoint hold duration",
+        "name": "temperatureSetpointHoldDuration",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0x05A0"
       },
       "37": {
-        "name": "thermostat programming operation mode",
+        "name": "thermostatProgrammingOperationMode",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0xFF"
       },
       "41": {
-        "name": "hvac relay state",
+        "name": "hvacRelayState",
         "side": "server",
         "type": "BITMAP16"
       },
       "48": {
-        "name": "setpoint change source",
+        "name": "setpointChangeSource",
         "side": "server",
         "type": "ENUM8"
       },
       "49": {
-        "name": "setpoint change amount",
+        "name": "setpointChangeAmount",
         "side": "server",
         "type": "INT16S"
       },
       "50": {
-        "name": "setpoint change source timestamp",
+        "name": "setpointChangeSourceTimestamp",
         "side": "server",
         "type": "UTC_TIME"
       },
       "64": {
-        "name": "ac type",
+        "name": "acType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x04"
       },
       "65": {
-        "name": "ac capacity",
+        "name": "acCapacity",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "66": {
-        "name": "ac refrigerant type",
+        "name": "acRefrigerantType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x03"
       },
       "67": {
-        "name": "ac compressor",
+        "name": "acCompressor",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x03"
       },
       "68": {
-        "name": "ac error code",
+        "name": "acErrorCode",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "69": {
-        "name": "ac louver position",
+        "name": "acLouverPosition",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x05"
       },
       "70": {
-        "name": "ac coil temperature",
+        "name": "acCoilTemperature",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFF"
       },
       "71": {
-        "name": "ac capacity format",
+        "name": "acCapacityFormat",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -2741,20 +2741,20 @@
     }
   },
   "202": {
-    "name": "Fan Control",
+    "name": "fanControl",
     "code": "0x0202",
     "clusterId": "202",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "fan mode",
+        "name": "fanMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x06"
       },
       "1": {
-        "name": "fan mode sequence",
+        "name": "fanModeSequence",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -2763,61 +2763,61 @@
     }
   },
   "203": {
-    "name": "Dehumidification Control",
+    "name": "dehumidificationControl",
     "code": "0x0203",
     "clusterId": "203",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "relative humidity",
+        "name": "relativeHumidity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
       "1": {
-        "name": "dehumidification cooling",
+        "name": "dehumidificationCooling",
         "side": "server",
         "type": "INT8U",
         "min": "0x00"
       },
       "16": {
-        "name": "RH dehumidification setpoint",
+        "name": "rhDehumidificationSetpoint",
         "side": "server",
         "type": "INT8U",
         "min": "0x1E",
         "max": "0x64"
       },
       "17": {
-        "name": "relative humidity mode",
+        "name": "relativeHumidityMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x01"
       },
       "18": {
-        "name": "dehumidification lockout",
+        "name": "dehumidificationLockout",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x01"
       },
       "19": {
-        "name": "dehumidification hysteresis",
+        "name": "dehumidificationHysteresis",
         "side": "server",
         "type": "INT8U",
         "min": "0x02",
         "max": "0x14"
       },
       "20": {
-        "name": "dehumidification max cool",
+        "name": "dehumidificationMaxCool",
         "side": "server",
         "type": "INT8U",
         "min": "0x14",
         "max": "0x64"
       },
       "21": {
-        "name": "relative humidity display",
+        "name": "relativeHumidityDisplay",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -2826,27 +2826,27 @@
     }
   },
   "204": {
-    "name": "Thermostat User Interface Configuration",
+    "name": "thermostatUserInterfaceConfiguration",
     "code": "0x0204",
     "clusterId": "204",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "temperature display mode",
+        "name": "temperatureDisplayMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x01"
       },
       "1": {
-        "name": "keypad lockout",
+        "name": "keypadLockout",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x05"
       },
       "2": {
-        "name": "schedule programming visibility",
+        "name": "scheduleProgrammingVisibility",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -2855,12 +2855,12 @@
     }
   },
   "300": {
-    "name": "Color Control",
+    "name": "colorControl",
     "code": "0x0300",
     "clusterId": "300",
     "commands": {
       "0": {
-        "name": "MoveToColorTemperature",
+        "name": "moveToColorTemperature",
         "args": {
           "0": {
             "name": "colorTemperature"
@@ -2871,7 +2871,7 @@
         }
       },
       "1": {
-        "name": "MoveHue",
+        "name": "moveHue",
         "args": {
           "0": {
             "name": "moveMode"
@@ -2882,7 +2882,7 @@
         }
       },
       "2": {
-        "name": "StepHue",
+        "name": "stepHue",
         "args": {
           "0": {
             "name": "stepMode"
@@ -2896,7 +2896,7 @@
         }
       },
       "3": {
-        "name": "MoveToSaturation",
+        "name": "moveToSaturation",
         "args": {
           "0": {
             "name": "saturation"
@@ -2907,7 +2907,7 @@
         }
       },
       "4": {
-        "name": "MoveSaturation",
+        "name": "moveSaturation",
         "args": {
           "0": {
             "name": "moveMode"
@@ -2918,7 +2918,7 @@
         }
       },
       "5": {
-        "name": "StepSaturation",
+        "name": "stepSaturation",
         "args": {
           "0": {
             "name": "stepMode"
@@ -2932,7 +2932,7 @@
         }
       },
       "6": {
-        "name": "MoveToHueAndSaturation",
+        "name": "moveToHueAndSaturation",
         "args": {
           "0": {
             "name": "hue"
@@ -2946,7 +2946,7 @@
         }
       },
       "7": {
-        "name": "MoveToColor",
+        "name": "moveToColor",
         "args": {
           "0": {
             "name": "colorX"
@@ -2960,7 +2960,7 @@
         }
       },
       "8": {
-        "name": "MoveColor",
+        "name": "moveColor",
         "args": {
           "0": {
             "name": "rateX"
@@ -2971,7 +2971,7 @@
         }
       },
       "9": {
-        "name": "StepColor",
+        "name": "stepColor",
         "args": {
           "0": {
             "name": "stepX"
@@ -2987,292 +2987,292 @@
     },
     "attributes": {
       "0": {
-        "name": "current hue",
+        "name": "currentHue",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFE"
       },
       "1": {
-        "name": "current saturation",
+        "name": "currentSaturation",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFE"
       },
       "2": {
-        "name": "remaining time",
+        "name": "remainingTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "3": {
-        "name": "current x",
+        "name": "currentX",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "4": {
-        "name": "current y",
+        "name": "currentY",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "5": {
-        "name": "drift compensation",
+        "name": "driftCompensation",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x04"
       },
       "6": {
-        "name": "compensation text",
+        "name": "compensationText",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "7": {
-        "name": "color temperature",
+        "name": "colorTemperature",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "8": {
-        "name": "color mode",
+        "name": "colorMode",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0x02"
       },
       "15": {
-        "name": "color control options",
+        "name": "colorControlOptions",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0xFF"
       },
       "16": {
-        "name": "number of primaries",
+        "name": "numberOfPrimaries",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x06"
       },
       "17": {
-        "name": "primary 1 x",
+        "name": "primary1X",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "18": {
-        "name": "primary 1 y",
+        "name": "primary1Y",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "19": {
-        "name": "primary 1 intensity",
+        "name": "primary1Intensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "21": {
-        "name": "primary 2 x",
+        "name": "primary2X",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "22": {
-        "name": "primary 2 y",
+        "name": "primary2Y",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "23": {
-        "name": "primary 2 intensity",
+        "name": "primary2Intensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "25": {
-        "name": "primary 3 x",
+        "name": "primary3X",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "26": {
-        "name": "primary 3 y",
+        "name": "primary3Y",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "27": {
-        "name": "primary 3 intensity",
+        "name": "primary3Intensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "32": {
-        "name": "primary 4 x",
+        "name": "primary4X",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "33": {
-        "name": "primary 4 y",
+        "name": "primary4Y",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "34": {
-        "name": "primary 4 intensity",
+        "name": "primary4Intensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "36": {
-        "name": "primary 5 x",
+        "name": "primary5X",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "37": {
-        "name": "primary 5 y",
+        "name": "primary5Y",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "38": {
-        "name": "primary 5 intensity",
+        "name": "primary5Intensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "40": {
-        "name": "primary 6 x",
+        "name": "primary6X",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "41": {
-        "name": "primary 6 y",
+        "name": "primary6Y",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "42": {
-        "name": "primary 6 intensity",
+        "name": "primary6Intensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "48": {
-        "name": "white point x",
+        "name": "whitePointX",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "49": {
-        "name": "white point y",
+        "name": "whitePointY",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "50": {
-        "name": "color point r x",
+        "name": "colorPointRX",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "51": {
-        "name": "color point r y",
+        "name": "colorPointRY",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "52": {
-        "name": "color point r intensity",
+        "name": "colorPointRIntensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "54": {
-        "name": "color point g x",
+        "name": "colorPointGX",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "55": {
-        "name": "color point g y",
+        "name": "colorPointGY",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "56": {
-        "name": "color point g intensity",
+        "name": "colorPointGIntensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "58": {
-        "name": "color point b x",
+        "name": "colorPointBX",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "59": {
-        "name": "color point b y",
+        "name": "colorPointBY",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFEFF"
       },
       "60": {
-        "name": "color point b intensity",
+        "name": "colorPointBIntensity",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "16397": {
-        "name": "couple color temp to level min-mireds",
+        "name": "coupleColorTempToLevelMinMireds",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "16398": {
-        "name": "start up color temperature mireds",
+        "name": "startUpColorTemperatureMireds",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -3281,113 +3281,113 @@
     }
   },
   "301": {
-    "name": "Ballast Configuration",
+    "name": "ballastConfiguration",
     "code": "0x0301",
     "clusterId": "301",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "physical min level",
+        "name": "physicalMinLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFE"
       },
       "1": {
-        "name": "physical max level",
+        "name": "physicalMaxLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFE"
       },
       "2": {
-        "name": "ballast status",
+        "name": "ballastStatus",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x03"
       },
       "16": {
-        "name": "min level",
+        "name": "minLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFE"
       },
       "17": {
-        "name": "max level",
+        "name": "maxLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFE"
       },
       "18": {
-        "name": "power on level",
+        "name": "powerOnLevel",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFE"
       },
       "19": {
-        "name": "power on fade time",
+        "name": "powerOnFadeTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "20": {
-        "name": "intrinsic ballast factor",
+        "name": "intrinsicBallastFactor",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFE"
       },
       "21": {
-        "name": "ballast factor adjustment",
+        "name": "ballastFactorAdjustment",
         "side": "server",
         "type": "INT8U",
         "min": "0x64"
       },
       "32": {
-        "name": "lamp quality",
+        "name": "lampQuality",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFE"
       },
       "48": {
-        "name": "lamp type",
+        "name": "lampType",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "49": {
-        "name": "lamp manufacturer",
+        "name": "lampManufacturer",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "50": {
-        "name": "lamp rated hours",
+        "name": "lampRatedHours",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
         "max": "0xFFFFFE"
       },
       "51": {
-        "name": "lamp burn hours",
+        "name": "lampBurnHours",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
         "max": "0xFFFFFE"
       },
       "52": {
-        "name": "lamp alarm mode",
+        "name": "lampAlarmMode",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x01"
       },
       "53": {
-        "name": "lamp burn hours trip point",
+        "name": "lampBurnHoursTripPoint",
         "side": "server",
         "type": "INT24U",
         "min": "0x000000",
@@ -3396,27 +3396,27 @@
     }
   },
   "400": {
-    "name": "Illuminance Measurement",
+    "name": "illuminanceMeasurement",
     "code": "0x0400",
     "clusterId": "400",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "measured value",
+        "name": "measuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1": {
-        "name": "min measured value",
+        "name": "minMeasuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
         "max": "0xFFFD"
       },
       "2": {
-        "name": "max measured value",
+        "name": "maxMeasuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
@@ -3430,7 +3430,7 @@
         "max": "0x0800"
       },
       "4": {
-        "name": "light sensor type",
+        "name": "lightSensorType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
@@ -3439,27 +3439,27 @@
     }
   },
   "401": {
-    "name": "Illuminance Level Sensing",
+    "name": "illuminanceLevelSensing",
     "code": "0x0401",
     "clusterId": "401",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "level status",
+        "name": "levelStatus",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFE"
       },
       "1": {
-        "name": "light sensor type",
+        "name": "lightSensorType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFE"
       },
       "16": {
-        "name": "illuminance level target",
+        "name": "illuminanceLevelTarget",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -3468,25 +3468,25 @@
     }
   },
   "402": {
-    "name": "Temperature Measurement",
+    "name": "temperatureMeasurement",
     "code": "0x0402",
     "clusterId": "402",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "measured value",
+        "name": "measuredValue",
         "side": "server",
         "type": "INT16S"
       },
       "1": {
-        "name": "min measured value",
+        "name": "minMeasuredValue",
         "side": "server",
         "type": "INT16S",
         "min": "0x954D",
         "max": "0x7FFE"
       },
       "2": {
-        "name": "max measured value",
+        "name": "maxMeasuredValue",
         "side": "server",
         "type": "INT16S",
         "min": "0x954E",
@@ -3502,25 +3502,25 @@
     }
   },
   "403": {
-    "name": "Pressure Measurement",
+    "name": "pressureMeasurement",
     "code": "0x0403",
     "clusterId": "403",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "measured value",
+        "name": "measuredValue",
         "side": "server",
         "type": "INT16S"
       },
       "1": {
-        "name": "min measured value",
+        "name": "minMeasuredValue",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFE"
       },
       "2": {
-        "name": "max measured value",
+        "name": "maxMeasuredValue",
         "side": "server",
         "type": "INT16S",
         "min": "0x8002",
@@ -3534,26 +3534,26 @@
         "max": "0x0800"
       },
       "16": {
-        "name": "scaled value",
+        "name": "scaledValue",
         "side": "server",
         "type": "INT16S"
       },
       "17": {
-        "name": "min scaled value",
+        "name": "minScaledValue",
         "side": "server",
         "type": "INT16S",
         "min": "0x8001",
         "max": "0x7FFE"
       },
       "18": {
-        "name": "max scaled value",
+        "name": "maxScaledValue",
         "side": "server",
         "type": "INT16S",
         "min": "0x8002",
         "max": "0x7FFF"
       },
       "19": {
-        "name": "scaled tolerance",
+        "name": "scaledTolerance",
         "side": "server",
         "type": "INT16S",
         "min": "0x0000",
@@ -3569,25 +3569,25 @@
     }
   },
   "404": {
-    "name": "Flow Measurement",
+    "name": "flowMeasurement",
     "code": "0x0404",
     "clusterId": "404",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "measured value",
+        "name": "measuredValue",
         "side": "server",
         "type": "INT16U"
       },
       "1": {
-        "name": "min measured value",
+        "name": "minMeasuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xfffd"
       },
       "2": {
-        "name": "max measured value",
+        "name": "maxMeasuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
@@ -3603,25 +3603,25 @@
     }
   },
   "405": {
-    "name": "Relative Humidity Measurement",
+    "name": "relativeHumidityMeasurement",
     "code": "0x0405",
     "clusterId": "405",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "measured value",
+        "name": "measuredValue",
         "side": "server",
         "type": "INT16U"
       },
       "1": {
-        "name": "min measured value",
+        "name": "minMeasuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0x270F"
       },
       "2": {
-        "name": "max measured value",
+        "name": "maxMeasuredValue",
         "side": "server",
         "type": "INT16U",
         "min": "0x0001",
@@ -3637,7 +3637,7 @@
     }
   },
   "406": {
-    "name": "Occupancy Sensing",
+    "name": "occupancySensing",
     "code": "0x0406",
     "clusterId": "406",
     "commands": {},
@@ -3650,49 +3650,49 @@
         "max": "0x01"
       },
       "1": {
-        "name": "occupancy sensor type",
+        "name": "occupancySensorType",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFE"
       },
       "16": {
-        "name": "PIR occupied to unoccupied delay",
+        "name": "pirOccupiedToUnoccupiedDelay",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "17": {
-        "name": "PIR unoccupied to occupied delay",
+        "name": "pirUnoccupiedToOccupiedDelay",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "18": {
-        "name": "PIR unoccupied to occupied threshold",
+        "name": "pirUnoccupiedToOccupiedThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFE"
       },
       "32": {
-        "name": "ultrasonic occupied to unoccupied delay",
+        "name": "ultrasonicOccupiedToUnoccupiedDelay",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "33": {
-        "name": "ultrasonic unoccupied to occupied delay",
+        "name": "ultrasonicUnoccupiedToOccupiedDelay",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFE"
       },
       "34": {
-        "name": "ultrasonic unoccupied to occupied threshold",
+        "name": "ultrasonicUnoccupiedToOccupiedThreshold",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
@@ -3701,12 +3701,12 @@
     }
   },
   "500": {
-    "name": "Ias Zone",
+    "name": "iasZone",
     "code": "0x0500",
     "clusterId": "500",
     "commands": {
       "0": {
-        "name": "ZoneStatusChangeNotification",
+        "name": "zoneStatusChangeNotification",
         "args": {
           "0": {
             "name": "zoneStatus"
@@ -3723,7 +3723,7 @@
         }
       },
       "1": {
-        "name": "ZoneEnrollRequest",
+        "name": "zoneEnrollRequest",
         "args": {
           "0": {
             "name": "zoneType"
@@ -3734,59 +3734,59 @@
         }
       },
       "2": {
-        "name": "InitiateNormalOperationModeResponse",
+        "name": "initiateNormalOperationModeResponse",
         "args": {}
       },
       "3": {
-        "name": "InitiateTestModeResponse",
+        "name": "initiateTestModeResponse",
         "args": {}
       }
     },
     "attributes": {
       "0": {
-        "name": "zone state",
+        "name": "zoneState",
         "side": "server",
         "type": "ENUM8"
       },
       "1": {
-        "name": "zone type",
+        "name": "zoneType",
         "side": "server",
         "type": "ENUM16"
       },
       "2": {
-        "name": "zone status",
+        "name": "zoneStatus",
         "side": "server",
         "type": "BITMAP16"
       },
       "16": {
-        "name": "IAS CIE address",
+        "name": "iasCieAddress",
         "side": "server",
         "type": "IEEE_ADDRESS"
       },
       "17": {
-        "name": "Zone ID",
+        "name": "zoneId",
         "side": "server",
         "type": "INT8U"
       },
       "18": {
-        "name": "Number of Zone Sensitivity Levels Supported",
+        "name": "numberOfZoneSensitivityLevelsSupported",
         "side": "server",
         "type": "INT8U"
       },
       "19": {
-        "name": "Current Zone Sensitivity Level",
+        "name": "currentZoneSensitivityLevel",
         "side": "server",
         "type": "INT8U"
       }
     }
   },
   "501": {
-    "name": "Ias Ace",
+    "name": "iasAce",
     "code": "0x0501",
     "clusterId": "501",
     "commands": {
       "0": {
-        "name": "ArmResponse",
+        "name": "armResponse",
         "args": {
           "0": {
             "name": "armNotification"
@@ -3794,7 +3794,7 @@
         }
       },
       "1": {
-        "name": "GetZoneIdMapResponse",
+        "name": "getZoneIdMapResponse",
         "args": {
           "0": {
             "name": "section0"
@@ -3847,7 +3847,7 @@
         }
       },
       "2": {
-        "name": "GetZoneInformationResponse",
+        "name": "getZoneInformationResponse",
         "args": {
           "0": {
             "name": "zoneId"
@@ -3864,7 +3864,7 @@
         }
       },
       "3": {
-        "name": "ZoneStatusChanged",
+        "name": "zoneStatusChanged",
         "args": {
           "0": {
             "name": "zoneId"
@@ -3881,7 +3881,7 @@
         }
       },
       "4": {
-        "name": "PanelStatusChanged",
+        "name": "panelStatusChanged",
         "args": {
           "0": {
             "name": "panelStatus"
@@ -3898,7 +3898,7 @@
         }
       },
       "5": {
-        "name": "GetPanelStatusResponse",
+        "name": "getPanelStatusResponse",
         "args": {
           "0": {
             "name": "panelStatus"
@@ -3915,7 +3915,7 @@
         }
       },
       "6": {
-        "name": "SetBypassedZoneList",
+        "name": "setBypassedZoneList",
         "args": {
           "0": {
             "name": "numberOfZones"
@@ -3926,7 +3926,7 @@
         }
       },
       "7": {
-        "name": "BypassResponse",
+        "name": "bypassResponse",
         "args": {
           "0": {
             "name": "numberOfZones"
@@ -3937,7 +3937,7 @@
         }
       },
       "8": {
-        "name": "GetZoneStatusResponse",
+        "name": "getZoneStatusResponse",
         "args": {
           "0": {
             "name": "zoneStatusComplete"
@@ -3951,7 +3951,7 @@
         }
       },
       "9": {
-        "name": "GetZoneStatus",
+        "name": "getZoneStatus",
         "args": {
           "0": {
             "name": "startingZoneId"
@@ -3971,12 +3971,12 @@
     "attributes": {}
   },
   "502": {
-    "name": "Ias Wd",
+    "name": "iasWd",
     "code": "0x0502",
     "clusterId": "502",
     "commands": {
       "0": {
-        "name": "StartWarning",
+        "name": "startWarning",
         "args": {
           "0": {
             "name": "warningInfo"
@@ -3993,7 +3993,7 @@
         }
       },
       "1": {
-        "name": "Squawk",
+        "name": "squawk",
         "args": {
           "0": {
             "name": "squawkInfo"
@@ -4003,7 +4003,7 @@
     },
     "attributes": {
       "0": {
-        "name": "max duration",
+        "name": "maxDuration",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -4012,7 +4012,7 @@
     }
   },
   "A": {
-    "name": "Time",
+    "name": "time",
     "code": "0x000A",
     "clusterId": "A",
     "commands": {},
@@ -4025,63 +4025,63 @@
         "max": "0xFFFFFFFE"
       },
       "1": {
-        "name": "time status",
+        "name": "timeStatus",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x0F"
       },
       "2": {
-        "name": "time zone",
+        "name": "timeZone",
         "side": "server",
         "type": "INT32S",
         "min": "0xFFFEAE80",
         "max": "0x00015180"
       },
       "3": {
-        "name": "dst start",
+        "name": "dstStart",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
       "4": {
-        "name": "dst end",
+        "name": "dstEnd",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
       "5": {
-        "name": "dst shift",
+        "name": "dstShift",
         "side": "server",
         "type": "INT32S",
         "min": "0xFFFEAE80",
         "max": "0x00015180"
       },
       "6": {
-        "name": "standard time",
+        "name": "standardTime",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
       "7": {
-        "name": "local time",
+        "name": "localTime",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
       "8": {
-        "name": "last set time",
+        "name": "lastSetTime",
         "side": "server",
         "type": "UTC_TIME",
         "min": "0x00000000",
         "max": "0xFFFFFFFE"
       },
       "9": {
-        "name": "valid until time",
+        "name": "validUntilTime",
         "side": "server",
         "type": "UTC_TIME",
         "min": "0x00000000",
@@ -4090,12 +4090,12 @@
     }
   },
   "B": {
-    "name": "Rssi Location",
+    "name": "rssiLocation",
     "code": "0x000B",
     "clusterId": "B",
     "commands": {
       "0": {
-        "name": "DeviceConfigurationResponse",
+        "name": "deviceConfigurationResponse",
         "args": {
           "0": {
             "name": "status"
@@ -4118,7 +4118,7 @@
         }
       },
       "1": {
-        "name": "LocationDataResponse",
+        "name": "locationDataResponse",
         "args": {
           "0": {
             "name": "status"
@@ -4153,7 +4153,7 @@
         }
       },
       "2": {
-        "name": "LocationDataNotification",
+        "name": "locationDataNotification",
         "args": {
           "0": {
             "name": "locationType"
@@ -4185,7 +4185,7 @@
         }
       },
       "3": {
-        "name": "CompactLocationDataNotification",
+        "name": "compactLocationDataNotification",
         "args": {
           "0": {
             "name": "locationType"
@@ -4208,7 +4208,7 @@
         }
       },
       "4": {
-        "name": "RssiPing",
+        "name": "rssiPing",
         "args": {
           "0": {
             "name": "locationType"
@@ -4216,11 +4216,11 @@
         }
       },
       "5": {
-        "name": "RssiRequest",
+        "name": "rssiRequest",
         "args": {}
       },
       "6": {
-        "name": "ReportRssiMeasurements",
+        "name": "reportRssiMeasurements",
         "args": {
           "0": {
             "name": "measuringDevice"
@@ -4234,7 +4234,7 @@
         }
       },
       "7": {
-        "name": "RequestOwnLocation",
+        "name": "requestOwnLocation",
         "args": {
           "0": {
             "name": "blindNode"
@@ -4244,56 +4244,56 @@
     },
     "attributes": {
       "0": {
-        "name": "location type",
+        "name": "locationType",
         "side": "server",
         "type": "DATA8",
         "min": "0x00",
         "max": "0x0F"
       },
       "1": {
-        "name": "location method",
+        "name": "locationMethod",
         "side": "server",
         "type": "ENUM8",
         "min": "0x00",
         "max": "0xFF"
       },
       "2": {
-        "name": "location age",
+        "name": "locationAge",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "3": {
-        "name": "quality measure",
+        "name": "qualityMeasure",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0x64"
       },
       "4": {
-        "name": "number of devices",
+        "name": "numberOfDevices",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "16": {
-        "name": "coordinate 1",
+        "name": "coordinate1",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
         "max": "0x7FFF"
       },
       "17": {
-        "name": "coordinate 2",
+        "name": "coordinate2",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
         "max": "0x7FFF"
       },
       "18": {
-        "name": "coordinate 3",
+        "name": "coordinate3",
         "side": "server",
         "type": "INT16S",
         "min": "0x8000",
@@ -4307,28 +4307,28 @@
         "max": "0x7FFF"
       },
       "20": {
-        "name": "path loss exponent",
+        "name": "pathLossExponent",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "21": {
-        "name": "reporting period",
+        "name": "reportingPeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "22": {
-        "name": "calculation period",
+        "name": "calculationPeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "23": {
-        "name": "number rssi measurements",
+        "name": "numberRssiMeasurements",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
@@ -4337,13 +4337,13 @@
     }
   },
   "F": {
-    "name": "Binary Input  Basic ",
+    "name": "binaryInputBasic",
     "code": "0x000F",
     "clusterId": "F",
     "commands": {},
     "attributes": {
       "4": {
-        "name": "active text",
+        "name": "activeText",
         "side": "server",
         "type": "CHAR_STRING"
       },
@@ -4353,12 +4353,12 @@
         "type": "CHAR_STRING"
       },
       "46": {
-        "name": "inactive text",
+        "name": "inactiveText",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "81": {
-        "name": "out of service",
+        "name": "outOfService",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
@@ -4370,7 +4370,7 @@
         "type": "ENUM8"
       },
       "85": {
-        "name": "present value",
+        "name": "presentValue",
         "side": "server",
         "type": "BOOLEAN"
       },
@@ -4380,14 +4380,14 @@
         "type": "ENUM8"
       },
       "111": {
-        "name": "status flags",
+        "name": "statusFlags",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0x0F"
       },
       "256": {
-        "name": "application type",
+        "name": "applicationType",
         "side": "server",
         "type": "INT32U",
         "min": "0x00000000",
@@ -4396,12 +4396,12 @@
     }
   },
   "1B": {
-    "name": "Appliance Control",
+    "name": "applianceControl",
     "code": "0x001B",
     "clusterId": "1B",
     "commands": {
       "0": {
-        "name": "SignalStateResponse",
+        "name": "signalStateResponse",
         "args": {
           "0": {
             "name": "applianceStatus"
@@ -4415,7 +4415,7 @@
         }
       },
       "1": {
-        "name": "SignalStateNotification",
+        "name": "signalStateNotification",
         "args": {
           "0": {
             "name": "applianceStatus"
@@ -4429,7 +4429,7 @@
         }
       },
       "2": {
-        "name": "WriteFunctions",
+        "name": "writeFunctions",
         "args": {
           "0": {
             "name": "functionId"
@@ -4443,15 +4443,15 @@
         }
       },
       "3": {
-        "name": "OverloadPauseResume",
+        "name": "overloadPauseResume",
         "args": {}
       },
       "4": {
-        "name": "OverloadPause",
+        "name": "overloadPause",
         "args": {}
       },
       "5": {
-        "name": "OverloadWarning",
+        "name": "overloadWarning",
         "args": {
           "0": {
             "name": "warningEvent"
@@ -4461,21 +4461,21 @@
     },
     "attributes": {
       "0": {
-        "name": "start time",
+        "name": "startTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1": {
-        "name": "finish time",
+        "name": "finishTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "2": {
-        "name": "remaining time",
+        "name": "remainingTime",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -4484,12 +4484,12 @@
     }
   },
   "1A": {
-    "name": "Power Profile",
+    "name": "powerProfile",
     "code": "0x001A",
     "clusterId": "1A",
     "commands": {
       "0": {
-        "name": "GetPowerProfilePriceExtended",
+        "name": "getPowerProfilePriceExtended",
         "args": {
           "0": {
             "name": "options"
@@ -4503,7 +4503,7 @@
         }
       },
       "1": {
-        "name": "PowerProfileResponse",
+        "name": "powerProfileResponse",
         "args": {
           "0": {
             "name": "totalProfileNum"
@@ -4520,7 +4520,7 @@
         }
       },
       "2": {
-        "name": "PowerProfileStateResponse",
+        "name": "powerProfileStateResponse",
         "args": {
           "0": {
             "name": "powerProfileCount"
@@ -4531,7 +4531,7 @@
         }
       },
       "3": {
-        "name": "GetPowerProfilePrice",
+        "name": "getPowerProfilePrice",
         "args": {
           "0": {
             "name": "powerProfileId"
@@ -4539,7 +4539,7 @@
         }
       },
       "4": {
-        "name": "PowerProfilesStateNotification",
+        "name": "powerProfilesStateNotification",
         "args": {
           "0": {
             "name": "powerProfileCount"
@@ -4550,11 +4550,11 @@
         }
       },
       "5": {
-        "name": "GetOverallSchedulePrice",
+        "name": "getOverallSchedulePrice",
         "args": {}
       },
       "6": {
-        "name": "EnergyPhasesScheduleRequest",
+        "name": "energyPhasesScheduleRequest",
         "args": {
           "0": {
             "name": "powerProfileId"
@@ -4562,7 +4562,7 @@
         }
       },
       "7": {
-        "name": "EnergyPhasesScheduleStateResponse",
+        "name": "energyPhasesScheduleStateResponse",
         "args": {
           "0": {
             "name": "powerProfileId"
@@ -4576,7 +4576,7 @@
         }
       },
       "8": {
-        "name": "EnergyPhasesScheduleStateNotification",
+        "name": "energyPhasesScheduleStateNotification",
         "args": {
           "0": {
             "name": "powerProfileId"
@@ -4590,7 +4590,7 @@
         }
       },
       "9": {
-        "name": "PowerProfileScheduleConstraintsNotification",
+        "name": "powerProfileScheduleConstraintsNotification",
         "args": {
           "0": {
             "name": "powerProfileId"
@@ -4606,35 +4606,35 @@
     },
     "attributes": {
       "0": {
-        "name": "total profile num",
+        "name": "totalProfileNum",
         "side": "server",
         "type": "INT8U",
         "min": "0x01",
         "max": "0xFE"
       },
       "1": {
-        "name": "multiple scheduling",
+        "name": "multipleScheduling",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "2": {
-        "name": "energy formatting",
+        "name": "energyFormatting",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0xFF"
       },
       "3": {
-        "name": "energy remote",
+        "name": "energyRemote",
         "side": "server",
         "type": "BOOLEAN",
         "min": "0x00",
         "max": "0x01"
       },
       "4": {
-        "name": "schedule mode",
+        "name": "scheduleMode",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
@@ -4643,35 +4643,35 @@
     }
   },
   "B00": {
-    "name": "Appliance Identification",
+    "name": "applianceIdentification",
     "code": "0x0B00",
     "clusterId": "B00",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "basic identification",
+        "name": "basicIdentification",
         "side": "server",
         "type": "INT56U"
       },
       "16": {
-        "name": "company name",
+        "name": "companyName",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "17": {
-        "name": "company id",
+        "name": "companyId",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "18": {
-        "name": "brand name",
+        "name": "brandName",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "19": {
-        "name": "brand id",
+        "name": "brandId",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -4683,34 +4683,34 @@
         "type": "OCTET_STRING"
       },
       "21": {
-        "name": "part number",
+        "name": "partNumber",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "22": {
-        "name": "product revision",
+        "name": "productRevision",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "23": {
-        "name": "software revision",
+        "name": "softwareRevision",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "24": {
-        "name": "product type name",
+        "name": "productTypeName",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "25": {
-        "name": "product type id",
+        "name": "productTypeId",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "26": {
-        "name": "ceced specification version",
+        "name": "cecedSpecificationVersion",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
@@ -4719,32 +4719,32 @@
     }
   },
   "B01": {
-    "name": "Meter Identification",
+    "name": "meterIdentification",
     "code": "0x0B01",
     "clusterId": "B01",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "company name",
+        "name": "companyName",
         "side": "server",
         "type": "CHAR_STRING"
       },
       "1": {
-        "name": "meter type id",
+        "name": "meterTypeId",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "4": {
-        "name": "data quality id",
+        "name": "dataQualityId",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "5": {
-        "name": "customer name",
+        "name": "customerName",
         "side": "server",
         "type": "CHAR_STRING"
       },
@@ -4754,22 +4754,22 @@
         "type": "OCTET_STRING"
       },
       "7": {
-        "name": "part number",
+        "name": "partNumber",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "8": {
-        "name": "product revision",
+        "name": "productRevision",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "10": {
-        "name": "software revision",
+        "name": "softwareRevision",
         "side": "server",
         "type": "OCTET_STRING"
       },
       "11": {
-        "name": "utility name",
+        "name": "utilityName",
         "side": "server",
         "type": "CHAR_STRING"
       },
@@ -4779,14 +4779,14 @@
         "type": "CHAR_STRING"
       },
       "13": {
-        "name": "available power",
+        "name": "availablePower",
         "side": "server",
         "type": "INT24S",
         "min": "0x000000",
         "max": "0xFFFFFF"
       },
       "14": {
-        "name": "power threshold",
+        "name": "powerThreshold",
         "side": "server",
         "type": "INT24S",
         "min": "0x000000",
@@ -4795,12 +4795,12 @@
     }
   },
   "B02": {
-    "name": "Appliance Events And Alert",
+    "name": "applianceEventsAndAlert",
     "code": "0x0B02",
     "clusterId": "B02",
     "commands": {
       "0": {
-        "name": "GetAlertsResponse",
+        "name": "getAlertsResponse",
         "args": {
           "0": {
             "name": "alertsCount"
@@ -4811,7 +4811,7 @@
         }
       },
       "1": {
-        "name": "AlertsNotification",
+        "name": "alertsNotification",
         "args": {
           "0": {
             "name": "alertsCount"
@@ -4822,7 +4822,7 @@
         }
       },
       "2": {
-        "name": "EventsNotification",
+        "name": "eventsNotification",
         "args": {
           "0": {
             "name": "eventHeader"
@@ -4836,12 +4836,12 @@
     "attributes": {}
   },
   "B03": {
-    "name": "Appliance Statistics",
+    "name": "applianceStatistics",
     "code": "0x0B03",
     "clusterId": "B03",
     "commands": {
       "0": {
-        "name": "LogRequest",
+        "name": "logRequest",
         "args": {
           "0": {
             "name": "logId"
@@ -4849,11 +4849,11 @@
         }
       },
       "1": {
-        "name": "LogQueueRequest",
+        "name": "logQueueRequest",
         "args": {}
       },
       "2": {
-        "name": "LogQueueResponse",
+        "name": "logQueueResponse",
         "args": {
           "0": {
             "name": "logQueueSize"
@@ -4864,7 +4864,7 @@
         }
       },
       "3": {
-        "name": "StatisticsAvailable",
+        "name": "statisticsAvailable",
         "args": {
           "0": {
             "name": "logQueueSize"
@@ -4877,28 +4877,28 @@
     },
     "attributes": {
       "0": {
-        "name": "log max size",
+        "name": "logMaxSize",
         "side": "server",
         "type": "INT32U"
       },
       "1": {
-        "name": "log queue max size",
+        "name": "logQueueMaxSize",
         "side": "server",
         "type": "INT8U"
       }
     }
   },
   "B04": {
-    "name": "Electrical Measurement",
+    "name": "electricalMeasurement",
     "code": "0x0B04",
     "clusterId": "B04",
     "commands": {
       "0": {
-        "name": "GetProfileInfoCommand",
+        "name": "getProfileInfoCommand",
         "args": {}
       },
       "1": {
-        "name": "GetMeasurementProfileCommand",
+        "name": "getMeasurementProfileCommand",
         "args": {
           "0": {
             "name": "attributeId"
@@ -4914,896 +4914,896 @@
     },
     "attributes": {
       "0": {
-        "name": "measurement type",
+        "name": "measurementType",
         "side": "server",
         "type": "BITMAP32",
         "min": "0x00000000",
         "max": "0xFFFFFFFF"
       },
       "256": {
-        "name": "dc voltage",
+        "name": "dcVoltage",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "257": {
-        "name": "dc voltage min",
+        "name": "dcVoltageMin",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "258": {
-        "name": "dc voltage max",
+        "name": "dcVoltageMax",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "259": {
-        "name": "dc current",
+        "name": "dcCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "260": {
-        "name": "dc current min",
+        "name": "dcCurrentMin",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "261": {
-        "name": "dc current max",
+        "name": "dcCurrentMax",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "262": {
-        "name": "dc power",
+        "name": "dcPower",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "263": {
-        "name": "dc power min",
+        "name": "dcPowerMin",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "264": {
-        "name": "dc power max",
+        "name": "dcPowerMax",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "512": {
-        "name": "dc voltage multiplier",
+        "name": "dcVoltageMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "513": {
-        "name": "dc voltage divisor",
+        "name": "dcVoltageDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "514": {
-        "name": "dc current multiplier",
+        "name": "dcCurrentMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "515": {
-        "name": "dc current divisor",
+        "name": "dcCurrentDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "516": {
-        "name": "dc power multiplier",
+        "name": "dcPowerMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "517": {
-        "name": "dc power divisor",
+        "name": "dcPowerDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "768": {
-        "name": "ac frequency",
+        "name": "acFrequency",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "769": {
-        "name": "ac frequency min",
+        "name": "acFrequencyMin",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "770": {
-        "name": "ac frequency max",
+        "name": "acFrequencyMax",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "771": {
-        "name": "neutral current",
+        "name": "neutralCurrent",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "772": {
-        "name": "total active power",
+        "name": "totalActivePower",
         "side": "server",
         "type": "INT32S",
         "min": "0x800001",
         "max": "0x7FFFFF"
       },
       "773": {
-        "name": "total reactive power",
+        "name": "totalReactivePower",
         "side": "server",
         "type": "INT32S",
         "min": "0x800001",
         "max": "0x7FFFFF"
       },
       "774": {
-        "name": "total apparent power",
+        "name": "totalApparentPower",
         "side": "server",
         "type": "INT32U",
         "min": "0",
         "max": "0xFFFFFF"
       },
       "775": {
-        "name": "measured 1st harmonic current",
+        "name": "measured1stHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "776": {
-        "name": "measured 3rd harmonic current",
+        "name": "measured3rdHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "777": {
-        "name": "measured 5th harmonic current",
+        "name": "measured5thHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "778": {
-        "name": "measured 7th harmonic current",
+        "name": "measured7thHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "779": {
-        "name": "measured 9th harmonic current",
+        "name": "measured9thHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "780": {
-        "name": "measured 11th harmonic current",
+        "name": "measured11ThHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "781": {
-        "name": "measured phase 1st harmonic current",
+        "name": "measuredPhase1stHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "782": {
-        "name": "measured phase 3rd harmonic current",
+        "name": "measuredPhase3rdHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "783": {
-        "name": "measured phase 5th harmonic current",
+        "name": "measuredPhase5thHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "784": {
-        "name": "measured phase 7th harmonic current",
+        "name": "measuredPhase7thHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "785": {
-        "name": "measured phase 9th harmonic current",
+        "name": "measuredPhase9thHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "786": {
-        "name": "measured phase 11th harmonic current",
+        "name": "measuredPhase11ThHarmonicCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "323767"
       },
       "1024": {
-        "name": "ac frequency multiplier",
+        "name": "acFrequencyMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1025": {
-        "name": "ac frequency divisor",
+        "name": "acFrequencyDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1026": {
-        "name": "power multiplier",
+        "name": "powerMultiplier",
         "side": "server",
         "type": "INT32U",
         "min": "0",
         "max": "0xFFFFFF"
       },
       "1027": {
-        "name": "power divisor",
+        "name": "powerDivisor",
         "side": "server",
         "type": "INT32U",
         "min": "0",
         "max": "0xFFFFFF"
       },
       "1028": {
-        "name": "harmonic current multiplier",
+        "name": "harmonicCurrentMultiplier",
         "side": "server",
         "type": "INT8S",
         "min": "-127",
         "max": "127"
       },
       "1029": {
-        "name": "phase harmonic current multiplier",
+        "name": "phaseHarmonicCurrentMultiplier",
         "side": "server",
         "type": "INT8S",
         "min": "-127",
         "max": "127"
       },
       "1280": {
-        "name": "instantaneous voltage",
+        "name": "instantaneousVoltage",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1281": {
-        "name": "instantaneous line current",
+        "name": "instantaneousLineCurrent",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1282": {
-        "name": "instantaneous active current",
+        "name": "instantaneousActiveCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1283": {
-        "name": "instantaneous reactive current",
+        "name": "instantaneousReactiveCurrent",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1284": {
-        "name": "instantaneous power",
+        "name": "instantaneousPower",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1285": {
-        "name": "rms voltage",
+        "name": "rmsVoltage",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1286": {
-        "name": "rms voltage min",
+        "name": "rmsVoltageMin",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1287": {
-        "name": "rms voltage max",
+        "name": "rmsVoltageMax",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1288": {
-        "name": "rms current",
+        "name": "rmsCurrent",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1289": {
-        "name": "rms current min",
+        "name": "rmsCurrentMin",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1290": {
-        "name": "rms current max",
+        "name": "rmsCurrentMax",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1291": {
-        "name": "active power",
+        "name": "activePower",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1292": {
-        "name": "active power min",
+        "name": "activePowerMin",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1293": {
-        "name": "active power max",
+        "name": "activePowerMax",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1294": {
-        "name": "reactive power",
+        "name": "reactivePower",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1295": {
-        "name": "apparent power",
+        "name": "apparentPower",
         "side": "server",
         "type": "INT16U",
         "min": "0",
         "max": "0xFFFF"
       },
       "1296": {
-        "name": "power factor",
+        "name": "powerFactor",
         "side": "server",
         "type": "INT8S",
         "min": "-100",
         "max": "100"
       },
       "1297": {
-        "name": "average rms voltage measurement period",
+        "name": "averageRmsVoltageMeasurementPeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1299": {
-        "name": "average rms under voltage counter",
+        "name": "averageRmsUnderVoltageCounter",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1300": {
-        "name": "rms extreme over voltage period",
+        "name": "rmsExtremeOverVoltagePeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1301": {
-        "name": "rms extreme under voltage period",
+        "name": "rmsExtremeUnderVoltagePeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1302": {
-        "name": "rms voltage sag period",
+        "name": "rmsVoltageSagPeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1303": {
-        "name": "rms voltage swell period",
+        "name": "rmsVoltageSwellPeriod",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1536": {
-        "name": "ac voltage multiplier",
+        "name": "acVoltageMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1537": {
-        "name": "ac voltage divisor",
+        "name": "acVoltageDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1538": {
-        "name": "ac current multiplier",
+        "name": "acCurrentMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1539": {
-        "name": "ac current divisor",
+        "name": "acCurrentDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1540": {
-        "name": "ac power multiplier",
+        "name": "acPowerMultiplier",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1541": {
-        "name": "ac power divisor",
+        "name": "acPowerDivisor",
         "side": "server",
         "type": "INT16U",
         "min": "1",
         "max": "0xFFFF"
       },
       "1792": {
-        "name": "overload alarms mask",
+        "name": "overloadAlarmsMask",
         "side": "server",
         "type": "BITMAP8",
         "min": "0x00",
         "max": "0xFF"
       },
       "1793": {
-        "name": "voltage overload",
+        "name": "voltageOverload",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "1794": {
-        "name": "current overload",
+        "name": "currentOverload",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2048": {
-        "name": "ac overload alarms mask",
+        "name": "acOverloadAlarmsMask",
         "side": "server",
         "type": "BITMAP16",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "2049": {
-        "name": "ac voltage overload",
+        "name": "acVoltageOverload",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2050": {
-        "name": "ac current overload",
+        "name": "acCurrentOverload",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2051": {
-        "name": "ac active power overload",
+        "name": "acActivePowerOverload",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2052": {
-        "name": "ac reactive power overload",
+        "name": "acReactivePowerOverload",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2053": {
-        "name": "average rms over voltage",
+        "name": "averageRmsOverVoltage",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2054": {
-        "name": "average rms under voltage",
+        "name": "averageRmsUnderVoltage",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2055": {
-        "name": "rms extreme over voltage",
+        "name": "rmsExtremeOverVoltage",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2056": {
-        "name": "rms extreme under voltage",
+        "name": "rmsExtremeUnderVoltage",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2057": {
-        "name": "rms voltage sag",
+        "name": "rmsVoltageSag",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2058": {
-        "name": "rms voltage swell",
+        "name": "rmsVoltageSwell",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2305": {
-        "name": "line current phase b",
+        "name": "lineCurrentPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2306": {
-        "name": "active current phase b",
+        "name": "activeCurrentPhaseB",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2307": {
-        "name": "reactive current phase b",
+        "name": "reactiveCurrentPhaseB",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2309": {
-        "name": "rms voltage phase b",
+        "name": "rmsVoltagePhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2310": {
-        "name": "rms voltage min phase b",
+        "name": "rmsVoltageMinPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2311": {
-        "name": "rms voltage max phase b",
+        "name": "rmsVoltageMaxPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2312": {
-        "name": "rms current phase b",
+        "name": "rmsCurrentPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2313": {
-        "name": "rms current min phase b",
+        "name": "rmsCurrentMinPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2314": {
-        "name": "rms current max phase b",
+        "name": "rmsCurrentMaxPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2315": {
-        "name": "active power phase b",
+        "name": "activePowerPhaseB",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2316": {
-        "name": "active power min phase b",
+        "name": "activePowerMinPhaseB",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2317": {
-        "name": "active power max phase b",
+        "name": "activePowerMaxPhaseB",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2318": {
-        "name": "reactive power phase b",
+        "name": "reactivePowerPhaseB",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2319": {
-        "name": "apparent power phase b",
+        "name": "apparentPowerPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2320": {
-        "name": "power factor phase b",
+        "name": "powerFactorPhaseB",
         "side": "server",
         "type": "INT8S",
         "min": "-100",
         "max": "100"
       },
       "2321": {
-        "name": "average rms voltage measurement period phase b",
+        "name": "averageRmsVoltageMeasurementPeriodPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2322": {
-        "name": "average rms over voltage counter phase b",
+        "name": "averageRmsOverVoltageCounterPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2323": {
-        "name": "average rms under voltage counter phase b",
+        "name": "averageRmsUnderVoltageCounterPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2324": {
-        "name": "rms extreme over voltage period phase b",
+        "name": "rmsExtremeOverVoltagePeriodPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2325": {
-        "name": "rms extreme under voltage period phase b",
+        "name": "rmsExtremeUnderVoltagePeriodPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2326": {
-        "name": "rms voltage sag period phase b",
+        "name": "rmsVoltageSagPeriodPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2327": {
-        "name": "rms voltage swell period phase b",
+        "name": "rmsVoltageSwellPeriodPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2561": {
-        "name": "line current phase c",
+        "name": "lineCurrentPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2562": {
-        "name": "active current phase c",
+        "name": "activeCurrentPhaseC",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2563": {
-        "name": "reactive current phase c",
+        "name": "reactiveCurrentPhaseC",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2565": {
-        "name": "rms voltage phase c",
+        "name": "rmsVoltagePhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2566": {
-        "name": "rms voltage min phase c",
+        "name": "rmsVoltageMinPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2567": {
-        "name": "rms voltage max phase c",
+        "name": "rmsVoltageMaxPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2568": {
-        "name": "rms current phase b",
+        "name": "rmsCurrentPhaseB",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2569": {
-        "name": "rms current min phase c",
+        "name": "rmsCurrentMinPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2570": {
-        "name": "rms current max phase c",
+        "name": "rmsCurrentMaxPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2571": {
-        "name": "active power phase c",
+        "name": "activePowerPhaseC",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2572": {
-        "name": "active power min phase c",
+        "name": "activePowerMinPhaseC",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2573": {
-        "name": "active power max phase c",
+        "name": "activePowerMaxPhaseC",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2574": {
-        "name": "reactive power phase c",
+        "name": "reactivePowerPhaseC",
         "side": "server",
         "type": "INT16S",
         "min": "-32768",
         "max": "32767"
       },
       "2575": {
-        "name": "apparent power phase c",
+        "name": "apparentPowerPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2576": {
-        "name": "power factor phase c",
+        "name": "powerFactorPhaseC",
         "side": "server",
         "type": "INT8S",
         "min": "-100",
         "max": "100"
       },
       "2577": {
-        "name": "average rms voltage measurement period phase c",
+        "name": "averageRmsVoltageMeasurementPeriodPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2578": {
-        "name": "average rms over voltage counter phase c",
+        "name": "averageRmsOverVoltageCounterPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2579": {
-        "name": "average rms under voltage counter phase c",
+        "name": "averageRmsUnderVoltageCounterPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2580": {
-        "name": "rms extreme over voltage period phase c",
+        "name": "rmsExtremeOverVoltagePeriodPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2581": {
-        "name": "rms extreme under voltage period phase c",
+        "name": "rmsExtremeUnderVoltagePeriodPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2582": {
-        "name": "rms voltage sag period phase c",
+        "name": "rmsVoltageSagPeriodPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xffff"
       },
       "2583": {
-        "name": "rms voltage swell period phase c",
+        "name": "rmsVoltageSwellPeriodPhaseC",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
@@ -5812,230 +5812,230 @@
     }
   },
   "B05": {
-    "name": "Diagnostics",
+    "name": "diagnostics",
     "code": "0x0B05",
     "clusterId": "B05",
     "commands": {},
     "attributes": {
       "0": {
-        "name": "number of resets",
+        "name": "numberOfResets",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "1": {
-        "name": "persistent memory writes",
+        "name": "persistentMemoryWrites",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "256": {
-        "name": "mac rx broadcast",
+        "name": "macRxBroadcast",
         "side": "server",
         "type": "INT32U",
         "min": "0x0000",
         "max": "0xFFFFFFFF"
       },
       "257": {
-        "name": "mac tx broadcast",
+        "name": "macTxBroadcast",
         "side": "server",
         "type": "INT32U",
         "min": "0x0000",
         "max": "0xFFFFFFFF"
       },
       "258": {
-        "name": "mac rx unicast",
+        "name": "macRxUnicast",
         "side": "server",
         "type": "INT32U",
         "min": "0x0000",
         "max": "0xFFFFFFFF"
       },
       "259": {
-        "name": "mac tx unicast",
+        "name": "macTxUnicast",
         "side": "server",
         "type": "INT32U",
         "min": "0x0000",
         "max": "0xFFFFFFFF"
       },
       "260": {
-        "name": "mac tx unicast retry",
+        "name": "macTxUnicastRetry",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "261": {
-        "name": "mac tx unicast fail",
+        "name": "macTxUnicastFail",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "262": {
-        "name": "aps rx broadcast",
+        "name": "apsRxBroadcast",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "263": {
-        "name": "aps tx broadcast",
+        "name": "apsTxBroadcast",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "264": {
-        "name": "aps rx unicast",
+        "name": "apsRxUnicast",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "265": {
-        "name": "aps unicast success",
+        "name": "apsUnicastSuccess",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "266": {
-        "name": "aps tx unicast retries",
+        "name": "apsTxUnicastRetries",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "267": {
-        "name": "aps tx unicast failures",
+        "name": "apsTxUnicastFailures",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "268": {
-        "name": "route discovery initiated",
+        "name": "routeDiscoveryInitiated",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "269": {
-        "name": "neighbor added",
+        "name": "neighborAdded",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "270": {
-        "name": "neighbor moved",
+        "name": "neighborMoved",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "271": {
-        "name": "neighbor stale",
+        "name": "neighborStale",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "272": {
-        "name": "join indication",
+        "name": "joinIndication",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "273": {
-        "name": "child moved",
+        "name": "childMoved",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "274": {
-        "name": "network frame control failure",
+        "name": "networkFrameControlFailure",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "275": {
-        "name": "aps frame control failure",
+        "name": "apsFrameControlFailure",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "276": {
-        "name": "aps unauthorized key",
+        "name": "apsUnauthorizedKey",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "277": {
-        "name": "network decryption failure",
+        "name": "networkDecryptionFailure",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "278": {
-        "name": "aps decryption failure",
+        "name": "apsDecryptionFailure",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "279": {
-        "name": "packet buffer allocation failures",
+        "name": "packetBufferAllocationFailures",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "280": {
-        "name": "relayed unicasts",
+        "name": "relayedUnicasts",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "281": {
-        "name": "phy to mac queue limit reached",
+        "name": "phyToMacQueueLimitReached",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "282": {
-        "name": "packet validate drop count",
+        "name": "packetValidateDropCount",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "283": {
-        "name": "average mac retry per aps message sent",
+        "name": "averageMacRetryPerApsMessageSent",
         "side": "server",
         "type": "INT16U",
         "min": "0x0000",
         "max": "0xFFFF"
       },
       "284": {
-        "name": "last message lqi",
+        "name": "lastMessageLqi",
         "side": "server",
         "type": "INT8U",
         "min": "0x00",
         "max": "0xFF"
       },
       "285": {
-        "name": "last message rssi",
+        "name": "lastMessageRssi",
         "side": "server",
         "type": "INT8S",
         "min": "0x00",

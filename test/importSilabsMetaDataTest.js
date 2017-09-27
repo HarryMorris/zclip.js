@@ -15,7 +15,7 @@ test('can import an empty cluster', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target[0].name).toEqual('Basic');
+    expect(target[0].name).toEqual('basic');
     expect(target[0].code).toEqual('0x0000');
     expect(target[0].clusterId).toEqual('0');
   });
@@ -38,8 +38,8 @@ test('uses hex as key', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target[300].name).toEqual('Basic');
-    expect(target['FF'].name).toEqual('Basic 2');
+    expect(target[300].name).toEqual('basic');
+    expect(target['FF'].name).toEqual('basic2');
   });
 });
 
@@ -56,11 +56,11 @@ test('removes special characters in cluster name', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target[0].name).toEqual('Basic Name');
+    expect(target[0].name).toEqual('basicName');
   });
 });
 
-test('titlize cluster name', () => {
+test('camelCases cluster name', () => {
   var xml = '\
     <configurator>\
       <cluster>\
@@ -73,7 +73,7 @@ test('titlize cluster name', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0'].name).toEqual('Basic Name');
+    expect(target['0'].name).toEqual('basicName');
   });
 });
 
@@ -92,7 +92,7 @@ test('can import a single command', () => {
 
   importSilabsMetaData(xml, target, function(err) {
     var command = target['0'].commands['1'];
-    expect(command.name).toEqual('Command 1');
+    expect(command.name).toEqual('command1');
     expect(command.args).toEqual({});
   });
 });
@@ -112,8 +112,8 @@ test('can import multiple commands', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0'].commands['1'].name).toEqual('Command 1');
-    expect(target['0'].commands['2'].name).toEqual('Command 2');
+    expect(target['0'].commands['1'].name).toEqual('command1');
+    expect(target['0'].commands['2'].name).toEqual('command2');
   });
 });
 
@@ -124,8 +124,8 @@ test('can import commands with arguments', () => {
         <name>Cluster Name</name>\
         <code>0x0000</code>\
         <command code="0x01" name="Command 1">\
-          <arg name="arg1" />\
-          <arg name="arg2" />\
+          <arg name="Arg 1" />\
+          <arg name="Arg 2" />\
         </command>\
       </cluster>\
     </configurator>\
@@ -135,7 +135,7 @@ test('can import commands with arguments', () => {
 
   importSilabsMetaData(xml, target, function(err) {
     var command = target['0'].commands['1'];
-    expect(command.name).toEqual('Command 1');
+    expect(command.name).toEqual('command1');
     expect(command.args['0'].name).toEqual('arg1');
     expect(command.args['1'].name).toEqual('arg2');
   });
@@ -156,7 +156,7 @@ test('can import a single attribute', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0'].attributes['1'].name).toEqual('Attribute 1');
+    expect(target['0'].attributes['1'].name).toEqual('attribute1');
   });
 });
 
@@ -175,8 +175,8 @@ test('can import multiple attributes', () => {
   var target = {};
 
   importSilabsMetaData(xml, target, function(err) {
-    expect(target['0'].attributes['1'].name).toEqual('Attribute 1');
-    expect(target['0'].attributes['2'].name).toEqual('Attribute 2');
+    expect(target['0'].attributes['1'].name).toEqual('attribute1');
+    expect(target['0'].attributes['2'].name).toEqual('attribute2');
   });
 });
 
