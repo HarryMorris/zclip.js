@@ -6,7 +6,7 @@ module.exports = function(handlers) {
   return function(zclCommand, cli) {
     var handler = handlers[zclCommand.keywords[0]];
 
-    if (zclCommand.options.version) {
+    if (zclCommand.options && zclCommand.options.version) {
       printVersion(cli);
       return;
     }
