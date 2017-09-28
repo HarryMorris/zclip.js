@@ -6,6 +6,11 @@ module.exports = function(handlers) {
   return function(zclCommand, cli) {
     var handler = handlers[zclCommand.keywords[0]];
 
+    if (zclCommand.options.version) {
+      printVersion(cli);
+      return;
+    }
+
     if (!handler) {
       printUsage(cli);
       return;
@@ -21,6 +26,11 @@ module.exports = function(handlers) {
     _.keys(handlers).forEach(function(command) {
       cli.print(cli.TAB + command);
     });
+  }
+
+  function printVersion(cli) {
+    var version = require(__appRoot + 'package.json').version;
+    cli.print('Version: ' + version);
   }
 }
 
