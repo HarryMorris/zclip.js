@@ -7,6 +7,9 @@ var fakeCoap;
 
 beforeAll(function() {
   ClusterBase = require(__appRoot + 'lib/ClusterBase')();
+});
+
+beforeEach(function() {
   fakeCoap = new FakeCoap();
 });
 
@@ -94,7 +97,8 @@ test('Commands map arguments in cbor', function() {
 
   clusterBase.cmd({
     arg1: 'foo',
-    arg3: 'bar'
+    arg2: 'bar',
+    arg3: 'baz'
   });
 
   expect(fakeCoap.lastRequest).toBeDefined();
@@ -104,7 +108,46 @@ test('Commands map arguments in cbor', function() {
 
   var payload = cbor.decodeFirstSync(encodedPayload);
   expect(payload.get(0)).toEqual('foo');
-  expect(payload.get(2)).toEqual('bar');
+  expect(payload.get(1)).toEqual('bar');
+  expect(payload.get(2)).toEqual('baz');
+});
+
+test('Requires all command arguments', function() {
+  var metaData = {
+    "commands": {
+      "0": {
+        "name": "cmd",
+        "args": {
+          "0": {
+            "name": "arg1",
+          },
+          "1": {
+            "name": "arg2",
+          }
+        }
+      }
+    }
+  }
+
+  var ip = '192.168.1.1';
+  var port = 5683;
+  var basePath = '/zcl/e/1/s6/';
+
+  var clusterBase = new ClusterBase(metaData, fakeCoap);
+  clusterBase.ip = ip;
+  clusterBase.port = port;
+  clusterBase.basePath = basePath;
+
+  var error;
+
+  clusterBase.cmd({
+    arg1: 'foo'
+  }, function(err) {
+    error = err;
+  });
+
+  expect(fakeCoap.lastRequest).not.toBeDefined();
+  expect(error).toBeDefined();
 });
 
 test('Commands calls back with response', function(done) {

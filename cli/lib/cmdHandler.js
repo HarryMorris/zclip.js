@@ -10,7 +10,8 @@ module.exports = function(zclip) {
 
     if (!clusterName && zclCommand.options.help) {
       printUsage(cli);
-      printAvailableOptions(cli, _.keys(zclip.clusters).sort());
+      cli.print('Available clusters:');
+      printList(cli, _.keys(zclip.clusters).sort());
       cli.exit(0);
       return;
     }
@@ -19,7 +20,8 @@ module.exports = function(zclip) {
 
     if (!Cluster) {
       printErrorAndUsage(cli, 'Error: Cluster not found');
-      printAvailableOptions(cli, _.keys(zclip.clusters).sort());
+      cli.print('Available clusters:');
+      printList(cli, _.keys(zclip.clusters).sort());
       cli.exit(1);
       return;
     }
@@ -32,7 +34,8 @@ module.exports = function(zclip) {
 
     if (!commandName && zclCommand.options.help) {
       printUsage(cli);
-      printAvailableOptions(cli, cluster.commandNames());
+      cli.print('Available commands:');
+      printList(cli, cluster.commandNames());
 
       cli.exit(0);
       return;
@@ -40,7 +43,8 @@ module.exports = function(zclip) {
 
     if (!cluster[commandName]) {
       printErrorAndUsage(cli, 'Error: Command not found');
-      printAvailableOptions(cli, cluster.commandNames());
+      cli.print('Available commands:');
+      printList(cli, cluster.commandNames());
 
       cli.exit(1);
       return;
@@ -48,7 +52,8 @@ module.exports = function(zclip) {
 
     if (cluster[commandName] && zclCommand.options.help) {
       printUsage(cli);
-      printAvailableOptions(cli, cluster.argNames(commandName));
+      cli.print('Required arguments:');
+      printList(cli, cluster.argNames(commandName));
       cli.exit(0);
       return;
     }
@@ -61,7 +66,9 @@ module.exports = function(zclip) {
 
     cluster[commandName](zclCommand.options, function(err, result) {
       if (err) {
-        cli.printError(err.message);
+        cli.printError(err.message || err + '\n');
+        cli.print('Required arguments:');
+        printList(cli, cluster.argNames(commandName));
         cli.exit(1);
         return;
       }
@@ -91,8 +98,7 @@ module.exports = function(zclip) {
     cli.print(example);
   }
 
-  function printAvailableOptions(cli, options) {
-    cli.print('Available Options:');
+  function printList(cli, options) {
     options.forEach(function(option) {
       cli.print(cli.TAB + camelcase(option));
     });
