@@ -168,7 +168,7 @@ describe('cli zcl', function() {
         expect(cli.printed.toString()).toMatch('command1')
       });
 
-      xtest('prints attribute help if command provided', function() {
+      test('prints attribute help if command provided', function() {
         var cli = new FakeCli();
         var zclCommand = {
           keywords: ['cmd', 'fakeCluster', 'command1'],
@@ -178,7 +178,7 @@ describe('cli zcl', function() {
         cmdHandler(zclCommand, cli);
 
         expect(cli.printedErrors.toString()).not.toMatch('Error')
-        expect(cli.printed.toString()).toMatch('command1')
+        expect(cli.printed.toString()).toMatch('arg1')
       });
     });
   });
@@ -191,12 +191,23 @@ function FakeCluster(attrs) {
   this.meta = {
     commands: {
       0: {
-        name: 'Command1'
+        name: 'command1',
+        args: {
+          0: {
+            name: 'arg1'
+          }
+        }
       }
     }
   }
 
-  fakeClusters.push(this);
+  this.commandNames = function() {
+    return ['command1']
+  }
+
+  this.argNames = function(commandName) {
+    return ['arg1']
+  }
 
   this.command1 = function(args, callback) {
     this.command1Args = args;
@@ -207,6 +218,8 @@ function FakeCluster(attrs) {
       responseCode: FakeCluster.responseCode
     });
   }
+
+  fakeClusters.push(this);
 }
 
 function Callback() {

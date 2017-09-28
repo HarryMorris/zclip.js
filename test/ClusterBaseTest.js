@@ -212,3 +212,44 @@ test('read decodes attribute response', function(done) {
   });
 });
 
+describe('.commandNames', function() {
+  test('returns a sorted list of command Names', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "off"
+        },
+        "1": {
+          "name": "on"
+        }
+      }
+    }
+
+    var cluster = new ClusterBase(metaData, fakeCoap);
+    expect(cluster.commandNames()).toEqual(['off', 'on']);
+  });
+});
+
+describe('.argNames', function() {
+  test('returns a sorted list of args for a given command', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "command1",
+          "args": {
+            "0": {
+              "name": "arg1",
+            },
+            "1": {
+              "name": "arg2",
+            }
+          }
+        }
+      }
+    }
+
+    var cluster = new ClusterBase(metaData, fakeCoap);
+    expect(cluster.argNames('command1')).toEqual(['arg1', 'arg2']);
+  });
+});
+

@@ -4,7 +4,7 @@ _.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
 
 module.exports = function(zclip) {
   return function(zclCommand, cli) {
-    var clusterName = _.pascalCase(zclCommand.keywords[1]);
+    var clusterName = zclCommand.keywords[1];
     var commandName = zclCommand.keywords[2];
     var ip = zclCommand.keywords[3];
 
@@ -15,7 +15,7 @@ module.exports = function(zclip) {
       return;
     }
 
-    var Cluster = zclip.clusters[clusterName];
+    var Cluster = zclip.clusters[_.pascalCase(clusterName)];
 
     if (!Cluster) {
       printErrorAndUsage(cli, 'Error: Cluster not found');
@@ -32,25 +32,24 @@ module.exports = function(zclip) {
 
     if (!commandName && zclCommand.options.help) {
       printUsage(cli);
+      printAvailableOptions(cli, cluster.commandNames());
 
-      var commandNames = _.map(Object.getOwnPropertyNames(cluster.meta.commands), function(commandId) {
-        return cluster.meta.commands[commandId].name;
-      });
-
-      printAvailableOptions(cli, commandNames.sort());
       cli.exit(0);
       return;
     }
 
     if (!cluster[commandName]) {
       printErrorAndUsage(cli, 'Error: Command not found');
+      printAvailableOptions(cli, cluster.commandNames());
 
-      var commandNames = _.map(Object.getOwnPropertyNames(cluster.meta.commands), function(commandId) {
-        return cluster.meta.commands[commandId].name;
-      });
-
-      printAvailableOptions(cli, commandNames.sort());
       cli.exit(1);
+      return;
+    }
+
+    if (cluster[commandName] && zclCommand.options.help) {
+      printUsage(cli);
+      printAvailableOptions(cli, cluster.argNames(commandName));
+      cli.exit(0);
       return;
     }
 
