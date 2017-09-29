@@ -17,6 +17,8 @@ module.exports = function(zclip) {
 
     var query = clusterQuery(Cluster, zclCommand.options);
 
+    cli.print('Devices');
+    cli.print('------------------------------------');
     zclip.discover(query, function(err, ip) {
       if (err) {
         cli.printError(err);
