@@ -6,8 +6,6 @@ A javascript implementation of ZCL over IP.
 
 Definitely a work in progress. Current tasks are:
 
-- Generate cluster classes and commands from SiLabs application meta data
-- Create examples and callable cli examples
 - Implement OTA server example
 
 ## Open Questions
@@ -31,7 +29,12 @@ You can use this library for development or via cli commands for sending quick z
 CLI commands are located in `/cli`
 
 ```sh
-./cli/blink <deviceIp>
+./cli/zcl discover onOff
+./cli/zcl cmd onOff on <ip>
+./cli/zcl cmd onOff off <ip>
+./cli/zcl cmd levelControl moveToLevel <ip> --level 0  --transitionTime 0
+./cli/zcl cmd levelControl moveToLevel <ip> --level 255 --transitionTime 0
+./cli/zcl read levelControl <ip>
 ```
 
 ### Development
@@ -42,24 +45,18 @@ Examples are located in `/examples`
 var coap = require('coap');
 var zcl = require('../.')(coap);
 
-var onOffCluster = new zcl.clusters.OnOffCluster({
+var onOff = new zcl.clusters.OnOff({
   ip: '::1',
   endpoint: 1
 });
 
-onOffCluster.toggle();
+onOff.toggle();
 ```
 
-## Supported clusters, commands and arguments
+## Supported clusters
 
 {{#each clusters}}
-- {{name}} Cluster
-  {{#each commands}}
-  * {{name}}
-    {{#each args}}
-      * {{this}}
-    {{/each }}
-  {{/each }}
+- {{this}}
 {{/each }}
 
 ## Run the tests
