@@ -2,6 +2,8 @@
 
 var coap = require('coap');
 
+configureCoap(coap);
+
 var zclip = require(__dirname + '/../')(coap);
 var zclCommand = require(__dirname + '/lib/zclCommand')(process.argv);
 var zcl = require(__dirname + '/lib/zcl')({
@@ -18,4 +20,15 @@ var cli = {
 }
 
 zcl(zclCommand, cli);
+
+function configureCoap(coap) {
+  var coapTiming = {
+    ackTimeout: .5,
+    ackRandomFactor: 1.0,
+    maxRetransmit: 2,
+    maxLatency: .5,
+    piggybackReplyMs: 10
+  };
+  coap.updateTiming(coapTiming);
+}
 

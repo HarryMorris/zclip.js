@@ -26,5 +26,10 @@ function FakeRequest(params) {
     var responseCallback = this.eventCallbacks.response;
     responseCallback(response);
   }
+
+  this.sendError = function(err) {
+    var callback = this.eventCallbacks.error;
+    callback(err);
+  }
 }
 

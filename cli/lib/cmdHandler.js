@@ -66,9 +66,7 @@ module.exports = function(zclip) {
 
     cluster[commandName](zclCommand.options, function(err, result) {
       if (err) {
-        cli.printError(err.message || err + '\n');
-        cli.print('Required arguments:');
-        printList(cli, cluster.argNames(commandName));
+        cli.printError('Error: ' + (err.message || err) + '\n');
         cli.exit(1);
         return;
       }
