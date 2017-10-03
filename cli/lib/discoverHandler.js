@@ -38,7 +38,7 @@ module.exports = function(zclip) {
   }
 
   function printUsage(cli) {
-    var usage = 'Usage:\n  zcl discover <clusterName>\n';
+    var usage = 'Usage:\n  zcl discover <cluster>\n';
     cli.print(usage);
   }
 

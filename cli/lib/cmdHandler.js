@@ -157,7 +157,7 @@ function CmdCommand(clusters, zclCommand, cli) {
       cli.print(usage);
 
     } else {
-      var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> <ip> [args]\n';
+      var usage = 'Usage:\n  zcl cmd <cluster> <command> <ip> [args]\n';
       cli.print(usage);
     }
   }
