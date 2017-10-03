@@ -21,7 +21,7 @@ module.exports = function(zclip) {
     });
 
     if (!ip) {
-      printErrorAndUsage(cli, 'Error: IP required');
+      printUsage(cli);
       cli.exit(1);
       return;
     }
@@ -44,11 +44,6 @@ module.exports = function(zclip) {
       cli.print(resultStr);
       cli.exit(0);
     });
-  }
-
-  function printErrorAndUsage(cli, error) {
-    printUsage(cli);
-    cli.printError(error + '\n');
   }
 
   function printUsage(cli) {
