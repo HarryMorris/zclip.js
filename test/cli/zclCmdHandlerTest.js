@@ -178,7 +178,7 @@ describe('cli zcl', function() {
         cmdHandler(zclCommand, cli);
 
         expect(cli.printedErrors.toString()).not.toMatch('Error')
-        expect(cli.printed.toString()).toMatch('arg1')
+        expect(cli.printed.toString()).toMatch('zcl cmd fakeCluster command1 --arg1 <uint8> --arg2 <uint16>');
       });
     });
   });
@@ -195,6 +195,9 @@ function FakeCluster(attrs) {
         args: {
           0: {
             name: 'arg1'
+          },
+          1: {
+            name: 'arg2'
           }
         }
       }
@@ -205,8 +208,11 @@ function FakeCluster(attrs) {
     return ['command1']
   }
 
-  this.argNames = function(commandName) {
-    return ['arg1']
+  this.commandArgs = function(commandName) {
+    return [
+      { name: 'arg1', datatype: 'uint8' },
+      { name: 'arg2', datatype: 'uint16' }
+    ]
   }
 
   this.command1 = function(args, callback) {

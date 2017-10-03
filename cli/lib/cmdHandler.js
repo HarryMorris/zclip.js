@@ -103,9 +103,7 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.commandHelp = function() {
     this.exec = function(cli) {
-      printUsage(cli);
-      cli.print('Required arguments:');
-      printList(cli, cluster.argNames(commandName));
+      printUsage(cli, commandName);
       cli.exit(0);
     }
   }
@@ -122,6 +120,7 @@ function CmdCommand(clusters, zclCommand, cli) {
       cluster[commandName](zclCommand.options, function(err, result) {
         if (err) {
           cli.printError('Error: ' + (err.message || err) + '\n');
+          printUsage(cli, commandName);
           cli.exit(1);
           return;
         }
@@ -147,11 +146,25 @@ function CmdCommand(clusters, zclCommand, cli) {
     cli.printError(error + '\n');
   }
 
-  function printUsage(cli) {
-    var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> <ip> [args]\n';
-    var example = 'Example:\n  zcl cmd levelControl moveToLevel ::1 --level 0 --transitionTime 0\n';
-    cli.print(usage);
-    cli.print(example);
+  function printUsage(cli, command) {
+    var usage;
+
+    if (command) {
+      var usage = 'Usage: \n zcl cmd ';
+      usage += clusterName + ' ';
+      usage += command + ' ';
+
+      cluster.commandArgs(command).forEach(function(arg) {
+        usage += '--' + arg.name + ' <' + arg.datatype + '> ';
+      });
+      cli.print(usage);
+
+    } else {
+      var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> <ip> [args]\n';
+      var example = 'Example:\n  zcl cmd levelControl moveToLevel ::1 --level 0 --transitionTime 0\n';
+      cli.print(usage);
+      cli.print(example);
+    }
   }
 
   function printList(cli, options) {

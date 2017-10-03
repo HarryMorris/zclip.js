@@ -402,7 +402,7 @@ describe('.commandNames', function() {
   });
 });
 
-describe('.argNames', function() {
+describe('.commandArgs', function() {
   test('returns a sorted list of args for a given command', function() {
     var metaData = {
       "commands": {
@@ -411,9 +411,11 @@ describe('.argNames', function() {
           "args": {
             "0": {
               "name": "arg1",
+              "datatype": "uint8"
             },
             "1": {
               "name": "arg2",
+              "datatype": "uint16"
             }
           }
         }
@@ -421,7 +423,10 @@ describe('.argNames', function() {
     }
 
     var cluster = new ClusterBase(metaData, fakeCoap);
-    expect(cluster.argNames('command1')).toEqual(['arg1', 'arg2']);
+    expect(cluster.commandArgs('command1')).toEqual([
+      { name: 'arg1', datatype: 'uint8' },
+      { name: 'arg2', datatype: 'uint16' }
+    ]);
   });
 });
 
