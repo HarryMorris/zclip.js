@@ -45,7 +45,8 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.unknownCluster = function() {
     this.exec = function(cli) {
-      printErrorAndUsage(cli, 'Error: Cluster not found');
+      cli.printError('Error: Cluster not found\n');
+      printUsage(cli);
       cli.print('Available clusters:');
       printList(cli, _.keys(clusters).sort());
       cli.exit(1);
@@ -93,7 +94,9 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.unknownCommand = function() {
     this.exec = function(cli) {
-      printErrorAndUsage(cli, 'Error: Command not found');
+      cli.printError('Error: Command not found \n');
+      printUsage(cli);
+
       cli.print('Available commands:');
       printList(cli, cluster.commandNames());
 
@@ -110,7 +113,8 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.noIp = function() {
     this.exec = function(cli) {
-      printErrorAndUsage(cli, 'Error: IP required');
+      cli.printError('Error: IP required\n');
+      printUsage(cli, commandName);
       cli.exit(1);
     }
   }
@@ -140,11 +144,6 @@ function CmdCommand(clusters, zclCommand, cli) {
   }
 
   this.init();
-
-  function printErrorAndUsage(cli, error) {
-    printUsage(cli);
-    cli.printError(error + '\n');
-  }
 
   function printUsage(cli, command) {
     var usage;
