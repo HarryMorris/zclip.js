@@ -4,85 +4,143 @@ _.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
 
 module.exports = function(zclip) {
   return function(zclCommand, cli) {
-    var clusterName = zclCommand.keywords[1];
-    var commandName = zclCommand.keywords[2];
-    var ip = zclCommand.keywords[3];
+    var cmdCommand = new CmdCommand(zclip.clusters, zclCommand);
+    cmdCommand.exec(cli);
+  }
+}
 
-    if (!clusterName && zclCommand.options.help) {
-      printUsage(cli);
-      cli.print('Available clusters:');
-      printList(cli, _.keys(zclip.clusters).sort());
-      cli.exit(0);
+function CmdCommand(clusters, zclCommand, cli) {
+  var clusterName = zclCommand.keywords[1];
+  var commandName = zclCommand.keywords[2];
+  var ip = zclCommand.keywords[3];
+  var Cluster;
+  var cluster;
+
+  this.exec = function() {}
+
+  this.init = function() {
+    if (!clusterName) {
+      this.noClusterName();
       return;
     }
 
-    var Cluster = zclip.clusters[_.pascalCase(clusterName)];
+    Cluster = clusters[_.pascalCase(clusterName)];
 
     if (!Cluster) {
-      printErrorAndUsage(cli, 'Error: Cluster not found');
-      cli.print('Available clusters:');
-      printList(cli, _.keys(zclip.clusters).sort());
-      cli.exit(1);
+      this.unknownCluster();
       return;
     }
 
-    var cluster = new Cluster({
+    this.clusterFound(Cluster);
+  }
+
+  this.noClusterName = function() {
+    this.exec = function(cli) {
+      printUsage(cli);
+      cli.print('Available clusters:');
+      printList(cli, _.keys(clusters).sort());
+      cli.exit(0);
+    }
+  }
+
+  this.unknownCluster = function() {
+    this.exec = function(cli) {
+      printErrorAndUsage(cli, 'Error: Cluster not found');
+      cli.print('Available clusters:');
+      printList(cli, _.keys(clusters).sort());
+      cli.exit(1);
+    }
+  }
+
+  this.clusterFound = function() {
+    cluster = new Cluster({
       ip: ip,
       port: zclCommand.options.port,
       endpoint: zclCommand.options.endpoint
     });
 
-    if (!commandName && zclCommand.options.help) {
-      printUsage(cli);
-      cli.print('Available commands:');
-      printList(cli, cluster.commandNames());
-
-      cli.exit(0);
+    if (!commandName) {
+      this.noCommand();
       return;
     }
 
     if (!cluster[commandName]) {
+      this.unknownCommand();
+      return;
+    }
+
+    if (zclCommand.options.help) {
+      this.commandHelp();
+      return;
+    }
+
+    if (!ip) {
+      this.noIp();
+      return;
+    }
+
+    this.ready();
+  }
+
+  this.noCommand = function() {
+    this.exec = function(cli) {
+      printUsage(cli);
+      cli.print('Available commands:');
+      printList(cli, cluster.commandNames());
+      cli.exit(0);
+    }
+  }
+
+  this.unknownCommand = function() {
+    this.exec = function(cli) {
       printErrorAndUsage(cli, 'Error: Command not found');
       cli.print('Available commands:');
       printList(cli, cluster.commandNames());
 
       cli.exit(1);
-      return;
     }
+  }
 
-    if (cluster[commandName] && zclCommand.options.help) {
+  this.commandHelp = function() {
+    this.exec = function(cli) {
       printUsage(cli);
       cli.print('Required arguments:');
       printList(cli, cluster.argNames(commandName));
       cli.exit(0);
-      return;
     }
+  }
 
-    if (!ip) {
+  this.noIp = function() {
+    this.exec = function(cli) {
       printErrorAndUsage(cli, 'Error: IP required');
       cli.exit(1);
-      return;
     }
-
-    cluster[commandName](zclCommand.options, function(err, result) {
-      if (err) {
-        cli.printError('Error: ' + (err.message || err) + '\n');
-        cli.exit(1);
-        return;
-      }
-
-      var resultStr = result.responseCode + ' ';
-
-      if (result.response) {
-        resultStr = resultStr + JSON.stringify(result.response);
-      } else {
-        resultStr = resultStr + 'Empty response';
-      }
-
-      cli.print(resultStr);
-      cli.exit(0);
-    });
   }
+
+  this.ready = function() {
+    this.exec = function(cli) {
+      cluster[commandName](zclCommand.options, function(err, result) {
+        if (err) {
+          cli.printError('Error: ' + (err.message || err) + '\n');
+          cli.exit(1);
+          return;
+        }
+
+        var resultStr = result.responseCode + ' ';
+
+        if (result.response) {
+          resultStr = resultStr + JSON.stringify(result.response);
+        } else {
+          resultStr = resultStr + 'Empty response';
+        }
+
+        cli.print(resultStr);
+        cli.exit(0);
+      });
+    };
+  }
+
+  this.init();
 
   function printErrorAndUsage(cli, error) {
     printUsage(cli);
