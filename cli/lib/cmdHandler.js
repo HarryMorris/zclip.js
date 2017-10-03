@@ -94,7 +94,7 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.unknownCommand = function() {
     this.exec = function(cli) {
-      cli.printError('Error: Command not found \n');
+      cli.printError('Error: Unknown command "' + commandName + '"\n');
       printUsage(cli);
 
       cli.print('Available commands:');
