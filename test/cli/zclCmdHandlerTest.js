@@ -103,7 +103,7 @@ describe('cli zcl', function() {
       expect(cli.exitCode).toEqual(0);
     });
 
-    test('prints error if IP not provided', function() {
+    test('prints usage if IP not provided', function() {
       var cli = new FakeCli();
       var zclCommand = {
         keywords: ['cmd', 'fakeCluster', 'command1'],
@@ -112,7 +112,7 @@ describe('cli zcl', function() {
 
       cmdHandler(zclCommand, cli);
 
-      expect(cli.printedErrors.toString()).toMatch('IP')
+      expect(cli.printed.toString()).toMatch('Usage')
     });
 
     test('prints help if cluster not found', function() {
@@ -137,7 +137,7 @@ describe('cli zcl', function() {
 
       cmdHandler(zclCommand, cli);
 
-      expect(cli.printedErrors.toString()).toMatch('Error: Command not found')
+      expect(cli.printedErrors.toString()).toMatch('Error: Unknown command')
       expect(cli.printed.toString()).toMatch('command1')
     });
 
@@ -178,7 +178,7 @@ describe('cli zcl', function() {
         cmdHandler(zclCommand, cli);
 
         expect(cli.printedErrors.toString()).not.toMatch('Error')
-        expect(cli.printed.toString()).toMatch('zcl cmd fakeCluster command1 --arg1 <uint8> --arg2 <uint16>');
+        expect(cli.printed.toString()).toMatch('zcl cmd fakeCluster command1 <ip> --arg1 <uint8> --arg2 <uint16>');
       });
     });
   });
