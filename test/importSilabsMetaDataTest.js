@@ -124,8 +124,8 @@ test('can import commands with arguments', () => {
         <name>Cluster Name</name>\
         <code>0x0000</code>\
         <command code="0x01" name="Command 1">\
-          <arg name="Arg 1" />\
-          <arg name="Arg 2" />\
+          <arg name="Arg 1" type="UINT8U" />\
+          <arg name="Arg 2" type="UINT16U" />\
         </command>\
       </cluster>\
     </configurator>\
@@ -137,7 +137,10 @@ test('can import commands with arguments', () => {
     var command = target['0'].commands['1'];
     expect(command.name).toEqual('command1');
     expect(command.args['0'].name).toEqual('arg1');
+    expect(command.args['0'].datatype).toEqual('uint8u');
+
     expect(command.args['1'].name).toEqual('arg2');
+    expect(command.args['1'].datatype).toEqual('uint16u');
   });
 });
 
@@ -157,6 +160,7 @@ test('can import a single attribute', () => {
 
   importSilabsMetaData(xml, target, function(err) {
     expect(target['0'].attributes['1'].name).toEqual('attribute1');
+    expect(target['0'].attributes['1'].datatype).toEqual('int16u');
   });
 });
 
@@ -167,7 +171,7 @@ test('can import multiple attributes', () => {
         <name>Cluster Name</name>\
         <code>0x0000</code>\
         <attribute code="0x0001" type="INT16U" min="0x00">Attribute 1</attribute>\
-        <attribute code="0x0002" type="INT16U" min="0x00">Attribute 2</attribute>\
+        <attribute code="0x0002" type="INT8U" min="0x00">Attribute 2</attribute>\
       </cluster>\
     </configurator>\
   ';
@@ -176,7 +180,10 @@ test('can import multiple attributes', () => {
 
   importSilabsMetaData(xml, target, function(err) {
     expect(target['0'].attributes['1'].name).toEqual('attribute1');
+    expect(target['0'].attributes['1'].datatype).toEqual('int16u');
+
     expect(target['0'].attributes['2'].name).toEqual('attribute2');
+    expect(target['0'].attributes['2'].datatype).toEqual('int8u');
   });
 });
 

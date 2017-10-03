@@ -64,9 +64,11 @@ function importCommands(commandNodes, cluster) {
 
     if (commandNode.arg) {
       commandNode.arg.forEach(function(argNode) {
+
         var argId = commandNode.arg.indexOf(argNode);
         cluster.commands[commandId].args[argId] = {
-          name: _.camelCase(argNode.$.name)
+          name: _.camelCase(argNode.$.name),
+          datatype: argNode.$.type.toLowerCase()
         }
       });
     }
@@ -84,7 +86,7 @@ function importAttributes(attributeNodes, cluster) {
     cluster.attributes[parseInt(attributeNode.$.code)] = {
       name: _.camelCase(attributeNode._),
       side: attributeNode.$.side,
-      type: attributeNode.$.type,
+      datatype: attributeNode.$.type.toLowerCase(),
       min: attributeNode.$.min,
       max: attributeNode.$.max
     };
