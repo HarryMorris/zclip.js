@@ -8,7 +8,7 @@ module.exports = function(zclip) {
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {
-      printErrorAndUsage(cli, 'Error: Cluster not found');
+      printUsage(cli);
       printAvailableOptions(cli, _.keys(zclip.clusters).sort());
       cli.exit(1);
       return;
@@ -52,14 +52,12 @@ module.exports = function(zclip) {
   }
 
   function printUsage(cli) {
-    var usage = 'Usage:\n  zcl read <clusterName> <ip>\n';
-    var example = 'Example:\n  zcl read levelControl ::1\n';
+    var usage = 'Usage:\n  zcl read <cluster> <ip>\n';
     cli.print(usage);
-    cli.print(example);
   }
 
   function printAvailableOptions(cli, options) {
-    cli.print('Available Options:');
+    cli.print('Available clusters:');
     options.forEach(function(option) {
       cli.print(cli.TAB + camelcase(option));
     });
