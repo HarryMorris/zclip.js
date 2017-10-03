@@ -123,6 +123,7 @@ function CmdCommand(clusters, zclCommand, cli) {
       cluster[commandName](zclCommand.options, function(err, result) {
         if (err) {
           cli.printError('Error: ' + (err.message || err) + '\n');
+          printUsage(cli, commandName);
           cli.exit(1);
           return;
         }
