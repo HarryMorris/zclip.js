@@ -9,7 +9,7 @@ module.exports = function(zclip) {
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {
-      printErrorAndUsage(cli, 'Error: Cluster not found');
+      printUsage(cli);
       printAvailableOptions(cli, _.keys(zclip.clusters).sort());
       cli.exit(1);
       return;
@@ -37,20 +37,13 @@ module.exports = function(zclip) {
     }
   }
 
-  function printErrorAndUsage(cli, error) {
-    printUsage(cli);
-    cli.printError(error + '\n');
-  }
-
   function printUsage(cli) {
     var usage = 'Usage:\n  zcl discover <clusterName>\n';
-    var example = 'Example:\n  zcl discover levelControl\n';
     cli.print(usage);
-    cli.print(example);
   }
 
   function printAvailableOptions(cli, options) {
-    cli.print('Available Options:');
+    cli.print('Available clusters:');
     options.forEach(function(option) {
       cli.print(cli.TAB + camelcase(option));
     });

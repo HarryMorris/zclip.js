@@ -113,7 +113,6 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.noIp = function() {
     this.exec = function(cli) {
-      cli.printError('Error: IP required\n');
       printUsage(cli, commandName);
       cli.exit(1);
     }
@@ -124,7 +123,6 @@ function CmdCommand(clusters, zclCommand, cli) {
       cluster[commandName](zclCommand.options, function(err, result) {
         if (err) {
           cli.printError('Error: ' + (err.message || err) + '\n');
-          printUsage(cli, commandName);
           cli.exit(1);
           return;
         }
@@ -151,7 +149,7 @@ function CmdCommand(clusters, zclCommand, cli) {
     if (command) {
       var usage = 'Usage: \n zcl cmd ';
       usage += clusterName + ' ';
-      usage += command + ' ';
+      usage += command + ' <ip> ';
 
       cluster.commandArgs(command).forEach(function(arg) {
         usage += '--' + arg.name + ' <' + arg.datatype + '> ';
@@ -160,9 +158,7 @@ function CmdCommand(clusters, zclCommand, cli) {
 
     } else {
       var usage = 'Usage:\n  zcl cmd <clusterName> <commandName> <ip> [args]\n';
-      var example = 'Example:\n  zcl cmd levelControl moveToLevel ::1 --level 0 --transitionTime 0\n';
       cli.print(usage);
-      cli.print(example);
     }
   }
 
