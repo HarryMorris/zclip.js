@@ -17,7 +17,7 @@ Definitely a work in progress. Current tasks are:
 ```sh
 git clone ssh://git@stash.silabs.com/iot_software/zclip.js.git
 cd zclip.js
-npm install
+npm install --production
 ```
 
 ## Usage
@@ -105,12 +105,7 @@ onOff.toggle();
 npm test
 ```
 
-## Support
+## Support & Contributing
 
-Slack @lee.byrd for support.
-
-## Contributing
-
-Contributions are welcome. The library is currently under heavy development, so
-I would check in first.
+Slack @lee.byrd
 
