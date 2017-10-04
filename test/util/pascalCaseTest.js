@@ -7,6 +7,10 @@ describe('util.pascalCase', function() {
     pascalCase = require(__appRoot + 'lib/util')().pascalCase;
   });
 
+  it('returns empty string if given undefined', function() {
+    expect(pascalCase(undefined)).toEqual('');
+  });
+
   it('pascalCases single word', function() {
     expect(pascalCase('Great')).toEqual('Great');
   });

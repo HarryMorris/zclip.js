@@ -7,6 +7,10 @@ describe('util.camelCase', function() {
     camelCase = require(__appRoot + 'lib/util')().camelCase;
   });
 
+  it('returns empty string if given undefined', function() {
+    expect(camelCase(undefined)).toEqual('');
+  });
+
   it('camelCases single word', function() {
     expect(camelCase('Great')).toEqual('great');
   });
