@@ -47,12 +47,12 @@ module.exports = function(zclip) {
   }
 
   function printUsage(cli) {
-    var usage = 'Usage:\n  zcl read <cluster> <ip>\n';
-    cli.print(usage);
+    cli.printHeader('Usage:');
+    cli.print(cli.TAB + 'zcl read <cluster> <ip>\n');
   }
 
   function printAvailableOptions(cli, options) {
-    cli.print('Available clusters:');
+    cli.printHeader('Available clusters:');
     options.forEach(function(option) {
       cli.print(cli.TAB + util.camelCase(option));
     });
@@ -60,7 +60,7 @@ module.exports = function(zclip) {
 
   function clusterNames() {
     var clusterNames = [];
-    for (var clusterName in clusters) clusterNames.push(clusterName);
+    for (var clusterName in zclip.clusters) clusterNames.push(clusterName);
     return clusterNames.sort();
   }
 }

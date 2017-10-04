@@ -3,6 +3,10 @@ module.exports = function FakeCli() {
   this.printedErrors = [];
   this.exitCode;
 
+  this.printHeader = function(message) {
+    this.printed.push(message);
+  }
+
   this.print = function(message) {
     this.printed.push(message);
   }

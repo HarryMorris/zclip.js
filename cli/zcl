@@ -1,6 +1,7 @@
 #! /usr/bin/env node
 
 var coap = require('coap');
+var chalk = require('chalk');
 
 configureCoap(coap);
 
@@ -13,8 +14,15 @@ var zcl = require(__dirname + '/lib/zcl')({
 });
 
 var cli = {
-  print: console.log,
-  printError: console.error,
+  print: function(message) {
+    console.log(message);
+  },
+  printHeader: function(message) {
+    console.log(chalk.blue.bold(message));
+  },
+  printError: function(message) {
+    console.error(chalk.red.bold('Error: ') + message);
+  },
   exit: process.exit,
   TAB: '  '
 }

@@ -1,5 +1,3 @@
-global.ZCL_USAGE = 'Usage:\n  zcl <command> [<args>] [options]\n';
-
 module.exports = function(handlers) {
   return function(zclCommand, cli) {
     var handler = handlers[zclCommand.keywords[0]];
@@ -18,9 +16,10 @@ module.exports = function(handlers) {
   }
 
   function printUsage(cli) {
-    cli.print(ZCL_USAGE);
+    cli.printHeader('Usage:');
+    cli.print(cli.TAB + 'zcl <command> [<args>] [options]\n'); 
 
-    cli.print('Available commands:');
+    cli.printHeader('Available commands:');
     for (var command in handlers) {
       cli.print(cli.TAB + command);
     };

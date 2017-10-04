@@ -123,7 +123,7 @@ describe('cli zcl', function() {
 
       cmdHandler(zclCommand, cli);
 
-      expect(cli.printedErrors.toString()).toMatch('Error: Cluster not found')
+      expect(cli.printedErrors.toString()).toMatch('Cluster not found')
       expect(cli.printed.toString()).toMatch('fakeCluster')
     });
 
@@ -136,7 +136,7 @@ describe('cli zcl', function() {
 
       cmdHandler(zclCommand, cli);
 
-      expect(cli.printedErrors.toString()).toMatch('Error: Unknown command')
+      expect(cli.printedErrors.toString()).toMatch('Unknown command')
       expect(cli.printed.toString()).toMatch('command1')
     });
 

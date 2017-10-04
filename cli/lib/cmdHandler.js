@@ -35,7 +35,7 @@ function CmdCommand(clusters, zclCommand, cli) {
   this.noClusterName = function() {
     this.exec = function(cli) {
       printUsage(cli);
-      cli.print('Available clusters:');
+      cli.printHeader('Available clusters:');
       printList(cli, clusterNames());
       cli.exit(0);
     }
@@ -43,9 +43,9 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.unknownCluster = function() {
     this.exec = function(cli) {
-      cli.printError('Error: Cluster not found\n');
+      cli.printError('Cluster not found\n');
       printUsage(cli);
-      cli.print('Available clusters:');
+      cli.printHeader('Available clusters:');
       printList(cli, clusterNames());
       cli.exit(1);
     }
@@ -84,7 +84,7 @@ function CmdCommand(clusters, zclCommand, cli) {
   this.noCommand = function() {
     this.exec = function(cli) {
       printUsage(cli);
-      cli.print('Available commands:');
+      cli.printHeader('Available commands:');
       printList(cli, cluster.commandNames());
       cli.exit(0);
     }
@@ -92,10 +92,10 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   this.unknownCommand = function() {
     this.exec = function(cli) {
-      cli.printError('Error: Unknown command "' + commandName + '"\n');
+      cli.printError('Unknown command "' + commandName + '"\n');
       printUsage(cli);
 
-      cli.print('Available commands:');
+      cli.printHeader('Available commands:');
       printList(cli, cluster.commandNames());
 
       cli.exit(1);
@@ -120,7 +120,7 @@ function CmdCommand(clusters, zclCommand, cli) {
     this.exec = function(cli) {
       cluster[commandName](zclCommand.options, function(err, result) {
         if (err) {
-          cli.printError('Error: ' + (err.message || err) + '\n');
+          cli.printError((err.message || err) + '\n');
           printUsage(cli, commandName);
           cli.exit(1);
           return;
@@ -146,7 +146,9 @@ function CmdCommand(clusters, zclCommand, cli) {
     var usage;
 
     if (command) {
-      var usage = 'Usage: \n zcl cmd ';
+      cli.printHeader('Usage:');
+
+      var usage = cli.TAB + 'zcl cmd ';
       usage += clusterName + ' ';
       usage += command + ' <ip> ';
 
@@ -156,8 +158,8 @@ function CmdCommand(clusters, zclCommand, cli) {
       cli.print(usage);
 
     } else {
-      var usage = 'Usage:\n  zcl cmd <cluster> <command> <ip> [args]\n';
-      cli.print(usage);
+      cli.printHeader('Usage:');
+      cli.print(cli.TAB + 'zcl cmd <cluster> <command> <ip> [args]\n');
     }
   }
 

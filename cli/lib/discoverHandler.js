@@ -16,7 +16,7 @@ module.exports = function(zclip) {
 
     var query = clusterQuery(Cluster, zclCommand.options);
 
-    cli.print('Devices');
+    cli.printHeader('Devices');
     cli.print('------------------------------------');
     zclip.discover(query, function(err, ip) {
       if (err) {
@@ -43,12 +43,12 @@ module.exports = function(zclip) {
   }
 
   function printUsage(cli) {
-    var usage = 'Usage:\n  zcl discover <cluster>\n';
-    cli.print(usage);
+    cli.printHeader('Usage:');
+    cli.print(cli.TAB + 'zcl discover <cluster>\n');
   }
 
   function printAvailableOptions(cli, options) {
-    cli.print('Available clusters:');
+    cli.printHeader('Available clusters:');
     options.forEach(function(option) {
       cli.print(cli.TAB + util.camelCase(option));
     });
