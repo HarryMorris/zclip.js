@@ -16,18 +16,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.5.0",
     "cbor": "^3.0.2",
     "chalk": "^2.1.0",
     "coap": "git://github.com/SiliconLabs/node-coap.git#multicast-fix"
   },
   "devDependencies": {
-    "commander": "^2.11.0",
+    "async": "^2.5.0",
     "handlebars": "^4.0.10",
     "jest": "^21.0.1",
     "jsonfile": "^3.0.1",
     "minimist": "^1.2.0",
-    "prettyjson": "^1.2.1",
     "xml2js": "^0.4.19"
   }
 }
