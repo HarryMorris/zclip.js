@@ -1,5 +1,5 @@
 var parseString = require('xml2js').parseString;
-var _ = require('lodash');
+var  util = require(__dirname + '/../../lib/util')();
 
 module.exports = importSilabsMetaData;
 
@@ -31,7 +31,7 @@ function importRootClusterData(clusterNode, cluster) {
 }
 
 function formatClusterName(name) {
-  return _.camelCase(stripSymbols(name));
+  return util.camelCase(stripSymbols(name));
 }
 
 function titalize(str) {
@@ -58,7 +58,7 @@ function importCommands(commandNodes, cluster) {
 
     var commandId = commandIdMatch[1];
     cluster.commands[commandId] = {
-      name: _.camelCase(commandNode.$.name),
+      name: util.camelCase(commandNode.$.name),
       args: {}
     }
 
@@ -67,7 +67,7 @@ function importCommands(commandNodes, cluster) {
 
         var argId = commandNode.arg.indexOf(argNode);
         cluster.commands[commandId].args[argId] = {
-          name: _.camelCase(argNode.$.name),
+          name: util.camelCase(argNode.$.name),
           datatype: argNode.$.type.toLowerCase()
         }
       });
@@ -84,7 +84,7 @@ function importAttributes(attributeNodes, cluster) {
 
   attributeNodes.forEach(function(attributeNode) {
     cluster.attributes[parseInt(attributeNode.$.code)] = {
-      name: _.camelCase(attributeNode._),
+      name: util.camelCase(attributeNode._),
       side: attributeNode.$.side,
       datatype: attributeNode.$.type.toLowerCase(),
       min: attributeNode.$.min,

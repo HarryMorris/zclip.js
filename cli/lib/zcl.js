@@ -1,5 +1,3 @@
-var _ = require('lodash');
-
 global.ZCL_USAGE = 'Usage:\n  zcl <command> [<args>] [options]\n';
 
 module.exports = function(handlers) {
@@ -23,9 +21,9 @@ module.exports = function(handlers) {
     cli.print(ZCL_USAGE);
 
     cli.print('Available commands:');
-    _.keys(handlers).forEach(function(command) {
+    for (var command in handlers) {
       cli.print(cli.TAB + command);
-    });
+    };
   }
 
   function printVersion(cli) {

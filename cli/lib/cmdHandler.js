@@ -1,6 +1,4 @@
-var _ = require('lodash');
-
-_.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
+var util = require(__appRoot + 'lib/util')();
 
 module.exports = function(zclip) {
   return function(zclCommand, cli) {
@@ -24,7 +22,7 @@ function CmdCommand(clusters, zclCommand, cli) {
       return;
     }
 
-    Cluster = clusters[_.pascalCase(clusterName)];
+    Cluster = clusters[util.pascalCase(clusterName)];
 
     if (!Cluster) {
       this.unknownCluster();
@@ -38,7 +36,7 @@ function CmdCommand(clusters, zclCommand, cli) {
     this.exec = function(cli) {
       printUsage(cli);
       cli.print('Available clusters:');
-      printList(cli, _.keys(clusters).sort());
+      printList(cli, clusterNames());
       cli.exit(0);
     }
   }
@@ -48,7 +46,7 @@ function CmdCommand(clusters, zclCommand, cli) {
       cli.printError('Error: Cluster not found\n');
       printUsage(cli);
       cli.print('Available clusters:');
-      printList(cli, _.keys(clusters).sort());
+      printList(cli, clusterNames());
       cli.exit(1);
     }
   }
@@ -165,12 +163,14 @@ function CmdCommand(clusters, zclCommand, cli) {
 
   function printList(cli, options) {
     options.forEach(function(option) {
-      cli.print(cli.TAB + camelcase(option));
+      cli.print(cli.TAB + util.camelCase(option));
     });
   }
 
-  function camelcase(str) {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toLowerCase() + txt.substr(1);});
+  function clusterNames() {
+    var clusterNames = [];
+    for (var clusterName in clusters) clusterNames.push(clusterName);
+    return clusterNames.sort();
   }
 }
 

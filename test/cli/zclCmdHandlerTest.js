@@ -1,6 +1,5 @@
 require(__dirname + '/../support/testHelper');
 
-var _ = require('lodash');
 var FakeCli = require(__appRoot + 'test/support/FakeCli');
 
 var fakeClusters = [];
@@ -229,9 +228,10 @@ function FakeCluster(attrs) {
 }
 
 function Callback() {
-  this.handler = _.bind(function(error, message, exitCode) {
-    this.error = error;
-    this.message = message;
-    this.exitCode = exitCode;
-  }, this);
+  var that = this;
+  this.handler = function(error, message, exitCode) {
+    that.error = error;
+    that.message = message;
+    that.exitCode = exitCode;
+  };
 }

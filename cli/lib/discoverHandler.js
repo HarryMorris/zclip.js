@@ -1,16 +1,15 @@
-var _ = require('lodash');
-_.mixin({ 'pascalCase': _.flow(_.camelCase, _.upperFirst) });
+var util = require(__appRoot + 'lib/util')();
 
 module.exports = function(zclip) {
   return function(zclCommand, cli) {
-    var clusterName = _.pascalCase(zclCommand.keywords[1]);
+    var clusterName = util.pascalCase(zclCommand.keywords[1]);
     var ip = zclCommand.keywords[2];
 
     var Cluster = zclip.clusters[clusterName];
 
     if (!Cluster) {
       printUsage(cli);
-      printAvailableOptions(cli, _.keys(zclip.clusters).sort());
+      printAvailableOptions(cli, clusterNames());
       cli.exit(1);
       return;
     }
@@ -37,6 +36,12 @@ module.exports = function(zclip) {
     }
   }
 
+  function clusterNames() {
+    var clusterNames = [];
+    for (var clusterName in zclip.clusters) clusterNames.push(clusterName);
+    return clusterNames.sort();
+  }
+
   function printUsage(cli) {
     var usage = 'Usage:\n  zcl discover <cluster>\n';
     cli.print(usage);
@@ -45,12 +50,8 @@ module.exports = function(zclip) {
   function printAvailableOptions(cli, options) {
     cli.print('Available clusters:');
     options.forEach(function(option) {
-      cli.print(cli.TAB + camelcase(option));
+      cli.print(cli.TAB + util.camelCase(option));
     });
-  }
-
-  function camelcase(str) {
-    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toLowerCase() + txt.substr(1);});
   }
 }
 
