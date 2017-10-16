@@ -2,12 +2,6 @@
 
 A javascript implementation of ZCL over IP.
 
-## Work in progress
-
-Definitely a work in progress. Current tasks are:
-
-- Implement OTA server example
-
 ## Open Questions
 
 - Which version of node should we target?
@@ -20,24 +14,7 @@ cd zclip.js
 npm install --production
 ```
 
-## Usage
-
-You can use this library for development or via cli commands for sending quick zclip commands to devices.
-
-### CLI
-
-CLI commands are located in `/cli`
-
-```sh
-./cli/zcl discover onOff
-./cli/zcl cmd onOff on <ip>
-./cli/zcl cmd onOff off <ip>
-./cli/zcl cmd levelControl moveToLevel <ip> --level 0  --transitionTime 0
-./cli/zcl cmd levelControl moveToLevel <ip> --level 255 --transitionTime 0
-./cli/zcl read levelControl <ip>
-```
-
-### Development
+## Development
 
 Examples are located in `/examples`
 
