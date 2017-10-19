@@ -1,8 +1,12 @@
 var path = require('path');
+var fs = require('fs');
 
 global.__appRoot = path.resolve(__dirname) + '/';
 
 require(__appRoot + 'polyfills');
+
+var clusterMetaDataFile = __appRoot + 'clusterMetaData.json';
+var clusterMetaData = JSON.parse(fs.readFileSync(clusterMetaDataFile));
 
 module.exports = function(coap) {
   var config = {};
@@ -12,8 +16,7 @@ module.exports = function(coap) {
   };
 
   zclip.discover = require(__appRoot + 'lib/discover')(coap, zclip);
-  zclip.meta = require(__appRoot + 'lib/clusterMetaData')(config);
-  zclip.clusters = require(__appRoot + 'lib/clusters')(zclip.meta, coap);
+  zclip.clusters = require(__appRoot + 'lib/clusters')(clusterMetaData, coap);
   zclip.util = require(__appRoot + 'lib/util')();
 
   return zclip;
