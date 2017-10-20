@@ -8,6 +8,9 @@ require(__appRoot + 'polyfills');
 var clusterMetaDataFile = __appRoot + 'clusterMetaData.json';
 var clusterMetaData = JSON.parse(fs.readFileSync(clusterMetaDataFile));
 
+var deviceMetaDataFile = __appRoot + 'deviceMetaData.json';
+var deviceMetaData = JSON.parse(fs.readFileSync(deviceMetaDataFile));
+
 module.exports = function(coap) {
   var config = {};
   var zclip = {
@@ -15,6 +18,7 @@ module.exports = function(coap) {
     CLIENT: 'c'
   };
 
+  zclip.devices = require(__appRoot + 'lib/devices')(deviceMetaData);
   zclip.discover = require(__appRoot + 'lib/discover')(coap, zclip);
   zclip.clusters = require(__appRoot + 'lib/clusters')(clusterMetaData, coap);
   zclip.util = require(__appRoot + 'lib/util')();

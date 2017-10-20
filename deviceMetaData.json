@@ -1,0 +1,57 @@
+{
+  "0": {
+    "name": "onOffSwitch"
+  },
+  "1": {
+    "name": "levelControlSwitch"
+  },
+  "2": {
+    "name": "onOffOutput"
+  },
+  "3": {
+    "name": "levelControllableOutput"
+  },
+  "4": {
+    "name": "sceneSelector"
+  },
+  "5": {
+    "name": "configurationTool"
+  },
+  "6": {
+    "name": "remoteControl"
+  },
+  "7": {
+    "name": "combinedInterface"
+  },
+  "8": {
+    "name": "rangeExtender"
+  },
+  "9": {
+    "name": "mainsPowerOutlet"
+  },
+  "a": {
+    "name": "doorLock"
+  },
+  "b": {
+    "name": "doorLockController"
+  },
+  "c": {
+    "name": "simpleSensor"
+  },
+  "d": {
+    "name": "consumptionAwarenessDevice"
+  },
+  "50": {
+    "name": "homeGateway"
+  },
+  "51": {
+    "name": "smartplug"
+  },
+  "52": {
+    "name": "whiteGoods"
+  },
+  "53": {
+    "name": "meterInterface"
+  }
+}
+
