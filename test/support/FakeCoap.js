@@ -1,7 +1,41 @@
+var util = require('util');
+var EventEmitter = require('events').EventEmitter;
+
 module.exports = function FakeCoap() {
   this.request = function(params) {
     this.lastRequest = new FakeRequest(params);
     return this.lastRequest;
+  }
+
+  this.createServer = function() {
+    this.server = new FakeServer();
+    return this.server;
+  }
+}
+
+function FakeServer() {
+  this.request = function(url, payload) {
+    var req = new FakeServerReq(url, payload);
+    this.emit('request', req, req.res);
+    return req;
+  }
+}
+
+util.inherits(FakeServer, EventEmitter);
+
+function FakeServerReq(url, payload) {
+  this.url = url;
+  this.payload = payload;
+
+  var ended = false;
+  this.res = {
+    end: function() {
+      ended = true;
+    }
+  }
+
+  this.hasEnded = function() {
+    return ended;
   }
 }
 

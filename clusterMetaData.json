@@ -1401,6 +1401,358 @@
       }
     }
   },
+  "19": {
+    "name": "overTheAirBootloading",
+    "code": "0x0019",
+    "clusterId": "19",
+    "commands": {
+      "0": {
+        "name": "imageNotify",
+        "args": {
+          "0": {
+            "name": "payloadType",
+            "datatype": "enum8"
+          },
+          "1": {
+            "name": "queryJitter",
+            "datatype": "int8u"
+          },
+          "2": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "4": {
+            "name": "newFileVersion",
+            "datatype": "int32u"
+          }
+        }
+      },
+      "1": {
+        "name": "queryNextImageRequest",
+        "args": {
+          "0": {
+            "name": "fieldControl",
+            "datatype": "int8u"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "currentFileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "hardwareVersion",
+            "datatype": "int16u"
+          }
+        }
+      },
+      "2": {
+        "name": "queryNextImageResponse",
+        "args": {
+          "0": {
+            "name": "status",
+            "datatype": "status"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "imageSize",
+            "datatype": "int32u"
+          }
+        }
+      },
+      "3": {
+        "name": "imageBlockRequest",
+        "args": {
+          "0": {
+            "name": "fieldControl",
+            "datatype": "int8u"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "fileOffset",
+            "datatype": "int32u"
+          },
+          "5": {
+            "name": "maxDataSize",
+            "datatype": "int8u"
+          },
+          "6": {
+            "name": "requestNodeAddress",
+            "datatype": "ieee_address"
+          }
+        }
+      },
+      "4": {
+        "name": "imagePageRequest",
+        "args": {
+          "0": {
+            "name": "fieldControl",
+            "datatype": "int8u"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "fileOffset",
+            "datatype": "int32u"
+          },
+          "5": {
+            "name": "maxDataSize",
+            "datatype": "int8u"
+          },
+          "6": {
+            "name": "pageSize",
+            "datatype": "int16u"
+          },
+          "7": {
+            "name": "responseSpacing",
+            "datatype": "int16u"
+          },
+          "8": {
+            "name": "requestNodeAddress",
+            "datatype": "ieee_address"
+          }
+        }
+      },
+      "5": {
+        "name": "imageBlockResponse",
+        "args": {
+          "0": {
+            "name": "status",
+            "datatype": "status"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "fileOffset",
+            "datatype": "int32u"
+          },
+          "5": {
+            "name": "dataSize",
+            "datatype": "int8u"
+          },
+          "6": {
+            "name": "imageData",
+            "datatype": "int8u"
+          }
+        }
+      },
+      "6": {
+        "name": "upgradeEndRequest",
+        "args": {
+          "0": {
+            "name": "status",
+            "datatype": "status"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          }
+        }
+      },
+      "7": {
+        "name": "upgradeEndResponse",
+        "args": {
+          "0": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "1": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "3": {
+            "name": "currentTime",
+            "datatype": "utc_time"
+          },
+          "4": {
+            "name": "upgradeTime",
+            "datatype": "utc_time"
+          }
+        }
+      },
+      "8": {
+        "name": "querySpecificFileRequest",
+        "args": {
+          "0": {
+            "name": "requestNodeAddress",
+            "datatype": "ieee_address"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "currentZigbeeStackVersion",
+            "datatype": "int16u"
+          }
+        }
+      },
+      "9": {
+        "name": "querySpecificFileResponse",
+        "args": {
+          "0": {
+            "name": "status",
+            "datatype": "status"
+          },
+          "1": {
+            "name": "manufacturerId",
+            "datatype": "int16u"
+          },
+          "2": {
+            "name": "imageType",
+            "datatype": "int16u"
+          },
+          "3": {
+            "name": "fileVersion",
+            "datatype": "int32u"
+          },
+          "4": {
+            "name": "imageSize",
+            "datatype": "int32u"
+          }
+        }
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "otaUpgradeServerId",
+        "side": "client",
+        "datatype": "ieee_address"
+      },
+      "1": {
+        "name": "offsetAddressIntoTheFile",
+        "side": "client",
+        "datatype": "int32u"
+      },
+      "2": {
+        "name": "otaCurrentFileVersion",
+        "side": "client",
+        "datatype": "int32u"
+      },
+      "3": {
+        "name": "otaCurrentZigBeeStackVersion",
+        "side": "client",
+        "datatype": "int16u"
+      },
+      "4": {
+        "name": "otaDownloadedFileVersion",
+        "side": "client",
+        "datatype": "int32u"
+      },
+      "5": {
+        "name": "otaDownloadedZigBeeStackVersion",
+        "side": "client",
+        "datatype": "int16u"
+      },
+      "6": {
+        "name": "otaUpgradeStatus",
+        "side": "client",
+        "datatype": "enum8"
+      },
+      "7": {
+        "name": "manufacturerId",
+        "side": "client",
+        "datatype": "int16u"
+      },
+      "8": {
+        "name": "imageTypeId",
+        "side": "client",
+        "datatype": "int16u"
+      },
+      "9": {
+        "name": "minimumBlockRequestPeriod",
+        "side": "client",
+        "datatype": "int16u"
+      },
+      "10": {
+        "name": "imageStamp",
+        "side": "client",
+        "datatype": "int32u"
+      },
+      "11": {
+        "name": "upgradeActivationPolicy",
+        "side": "client",
+        "datatype": "enum8"
+      },
+      "12": {
+        "name": "upgradeTimeoutPolicy",
+        "side": "client",
+        "datatype": "enum8"
+      }
+    }
+  },
   "20": {
     "name": "pollControl",
     "code": "0x0020",
@@ -3105,11 +3457,11 @@
         "name": "moveToColor",
         "args": {
           "0": {
-            "name": "colorX",
+            "name": "colorx",
             "datatype": "int16u"
           },
           "1": {
-            "name": "colorY",
+            "name": "colory",
             "datatype": "int16u"
           },
           "2": {
@@ -3122,11 +3474,11 @@
         "name": "moveColor",
         "args": {
           "0": {
-            "name": "rateX",
+            "name": "ratex",
             "datatype": "int16s"
           },
           "1": {
-            "name": "rateY",
+            "name": "ratey",
             "datatype": "int16s"
           }
         }
@@ -3135,11 +3487,11 @@
         "name": "stepColor",
         "args": {
           "0": {
-            "name": "stepX",
+            "name": "stepx",
             "datatype": "int16s"
           },
           "1": {
-            "name": "stepY",
+            "name": "stepy",
             "datatype": "int16s"
           },
           "2": {
@@ -5411,7 +5763,7 @@
         "max": "323767"
       },
       "780": {
-        "name": "measured11ThHarmonicCurrent",
+        "name": "measured11thHarmonicCurrent",
         "side": "server",
         "datatype": "int16s",
         "min": "-32768",
@@ -5453,7 +5805,7 @@
         "max": "323767"
       },
       "786": {
-        "name": "measuredPhase11ThHarmonicCurrent",
+        "name": "measuredPhase11thHarmonicCurrent",
         "side": "server",
         "datatype": "int16s",
         "min": "-32768",

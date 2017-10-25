@@ -1,5 +1,9 @@
 #! /usr/bin/env node
 
+var path = require('path');
+
+global.__appRoot = path.resolve(__dirname) + '/../';
+
 var fs = require('fs');
 var async = require('async');
 var jsonfile = require('jsonfile');

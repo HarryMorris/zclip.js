@@ -22,4 +22,12 @@ describe('util.pascalCase', function() {
   it('pascalCases multiple lowercase words', function() {
     expect(pascalCase('great test')).toEqual('GreatTest');
   });
+
+  it('removes symbols', function() {
+    expect(pascalCase('great/test')).toEqual('GreatTest');
+  });
+
+  it('removes multiple spaces', function() {
+    expect(pascalCase('great  test')).toEqual('GreatTest');
+  });
 });

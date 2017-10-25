@@ -61,6 +61,7 @@ onOff.toggle();
 - occupancySensing
 - onOff
 - onOffSwitchConfiguration
+- overTheAirBootloading
 - pollControl
 - powerConfiguration
 - powerProfile

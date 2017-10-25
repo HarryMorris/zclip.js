@@ -22,4 +22,20 @@ describe('util.camelCase', function() {
   it('camelCases multiple lowercase words', function() {
     expect(camelCase('great test')).toEqual('greatTest');
   });
+
+  it('removes symbols', function() {
+    expect(camelCase('great/test')).toEqual('greatTest');
+  });
+
+  it('removes multiple spaces', function() {
+    expect(camelCase('great  test')).toEqual('greatTest');
+  });
+
+  it('handles all caps', function() {
+    expect(camelCase('GREAT TEST')).toEqual('greatTest');
+  });
+
+  it('handles already camel cased test', function() {
+    expect(camelCase('greatTest')).toEqual('greatTest');
+  });
 });
