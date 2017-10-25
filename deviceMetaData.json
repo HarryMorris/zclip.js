@@ -45,13 +45,85 @@
     "name": "homeGateway"
   },
   "51": {
-    "name": "smartplug"
+    "name": "smartPlug"
   },
   "52": {
     "name": "whiteGoods"
   },
   "53": {
     "name": "meterInterface"
+  },
+  "100": {
+    "name": "onOffLight"
+  },
+  "101": {
+    "name": "dimmableLight"
+  },
+  "102": {
+    "name": "colorDimmableLight"
+  },
+  "103": {
+    "name": "onOffLightSwitch"
+  },
+  "104": {
+    "name": "dimmerSwitch"
+  },
+  "105": {
+    "name": "colorDimmerSwitch"
+  },
+  "106": {
+    "name": "lightSensor"
+  },
+  "107": {
+    "name": "occupancySensor"
+  },
+  "200": {
+    "name": "shade"
+  },
+  "201": {
+    "name": "shadeController"
+  },
+  "202": {
+    "name": "windowCoveringDevice"
+  },
+  "203": {
+    "name": "windowCoveringController"
+  },
+  "300": {
+    "name": "heatingCoolingUnit"
+  },
+  "301": {
+    "name": "thermostat"
+  },
+  "302": {
+    "name": "temperatureSensor"
+  },
+  "303": {
+    "name": "pump"
+  },
+  "304": {
+    "name": "pumpController"
+  },
+  "305": {
+    "name": "pressureSensor"
+  },
+  "306": {
+    "name": "flowSensor"
+  },
+  "307": {
+    "name": "miniSplitAc"
+  },
+  "400": {
+    "name": "iasControlAndIndicatingEquipment"
+  },
+  "401": {
+    "name": "iasAncillaryControlEquipment"
+  },
+  "402": {
+    "name": "iasZone"
+  },
+  "403": {
+    "name": "iasWarningDevice"
   }
 }
 
