@@ -392,7 +392,19 @@ describe('listen', function() {
 
   beforeEach(function() {
     var metaData = {
-      "commands": { "0": { "name": "off" } }
+      "commands": {
+        "0": {
+          "name": "moveToLevel",
+          "args": {
+            "0": {
+              "name": "level",
+            },
+            "1": {
+              "name": "transitionTime",
+            }
+          }
+        }
+      }
     }
 
     clusterBase = new ClusterBase(metaData, fakeCoap);
@@ -402,21 +414,37 @@ describe('listen', function() {
   });
 
   test('fires commandReceived when coap server receives command', function() {
+    const moveToLevelHandler = jest.fn();
+    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
     clusterBase.listen(coapServer);
-
-    const offHandler = jest.fn();
-    clusterBase.commandReceived('off', offHandler);
 
     coapServer.request('/zcl/e/1/s6/c/0');
 
-    expect(offHandler).toHaveBeenCalled();
+    expect(moveToLevelHandler).toHaveBeenCalled();
+  });
+
+  test('parses payload', function() {
+    var commandRequest;
+
+    clusterBase.commandReceived('moveToLevel', function(request, response) {
+      commandRequest = request;
+    });
+
+    clusterBase.listen(coapServer);
+
+    var payload = new Map();
+    payload.set(0, '100');
+    payload.set(1, '5');
+
+    coapServer.request('/zcl/e/1/s6/c/0', cbor.encode(payload));
+
+    expect(commandRequest.level).toEqual('100');
+    expect(commandRequest.transitionTime).toEqual('5');
   });
 
   test('ends response', function() {
     clusterBase.listen(coapServer);
-
-    const offHandler = jest.fn();
-    clusterBase.commandReceived('off', offHandler);
+    clusterBase.commandReceived('moveToLevel', jest.fn());
 
     var request = coapServer.request('/zcl/e/1/s6/c/0');
 
@@ -427,34 +455,34 @@ describe('listen', function() {
   test('ignores requests for other endpoints', function() {
     clusterBase.listen(coapServer);
 
-    const offHandler = jest.fn();
-    clusterBase.commandReceived('off', offHandler);
+    const moveToLevelHandler = jest.fn();
+    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
 
     coapServer.request('/zcl/e/2/s6/c/0');
 
-    expect(offHandler).not.toHaveBeenCalled();
+    expect(moveToLevelHandler).not.toHaveBeenCalled();
   });
 
   test('ignores requests for other clusters', function() {
     clusterBase.listen(coapServer);
 
-    const offHandler = jest.fn();
-    clusterBase.commandReceived('off', offHandler);
+    const moveToLevelHandler = jest.fn();
+    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
 
     coapServer.request('/zcl/e/1/s9/c/0');
 
-    expect(offHandler).not.toHaveBeenCalled();
+    expect(moveToLevelHandler).not.toHaveBeenCalled();
   });
 
   test('ignores unknown commands', function() {
     clusterBase.listen(coapServer);
 
-    const offHandler = jest.fn();
-    clusterBase.commandReceived('off', offHandler);
+    const moveToLevelHandler = jest.fn();
+    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
 
     coapServer.request('/zcl/e/1/s6/c/9');
 
-    expect(offHandler).not.toHaveBeenCalled();
+    expect(moveToLevelHandler).not.toHaveBeenCalled();
   });
 });
 
