@@ -13,231 +13,204 @@ beforeEach(function() {
   fakeCoap = new FakeCoap();
 });
 
-test('Assigns meta data', function() {
-  var metaData = { code: '0x0006' };
+describe('init', function() {
+  test('assigns meta data', function() {
+    var metaData = { code: '0x0006' };
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
 
-  expect(clusterBase.meta).toEqual(metaData);
-});
+    expect(clusterBase.meta).toEqual(metaData);
+  });
 
-test('Builds commands from meta data', function() {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "Off"
-      },
-      "1": {
-        "name": "On"
+  test('builds commands from meta data', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "Off"
+        },
+        "1": {
+          "name": "On"
+        }
       }
     }
-  }
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
 
-  expect(clusterBase.on).toBeDefined();
-  expect(clusterBase.off).toBeDefined();
+    expect(clusterBase.on).toBeDefined();
+    expect(clusterBase.off).toBeDefined();
+  });
 });
 
-test('Commands send coap', function() {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "Off"
+describe('commands', function() {
+  test('send coap request with correct params', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "Off"
+        }
       }
     }
-  }
 
-  var ip = '192.168.1.1';
-  var port = 5683;
-  var basePath = '/zcl/e/1/s6/';
+    var ip = '192.168.1.1';
+    var port = 5683;
+    var basePath = '/zcl/e/1/s6/';
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
-  clusterBase.ip = ip;
-  clusterBase.port = port;
-  clusterBase.basePath = basePath;
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    clusterBase.ip = ip;
+    clusterBase.port = port;
+    clusterBase.basePath = basePath;
 
-  clusterBase.off();
-  expect(fakeCoap.lastRequest).toBeDefined();
-  expect(fakeCoap.lastRequest.params.hostname).toEqual(ip);
-  expect(fakeCoap.lastRequest.params.port).toEqual(port);
-  expect(fakeCoap.lastRequest.params.method).toEqual('POST');
-  expect(fakeCoap.lastRequest.params.pathname).toEqual('/zcl/e/1/s6/c/0');
-  expect(fakeCoap.lastRequest.ended).toBeTruthy();
-});
+    clusterBase.off();
+    expect(fakeCoap.lastRequest).toBeDefined();
+    expect(fakeCoap.lastRequest.params.hostname).toEqual(ip);
+    expect(fakeCoap.lastRequest.params.port).toEqual(port);
+    expect(fakeCoap.lastRequest.params.method).toEqual('POST');
+    expect(fakeCoap.lastRequest.params.pathname).toEqual('/zcl/e/1/s6/c/0');
+    expect(fakeCoap.lastRequest.ended).toBeTruthy();
+  });
 
-test('Commands map arguments in cbor', function() {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "cmd",
-        "args": {
-          "0": {
-            "name": "arg1",
-          },
-          "1": {
-            "name": "arg2",
-          },
-          "2": {
-            "name": "arg3",
+  test('encode args', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "cmd",
+          "args": {
+            "0": {
+              "name": "arg1",
+            },
+            "1": {
+              "name": "arg2",
+            },
+            "2": {
+              "name": "arg3",
+            }
           }
         }
       }
     }
-  }
 
-  var ip = '192.168.1.1';
-  var port = 5683;
-  var basePath = '/zcl/e/1/s6/';
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    clusterBase.cmd({
+      arg1: 'foo',
+      arg2: 'bar',
+      arg3: 'baz'
+    });
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
-  clusterBase.ip = ip;
-  clusterBase.port = port;
-  clusterBase.basePath = basePath;
+    expect(fakeCoap.lastRequest).toBeDefined();
 
-  clusterBase.cmd({
-    arg1: 'foo',
-    arg2: 'bar',
-    arg3: 'baz'
+    var encodedPayload = fakeCoap.lastRequest.payload;
+    expect(encodedPayload).toBeDefined();
+
+    var decodedPayload = cbor.decodeFirstSync(encodedPayload);
+    expect(decodedPayload.get(0)).toEqual('foo');
+    expect(decodedPayload.get(1)).toEqual('bar');
+    expect(decodedPayload.get(2)).toEqual('baz');
   });
 
-  expect(fakeCoap.lastRequest).toBeDefined();
-
-  var encodedPayload = fakeCoap.lastRequest.payload;
-  expect(encodedPayload).toBeDefined();
-
-  var payload = cbor.decodeFirstSync(encodedPayload);
-  expect(payload.get(0)).toEqual('foo');
-  expect(payload.get(1)).toEqual('bar');
-  expect(payload.get(2)).toEqual('baz');
-});
-
-test('Requires all command arguments', function() {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "cmd",
-        "args": {
-          "0": {
-            "name": "arg1",
-          },
-          "1": {
-            "name": "arg2",
+  test('requires all arguments', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "cmd",
+          "args": {
+            "0": {
+              "name": "arg1",
+            },
+            "1": {
+              "name": "arg2",
+            }
           }
         }
       }
     }
-  }
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var error;
 
-  var ip = '192.168.1.1';
-  var port = 5683;
-  var basePath = '/zcl/e/1/s6/';
+    clusterBase.cmd({
+      arg1: 'foo'
+    }, function(err) {
+      error = err;
+    });
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
-  clusterBase.ip = ip;
-  clusterBase.port = port;
-  clusterBase.basePath = basePath;
-
-  var error;
-
-  clusterBase.cmd({
-    arg1: 'foo'
-  }, function(err) {
-    error = err;
+    expect(fakeCoap.lastRequest).not.toBeDefined();
+    expect(error).toBeDefined();
+    expect(error).toEqual('Missing arguments arg2.');
   });
 
-  expect(fakeCoap.lastRequest).not.toBeDefined();
-  expect(error).toBeDefined();
-});
-
-test('Commands calls back with response', function(done) {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "Off"
+  test('calls back with payload', function(done) {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "Off"
+        }
       }
     }
-  }
 
-  var ip = '192.168.1.1';
-  var port = 5683;
-  var basePath = '/zcl/e/1/s6/';
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    clusterBase.off(null, function(err, result) {
+      expect(result.response).toEqual('{0: 1}');
+      expect(result.responseCode).toEqual('2.01');
+      done();
+    });
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
-  clusterBase.ip = ip;
-  clusterBase.port = port;
-  clusterBase.basePath = basePath;
+    expect(fakeCoap.lastRequest).toBeDefined();
 
-  clusterBase.off(null, function(err, result) {
-    expect(result.response).toEqual('{0: 1}');
-    expect(result.responseCode).toEqual('2.01');
-    done();
+    fakeCoap.lastRequest.sendResponse({
+      code: '2.01',
+      payload: cbor.encode('{0: 1}')
+    });
   });
 
-  expect(fakeCoap.lastRequest).toBeDefined();
-  fakeCoap.lastRequest.sendResponse({
-    code: '2.01',
-    payload: cbor.encode('{0: 1}')
-  });
-});
-
-test('Commands calls back with empty response', function(done) {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "Off"
+  test('calls back with empty response', function(done) {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "Off"
+        }
       }
     }
-  }
 
-  var ip = '192.168.1.1';
-  var port = 5683;
-  var basePath = '/zcl/e/1/s6/';
+    var ip = '192.168.1.1';
+    var port = 5683;
+    var basePath = '/zcl/e/1/s6/';
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
-  clusterBase.ip = ip;
-  clusterBase.port = port;
-  clusterBase.basePath = basePath;
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    clusterBase.ip = ip;
+    clusterBase.port = port;
+    clusterBase.basePath = basePath;
 
-  clusterBase.off(null, function(err, result) {
-    expect(result.response).toEqual('');
-    expect(result.responseCode).toEqual('4.04');
-    done();
+    clusterBase.off(null, function(err, result) {
+      expect(result.response).toEqual('');
+      expect(result.responseCode).toEqual('4.04');
+      done();
+    });
+
+    expect(fakeCoap.lastRequest).toBeDefined();
+    fakeCoap.lastRequest.sendResponse({
+      code: '4.04',
+      payload: new Buffer('')
+    });
   });
 
-  expect(fakeCoap.lastRequest).toBeDefined();
-  fakeCoap.lastRequest.sendResponse({
-    code: '4.04',
-    payload: new Buffer('')
-  });
-});
-
-test('Commands calls back with error', function(done) {
-  var metaData = {
-    "commands": {
-      "0": {
-        "name": "Off"
+  test('calls back with error', function(done) {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "Off"
+        }
       }
     }
-  }
 
-  var ip = '192.168.1.1';
-  var port = 5683;
-  var basePath = '/zcl/e/1/s6/';
+    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    clusterBase.off(null, function(err, result) {
+      expect(err.message).toEqual('No reply in 3s');
+      done();
+    });
 
-  var clusterBase = new ClusterBase(metaData, fakeCoap);
-  clusterBase.ip = ip;
-  clusterBase.port = port;
-  clusterBase.basePath = basePath;
-
-  clusterBase.off(null, function(err, result) {
-    expect(err.message).toEqual('No reply in 3s');
-    done();
-  });
-
-  expect(fakeCoap.lastRequest).toBeDefined();
-  fakeCoap.lastRequest.sendError({
-    message: 'No reply in 3s'
+    expect(fakeCoap.lastRequest).toBeDefined();
+    fakeCoap.lastRequest.sendError({
+      message: 'No reply in 3s'
+    });
   });
 });
 
@@ -289,15 +262,7 @@ describe('read', function() {
       }
     };
 
-    var ip = '192.168.1.1';
-    var port = 5683;
-    var basePath = '/zcl/e/1/s6/';
-
     var clusterBase = new ClusterBase(metaData, fakeCoap);
-
-    clusterBase.ip = ip;
-    clusterBase.port = port;
-    clusterBase.basePath = basePath;
 
     var payload = new Map();
     payload.set(0, { v: 100 });
@@ -329,15 +294,7 @@ describe('read', function() {
       }
     };
 
-    var ip = '192.168.1.1';
-    var port = 5683;
-    var basePath = '/zcl/e/1/s6/';
-
     var clusterBase = new ClusterBase(metaData, fakeCoap);
-
-    clusterBase.ip = ip;
-    clusterBase.port = port;
-    clusterBase.basePath = basePath;
 
     clusterBase.read({}, function(err, result) {
       expect(result.responseCode).toEqual('4.04');
@@ -364,15 +321,7 @@ describe('read', function() {
       }
     };
 
-    var ip = '192.168.1.1';
-    var port = 5683;
-    var basePath = '/zcl/e/1/s6/';
-
     var clusterBase = new ClusterBase(metaData, fakeCoap);
-
-    clusterBase.ip = ip;
-    clusterBase.port = port;
-    clusterBase.basePath = basePath;
 
     clusterBase.read({}, function(err, result) {
       expect(err.message).toEqual('No reply in 3s');
@@ -413,7 +362,7 @@ describe('listen', function() {
     coapServer = fakeCoap.createServer();
   });
 
-  test('fires commandReceived when coap server receives command', function() {
+  test('fires command handler when coap server receives command', function() {
     const moveToLevelHandler = jest.fn();
     clusterBase.moveToLevelHandler = moveToLevelHandler;
     clusterBase.listen(coapServer);
