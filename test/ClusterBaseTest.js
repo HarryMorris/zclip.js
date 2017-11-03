@@ -415,7 +415,7 @@ describe('listen', function() {
 
   test('fires commandReceived when coap server receives command', function() {
     const moveToLevelHandler = jest.fn();
-    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
+    clusterBase.moveToLevelHandler = moveToLevelHandler;
     clusterBase.listen(coapServer);
 
     coapServer.request('/zcl/e/1/s6/c/0');
@@ -426,9 +426,9 @@ describe('listen', function() {
   test('parses payload', function() {
     var commandRequest;
 
-    clusterBase.commandReceived('moveToLevel', function(request, response) {
+    clusterBase.moveToLevelHandler = function(request, response) {
       commandRequest = request;
-    });
+    };
 
     clusterBase.listen(coapServer);
 
@@ -438,13 +438,15 @@ describe('listen', function() {
 
     coapServer.request('/zcl/e/1/s6/c/0', cbor.encode(payload));
 
-    expect(commandRequest.level).toEqual('100');
-    expect(commandRequest.transitionTime).toEqual('5');
+    expect(commandRequest.payload.level).toEqual('100');
+    expect(commandRequest.payload.transitionTime).toEqual('5');
   });
 
-  test('ends response', function() {
+  test('response.send ends response', function() {
     clusterBase.listen(coapServer);
-    clusterBase.commandReceived('moveToLevel', jest.fn());
+    clusterBase.moveToLevelHandler = function(request, response) {
+      response.send();
+    };
 
     var request = coapServer.request('/zcl/e/1/s6/c/0');
 
@@ -456,7 +458,7 @@ describe('listen', function() {
     clusterBase.listen(coapServer);
 
     const moveToLevelHandler = jest.fn();
-    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
+    clusterBase.moveToLevelHandler = moveToLevelHandler;
 
     coapServer.request('/zcl/e/2/s6/c/0');
 
@@ -467,7 +469,7 @@ describe('listen', function() {
     clusterBase.listen(coapServer);
 
     const moveToLevelHandler = jest.fn();
-    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
+    clusterBase.moveToLevelHandler = moveToLevelHandler;
 
     coapServer.request('/zcl/e/1/s9/c/0');
 
@@ -478,29 +480,11 @@ describe('listen', function() {
     clusterBase.listen(coapServer);
 
     const moveToLevelHandler = jest.fn();
-    clusterBase.commandReceived('moveToLevel', moveToLevelHandler);
+    clusterBase.moveToLevelHandler = moveToLevelHandler;
 
     coapServer.request('/zcl/e/1/s6/c/9');
 
     expect(moveToLevelHandler).not.toHaveBeenCalled();
-  });
-});
-
-describe('.commandNames', function() {
-  test('returns a sorted list of command Names', function() {
-    var metaData = {
-      "commands": {
-        "0": {
-          "name": "off"
-        },
-        "1": {
-          "name": "on"
-        }
-      }
-    }
-
-    var cluster = new ClusterBase(metaData, fakeCoap);
-    expect(cluster.commandNames()).toEqual(['off', 'on']);
   });
 });
 
