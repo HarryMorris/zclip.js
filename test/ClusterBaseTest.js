@@ -41,6 +41,40 @@ describe('init', function() {
   });
 });
 
+describe('command classes', function() {
+  it('can encode payload', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "cmd",
+          "args": {
+            "0": {
+              "name": "arg1",
+            },
+            "1": {
+              "name": "arg2",
+            }
+          }
+        }
+      }
+    }
+
+    var cluster = new ClusterBase(metaData, fakeCoap);
+    expect(cluster.commands.Cmd).toBeDefined();
+
+    var cmd = new cluster.commands.Cmd({
+      arg1: 100,
+      arg2: 200,
+    });
+
+    var payload = new Map();
+    payload.set(0, 100);
+    payload.set(1, 200);
+
+    expect(cmd.payload).toEqual(cbor.encode(payload));
+  });
+});
+
 describe('commands', function() {
   test('send coap request with correct params', function() {
     var metaData = {
