@@ -79,7 +79,7 @@ onOff.toggle();
 npm test
 ```
 
-## Support & Contributing
+## Support
 
-Email: lee.byrd@silabs.com
+[community.silabs.com](https://www.silabs.com/community) or [silabs.com/support](https://www.silabs.com/support)
 
