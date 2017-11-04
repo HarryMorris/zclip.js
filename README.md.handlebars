@@ -5,9 +5,7 @@ A javascript implementation of ZCL over IP.
 ## Installation
 
 ```sh
-git clone https://github.com/SiliconLabs/zclip.js.git
-cd zclip.js
-npm install --production
+npm install zclip
 ```
 
 ## Development
