@@ -14,9 +14,9 @@ Examples are located in `/examples`
 
 ```sh
 var coap = require('coap');
-var zcl = require('../.')(coap);
+var zclip = require('zclip')(coap);
 
-var onOff = new zcl.clusters.OnOff({
+var onOff = new zclip.clusters.OnOff({
   ip: '::1',
   endpoint: 1
 });
