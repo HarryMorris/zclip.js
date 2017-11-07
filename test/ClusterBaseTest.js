@@ -42,6 +42,28 @@ describe('init', function() {
 });
 
 describe('command classes', function() {
+  it('assigns args', function() {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "cmd",
+          "args": {
+            "0": {
+              "name": "arg1",
+            }
+          }
+        }
+      }
+    }
+
+    var cluster = new ClusterBase(metaData, fakeCoap);
+    expect(cluster.commands.Cmd).toBeDefined();
+
+    var args = { arg1: 100 };
+    var cmd = new cluster.commands.Cmd(args);
+
+    expect(cmd.args).toEqual(args);
+  });
   it('can encode payload', function() {
     var metaData = {
       "commands": {
