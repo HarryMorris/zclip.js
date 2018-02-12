@@ -56,6 +56,11 @@ function FakeRequest(params) {
     this.ended = true;
   }
 
+  this.setOption = function() {
+
+  }
+
+
   this.sendResponse = function(response) {
     var responseCallback = this.eventCallbacks.response;
     responseCallback(response);
