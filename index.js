@@ -22,6 +22,7 @@ module.exports = function(coap) {
   zclip.discover = require(__appRoot + 'lib/discover')(coap, zclip);
   zclip.clusters = require(__appRoot + 'lib/clusters')(clusterMetaData, coap);
   zclip.util = require(__appRoot + 'lib/util')();
+  zclip.RD = require(__appRoot + 'lib/RD')(coap, zclip);
 
   return zclip;
 }
