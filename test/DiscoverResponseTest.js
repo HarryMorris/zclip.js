@@ -1,20 +1,9 @@
-require(__dirname + '/../support/testHelper');
-var fs = require('fs');
+require(__dirname + '/support/testHelper');
 
-var devices;
-var deviceIp = '2001::4';
-var DiscoverResponse;
-
-function Device() { }
+var zclip;
 
 beforeAll(function() {
-  var deviceMetaDataFile = __appRoot + 'deviceMetaData.json';
-  var deviceMetaData = JSON.parse(fs.readFileSync(deviceMetaDataFile));
-  devices = require(__appRoot + 'lib/devices')(deviceMetaData);
-});
-
-beforeEach(function() {
-  DiscoverResponse = require(__appRoot + 'lib/DiscoverResponse')(devices);
+  zclip = require(__appRoot)(new FakeCoap());
 });
 
 test('builds devices with device with absolute link', function() {
@@ -30,7 +19,7 @@ test('builds devices with device with absolute link', function() {
     payload: new Buffer(deviceResponsePayload)
   };
 
-  var discoveryResponse = new DiscoverResponse(coapResponse);
+  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
 
   expect(discoveryResponse.devices).toBeDefined();
   expect(discoveryResponse.devices.length).toEqual(2);
@@ -59,7 +48,7 @@ test('builds devices with device with relative link', function() {
     payload: new Buffer(deviceResponsePayload)
   };
 
-  var discoveryResponse = new DiscoverResponse(coapResponse);
+  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
 
   expect(discoveryResponse.devices).toBeDefined();
   expect(discoveryResponse.devices.length).toEqual(2);
@@ -78,24 +67,24 @@ test('builds devices with device with relative link', function() {
 test('is empty if payload is null', function() {
   var coapResponse = {
     rsinfo: {
-      address: deviceIp
+      address: '2001::1'
     },
     payload: null
   };
 
-  var discoveryResponse = new DiscoverResponse(coapResponse);
+  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
   expect(discoveryResponse.devices.length).toEqual(0);
 });
 
 test('is null if payload is malformed', function() {
   var coapResponse = {
     rsinfo: {
-      address: deviceIp
+      address: '2001::1'
     },
     payload: 'wrong'
   };
 
-  var discoveryResponse = new DiscoverResponse(coapResponse);
+  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
   expect(discoveryResponse.devices.length).toEqual(0);
 });
 

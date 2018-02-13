@@ -5,25 +5,28 @@ global.__appRoot = path.resolve(__dirname) + '/';
 
 require(__appRoot + 'polyfills');
 
-var clusterMetaDataFile = __appRoot + 'clusterMetaData.json';
-var clusterMetaData = JSON.parse(fs.readFileSync(clusterMetaDataFile));
-
-var deviceMetaDataFile = __appRoot + 'deviceMetaData.json';
-var deviceMetaData = JSON.parse(fs.readFileSync(deviceMetaDataFile));
-
 module.exports = function(coap) {
-  var config = {};
-  var zclip = {
-    SERVER: 's',
-    CLIENT: 'c'
-  };
+  var zclip = {};
+  zclip.coap = coap;
 
-  zclip.devices = require(__appRoot + 'lib/devices')(deviceMetaData);
-  zclip.discover = require(__appRoot + 'lib/discover')(coap, zclip);
-  zclip.clusters = require(__appRoot + 'lib/clusters')(clusterMetaData, coap);
-  zclip.util = require(__appRoot + 'lib/util')();
-  zclip.RD = require(__appRoot + 'lib/RD')(coap, zclip);
+  zclip.SERVER = 's';
+  zclip.CLIENT = 'c';
+
+  zclip.clusters = require(__appRoot + 'lib/clusters')(zclip);
+  zclip.devices = require(__appRoot + 'lib/devices')(zclip);
+  zclip.discover = require(__appRoot + 'lib/discover')(zclip);
+  zclip.util = require(__appRoot + 'lib/util')(zclip);
+
+  zclip.DiscoverResponse = require(__appRoot + 'lib/DiscoverResponse')(zclip);
+  zclip.RD = require(__appRoot + 'lib/RD')(zclip);
+
+  zclip.clusters.init(parseMetaData(__appRoot + 'clusterMetaData.json'));
+  zclip.devices.init(parseMetaData(__appRoot + 'deviceMetaData.json'));
 
   return zclip;
+}
+
+function parseMetaData(filePath) {
+  return JSON.parse(fs.readFileSync(filePath));
 }
 

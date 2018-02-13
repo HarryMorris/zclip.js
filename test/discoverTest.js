@@ -1,4 +1,4 @@
-require(__dirname + '/../support/testHelper');
+require(__dirname + '/support/testHelper');
 
 var fakeCoap;
 var zclip;

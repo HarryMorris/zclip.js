@@ -29,14 +29,16 @@ var clusterMetaData = {
 
 
 test('returns clusters from meta data', () => {
-  var clusters = require(__appRoot + 'lib/clusters')(clusterMetaData);
+  var clusters = require(__appRoot + 'lib/clusters')({});
+  clusters.init(clusterMetaData);
 
   expect(clusters.OnOff).toBeDefined();
 });
 
 test('adds metadata to cluster instances', () => {
 
-  var clusters = require(__appRoot + 'lib/clusters')(clusterMetaData);
+  var clusters = require(__appRoot + 'lib/clusters')({});
+  clusters.init(clusterMetaData);
 
   var onOff = new clusters.OnOff();
 
