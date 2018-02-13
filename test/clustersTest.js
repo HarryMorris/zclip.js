@@ -1,49 +1,26 @@
 require(__dirname + '/support/testHelper');
 
-var clusterMetaData = {
-  "6": {
-    "name": "onOff",
-    "code": "0x0006",
-    "clusterId": "6",
-    "commands": {
-      "0": {
-        "name": "off",
-        "args": {}
-      },
-      "1": {
-        "name": "on",
-        "args": {}
-      }
-    },
-    "attributes": {
-      "0": {
-        "name": "onOff",
-        "side": "server",
-        "datatype": "boolean",
-        "min": "0x00",
-        "max": "0x01"
-      }
-    }
-  }
-}
+var zclip;
 
-
-test('returns clusters from meta data', () => {
-  var clusters = require(__appRoot + 'lib/clusters')({});
-  clusters.init(clusterMetaData);
-
-  expect(clusters.OnOff).toBeDefined();
+beforeAll(() => {
+  zclip = require('../')(new FakeCoap());
 });
 
-test('adds metadata to cluster instances', () => {
 
-  var clusters = require(__appRoot + 'lib/clusters')({});
-  clusters.init(clusterMetaData);
+test('init builds clusters from meta data', () => {
+  expect(zclip.clusters.OnOff).toBeDefined();
+});
 
-  var onOff = new clusters.OnOff();
+test('init adds metadata to cluster instances', () => {
+  var onOff = new zclip.clusters.OnOff();
 
   expect(onOff.meta).toBeDefined();
   expect(onOff.meta.code).toEqual('0x0006');
   expect(onOff.meta.clusterId).toEqual('6');
+});
+
+test('findNameById returns name', () => {
+  var clusterName = zclip.clusters.findNameById('6')
+  expect(clusterName).toEqual('OnOff');
 });
 
