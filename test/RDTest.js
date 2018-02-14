@@ -27,6 +27,27 @@ describe('RD', function() {
     expect(zclip.coap.lastRequest.params.port).toEqual(5683);
   });
 
+  test('lookup query with uid param', function() {
+    var query = {}
+
+    var rd = zclip.RD(RD_IP, RD_PORT);
+    rd.lookup(query, function(err, devices) {
+      expect(zclip.coap.lastRequest).toBeDefined();
+      expect(zclip.coap.lastRequest.params.query).toEqual('ep=ni:///sha-256;ABC123');
+
+      expect(devices).toBeDefined();
+      expect(devices[0].ip).toEqual('2001::4');
+    });
+
+    expect(zclip.coap.lastRequest).toBeDefined();
+    zclip.coap.lastRequest.sendResponse({
+      rsinfo: {
+        address: '2001::4'
+      },
+      payload: new Buffer('</zcl>;rt=urn:zcl')
+    });
+  });
+
   test('lookup query without params sends cluster wildcard', function() {
     var query = {}
 

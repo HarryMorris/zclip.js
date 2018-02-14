@@ -6,6 +6,31 @@ beforeAll(function() {
   zclip = require(__appRoot)(new FakeCoap());
 });
 
+test('builds devices with zcl links', function() {
+  var deviceResponsePayload = [
+    '<coap://[2001::1]/zcl>rt=urn:zcl;ep=ni:///sha-256;ABC123',
+    '<coap://[2001::2]/zcl>rt=urn:zcl;ep=ni:///sha-256;DEF456'
+  ].join(',');
+
+  var coapResponse = {
+    rsinfo: {
+      address: '2001::4'
+    },
+    payload: new Buffer(deviceResponsePayload)
+  };
+
+  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
+
+  expect(discoveryResponse.devices).toBeDefined();
+  expect(discoveryResponse.devices.length).toEqual(2);
+
+  expect(discoveryResponse.devices[0].ip).toEqual('2001::1');
+  expect(discoveryResponse.devices[0].uid).toEqual('ABC123');
+
+  expect(discoveryResponse.devices[1].ip).toEqual('2001::2');
+  expect(discoveryResponse.devices[1].uid).toEqual('DEF456');
+});
+
 test('builds devices with device with absolute link', function() {
   var deviceResponsePayload = [
     '<coap://[2001::1]/zcl/e/1/s6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.s;ep=ni:///sha-256;ABC123',
@@ -82,7 +107,7 @@ test('is empty if payload is null', function() {
   expect(discoveryResponse.devices.length).toEqual(0);
 });
 
-test('is null if payload is malformed', function() {
+test('is unknown if payload is malformed', function() {
   var coapResponse = {
     rsinfo: {
       address: '2001::1'
@@ -91,6 +116,7 @@ test('is null if payload is malformed', function() {
   };
 
   var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
-  expect(discoveryResponse.devices.length).toEqual(0);
+  expect(discoveryResponse.devices.length).toEqual(1);
+  expect(discoveryResponse.devices[0].name).toEqual('Unknown');
 });
 

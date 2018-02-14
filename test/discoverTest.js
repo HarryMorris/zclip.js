@@ -33,6 +33,32 @@ test('discover query without params', function(done) {
 
 });
 
+test.only('discover query with uid', function(done) {
+  var query = {
+    uid: 'ABC123'
+  }
+
+  var deviceIp = '2001::4';
+  var deviceResponse = '</zcl>;rt=urn:zcl';
+
+  zclip.discover(query, function(err, devices) {
+    expect(fakeCoap.lastRequest).toBeDefined();
+    expect(fakeCoap.lastRequest.params.query).toEqual('ep=ni:///sha-256;ABC123');
+
+    expect(devices.length).toEqual(1);
+    expect(devices[0].ip).toEqual(deviceIp);
+    done();
+  });
+
+  fakeCoap.lastRequest.sendResponse({
+    rsinfo: {
+      address: deviceIp
+    },
+    payload: new Buffer(deviceResponse)
+  });
+
+});
+
 test('discover query with cluster only', function(done) {
   var query = {
     clusterId: '6'
