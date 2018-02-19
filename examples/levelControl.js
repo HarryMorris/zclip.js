@@ -1,8 +1,8 @@
 var coap = require('coap');
 var zclip = require('../.')(coap);
 
-var levelControl= new zclip.clusters.LevelControl({
-  ip: '2001:db8:385:9318:4401:5dc1:9b2c:4743',
+var levelControl= zclip.clusters.LevelControl({
+  ip: '2001:db8:385:9318:344f:e8e2:ce9f:e933',
   endpoint: 1
 });
 

@@ -1,8 +1,8 @@
 var coap = require('coap');
 var zcl = require('../.')(coap);
 
-var onOff = new zcl.clusters.OnOff({
-  ip: '2001:db8:385:9318:b356:856f:bb56:f601',
+var onOff = zcl.clusters.OnOff({
+  ip: '2001:db8:385:9318:344f:e8e2:ce9f:e933',
   endpoint: 1
 });
 
