@@ -28,7 +28,7 @@ describe('RD', function() {
   });
 
   test('lookup query with uid param', function() {
-    var query = {}
+    var query = { uid: 'ABC123' }
 
     var rd = zclip.RD(RD_IP, RD_PORT);
     rd.lookup(query, function(err, devices) {
