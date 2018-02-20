@@ -2,14 +2,26 @@ var util = require('util');
 var EventEmitter = require('events').EventEmitter;
 
 module.exports = function FakeCoap() {
-  this.request = function(params) {
-    this.lastRequest = new FakeRequest(params);
+  var registeredRequests = {};
+
+  this.request = function(req) {
+    var res = registeredRequests[requestKey(req)];
+
+    this.lastRequest = new FakeRequest(req, res);
     return this.lastRequest;
   }
 
   this.createServer = function() {
     this.server = new FakeServer();
     return this.server;
+  }
+
+  this.registerRequest = function(req, res) {
+    registeredRequests[requestKey(req)] = res;
+  }
+
+  function requestKey(req) {
+    return [req.hostname, req.port, req.method, req.pathname, req.query].join('-');
   }
 }
 
@@ -39,13 +51,16 @@ function FakeServerReq(url, payload) {
   }
 }
 
-function FakeRequest(params) {
-  this.params = params;
+function FakeRequest(req, res) {
+  this.params = req;
 
   this.eventCallbacks = {};
 
   this.on = function(event, callback) {
     this.eventCallbacks[event] = callback;
+
+    if (res && event == 'response')
+      callback(res);
   }
 
   this.write = function(payload) {

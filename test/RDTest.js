@@ -14,7 +14,7 @@ describe('RD', function() {
     rd.lookup({}, function(err, devices) {});
 
     expect(zclip.coap.lastRequest).toBeDefined();
-    expect(zclip.coap.lastRequest.params.host).toEqual(RD_IP);
+    expect(zclip.coap.lastRequest.params.hostname).toEqual(RD_IP);
     expect(zclip.coap.lastRequest.params.port).toEqual(RD_PORT);
   });
 
@@ -23,7 +23,7 @@ describe('RD', function() {
     rd.lookup({}, function(err, devices) {});
 
     expect(zclip.coap.lastRequest).toBeDefined();
-    expect(zclip.coap.lastRequest.params.host).toEqual(RD_IP);
+    expect(zclip.coap.lastRequest.params.hostname).toEqual(RD_IP);
     expect(zclip.coap.lastRequest.params.port).toEqual(5683);
   });
 

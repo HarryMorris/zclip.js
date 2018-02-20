@@ -4,6 +4,7 @@ var cbor = require('cbor');
 
 var ClusterBase;
 var fakeCoap;
+var zclip;
 
 beforeAll(function() {
   ClusterBase = require(__appRoot + 'lib/ClusterBase')();
@@ -11,13 +12,14 @@ beforeAll(function() {
 
 beforeEach(function() {
   fakeCoap = new FakeCoap();
+  zclip = require('../')(fakeCoap);
 });
 
 describe('init', function() {
   test('assigns meta data', function() {
     var metaData = { code: '0x0006' };
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
 
     expect(clusterBase.meta).toEqual(metaData);
   });
@@ -34,7 +36,7 @@ describe('init', function() {
       }
     }
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
 
     expect(clusterBase.on).toBeDefined();
     expect(clusterBase.off).toBeDefined();
@@ -56,7 +58,7 @@ describe('command classes', function() {
       }
     }
 
-    var cluster = new ClusterBase(metaData, fakeCoap);
+    var cluster = new ClusterBase(metaData, zclip);
     expect(cluster.commands.Cmd).toBeDefined();
 
     var args = { arg1: 100 };
@@ -64,6 +66,7 @@ describe('command classes', function() {
 
     expect(cmd.args).toEqual(args);
   });
+
   it('can encode payload', function() {
     var metaData = {
       "commands": {
@@ -81,7 +84,7 @@ describe('command classes', function() {
       }
     }
 
-    var cluster = new ClusterBase(metaData, fakeCoap);
+    var cluster = new ClusterBase(metaData, zclip);
     expect(cluster.commands.Cmd).toBeDefined();
 
     var cmd = new cluster.commands.Cmd({
@@ -98,6 +101,55 @@ describe('command classes', function() {
 });
 
 describe('commands', function() {
+  test('can resolve ip with rd and uid', function(done) {
+    var metaData = {
+      "commands": {
+        "0": {
+          "name": "Off"
+        }
+      }
+    }
+
+    var rdIp = '2001::1';
+    var rdPort = '5689';
+    var deviceIp = '2001::9';
+    var uid = 'abc123';
+    var basePath = '/zcl/e/1/s6/';
+
+    var clusterBase = new ClusterBase(metaData, zclip);
+    clusterBase.port = '5683';
+    clusterBase.rdIp = rdIp;
+    clusterBase.rdPort = rdPort;
+    clusterBase.uid = uid;
+    clusterBase.basePath = basePath;
+
+    fakeCoap.registerRequest({
+      hostname: rdIp,
+      port: rdPort,
+      method: 'GET',
+      pathname: 'rd-lookup/res',
+      query: `ep=ni:///sha-256;${uid}`
+    }, {
+      payload: new Buffer(`<coap://[${deviceIp}]/zcl>;rt=urn:zcl;ep=ni:///sha-256;${uid}`),
+      code: '2.04'
+    });
+
+    fakeCoap.registerRequest({
+      hostname: deviceIp,
+      port: '5683',
+      method: 'POST',
+      pathname: '/zcl/e/1/s6/c/0'
+    }, {
+      code: '2.01',
+      payload: ''
+    });
+
+    clusterBase.off(null, function(err, response) {
+      expect(response.responseCode).toEqual('2.01');
+      done();
+    });
+  });
+
   test('send coap request with correct params', function() {
     var metaData = {
       "commands": {
@@ -111,7 +163,7 @@ describe('commands', function() {
     var port = 5683;
     var basePath = '/zcl/e/1/s6/';
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
     clusterBase.ip = ip;
     clusterBase.port = port;
     clusterBase.basePath = basePath;
@@ -145,7 +197,8 @@ describe('commands', function() {
       }
     }
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
+    clusterBase.ip = '2001::1';
     clusterBase.cmd({
       arg1: 'foo',
       arg2: 'bar',
@@ -179,7 +232,7 @@ describe('commands', function() {
         }
       }
     }
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
     var error;
 
     clusterBase.cmd({
@@ -202,7 +255,9 @@ describe('commands', function() {
       }
     }
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
+    clusterBase.ip = '2001::1'
+
     clusterBase.off(null, function(err, result) {
       expect(result.response).toEqual('{0: 1}');
       expect(result.responseCode).toEqual('2.01');
@@ -230,7 +285,7 @@ describe('commands', function() {
     var port = 5683;
     var basePath = '/zcl/e/1/s6/';
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
     clusterBase.ip = ip;
     clusterBase.port = port;
     clusterBase.basePath = basePath;
@@ -257,7 +312,9 @@ describe('commands', function() {
       }
     }
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
+    clusterBase.ip = '2001::1';
+
     clusterBase.off(null, function(err, result) {
       expect(err.message).toEqual('No reply in 3s');
       done();
@@ -274,12 +331,12 @@ describe('read', function() {
   test('sends an attribute request', function(done) {
     var metaData = { code: '0x0006' };
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
     var ip = '192.168.1.1';
     var port = 5683;
     var basePath = '/zcl/e/1/s6/';
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
 
     clusterBase.ip = ip;
     clusterBase.port = port;
@@ -318,7 +375,7 @@ describe('read', function() {
       }
     };
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
 
     var payload = new Map();
     payload.set(0, { v: 100 });
@@ -350,7 +407,7 @@ describe('read', function() {
       }
     };
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
 
     clusterBase.read({}, function(err, result) {
       expect(result.responseCode).toEqual('4.04');
@@ -377,7 +434,7 @@ describe('read', function() {
       }
     };
 
-    var clusterBase = new ClusterBase(metaData, fakeCoap);
+    var clusterBase = new ClusterBase(metaData, zclip);
 
     clusterBase.read({}, function(err, result) {
       expect(err.message).toEqual('No reply in 3s');
@@ -412,7 +469,7 @@ describe('listen', function() {
       }
     }
 
-    clusterBase = new ClusterBase(metaData, fakeCoap);
+    clusterBase = new ClusterBase(metaData, zclip);
     clusterBase.basePath = '/zcl/e/1/s6/';
 
     coapServer = fakeCoap.createServer();
@@ -513,7 +570,7 @@ describe('.commandArgs', function() {
       }
     }
 
-    var cluster = new ClusterBase(metaData, fakeCoap);
+    var cluster = new ClusterBase(metaData, zclip);
     expect(cluster.commandArgs('command1')).toEqual([
       { name: 'arg1', datatype: 'uint8' },
       { name: 'arg2', datatype: 'uint16' }
