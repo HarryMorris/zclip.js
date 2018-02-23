@@ -12,8 +12,8 @@
 var coap = require('coap');
 var zcl = require('../.')(coap);
 
-var resourceDirectoryIp = '2001::1'
-var resourceDirectoryPort = 5683;
+var resourceDirectoryIp = '::1'
+var resourceDirectoryPort = 5685;
 var deviceUid = 'P7BU0eh27b2f5f0IC0GLL7uHum';
 var clusterEndpoint = 1;
 

@@ -1,7 +1,7 @@
 var coap = require('coap');
 var zcl = require('../.')(coap);
 
-var deviceIp = '2001:db8:385:9318:344f:e8e2:ce9f:e933';
+var deviceIp = '::1';
 var clusterEndpoint = 1;
 
 var onOff = zcl.clusters.OnOff({
