@@ -75,7 +75,6 @@ function FakeRequest(req, res) {
 
   }
 
-
   this.sendResponse = function(response) {
     var responseCallback = this.eventCallbacks.response;
     responseCallback(response);
