@@ -48,7 +48,7 @@ describe('Cluster', () => {
     expect(cluster.rdPort).toEqual(5685);
   });
 
-  describe('read', function() {
+  describe('read', () => {
     test('sends an attribute request', () => {
       var cluster = Cluster({
         clusterId: '6',
@@ -99,7 +99,7 @@ describe('Cluster', () => {
       });
     });
 
-    test('decodes empty response', function(done) {
+    test('decodes empty response', (done) => {
       var cluster = Cluster({
         clusterId: '5',
         ip: '::1'
@@ -116,7 +116,7 @@ describe('Cluster', () => {
       });
     });
 
-    test('calls back with error', function(done) {
+    test('calls back with error', (done) => {
       var cluster = Cluster({
         clusterId: '5',
         ip: '::1'

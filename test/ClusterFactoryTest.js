@@ -105,54 +105,6 @@ describe('cluster commands', function() {
   });
 
 
-  // test('can resolve ip with rd and uid', function(done) {
-  //   var metaData = {
-  //     "commands": {
-  //       "0": {
-  //         "name": "Off"
-  //       }
-  //     }
-  //   }
-  //
-  //   var rdIp = '2001::1';
-  //   var rdPort = '5689';
-  //   var deviceIp = '2001::9';
-  //   var uid = 'abc123';
-  //   var basePath = '/zcl/e/1/s6/';
-  //
-  //   var clusterBase = new ClusterBase(metaData, zclip);
-  //   clusterBase.port = '5683';
-  //   clusterBase.rdIp = rdIp;
-  //   clusterBase.rdPort = rdPort;
-  //   clusterBase.uid = uid;
-  //   clusterBase.basePath = basePath;
-  //
-  //   fakeCoap.registerRequest({
-  //     hostname: rdIp,
-  //     port: rdPort,
-  //     method: 'GET',
-  //     pathname: 'rd-lookup/res',
-  //     query: `ep=ni:///sha-256;${uid}`
-  //   }, {
-  //     payload: new Buffer(`<coap://[${deviceIp}]/zcl>;rt=urn:zcl;ep=ni:///sha-256;${uid}`),
-  //     code: '2.04'
-  //   });
-  //
-  //   fakeCoap.registerRequest({
-  //     hostname: deviceIp,
-  //     port: '5683',
-  //     method: 'POST',
-  //     pathname: '/zcl/e/1/s6/c/0'
-  //   }, {
-  //     code: '2.01',
-  //     payload: ''
-  //   });
-  //
-  //   clusterBase.off(null, function(err, response) {
-  //     expect(response.responseCode).toEqual('2.01');
-  //     done();
-  //   });
-  // });
 
   // test('requires all arguments', function() {
   //   var metaData = {
