@@ -23,3 +23,31 @@ test('findNameById returns name', () => {
   expect(clusterName).toEqual('OnOff');
 });
 
+describe('findClusterIdByName', () => {
+  test('finds clusters by Pascal cased names', () => {
+    var clusterId = zclip.clusters.findClusterIdByName('OnOff');
+    expect(clusterId).toEqual('6');
+  });
+
+  test('finds clusters by camel cased names', () => {
+    var clusterId = zclip.clusters.findClusterIdByName('onOff');
+    expect(clusterId).toEqual('6');
+  });
+
+  test('finds clusters by downcase', () => {
+    var clusterId = zclip.clusters.findClusterIdByName('onoff');
+    expect(clusterId).toEqual('6');
+  });
+
+  test('returns null if not found', () => {
+    var clusterId = zclip.clusters.findClusterIdByName('foo');
+    expect(clusterId).not.toBeDefined();
+  });
+});
+
+describe('clusterNames', () => {
+  it('returns all cluster names', () => {
+    expect(zclip.clusters.clusterNames()).toContain('OnOff');
+    expect(zclip.clusters.clusterNames()).toContain('LevelControl');
+  });
+});
