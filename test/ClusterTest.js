@@ -3,11 +3,13 @@ require(__dirname + '/support/testHelper');
 
 describe('Cluster', () => {
   var AttributeCollection;
+  var CommandCollection;
   var Cluster;
   var coap;
 
   beforeAll(() => {
     AttributeCollection = require(__appRoot + 'lib/AttributeCollection');
+    CommandCollection = require(__appRoot + 'lib/CommandCollection');
     Cluster = require(__appRoot + 'lib/Cluster');
   });
 
@@ -46,6 +48,44 @@ describe('Cluster', () => {
     expect(cluster.side).toEqual('s');
     expect(cluster.rdIp).toEqual('2001::2');
     expect(cluster.rdPort).toEqual(5685);
+  });
+
+  describe('availableCommands', () => {
+    it('returns a list of available commands', () => {
+      var commandCollection = CommandCollection({
+        0: { name: 'Off' },
+        1: { name: 'On'  }
+      });
+
+      var cluster = Cluster({
+        commandCollection: commandCollection
+      });
+
+      expect(cluster.availableCommands()).toEqual(['off', 'on']);
+    });
+  });
+
+  describe('argsForCommand', () => {
+    it.only('returns a list of args for a given command', () => {
+      var commandCollection = CommandCollection({
+        0: {
+          name: 'moveToLevel',
+          args: {
+            0: { name: 'level', datatype: 'int' },
+            1: { name: 'transitionTime', datatype: 'uint' }
+          }
+        }
+      });
+
+      var cluster = Cluster({
+        commandCollection: commandCollection
+      }, coap);
+
+      expect(cluster.argsForCommand('moveToLevel')).toEqual([
+        { name: 'level', datatype: 'int' },
+        { name: 'transitionTime', datatype: 'uint' }
+      ]);
+    });
   });
 
   describe('read', () => {
