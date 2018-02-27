@@ -66,7 +66,7 @@ describe('Cluster', () => {
   });
 
   describe('argsForCommand', () => {
-    it.only('returns a list of args for a given command', () => {
+    it('returns a list of args for a given command', () => {
       var commandCollection = CommandCollection({
         0: {
           name: 'moveToLevel',
