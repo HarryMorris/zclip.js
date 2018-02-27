@@ -393,5 +393,49 @@ describe('Cluster', () => {
     });
   });
 
+  describe('request', () => {
+    test.skip('can resolve ip with rd and uid', function(done) {
+      var deviceIp = '2001::9';
+      var uid = 'abc123';
+      var rdIp = '2001::1';
+      var rdPort = '5689';
+
+      var cluster = Cluster({
+        clusterId: '6',
+        uid: uid,
+        rdIp: rdIp,
+        rdPort: rdPort
+      }, coap);
+
+      coap.registerRequest({
+        hostname: rdIp,
+        port: rdPort,
+        method: 'GET',
+        pathname: '/foo'
+      }, {
+        payload: 'bar',
+        code: '2.04'
+      });
+
+      coap.registerRequest({
+        hostname: deviceIp,
+        port: '5683',
+        method: 'GET',
+        pathname: '/foo'
+      }, {
+        code: '2.01',
+        payload: cbor.encode({ 0: 1 })
+      });
+
+      var request = coap.request('GET', '/foo');
+      request.on('request', (res) => {
+        expect(code).toEqual('2.01');
+      });
+      // cluster.read({}, (err, response, code) => {
+      //   done();
+      // });
+    });
+  });
+
 });
 
