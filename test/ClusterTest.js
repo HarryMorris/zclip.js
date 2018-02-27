@@ -394,48 +394,77 @@ describe('Cluster', () => {
   });
 
   describe('request', () => {
-    test.skip('can resolve ip with rd and uid', function(done) {
-      var deviceIp = '2001::9';
-      var uid = 'abc123';
-      var rdIp = '2001::1';
-      var rdPort = '5689';
+    describe('without ip', () => {
+      test('can resolve ip with rd and uid', function(done) {
+        var deviceIp = '2001::9';
+        var uid = 'abc123';
+        var rdIp = '2001::1';
+        var rdPort = '5689';
 
-      var cluster = Cluster({
-        clusterId: '6',
-        uid: uid,
-        rdIp: rdIp,
-        rdPort: rdPort
-      }, coap);
+        var cluster = Cluster({
+          clusterId: '6',
+          uid: uid,
+          rdIp: rdIp,
+          rdPort: rdPort
+        }, coap);
 
-      coap.registerRequest({
-        hostname: rdIp,
-        port: rdPort,
-        method: 'GET',
-        pathname: '/foo'
-      }, {
-        payload: 'bar',
-        code: '2.04'
+        coap.registerRequest({
+          hostname: rdIp,
+          port: rdPort,
+          method: 'GET',
+          pathname: 'rd-lookup/res',
+          query: `ep=ni:///sha-256;${uid}`
+        }, {
+          payload: new Buffer(`<coap://[${deviceIp}]/zcl>;rt=urn:zcl;ep=ni:///sha-256;${uid}`),
+          code: '2.04'
+        });
+
+        coap.registerRequest({
+          hostname: deviceIp,
+          port: '5683',
+          method: 'GET',
+          pathname: '/zcl/e/1/s6/foo'
+        }, {
+          code: '2.01',
+          payload: cbor.encode({ 0: 1 })
+        });
+
+        cluster.request('GET', 'foo', null, null, (err, response, responseCode) => {
+          expect(responseCode).toEqual('2.01');
+          done()
+        });
       });
 
-      coap.registerRequest({
-        hostname: deviceIp,
-        port: '5683',
-        method: 'GET',
-        pathname: '/foo'
-      }, {
-        code: '2.01',
-        payload: cbor.encode({ 0: 1 })
-      });
+      test.skip('returns an error if resource not found', function(done) {
+        var deviceIp = '2001::9';
+        var uid = 'abc123';
+        var rdIp = '2001::1';
+        var rdPort = '5689';
 
-      var request = coap.request('GET', '/foo');
-      request.on('request', (res) => {
-        expect(code).toEqual('2.01');
+        var cluster = Cluster({
+          clusterId: '6',
+          uid: uid,
+          rdIp: rdIp,
+          rdPort: rdPort
+        }, coap);
+
+        coap.registerRequest({
+          hostname: rdIp,
+          port: rdPort,
+          method: 'GET',
+          pathname: 'rd-lookup/res',
+          query: `ep=ni:///sha-256;${uid}`
+        }, {
+          payload: new Buffer(''),
+          code: '4.04'
+        });
+
+        cluster.request('GET', 'foo', null, null, (err, response, responseCode) => {
+          expect(err).toBeDefined();
+          done()
+        });
       });
-      // cluster.read({}, (err, response, code) => {
-      //   done();
-      // });
     });
   });
-
 });
 
