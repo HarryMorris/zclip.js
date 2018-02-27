@@ -1,53 +1,72 @@
+var fs = require('fs');
+
 require(__dirname + '/support/testHelper');
 
-var zclip;
+var metaDataFile = 'test/support/clusterMetaData.json';
+var coap;
+var clusters;
 
 beforeAll(() => {
-  zclip = require('../')(new FakeCoap());
+  coap = new FakeCoap();
+  clusters = require(__appRoot + 'lib/clusters');
+  clusters.init(__appRoot + metaDataFile, coap);
 });
 
+describe('init', () => {
+  test('caches meta data from file', () => {
+    var expectedMeta = JSON.parse(fs.readFileSync(metaDataFile));
 
-test('init builds clusters from meta data', () => {
-  expect(zclip.clusters.OnOff).toBeDefined();
+    expect(clusters.meta).toEqual(expectedMeta);
+
+    var clusters2 = require(__appRoot + 'lib/clusters');
+    expect(clusters2.meta).toEqual(expectedMeta);
+  });
+
+  test('builds clusters from meta data', () => {
+    expect(clusters.OnOff).toBeDefined();
+  });
+
+  test('adds metadata to cluster instances', () => {
+    var onOff = clusters.OnOff();
+
+    expect(onOff).toBeDefined();
+    expect(onOff.clusterId).toEqual('6');
+  });
 });
 
-test('init adds metadata to cluster instances', () => {
-  var onOff = zclip.clusters.OnOff();
-
-  expect(onOff).toBeDefined();
-  expect(onOff.clusterId).toEqual('6');
-});
-
-test('findNameById returns name', () => {
-  var clusterName = zclip.clusters.findNameById('6')
-  expect(clusterName).toEqual('OnOff');
+describe('findNameById', () => {
+  test('returns name', () => {
+    var clusterName = clusters.findNameById('6')
+    expect(clusterName).toEqual('OnOff');
+  });
 });
 
 describe('findClusterIdByName', () => {
   test('finds clusters by Pascal cased names', () => {
-    var clusterId = zclip.clusters.findClusterIdByName('OnOff');
+    var clusterId = clusters.findClusterIdByName('OnOff');
     expect(clusterId).toEqual('6');
   });
 
   test('finds clusters by camel cased names', () => {
-    var clusterId = zclip.clusters.findClusterIdByName('onOff');
+    var clusterId = clusters.findClusterIdByName('onOff');
     expect(clusterId).toEqual('6');
   });
 
   test('finds clusters by downcase', () => {
-    var clusterId = zclip.clusters.findClusterIdByName('onoff');
+    var clusterId = clusters.findClusterIdByName('onoff');
     expect(clusterId).toEqual('6');
   });
 
   test('returns null if not found', () => {
-    var clusterId = zclip.clusters.findClusterIdByName('foo');
+    var clusterId = clusters.findClusterIdByName('foo');
     expect(clusterId).not.toBeDefined();
   });
 });
 
 describe('clusterNames', () => {
   it('returns all cluster names', () => {
-    expect(zclip.clusters.clusterNames()).toContain('OnOff');
-    expect(zclip.clusters.clusterNames()).toContain('LevelControl');
+    expect(clusters.clusterNames()).toContain('OnOff');
+    expect(clusters.clusterNames()).toContain('LevelControl');
   });
 });
+

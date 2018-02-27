@@ -1,0 +1,203 @@
+{
+  "6": {
+    "name": "onOff",
+    "code": "0x0006",
+    "clusterId": "6",
+    "commands": {
+      "0": {
+        "name": "off",
+        "args": {}
+      },
+      "1": {
+        "name": "on",
+        "args": {}
+      },
+      "2": {
+        "name": "toggle",
+        "args": {}
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "onOff",
+        "side": "server",
+        "datatype": "boolean",
+        "min": "0x00",
+        "max": "0x01"
+      },
+      "16387": {
+        "name": "startUpOnOff",
+        "side": "server",
+        "datatype": "enum8",
+        "min": "0x00",
+        "max": "0xFF"
+      }
+    }
+  },
+  "8": {
+    "name": "levelControl",
+    "code": "0x0008",
+    "clusterId": "8",
+    "commands": {
+      "0": {
+        "name": "moveToLevel",
+        "args": {
+          "0": {
+            "name": "level",
+            "datatype": "int8u"
+          },
+          "1": {
+            "name": "transitionTime",
+            "datatype": "int16u"
+          }
+        }
+      },
+      "1": {
+        "name": "move",
+        "args": {
+          "0": {
+            "name": "moveMode",
+            "datatype": "movemode"
+          },
+          "1": {
+            "name": "rate",
+            "datatype": "int8u"
+          }
+        }
+      },
+      "2": {
+        "name": "step",
+        "args": {
+          "0": {
+            "name": "stepMode",
+            "datatype": "stepmode"
+          },
+          "1": {
+            "name": "stepSize",
+            "datatype": "int8u"
+          },
+          "2": {
+            "name": "transitionTime",
+            "datatype": "int16u"
+          }
+        }
+      },
+      "3": {
+        "name": "stop",
+        "args": {}
+      },
+      "4": {
+        "name": "moveToLevelWithOnOff",
+        "args": {
+          "0": {
+            "name": "level",
+            "datatype": "int8u"
+          },
+          "1": {
+            "name": "transitionTime",
+            "datatype": "int16u"
+          }
+        }
+      },
+      "5": {
+        "name": "moveWithOnOff",
+        "args": {
+          "0": {
+            "name": "moveMode",
+            "datatype": "movemode"
+          },
+          "1": {
+            "name": "rate",
+            "datatype": "int8u"
+          }
+        }
+      },
+      "6": {
+        "name": "stepWithOnOff",
+        "args": {
+          "0": {
+            "name": "stepMode",
+            "datatype": "stepmode"
+          },
+          "1": {
+            "name": "stepSize",
+            "datatype": "int8u"
+          },
+          "2": {
+            "name": "transitionTime",
+            "datatype": "int16u"
+          }
+        }
+      },
+      "7": {
+        "name": "stopWithOnOff",
+        "args": {}
+      }
+    },
+    "attributes": {
+      "0": {
+        "name": "currentLevel",
+        "side": "server",
+        "datatype": "int8u",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "1": {
+        "name": "remainingTime",
+        "side": "server",
+        "datatype": "int16u",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "15": {
+        "name": "options",
+        "side": "server",
+        "datatype": "bitmap8",
+        "min": "0x00",
+        "max": "0x03"
+      },
+      "16": {
+        "name": "onOffTransitionTime",
+        "side": "server",
+        "datatype": "int16u",
+        "min": "0x0000",
+        "max": "0xFFFF"
+      },
+      "17": {
+        "name": "onLevel",
+        "side": "server",
+        "datatype": "int8u",
+        "min": "0x00",
+        "max": "0xFF"
+      },
+      "18": {
+        "name": "onTransitionTime",
+        "side": "server",
+        "datatype": "int16u",
+        "min": "0x0000",
+        "max": "0xFFFE"
+      },
+      "19": {
+        "name": "offTransitionTime",
+        "side": "server",
+        "datatype": "int16u",
+        "min": "0x0000",
+        "max": "0xFFFE"
+      },
+      "20": {
+        "name": "defaultMoveRate",
+        "side": "server",
+        "datatype": "int8u",
+        "min": "0x00",
+        "max": "0xFE"
+      },
+      "16384": {
+        "name": "startUpCurrentLevel",
+        "side": "server",
+        "datatype": "int8u",
+        "min": "0x01",
+        "max": "0xFF"
+      }
+    }
+  }
+}

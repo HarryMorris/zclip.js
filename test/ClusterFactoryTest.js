@@ -5,7 +5,7 @@ require(__dirname + '/support/testHelper');
 var coap;
 var ClusterFactory;
 
-beforeEach(function() {
+beforeEach(() => {
   coap = new FakeCoap();
   ClusterFactory = require(__appRoot + 'lib/ClusterFactory')({ coap: coap });
 });
@@ -19,7 +19,7 @@ test('returns a Cluster constructor', () => {
   expect(cluster.ip).toEqual('2001::1');
 });
 
-test('passes meta data to Cluster constructor', function() {
+test('passes meta data to Cluster constructor', () => {
   var clusterMetaData = { clusterId: '6' };
 
   var Cluster = ClusterFactory(clusterMetaData);
@@ -28,8 +28,8 @@ test('passes meta data to Cluster constructor', function() {
   expect(cluster.clusterId).toEqual('6');
 });
 
-describe('cluster commands', function() {
-  test('are added to Cluster', function() {
+describe('cluster commands', () => {
+  test('are added to Cluster', () => {
     var clusterMetaData = {
       clusterId: '6',
       commands: {
@@ -45,7 +45,7 @@ describe('cluster commands', function() {
     expect(cluster.off).toBeDefined();
   });
 
-  test('cluster commands POST coap', function() {
+  test('cluster commands POST coap', () => {
     var clusterMetaData = {
       clusterId: '6',
       commands: {
@@ -69,7 +69,7 @@ describe('cluster commands', function() {
     expect(coap.lastRequest.ended).toBeTruthy();
   });
 
-  test('cluster commands POST encoded args', function() {
+  test('cluster commands POST encoded args', () => {
     var clusterMetaData = {
       clusterId: '8',
       commands: {

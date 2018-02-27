@@ -1,33 +1,33 @@
 require(__dirname + '/../support/testHelper');
 
-describe('util.pascalCase', function() {
+describe('util.pascalCase', () => {
   var pascalCase;
 
-  beforeAll(function() {
-    pascalCase = require(__appRoot + 'lib/util')().pascalCase;
+  beforeAll(() => {
+    pascalCase = require(__appRoot + 'lib/util').pascalCase;
   });
 
-  it('returns empty string if given undefined', function() {
+  it('returns empty string if given undefined', () => {
     expect(pascalCase(undefined)).toEqual('');
   });
 
-  it('pascalCases single word', function() {
+  it('pascalCases single word', () => {
     expect(pascalCase('Great')).toEqual('Great');
   });
 
-  it('pascalCases multiple capitalized words', function() {
+  it('pascalCases multiple capitalized words', () => {
     expect(pascalCase('Great Test')).toEqual('GreatTest');
   });
 
-  it('pascalCases multiple lowercase words', function() {
+  it('pascalCases multiple lowercase words', () => {
     expect(pascalCase('great test')).toEqual('GreatTest');
   });
 
-  it('removes symbols', function() {
+  it('removes symbols', () => {
     expect(pascalCase('great/test')).toEqual('GreatTest');
   });
 
-  it('removes multiple spaces', function() {
+  it('removes multiple spaces', () => {
     expect(pascalCase('great  test')).toEqual('GreatTest');
   });
 });

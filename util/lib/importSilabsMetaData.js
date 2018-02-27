@@ -1,5 +1,5 @@
 var parseString = require('xml2js').parseString;
-var  util = require(__dirname + '/../../lib/util')();
+var  util = require(__dirname + '/../../lib/util');
 
 module.exports = importSilabsMetaData;
 

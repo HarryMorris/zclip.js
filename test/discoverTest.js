@@ -1,22 +1,22 @@
 require(__dirname + '/support/testHelper');
 
-var fakeCoap;
-var zclip;
+var coap;
+var discover;
 
-beforeAll(function() {
-  fakeCoap = new FakeCoap();
-  zclip = require(__appRoot)(fakeCoap);
+beforeAll(() => {
+  coap = new FakeCoap();
+  discover = require(__appRoot + 'lib/discover')(coap);
 });
 
-test('discover query without params', function(done) {
+test('discover query without params', (done) => {
   var query = {}
 
   var deviceIp = '2001::4';
   var deviceResponse = '</zcl/e/1/s6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.s';
 
-  zclip.discover(query, function(err, devices) {
-    expect(fakeCoap.lastRequest).toBeDefined();
-    expect(fakeCoap.lastRequest.params.query).toEqual('rt=urn:zcl:c.*');
+  discover(query, (err, devices) => {
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.*');
 
     expect(devices.length).toEqual(1);
     expect(devices[0].ip).toEqual(deviceIp);
@@ -24,7 +24,7 @@ test('discover query without params', function(done) {
     done();
   });
 
-  fakeCoap.lastRequest.sendResponse({
+  coap.lastRequest.sendResponse({
     rsinfo: {
       address: deviceIp
     },
@@ -33,7 +33,7 @@ test('discover query without params', function(done) {
 
 });
 
-test.only('discover query with uid', function(done) {
+test('discover query with uid', (done) => {
   var query = {
     uid: 'ABC123'
   }
@@ -41,16 +41,16 @@ test.only('discover query with uid', function(done) {
   var deviceIp = '2001::4';
   var deviceResponse = '</zcl>;rt=urn:zcl';
 
-  zclip.discover(query, function(err, devices) {
-    expect(fakeCoap.lastRequest).toBeDefined();
-    expect(fakeCoap.lastRequest.params.query).toEqual('ep=ni:///sha-256;ABC123');
+  discover(query, (err, devices) => {
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.query).toEqual('ep=ni:///sha-256;ABC123');
 
     expect(devices.length).toEqual(1);
     expect(devices[0].ip).toEqual(deviceIp);
     done();
   });
 
-  fakeCoap.lastRequest.sendResponse({
+  coap.lastRequest.sendResponse({
     rsinfo: {
       address: deviceIp
     },
@@ -59,7 +59,7 @@ test.only('discover query with uid', function(done) {
 
 });
 
-test('discover query with cluster only', function(done) {
+test('discover query with cluster only', (done) => {
   var query = {
     clusterId: '6'
   }
@@ -67,9 +67,9 @@ test('discover query with cluster only', function(done) {
   var deviceIp = '2001::4';
   var deviceResponse = '</zcl/e/1/s6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.s';
 
-  zclip.discover(query, function(err, devices) {
-    expect(fakeCoap.lastRequest).toBeDefined();
-    expect(fakeCoap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.*');
+  discover(query, (err, devices) => {
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.*');
 
     expect(devices.length).toEqual(1);
     expect(devices[0].ip).toEqual(deviceIp);
@@ -77,7 +77,7 @@ test('discover query with cluster only', function(done) {
     done();
   });
 
-  fakeCoap.lastRequest.sendResponse({
+  coap.lastRequest.sendResponse({
     rsinfo: {
       address: deviceIp
     },
@@ -86,7 +86,7 @@ test('discover query with cluster only', function(done) {
 
 });
 
-test('discover query with cluster and side', function(done) {
+test('discover query with cluster and side', (done) => {
   var query = {
     clusterId: '6',
     clusterSide: 's'
@@ -95,9 +95,9 @@ test('discover query with cluster and side', function(done) {
   var deviceIp = '2001::4';
   var deviceResponse = '</zcl/e/1/s6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.s';
 
-  zclip.discover(query, function(err, devices) {
-    expect(fakeCoap.lastRequest).toBeDefined();
-    expect(fakeCoap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.s');
+  discover(query, (err, devices) => {
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.s');
 
     expect(devices.length).toEqual(1);
     expect(devices[0].ip).toEqual(deviceIp);
@@ -105,7 +105,7 @@ test('discover query with cluster and side', function(done) {
     done();
   });
 
-  fakeCoap.lastRequest.sendResponse({
+  coap.lastRequest.sendResponse({
     rsinfo: {
       address: deviceIp
     },

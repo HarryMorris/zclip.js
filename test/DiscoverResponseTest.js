@@ -1,12 +1,12 @@
 require(__dirname + '/support/testHelper');
 
-var zclip;
+var DiscoverResponse;
 
-beforeAll(function() {
-  zclip = require(__appRoot)(new FakeCoap());
+beforeAll(() => {
+  DiscoverResponse = require(__appRoot + 'lib/DiscoverResponse');
 });
 
-test('builds devices with zcl links', function() {
+test('builds devices with zcl links', () => {
   var deviceResponsePayload = [
     '<coap://[2001::1]/zcl>rt=urn:zcl;ep=ni:///sha-256;ABC123',
     '<coap://[2001::2]/zcl>rt=urn:zcl;ep=ni:///sha-256;DEF456'
@@ -19,7 +19,7 @@ test('builds devices with zcl links', function() {
     payload: new Buffer(deviceResponsePayload)
   };
 
-  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
+  var discoveryResponse = DiscoverResponse(coapResponse);
 
   expect(discoveryResponse.devices).toBeDefined();
   expect(discoveryResponse.devices.length).toEqual(2);
@@ -31,7 +31,7 @@ test('builds devices with zcl links', function() {
   expect(discoveryResponse.devices[1].uid).toEqual('DEF456');
 });
 
-test('builds devices with device with absolute link', function() {
+test('builds devices with device with absolute link', () => {
   var deviceResponsePayload = [
     '<coap://[2001::1]/zcl/e/1/s6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.s;ep=ni:///sha-256;ABC123',
     '<coap://[2001::2]/zcl/e/1/c6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.c;ep=ni:///sha-256;DEF456'
@@ -44,7 +44,7 @@ test('builds devices with device with absolute link', function() {
     payload: new Buffer(deviceResponsePayload)
   };
 
-  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
+  var discoveryResponse = DiscoverResponse(coapResponse);
 
   expect(discoveryResponse.devices).toBeDefined();
   expect(discoveryResponse.devices.length).toEqual(2);
@@ -64,7 +64,7 @@ test('builds devices with device with absolute link', function() {
   expect(discoveryResponse.devices[1].uid).toEqual('DEF456');
 });
 
-test('builds devices with device with relative link', function() {
+test('builds devices with device with relative link', () => {
   var deviceResponsePayload = [
     '</zcl/e/1/s6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.s',
     '</zcl/e/1/c6>;ze=urn:zcl:d.0.1;if=urn:zcl:c.v1;rt=urn:zcl:c.6.c'
@@ -77,7 +77,7 @@ test('builds devices with device with relative link', function() {
     payload: new Buffer(deviceResponsePayload)
   };
 
-  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
+  var discoveryResponse = DiscoverResponse(coapResponse);
 
   expect(discoveryResponse.devices).toBeDefined();
   expect(discoveryResponse.devices.length).toEqual(2);
@@ -95,7 +95,7 @@ test('builds devices with device with relative link', function() {
   expect(discoveryResponse.devices[1].clusterSide).toEqual('c');
 });
 
-test('is empty if payload is null', function() {
+test('is empty if payload is null', () => {
   var coapResponse = {
     rsinfo: {
       address: '2001::1'
@@ -103,11 +103,11 @@ test('is empty if payload is null', function() {
     payload: null
   };
 
-  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
+  var discoveryResponse = DiscoverResponse(coapResponse);
   expect(discoveryResponse.devices.length).toEqual(0);
 });
 
-test('is unknown if payload is malformed', function() {
+test('is unknown if payload is malformed', () => {
   var coapResponse = {
     rsinfo: {
       address: '2001::1'
@@ -115,7 +115,7 @@ test('is unknown if payload is malformed', function() {
     payload: 'wrong'
   };
 
-  var discoveryResponse = new zclip.DiscoverResponse(coapResponse);
+  var discoveryResponse = DiscoverResponse(coapResponse);
   expect(discoveryResponse.devices.length).toEqual(1);
   expect(discoveryResponse.devices[0].name).toEqual('Unknown');
 });

@@ -1,46 +1,51 @@
 require(__dirname + '/support/testHelper');
 
-describe('RD', function() {
+describe('RD', () => {
   var RD_IP = '2001::1';
   var RD_PORT = 5690;
-  var zclip;
+  var coap;
+  var RD;
 
-  beforeEach(function() {
-    zclip = require(__appRoot)(new FakeCoap());
+  beforeAll(() => {
+    RD = require(__appRoot + 'lib/RD');
   });
 
-  test('lookup uses RD ip and port', function() {
-    var rd = zclip.RD({ ip: RD_IP, port: RD_PORT });
-    rd.lookup({}, function(err, devices) {});
-
-    expect(zclip.coap.lastRequest).toBeDefined();
-    expect(zclip.coap.lastRequest.params.hostname).toEqual(RD_IP);
-    expect(zclip.coap.lastRequest.params.port).toEqual(RD_PORT);
+  beforeEach(() => {
+    coap = new FakeCoap();
   });
 
-  test('lookup with default port', function() {
-    var rd = zclip.RD({ ip: RD_IP });
-    rd.lookup({}, function(err, devices) {});
+  test('lookup uses RD ip and port', () => {
+    var rd = RD({ ip: RD_IP, port: RD_PORT }, coap);
+    rd.lookup({}, (err, devices) => {});
 
-    expect(zclip.coap.lastRequest).toBeDefined();
-    expect(zclip.coap.lastRequest.params.hostname).toEqual(RD_IP);
-    expect(zclip.coap.lastRequest.params.port).toEqual(5683);
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.hostname).toEqual(RD_IP);
+    expect(coap.lastRequest.params.port).toEqual(RD_PORT);
   });
 
-  test('lookup query with uid param', function() {
+  test('lookup with default port', () => {
+    var rd = RD({ ip: RD_IP }, coap);
+    rd.lookup({}, (err, devices) => {});
+
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.hostname).toEqual(RD_IP);
+    expect(coap.lastRequest.params.port).toEqual(5683);
+  });
+
+  test('lookup query with uid param', () => {
     var query = { uid: 'ABC123' }
 
-    var rd = zclip.RD(RD_IP, RD_PORT);
-    rd.lookup(query, function(err, devices) {
-      expect(zclip.coap.lastRequest).toBeDefined();
-      expect(zclip.coap.lastRequest.params.query).toEqual('ep=ni:///sha-256;ABC123');
+    var rd = RD({ ip: RD_IP, port: RD_PORT }, coap);
+    rd.lookup(query, (err, devices) => {
+      expect(coap.lastRequest).toBeDefined();
+      expect(coap.lastRequest.params.query).toEqual('ep=ni:///sha-256;ABC123');
 
       expect(devices).toBeDefined();
       expect(devices[0].ip).toEqual('2001::4');
     });
 
-    expect(zclip.coap.lastRequest).toBeDefined();
-    zclip.coap.lastRequest.sendResponse({
+    expect(coap.lastRequest).toBeDefined();
+    coap.lastRequest.sendResponse({
       rsinfo: {
         address: '2001::4'
       },
@@ -48,21 +53,21 @@ describe('RD', function() {
     });
   });
 
-  test('lookup query without params sends cluster wildcard', function() {
+  test('lookup query without params sends cluster wildcard', () => {
     var query = {}
 
-    var rd = zclip.RD(RD_IP, RD_PORT);
-    rd.lookup(query, function(err, devices) {
-      expect(zclip.coap.lastRequest).toBeDefined();
-      expect(zclip.coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.*');
+    var rd = RD({ ip: RD_IP, port: RD_PORT }, coap);
+    rd.lookup(query, (err, devices) => {
+      expect(coap.lastRequest).toBeDefined();
+      expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.*');
 
       expect(devices).toBeDefined();
       expect(devices[0].ip).toEqual('2001::4');
       expect(devices[0].name).toEqual('OnOffSwitch');
     });
 
-    expect(zclip.coap.lastRequest).toBeDefined();
-    zclip.coap.lastRequest.sendResponse({
+    expect(coap.lastRequest).toBeDefined();
+    coap.lastRequest.sendResponse({
       rsinfo: {
         address: '2001::4'
       },
@@ -70,23 +75,23 @@ describe('RD', function() {
     });
   });
 
-  test('lookup query with only cluster send cluster side wildcard', function() {
+  test('lookup query with only cluster send cluster side wildcard', () => {
     var query = {
       clusterId: '6'
     }
 
-    var rd = zclip.RD(RD_IP, RD_PORT);
-    rd.lookup(query, function(err, devices) {
-      expect(zclip.coap.lastRequest).toBeDefined();
-      expect(zclip.coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.*');
+    var rd = RD({ ip: RD_IP, port: RD_PORT }, coap);
+    rd.lookup(query, (err, devices) => {
+      expect(coap.lastRequest).toBeDefined();
+      expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.*');
 
       expect(devices).toBeDefined();
       expect(devices[0].ip).toEqual('2001::4');
       expect(devices[0].name).toEqual('OnOffSwitch');
     });
 
-    expect(zclip.coap.lastRequest).toBeDefined();
-    zclip.coap.lastRequest.sendResponse({
+    expect(coap.lastRequest).toBeDefined();
+    coap.lastRequest.sendResponse({
       rsinfo: {
         address: '2001::4'
       },
@@ -94,24 +99,24 @@ describe('RD', function() {
     });
   });
 
-  test('lookup query with cluster and side', function() {
+  test('lookup query with cluster and side', () => {
     var query = {
       clusterId: '6',
       clusterSide: 's'
     }
 
-    var rd = zclip.RD(RD_IP, RD_PORT);
-    rd.lookup(query, function(err, devices) {
-      expect(zclip.coap.lastRequest).toBeDefined();
-      expect(zclip.coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.s');
+    var rd = RD({ ip: RD_IP, port: RD_PORT }, coap);
+    rd.lookup(query, (err, devices) => {
+      expect(coap.lastRequest).toBeDefined();
+      expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.6.s');
 
       expect(devices).toBeDefined();
       expect(devices[0].ip).toEqual('2001::4');
       expect(devices[0].name).toEqual('OnOffSwitch');
     });
 
-    expect(zclip.coap.lastRequest).toBeDefined();
-    zclip.coap.lastRequest.sendResponse({
+    expect(coap.lastRequest).toBeDefined();
+    coap.lastRequest.sendResponse({
       rsinfo: {
         address: '2001::4'
       },
