@@ -1,14 +1,14 @@
 require(__dirname + '/support/testHelper');
 
 var cbor = require('cbor');
-var FakeCoap = require(__appRoot + 'test/support/FakeCoap');
+var FakeCoap = require(__zclipRoot + 'test/support/FakeCoap');
 
 var zclip;
 var fakeCoap;
 
 beforeAll(() => {
   fakeCoap = new FakeCoap();
-  zclip = require(__appRoot)(fakeCoap);
+  zclip = require(__zclipRoot)(fakeCoap);
 });
 
 test('Clusters are loaded', () => {

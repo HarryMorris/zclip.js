@@ -5,7 +5,7 @@ var discover;
 
 beforeAll(() => {
   coap = new FakeCoap();
-  discover = require(__appRoot + 'lib/discover')(coap);
+  discover = require(__zclipRoot + 'lib/discover')(coap);
 });
 
 test('discover query without params', (done) => {

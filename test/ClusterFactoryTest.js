@@ -7,7 +7,7 @@ var ClusterFactory;
 
 beforeEach(() => {
   coap = new FakeCoap();
-  ClusterFactory = require(__appRoot + 'lib/ClusterFactory')({ coap: coap });
+  ClusterFactory = require(__zclipRoot + 'lib/ClusterFactory')({ coap: coap });
 });
 
 test('returns a Cluster constructor', () => {

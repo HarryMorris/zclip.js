@@ -8,9 +8,9 @@ describe('Cluster', () => {
   var coap;
 
   beforeAll(() => {
-    AttributeCollection = require(__appRoot + 'lib/AttributeCollection');
-    CommandCollection = require(__appRoot + 'lib/CommandCollection');
-    Cluster = require(__appRoot + 'lib/Cluster');
+    AttributeCollection = require(__zclipRoot + 'lib/AttributeCollection');
+    CommandCollection = require(__zclipRoot + 'lib/CommandCollection');
+    Cluster = require(__zclipRoot + 'lib/Cluster');
   });
 
   beforeEach(() => {

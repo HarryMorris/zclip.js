@@ -8,8 +8,8 @@ var clusters;
 
 beforeAll(() => {
   coap = new FakeCoap();
-  clusters = require(__appRoot + 'lib/clusters');
-  clusters.init(__appRoot + metaDataFile, coap);
+  clusters = require(__zclipRoot + 'lib/clusters');
+  clusters.init(__zclipRoot + metaDataFile, coap);
 });
 
 describe('init', () => {
@@ -18,7 +18,7 @@ describe('init', () => {
 
     expect(clusters.meta).toEqual(expectedMeta);
 
-    var clusters2 = require(__appRoot + 'lib/clusters');
+    var clusters2 = require(__zclipRoot + 'lib/clusters');
     expect(clusters2.meta).toEqual(expectedMeta);
   });
 

@@ -2,7 +2,7 @@
 
 var path = require('path');
 
-global.__appRoot = path.resolve(__dirname) + '/../';
+global.__zclipRoot = path.resolve(__dirname) + '/../';
 
 var fs = require('fs');
 var async = require('async');

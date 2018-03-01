@@ -1,9 +1,9 @@
 var path = require('path');
 var fs = require('fs');
 
-global.__appRoot = path.resolve(__dirname) + '/';
+global.__zclipRoot = path.resolve(__dirname) + '/';
 
-require(__appRoot + 'polyfills');
+require(__zclipRoot + 'polyfills');
 
 module.exports = function(coap) {
   var zclip = {};
@@ -11,16 +11,16 @@ module.exports = function(coap) {
   zclip.SERVER = 's';
   zclip.CLIENT = 'c';
 
-  zclip.clusters = require(__appRoot + 'lib/clusters');
-  zclip.devices = require(__appRoot + 'lib/devices');
-  zclip.discover = require(__appRoot + 'lib/discover')(coap);
-  zclip.util = require(__appRoot + 'lib/util');
+  zclip.clusters = require(__zclipRoot + 'lib/clusters');
+  zclip.devices = require(__zclipRoot + 'lib/devices');
+  zclip.discover = require(__zclipRoot + 'lib/discover')(coap);
+  zclip.util = require(__zclipRoot + 'lib/util');
 
-  zclip.DiscoverResponse = require(__appRoot + 'lib/DiscoverResponse');
-  zclip.RD = require(__appRoot + 'lib/RD');
+  zclip.DiscoverResponse = require(__zclipRoot + 'lib/DiscoverResponse');
+  zclip.RD = require(__zclipRoot + 'lib/RD');
 
-  zclip.clusters.init(__appRoot + 'clusterMetaData.json', coap);
-  zclip.devices.init(__appRoot + 'deviceMetaData.json');
+  zclip.clusters.init(__zclipRoot + 'clusterMetaData.json', coap);
+  zclip.devices.init(__zclipRoot + 'deviceMetaData.json');
 
   return zclip;
 }

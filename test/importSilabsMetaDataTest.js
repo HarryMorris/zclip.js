@@ -1,6 +1,6 @@
 require(__dirname + '/support/testHelper');
 
-var importSilabsMetaData = require(__appRoot + 'util/lib/importSilabsMetaData');
+var importSilabsMetaData = require(__zclipRoot + 'util/lib/importSilabsMetaData');
 
 test('can import an empty cluster', () => {
   var xml = '\

@@ -6,20 +6,20 @@ describe('init', () => {
   it('parses and caches json as meta', () => {
     var deviceMetaDataFile = 'test/support/deviceMetaData.json';
 
-    var devices = require(__appRoot + 'lib/devices');
-    devices.init(__appRoot + deviceMetaDataFile);
+    var devices = require(__zclipRoot + 'lib/devices');
+    devices.init(__zclipRoot + deviceMetaDataFile);
 
     var expectedMeta = JSON.parse(fs.readFileSync(deviceMetaDataFile));
     expect(devices.meta).toEqual(expectedMeta);
 
-    var devices2 = require(__appRoot + 'lib/devices');
+    var devices2 = require(__zclipRoot + 'lib/devices');
     expect(devices2.meta).toEqual(expectedMeta);
   });
 });
 
 describe('build', () => {
   test('returns a new device with metadata', () => {
-    var devices = require(__appRoot + 'lib/devices');
+    var devices = require(__zclipRoot + 'lib/devices');
 
     var device = devices.build('0', {
       ip: '2001::1'
@@ -31,7 +31,7 @@ describe('build', () => {
   });
 
   test('returns unknown deviceId not provided', () => {
-    var devices = require(__appRoot + 'lib/devices');
+    var devices = require(__zclipRoot + 'lib/devices');
 
     var device = devices.build();
 
@@ -40,7 +40,7 @@ describe('build', () => {
   });
 
   test('returns unknown device if not found', () => {
-    var devices = require(__appRoot + 'lib/devices');
+    var devices = require(__zclipRoot + 'lib/devices');
 
     var device = devices.build('99', {
       ip: '2001::1'

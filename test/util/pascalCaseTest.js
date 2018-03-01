@@ -4,7 +4,7 @@ describe('util.pascalCase', () => {
   var pascalCase;
 
   beforeAll(() => {
-    pascalCase = require(__appRoot + 'lib/util').pascalCase;
+    pascalCase = require(__zclipRoot + 'lib/util').pascalCase;
   });
 
   it('returns empty string if given undefined', () => {

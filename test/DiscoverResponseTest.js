@@ -3,7 +3,7 @@ require(__dirname + '/support/testHelper');
 var DiscoverResponse;
 
 beforeAll(() => {
-  DiscoverResponse = require(__appRoot + 'lib/DiscoverResponse');
+  DiscoverResponse = require(__zclipRoot + 'lib/DiscoverResponse');
 });
 
 test('builds devices with zcl links', () => {

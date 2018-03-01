@@ -8,8 +8,8 @@ describe('ClusterCommand', () => {
   var ClusterCommand;
 
   beforeAll(() => {
-    Cluster = require(__appRoot + 'lib/Cluster');
-    ClusterCommand = require(__appRoot + 'lib/ClusterCommand');
+    Cluster = require(__zclipRoot + 'lib/Cluster');
+    ClusterCommand = require(__zclipRoot + 'lib/ClusterCommand');
   });
 
   beforeEach(() => {

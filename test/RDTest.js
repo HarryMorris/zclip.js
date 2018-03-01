@@ -7,7 +7,7 @@ describe('RD', () => {
   var RD;
 
   beforeAll(() => {
-    RD = require(__appRoot + 'lib/RD');
+    RD = require(__zclipRoot + 'lib/RD');
   });
 
   beforeEach(() => {

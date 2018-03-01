@@ -4,7 +4,7 @@ describe('util.camelCase', () => {
   var camelCase;
 
   beforeAll(() => {
-    camelCase = require(__appRoot + 'lib/util').camelCase;
+    camelCase = require(__zclipRoot + 'lib/util').camelCase;
   });
 
   it('returns empty string if given undefined', () => {

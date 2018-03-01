@@ -1,1 +1,1 @@
-require(__appRoot + 'polyfills/Array');
+require(__zclipRoot + 'polyfills/Array');
