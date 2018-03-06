@@ -1,41 +1,106 @@
 # ZCLIP.js
 
-A javascript implementation of ZCL over IP.
+A javascript implementation of [ZCL over IP](https://www.silabs.com/documents/public/user-guides/ug278-zcl-over-ip.pdf).
 
+  * <a href="#install">Installation</a>
+  * <a href="#examples">Examples</a>
+  * <a href="#api">API</a>
+  * <a href="#clusters">Supported Clusters</a>
+  * <a href="#tests">Run the tests</a>
+  * <a href="#support">Support</a>
+
+<a name="install"></a>
 ## Installation
 
 ```sh
 npm install zclip
 ```
 
-## Development
+<a name="examples"></a>
+## Examples
 
 Examples are located in `/examples`
 
 ```sh
 var coap = require('coap');
-var zclip = require('zclip')(coap);
+var zcl = require('../.')(coap);
 
-var onOff = new zclip.clusters.OnOff({
-  ip: '::1',
-  endpoint: 1
+var deviceIp = '::1';
+var clusterEndpoint = 1;
+
+var onOff = zcl.clusters.OnOff({
+  ip: deviceIp,
+  endpoint: clusterEndpoint
 });
 
-onOff.toggle();
+onOff.on({}, (err, response) => {
+  if (err) {
+    console.error(err);
+  }
+
+  console.log(response.code);
+});
 ```
 
+<a name="api"></a>
+## API
+{{#each clusters}}
+  * <a href="#api-clusters-{{name}}">zclip.clusters.{{name}}</a>
+{{/each }}
+* <a href="#api-clusters">zclip.clusters</a>
+* <a href="#api-discover">zclip.discover</a>
+* <a href="#api-rd">zclip.RD</a>
+
+{{#each clusters}}
+
+---
+
+<a name="api-clusters-{{name}}"></a>
+
+### zclip.clusters.{{name}}
+
+```javascript
+var {{camelCase name}}Cluster = zcl.clusters.{{name}}({
+  ip: <deviceIp>,
+  endpoint: <clusterEndpoint>
+});
+```
+
+{{#each commands}}
+
+#### {{camelCase ../name}}.{{name}}
+
+```javascript
+{{camelCase ../name}}.{{name}}(args, callback);
+```
+* args {{#unless args.length}} - None {{/unless}}
+{{#each args}}
+  * {{name}} \<{{datatype}}>
+{{/each}}
+* callback
+  * err
+  * response
+  * responseCode
+
+{{/each}}
+
+{{/each }}
+
+<a name="clusters"></a>
 ## Supported clusters
 
 {{#each clusters}}
-- {{this}}
+- {{name}}
 {{/each }}
 
+<a name="tests"></a>
 ## Run the tests
 
 ```sh
 npm test
 ```
 
+<a name="support"></a>
 ## Support
 
 [community.silabs.com](https://www.silabs.com/community) or [silabs.com/support](https://www.silabs.com/support)

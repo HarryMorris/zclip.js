@@ -1,17 +1,52 @@
 #! /usr/bin/env node
 
+global.__zclipRoot = __dirname + '/../';
+
 var fs = require('fs');
+var util = require('../lib/util');
+
 var Handlebars = require('handlebars');
+Handlebars.registerHelper('camelCase', util.camelCase);
 
 var clustersData = JSON.parse(fs.readFileSync('clusterMetaData.json').toString());
 
 var templateData = { clusters: [] };
-Object.getOwnPropertyNames(clustersData).forEach(function(clusterId) {
+Object.getOwnPropertyNames(clustersData).forEach((clusterId) => {
   var clusterData = clustersData[clusterId];
-  templateData.clusters.push(clusterData.name);
+  var cluster = {}
+  cluster.name = util.pascalCase(clusterData.name);
+
+  // Build commands
+  cluster.commands = []
+
+  Object.getOwnPropertyNames(clusterData.commands).forEach((commandId) => {
+    var commandData = clusterData.commands[commandId];
+
+    var command = {
+      name: commandData.name,
+      args: []
+    };
+
+    Object.getOwnPropertyNames(commandData.args).forEach((argId) => {
+      var argData = commandData.args[argId];
+      command.args.push(argData);
+    });
+
+    cluster.commands.push(command);
+  });
+
+  templateData.clusters.push(cluster);
 });
 
-templateData.clusters = templateData.clusters.sort()
+templateData.clusters = templateData.clusters.sort((a, b) => {
+  if (a.name < b.name) {
+    return -1;
+  } else if (a.name > b.name) {
+    return 1;
+  } else {
+    return 0;
+  }
+})
 
 var rawTemplate= fs.readFileSync('README.md.handlebars');
 var template = Handlebars.compile(rawTemplate.toString());
