@@ -47,7 +47,6 @@ onOff.on({}, (err, response) => {
 {{#each clusters}}
   * <a href="#api-clusters-{{name}}">zclip.clusters.{{name}}</a>
 {{/each }}
-* <a href="#api-clusters">zclip.clusters</a>
 * <a href="#api-discover">zclip.discover</a>
 * <a href="#api-rd">zclip.RD</a>
 
@@ -65,6 +64,34 @@ var {{camelCase name}}Cluster = zcl.clusters.{{name}}({
   endpoint: <clusterEndpoint>
 });
 ```
+#### {{camelCase name}}.bind
+
+```javascript
+{{camelCase name}}Cluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### {{camelCase name}}.read
+
+```javascript
+{{camelCase name}}Cluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+    {{#each attributes}}
+      * {{name}} \<{{datatype}}> \({{side}})
+    {{/each}}
+  * responseCode
 
 {{#each commands}}
 
@@ -85,6 +112,58 @@ var {{camelCase name}}Cluster = zcl.clusters.{{name}}({
 {{/each}}
 
 {{/each }}
+
+<a name="api-discover"></a>
+
+### zclip.discover
+
+```javascript
+zclip.discover(args, callback);
+```
+
+* args
+  * uid
+  * clusterId
+  * clusterSide
+* callback
+  * err
+  * response - Array
+     * uid
+     * ip
+     * name
+     * cluster
+     * clusterSide
+  * responseCode
+
+<a name="api-rd"></a>
+
+### zclip.RD
+
+```javascript
+var rd = zcl.RD({
+  ip: rdIp,
+  port: rdPort
+});
+```
+
+#### rd.lookup
+
+```javascript
+rd.lookup(args, callback);
+```
+* args
+  * uid
+  * clusterId
+  * clusterSide
+* callback
+  * err
+  * response - Array
+     * uid
+     * ip
+     * name
+     * cluster
+     * clusterSide
+  * responseCode
 
 <a name="clusters"></a>
 ## Supported clusters

@@ -13,8 +13,23 @@ var clustersData = JSON.parse(fs.readFileSync('clusterMetaData.json').toString()
 var templateData = { clusters: [] };
 Object.getOwnPropertyNames(clustersData).forEach((clusterId) => {
   var clusterData = clustersData[clusterId];
-  var cluster = {}
-  cluster.name = util.pascalCase(clusterData.name);
+  var cluster = {
+    name: util.pascalCase(clusterData.name),
+    attributes: []
+  }
+
+  // Build attributes
+  Object.getOwnPropertyNames(clusterData.attributes).forEach((attributeId) => {
+    var attributeData = clusterData.attributes[attributeId];
+
+    var attribute = {
+      name: attributeData.name,
+      side: attributeData.side,
+      datatype: attributeData.datatype
+    };
+
+    cluster.attributes.push(attribute);
+  });
 
   // Build commands
   cluster.commands = []

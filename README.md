@@ -88,7 +88,6 @@ onOff.on({}, (err, response) => {
   * <a href="#api-clusters-ThermostatUserInterfaceConfiguration">zclip.clusters.ThermostatUserInterfaceConfiguration</a>
   * <a href="#api-clusters-Time">zclip.clusters.Time</a>
   * <a href="#api-clusters-WindowCovering">zclip.clusters.WindowCovering</a>
-* <a href="#api-clusters">zclip.clusters</a>
 * <a href="#api-discover">zclip.discover</a>
 * <a href="#api-rd">zclip.RD</a>
 
@@ -105,6 +104,32 @@ var alarmsCluster = zcl.clusters.Alarms({
   endpoint: <clusterEndpoint>
 });
 ```
+#### alarms.bind
+
+```javascript
+alarmsCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### alarms.read
+
+```javascript
+alarmsCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * alarmCount \<int16u> \(server)
+  * responseCode
 
 
 #### alarms.alarm
@@ -174,6 +199,34 @@ var applianceControlCluster = zcl.clusters.ApplianceControl({
   endpoint: <clusterEndpoint>
 });
 ```
+#### applianceControl.bind
+
+```javascript
+applianceControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### applianceControl.read
+
+```javascript
+applianceControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * startTime \<int16u> \(server)
+      * finishTime \<int16u> \(server)
+      * remainingTime \<int16u> \(server)
+  * responseCode
 
 
 #### applianceControl.signalStateResponse
@@ -271,6 +324,31 @@ var applianceEventsAndAlertCluster = zcl.clusters.ApplianceEventsAndAlert({
   endpoint: <clusterEndpoint>
 });
 ```
+#### applianceEventsAndAlert.bind
+
+```javascript
+applianceEventsAndAlertCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### applianceEventsAndAlert.read
+
+```javascript
+applianceEventsAndAlertCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+  * responseCode
 
 
 #### applianceEventsAndAlert.getAlertsResponse
@@ -328,6 +406,43 @@ var applianceIdentificationCluster = zcl.clusters.ApplianceIdentification({
   endpoint: <clusterEndpoint>
 });
 ```
+#### applianceIdentification.bind
+
+```javascript
+applianceIdentificationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### applianceIdentification.read
+
+```javascript
+applianceIdentificationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * basicIdentification \<int56u> \(server)
+      * companyName \<char_string> \(server)
+      * companyId \<int16u> \(server)
+      * brandName \<char_string> \(server)
+      * brandId \<int16u> \(server)
+      * model \<octet_string> \(server)
+      * partNumber \<octet_string> \(server)
+      * productRevision \<octet_string> \(server)
+      * softwareRevision \<octet_string> \(server)
+      * productTypeName \<octet_string> \(server)
+      * productTypeId \<int16u> \(server)
+      * cecedSpecificationVersion \<int8u> \(server)
+  * responseCode
 
 
 
@@ -343,6 +458,33 @@ var applianceStatisticsCluster = zcl.clusters.ApplianceStatistics({
   endpoint: <clusterEndpoint>
 });
 ```
+#### applianceStatistics.bind
+
+```javascript
+applianceStatisticsCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### applianceStatistics.read
+
+```javascript
+applianceStatisticsCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * logMaxSize \<int32u> \(server)
+      * logQueueMaxSize \<int8u> \(server)
+  * responseCode
 
 
 #### applianceStatistics.logRequest
@@ -411,6 +553,47 @@ var ballastConfigurationCluster = zcl.clusters.BallastConfiguration({
   endpoint: <clusterEndpoint>
 });
 ```
+#### ballastConfiguration.bind
+
+```javascript
+ballastConfigurationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### ballastConfiguration.read
+
+```javascript
+ballastConfigurationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * physicalMinLevel \<int8u> \(server)
+      * physicalMaxLevel \<int8u> \(server)
+      * ballastStatus \<bitmap8> \(server)
+      * minLevel \<int8u> \(server)
+      * maxLevel \<int8u> \(server)
+      * powerOnLevel \<int8u> \(server)
+      * powerOnFadeTime \<int16u> \(server)
+      * intrinsicBallastFactor \<int8u> \(server)
+      * ballastFactorAdjustment \<int8u> \(server)
+      * lampQuality \<int8u> \(server)
+      * lampType \<char_string> \(server)
+      * lampManufacturer \<char_string> \(server)
+      * lampRatedHours \<int24u> \(server)
+      * lampBurnHours \<int24u> \(server)
+      * lampAlarmMode \<bitmap8> \(server)
+      * lampBurnHoursTripPoint \<int24u> \(server)
+  * responseCode
 
 
 
@@ -426,6 +609,48 @@ var basicCluster = zcl.clusters.Basic({
   endpoint: <clusterEndpoint>
 });
 ```
+#### basic.bind
+
+```javascript
+basicCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### basic.read
+
+```javascript
+basicCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * zclVersion \<int8u> \(server)
+      * applicationVersion \<int8u> \(server)
+      * stackVersion \<int8u> \(server)
+      * hardwareVersion \<int8u> \(server)
+      * manufacturerName \<char_string> \(server)
+      * modelIdentifier \<char_string> \(server)
+      * dateCode \<char_string> \(server)
+      * powerSource \<enum8> \(server)
+      * genericDeviceClass \<enum8> \(server)
+      * genericDeviceType \<enum8> \(server)
+      * productCode \<octet_string> \(server)
+      * productUrl \<char_string> \(server)
+      * locationDescription \<char_string> \(server)
+      * physicalEnvironment \<enum8> \(server)
+      * deviceEnabled \<boolean> \(server)
+      * alarmMask \<bitmap8> \(server)
+      * disableLocalConfig \<bitmap8> \(server)
+  * responseCode
 
 
 #### basic.resetToFactoryDefaults
@@ -453,6 +678,40 @@ var binaryInputBasicCluster = zcl.clusters.BinaryInputBasic({
   endpoint: <clusterEndpoint>
 });
 ```
+#### binaryInputBasic.bind
+
+```javascript
+binaryInputBasicCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### binaryInputBasic.read
+
+```javascript
+binaryInputBasicCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * activeText \<char_string> \(server)
+      * description \<char_string> \(server)
+      * inactiveText \<char_string> \(server)
+      * outOfService \<boolean> \(server)
+      * polarity \<enum8> \(server)
+      * presentValue \<boolean> \(server)
+      * reliability \<enum8> \(server)
+      * statusFlags \<bitmap8> \(server)
+      * applicationType \<int32u> \(server)
+  * responseCode
 
 
 
@@ -468,6 +727,73 @@ var colorControlCluster = zcl.clusters.ColorControl({
   endpoint: <clusterEndpoint>
 });
 ```
+#### colorControl.bind
+
+```javascript
+colorControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### colorControl.read
+
+```javascript
+colorControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * currentHue \<int8u> \(server)
+      * currentSaturation \<int8u> \(server)
+      * remainingTime \<int16u> \(server)
+      * currentX \<int16u> \(server)
+      * currentY \<int16u> \(server)
+      * driftCompensation \<enum8> \(server)
+      * compensationText \<char_string> \(server)
+      * colorTemperature \<int16u> \(server)
+      * colorMode \<enum8> \(server)
+      * colorControlOptions \<bitmap8> \(server)
+      * numberOfPrimaries \<int8u> \(server)
+      * primary1X \<int16u> \(server)
+      * primary1Y \<int16u> \(server)
+      * primary1Intensity \<int8u> \(server)
+      * primary2X \<int16u> \(server)
+      * primary2Y \<int16u> \(server)
+      * primary2Intensity \<int8u> \(server)
+      * primary3X \<int16u> \(server)
+      * primary3Y \<int16u> \(server)
+      * primary3Intensity \<int8u> \(server)
+      * primary4X \<int16u> \(server)
+      * primary4Y \<int16u> \(server)
+      * primary4Intensity \<int8u> \(server)
+      * primary5X \<int16u> \(server)
+      * primary5Y \<int16u> \(server)
+      * primary5Intensity \<int8u> \(server)
+      * primary6X \<int16u> \(server)
+      * primary6Y \<int16u> \(server)
+      * primary6Intensity \<int8u> \(server)
+      * whitePointX \<int16u> \(server)
+      * whitePointY \<int16u> \(server)
+      * colorPointRX \<int16u> \(server)
+      * colorPointRY \<int16u> \(server)
+      * colorPointRIntensity \<int8u> \(server)
+      * colorPointGX \<int16u> \(server)
+      * colorPointGY \<int16u> \(server)
+      * colorPointGIntensity \<int8u> \(server)
+      * colorPointBX \<int16u> \(server)
+      * colorPointBY \<int16u> \(server)
+      * colorPointBIntensity \<int8u> \(server)
+      * coupleColorTempToLevelMinMireds \<int16u> \(server)
+      * startUpColorTemperatureMireds \<int16u> \(server)
+  * responseCode
 
 
 #### colorControl.moveToColorTemperature
@@ -628,6 +954,55 @@ var commissioningCluster = zcl.clusters.Commissioning({
   endpoint: <clusterEndpoint>
 });
 ```
+#### commissioning.bind
+
+```javascript
+commissioningCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### commissioning.read
+
+```javascript
+commissioningCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * shortAddress \<int16u> \(server)
+      * extendedPanId \<ieee_address> \(server)
+      * panId \<int16u> \(server)
+      * channelMask \<bitmap32> \(server)
+      * protocolVersion \<int8u> \(server)
+      * stackProfile \<int8u> \(server)
+      * startupControl \<enum8> \(server)
+      * trustCenterAddress \<ieee_address> \(server)
+      * trustCenterMasterKey \<security_key> \(server)
+      * networkKey \<security_key> \(server)
+      * useInsecureJoin \<boolean> \(server)
+      * preconfiguredLinkKey \<security_key> \(server)
+      * networkKeySequenceNumber \<int8u> \(server)
+      * networkKeyType \<enum8> \(server)
+      * networkManagerAddress \<int16u> \(server)
+      * scanAttempts \<int8u> \(server)
+      * timeBetweenScans \<int16u> \(server)
+      * rejoinInterval \<int16u> \(server)
+      * maxRejoinInterval \<int16u> \(server)
+      * indirectPollRate \<int16u> \(server)
+      * parentRetryThreshold \<int8u> \(server)
+      * concentratorFlag \<boolean> \(server)
+      * concentratorRadius \<int8u> \(server)
+      * concentratorDiscoveryTime \<int8u> \(server)
+  * responseCode
 
 
 #### commissioning.restartDeviceResponse
@@ -695,6 +1070,39 @@ var dehumidificationControlCluster = zcl.clusters.DehumidificationControl({
   endpoint: <clusterEndpoint>
 });
 ```
+#### dehumidificationControl.bind
+
+```javascript
+dehumidificationControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### dehumidificationControl.read
+
+```javascript
+dehumidificationControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * relativeHumidity \<int8u> \(server)
+      * dehumidificationCooling \<int8u> \(server)
+      * rhDehumidificationSetpoint \<int8u> \(server)
+      * relativeHumidityMode \<enum8> \(server)
+      * dehumidificationLockout \<enum8> \(server)
+      * dehumidificationHysteresis \<int8u> \(server)
+      * dehumidificationMaxCool \<int8u> \(server)
+      * relativeHumidityDisplay \<enum8> \(server)
+  * responseCode
 
 
 
@@ -710,6 +1118,40 @@ var deviceTemperatureConfigurationCluster = zcl.clusters.DeviceTemperatureConfig
   endpoint: <clusterEndpoint>
 });
 ```
+#### deviceTemperatureConfiguration.bind
+
+```javascript
+deviceTemperatureConfigurationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### deviceTemperatureConfiguration.read
+
+```javascript
+deviceTemperatureConfigurationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * currentTemperature \<int16s> \(server)
+      * minTempExperienced \<int16s> \(server)
+      * maxTempExperienced \<int16s> \(server)
+      * overTempTotalDwell \<int16u> \(server)
+      * deviceTempAlarmMask \<bitmap8> \(server)
+      * lowTempThreshold \<int16s> \(server)
+      * highTempThreshold \<int16s> \(server)
+      * lowTempDwellTripPoint \<int24u> \(server)
+      * highTempDwellTripPoint \<int24u> \(server)
+  * responseCode
 
 
 
@@ -725,6 +1167,63 @@ var diagnosticsCluster = zcl.clusters.Diagnostics({
   endpoint: <clusterEndpoint>
 });
 ```
+#### diagnostics.bind
+
+```javascript
+diagnosticsCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### diagnostics.read
+
+```javascript
+diagnosticsCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * numberOfResets \<int16u> \(server)
+      * persistentMemoryWrites \<int16u> \(server)
+      * macRxBroadcast \<int32u> \(server)
+      * macTxBroadcast \<int32u> \(server)
+      * macRxUnicast \<int32u> \(server)
+      * macTxUnicast \<int32u> \(server)
+      * macTxUnicastRetry \<int16u> \(server)
+      * macTxUnicastFail \<int16u> \(server)
+      * apsRxBroadcast \<int16u> \(server)
+      * apsTxBroadcast \<int16u> \(server)
+      * apsRxUnicast \<int16u> \(server)
+      * apsUnicastSuccess \<int16u> \(server)
+      * apsTxUnicastRetries \<int16u> \(server)
+      * apsTxUnicastFailures \<int16u> \(server)
+      * routeDiscoveryInitiated \<int16u> \(server)
+      * neighborAdded \<int16u> \(server)
+      * neighborMoved \<int16u> \(server)
+      * neighborStale \<int16u> \(server)
+      * joinIndication \<int16u> \(server)
+      * childMoved \<int16u> \(server)
+      * networkFrameControlFailure \<int16u> \(server)
+      * apsFrameControlFailure \<int16u> \(server)
+      * apsUnauthorizedKey \<int16u> \(server)
+      * networkDecryptionFailure \<int16u> \(server)
+      * apsDecryptionFailure \<int16u> \(server)
+      * packetBufferAllocationFailures \<int16u> \(server)
+      * relayedUnicasts \<int16u> \(server)
+      * phyToMacQueueLimitReached \<int16u> \(server)
+      * packetValidateDropCount \<int16u> \(server)
+      * averageMacRetryPerApsMessageSent \<int16u> \(server)
+      * lastMessageLqi \<int8u> \(server)
+      * lastMessageRssi \<int8s> \(server)
+  * responseCode
 
 
 
@@ -740,6 +1239,74 @@ var doorLockCluster = zcl.clusters.DoorLock({
   endpoint: <clusterEndpoint>
 });
 ```
+#### doorLock.bind
+
+```javascript
+doorLockCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### doorLock.read
+
+```javascript
+doorLockCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * lockState \<enum8> \(server)
+      * lockType \<enum8> \(server)
+      * actuatorEnabled \<boolean> \(server)
+      * doorState \<enum8> \(server)
+      * doorOpenEvents \<int32u> \(server)
+      * doorClosedEvents \<int32u> \(server)
+      * openPeriod \<int16u> \(server)
+      * numLockRecordsSupported \<int16u> \(server)
+      * numTotalUsersSupported \<int16u> \(server)
+      * numPinUsersSupported \<int16u> \(server)
+      * numRfidUsersSupported \<int16u> \(server)
+      * numWeekdaySchedulesSupportedPerUser \<int8u> \(server)
+      * numYeardaySchedulesSupportedPerUser \<int8u> \(server)
+      * numHolidaySchedulesSupportedPerUser \<int8u> \(server)
+      * maxPinLength \<int8u> \(server)
+      * minPinLength \<int8u> \(server)
+      * maxRfidCodeLength \<int8u> \(server)
+      * minRfidCodeLength \<int8u> \(server)
+      * enableLogging \<boolean> \(server)
+      * language \<char_string> \(server)
+      * ledSettings \<int8u> \(server)
+      * autoRelockTime \<int32u> \(server)
+      * soundVolume \<int8u> \(server)
+      * operatingMode \<enum8> \(server)
+      * supportedOperatingModes \<bitmap16> \(server)
+      * defaultConfigurationRegister \<bitmap16> \(server)
+      * enableLocalProgramming \<boolean> \(server)
+      * enableOneTouchLocking \<boolean> \(server)
+      * enableInsideStatusLed \<boolean> \(server)
+      * enablePrivacyModeButton \<boolean> \(server)
+      * wrongCodeEntryLimit \<int8u> \(server)
+      * userCodeTemporaryDisableTime \<int8u> \(server)
+      * sendPinOverTheAir \<boolean> \(server)
+      * requirePinForRfOperation \<boolean> \(server)
+      * zigbeeSecurityLevel \<enum8> \(server)
+      * alarmMask \<bitmap16> \(server)
+      * keypadOperationEventMask \<bitmap16> \(server)
+      * rfOperationEventMask \<bitmap16> \(server)
+      * manualOperationEventMask \<bitmap16> \(server)
+      * rfidOperationEventMask \<bitmap16> \(server)
+      * keypadProgrammingEventMask \<bitmap16> \(server)
+      * rfProgrammingEventMask \<bitmap16> \(server)
+      * rfidProgrammingEventMask \<bitmap16> \(server)
+  * responseCode
 
 
 #### doorLock.getYeardayScheduleResponse
@@ -1074,6 +1641,159 @@ var electricalMeasurementCluster = zcl.clusters.ElectricalMeasurement({
   endpoint: <clusterEndpoint>
 });
 ```
+#### electricalMeasurement.bind
+
+```javascript
+electricalMeasurementCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### electricalMeasurement.read
+
+```javascript
+electricalMeasurementCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * measurementType \<bitmap32> \(server)
+      * dcVoltage \<int16s> \(server)
+      * dcVoltageMin \<int16s> \(server)
+      * dcVoltageMax \<int16s> \(server)
+      * dcCurrent \<int16s> \(server)
+      * dcCurrentMin \<int16s> \(server)
+      * dcCurrentMax \<int16s> \(server)
+      * dcPower \<int16s> \(server)
+      * dcPowerMin \<int16s> \(server)
+      * dcPowerMax \<int16s> \(server)
+      * dcVoltageMultiplier \<int16u> \(server)
+      * dcVoltageDivisor \<int16u> \(server)
+      * dcCurrentMultiplier \<int16u> \(server)
+      * dcCurrentDivisor \<int16u> \(server)
+      * dcPowerMultiplier \<int16u> \(server)
+      * dcPowerDivisor \<int16u> \(server)
+      * acFrequency \<int16u> \(server)
+      * acFrequencyMin \<int16u> \(server)
+      * acFrequencyMax \<int16u> \(server)
+      * neutralCurrent \<int16u> \(server)
+      * totalActivePower \<int32s> \(server)
+      * totalReactivePower \<int32s> \(server)
+      * totalApparentPower \<int32u> \(server)
+      * measured1stHarmonicCurrent \<int16s> \(server)
+      * measured3rdHarmonicCurrent \<int16s> \(server)
+      * measured5thHarmonicCurrent \<int16s> \(server)
+      * measured7thHarmonicCurrent \<int16s> \(server)
+      * measured9thHarmonicCurrent \<int16s> \(server)
+      * measured11thHarmonicCurrent \<int16s> \(server)
+      * measuredPhase1stHarmonicCurrent \<int16s> \(server)
+      * measuredPhase3rdHarmonicCurrent \<int16s> \(server)
+      * measuredPhase5thHarmonicCurrent \<int16s> \(server)
+      * measuredPhase7thHarmonicCurrent \<int16s> \(server)
+      * measuredPhase9thHarmonicCurrent \<int16s> \(server)
+      * measuredPhase11thHarmonicCurrent \<int16s> \(server)
+      * acFrequencyMultiplier \<int16u> \(server)
+      * acFrequencyDivisor \<int16u> \(server)
+      * powerMultiplier \<int32u> \(server)
+      * powerDivisor \<int32u> \(server)
+      * harmonicCurrentMultiplier \<int8s> \(server)
+      * phaseHarmonicCurrentMultiplier \<int8s> \(server)
+      * instantaneousVoltage \<int16s> \(server)
+      * instantaneousLineCurrent \<int16u> \(server)
+      * instantaneousActiveCurrent \<int16s> \(server)
+      * instantaneousReactiveCurrent \<int16s> \(server)
+      * instantaneousPower \<int16s> \(server)
+      * rmsVoltage \<int16u> \(server)
+      * rmsVoltageMin \<int16u> \(server)
+      * rmsVoltageMax \<int16u> \(server)
+      * rmsCurrent \<int16u> \(server)
+      * rmsCurrentMin \<int16u> \(server)
+      * rmsCurrentMax \<int16u> \(server)
+      * activePower \<int16s> \(server)
+      * activePowerMin \<int16s> \(server)
+      * activePowerMax \<int16s> \(server)
+      * reactivePower \<int16s> \(server)
+      * apparentPower \<int16u> \(server)
+      * powerFactor \<int8s> \(server)
+      * averageRmsVoltageMeasurementPeriod \<int16u> \(server)
+      * averageRmsUnderVoltageCounter \<int16u> \(server)
+      * rmsExtremeOverVoltagePeriod \<int16u> \(server)
+      * rmsExtremeUnderVoltagePeriod \<int16u> \(server)
+      * rmsVoltageSagPeriod \<int16u> \(server)
+      * rmsVoltageSwellPeriod \<int16u> \(server)
+      * acVoltageMultiplier \<int16u> \(server)
+      * acVoltageDivisor \<int16u> \(server)
+      * acCurrentMultiplier \<int16u> \(server)
+      * acCurrentDivisor \<int16u> \(server)
+      * acPowerMultiplier \<int16u> \(server)
+      * acPowerDivisor \<int16u> \(server)
+      * overloadAlarmsMask \<bitmap8> \(server)
+      * voltageOverload \<int16s> \(server)
+      * currentOverload \<int16s> \(server)
+      * acOverloadAlarmsMask \<bitmap16> \(server)
+      * acVoltageOverload \<int16s> \(server)
+      * acCurrentOverload \<int16s> \(server)
+      * acActivePowerOverload \<int16s> \(server)
+      * acReactivePowerOverload \<int16s> \(server)
+      * averageRmsOverVoltage \<int16s> \(server)
+      * averageRmsUnderVoltage \<int16s> \(server)
+      * rmsExtremeOverVoltage \<int16s> \(server)
+      * rmsExtremeUnderVoltage \<int16s> \(server)
+      * rmsVoltageSag \<int16s> \(server)
+      * rmsVoltageSwell \<int16s> \(server)
+      * lineCurrentPhaseB \<int16u> \(server)
+      * activeCurrentPhaseB \<int16s> \(server)
+      * reactiveCurrentPhaseB \<int16s> \(server)
+      * rmsVoltagePhaseB \<int16u> \(server)
+      * rmsVoltageMinPhaseB \<int16u> \(server)
+      * rmsVoltageMaxPhaseB \<int16u> \(server)
+      * rmsCurrentPhaseB \<int16u> \(server)
+      * rmsCurrentMinPhaseB \<int16u> \(server)
+      * rmsCurrentMaxPhaseB \<int16u> \(server)
+      * activePowerPhaseB \<int16s> \(server)
+      * activePowerMinPhaseB \<int16s> \(server)
+      * activePowerMaxPhaseB \<int16s> \(server)
+      * reactivePowerPhaseB \<int16s> \(server)
+      * apparentPowerPhaseB \<int16u> \(server)
+      * powerFactorPhaseB \<int8s> \(server)
+      * averageRmsVoltageMeasurementPeriodPhaseB \<int16u> \(server)
+      * averageRmsOverVoltageCounterPhaseB \<int16u> \(server)
+      * averageRmsUnderVoltageCounterPhaseB \<int16u> \(server)
+      * rmsExtremeOverVoltagePeriodPhaseB \<int16u> \(server)
+      * rmsExtremeUnderVoltagePeriodPhaseB \<int16u> \(server)
+      * rmsVoltageSagPeriodPhaseB \<int16u> \(server)
+      * rmsVoltageSwellPeriodPhaseB \<int16u> \(server)
+      * lineCurrentPhaseC \<int16u> \(server)
+      * activeCurrentPhaseC \<int16s> \(server)
+      * reactiveCurrentPhaseC \<int16s> \(server)
+      * rmsVoltagePhaseC \<int16u> \(server)
+      * rmsVoltageMinPhaseC \<int16u> \(server)
+      * rmsVoltageMaxPhaseC \<int16u> \(server)
+      * rmsCurrentPhaseB \<int16u> \(server)
+      * rmsCurrentMinPhaseC \<int16u> \(server)
+      * rmsCurrentMaxPhaseC \<int16u> \(server)
+      * activePowerPhaseC \<int16s> \(server)
+      * activePowerMinPhaseC \<int16s> \(server)
+      * activePowerMaxPhaseC \<int16s> \(server)
+      * reactivePowerPhaseC \<int16s> \(server)
+      * apparentPowerPhaseC \<int16u> \(server)
+      * powerFactorPhaseC \<int8s> \(server)
+      * averageRmsVoltageMeasurementPeriodPhaseC \<int16u> \(server)
+      * averageRmsOverVoltageCounterPhaseC \<int16u> \(server)
+      * averageRmsUnderVoltageCounterPhaseC \<int16u> \(server)
+      * rmsExtremeOverVoltagePeriodPhaseC \<int16u> \(server)
+      * rmsExtremeUnderVoltagePeriodPhaseC \<int16u> \(server)
+      * rmsVoltageSagPeriodPhaseC \<int16u> \(server)
+      * rmsVoltageSwellPeriodPhaseC \<int16u> \(server)
+  * responseCode
 
 
 #### electricalMeasurement.getProfileInfoCommand
@@ -1116,6 +1836,33 @@ var fanControlCluster = zcl.clusters.FanControl({
   endpoint: <clusterEndpoint>
 });
 ```
+#### fanControl.bind
+
+```javascript
+fanControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### fanControl.read
+
+```javascript
+fanControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * fanMode \<enum8> \(server)
+      * fanModeSequence \<enum8> \(server)
+  * responseCode
 
 
 
@@ -1131,6 +1878,35 @@ var flowMeasurementCluster = zcl.clusters.FlowMeasurement({
   endpoint: <clusterEndpoint>
 });
 ```
+#### flowMeasurement.bind
+
+```javascript
+flowMeasurementCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### flowMeasurement.read
+
+```javascript
+flowMeasurementCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * measuredValue \<int16u> \(server)
+      * minMeasuredValue \<int16u> \(server)
+      * maxMeasuredValue \<int16u> \(server)
+      * tolerance \<int16u> \(server)
+  * responseCode
 
 
 
@@ -1146,6 +1922,32 @@ var groupsCluster = zcl.clusters.Groups({
   endpoint: <clusterEndpoint>
 });
 ```
+#### groups.bind
+
+```javascript
+groupsCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### groups.read
+
+```javascript
+groupsCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * nameSupport \<bitmap8> \(server)
+  * responseCode
 
 
 #### groups.addGroupResponse
@@ -1245,6 +2047,31 @@ var iasAceCluster = zcl.clusters.IasAce({
   endpoint: <clusterEndpoint>
 });
 ```
+#### iasAce.bind
+
+```javascript
+iasAceCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### iasAce.read
+
+```javascript
+iasAceCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+  * responseCode
 
 
 #### iasAce.armResponse
@@ -1424,6 +2251,32 @@ var iasWdCluster = zcl.clusters.IasWd({
   endpoint: <clusterEndpoint>
 });
 ```
+#### iasWd.bind
+
+```javascript
+iasWdCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### iasWd.read
+
+```javascript
+iasWdCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * maxDuration \<int16u> \(server)
+  * responseCode
 
 
 #### iasWd.startWarning
@@ -1468,6 +2321,38 @@ var iasZoneCluster = zcl.clusters.IasZone({
   endpoint: <clusterEndpoint>
 });
 ```
+#### iasZone.bind
+
+```javascript
+iasZoneCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### iasZone.read
+
+```javascript
+iasZoneCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * zoneState \<enum8> \(server)
+      * zoneType \<enum16> \(server)
+      * zoneStatus \<bitmap16> \(server)
+      * iasCieAddress \<ieee_address> \(server)
+      * zoneId \<int8u> \(server)
+      * numberOfZoneSensitivityLevelsSupported \<int8u> \(server)
+      * currentZoneSensitivityLevel \<int8u> \(server)
+  * responseCode
 
 
 #### iasZone.zoneStatusChangeNotification
@@ -1537,6 +2422,33 @@ var identifyCluster = zcl.clusters.Identify({
   endpoint: <clusterEndpoint>
 });
 ```
+#### identify.bind
+
+```javascript
+identifyCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### identify.read
+
+```javascript
+identifyCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * identifyTime \<int16u> \(server)
+      * commissionState \<bitmap8> \(server)
+  * responseCode
 
 
 #### identify.identifyQueryResponse
@@ -1604,6 +2516,34 @@ var illuminanceLevelSensingCluster = zcl.clusters.IlluminanceLevelSensing({
   endpoint: <clusterEndpoint>
 });
 ```
+#### illuminanceLevelSensing.bind
+
+```javascript
+illuminanceLevelSensingCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### illuminanceLevelSensing.read
+
+```javascript
+illuminanceLevelSensingCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * levelStatus \<enum8> \(server)
+      * lightSensorType \<enum8> \(server)
+      * illuminanceLevelTarget \<int16u> \(server)
+  * responseCode
 
 
 
@@ -1619,6 +2559,36 @@ var illuminanceMeasurementCluster = zcl.clusters.IlluminanceMeasurement({
   endpoint: <clusterEndpoint>
 });
 ```
+#### illuminanceMeasurement.bind
+
+```javascript
+illuminanceMeasurementCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### illuminanceMeasurement.read
+
+```javascript
+illuminanceMeasurementCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * measuredValue \<int16u> \(server)
+      * minMeasuredValue \<int16u> \(server)
+      * maxMeasuredValue \<int16u> \(server)
+      * tolerance \<int16u> \(server)
+      * lightSensorType \<enum8> \(server)
+  * responseCode
 
 
 
@@ -1634,6 +2604,40 @@ var levelControlCluster = zcl.clusters.LevelControl({
   endpoint: <clusterEndpoint>
 });
 ```
+#### levelControl.bind
+
+```javascript
+levelControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### levelControl.read
+
+```javascript
+levelControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * currentLevel \<int8u> \(server)
+      * remainingTime \<int16u> \(server)
+      * options \<bitmap8> \(server)
+      * onOffTransitionTime \<int16u> \(server)
+      * onLevel \<int8u> \(server)
+      * onTransitionTime \<int16u> \(server)
+      * offTransitionTime \<int16u> \(server)
+      * defaultMoveRate \<int8u> \(server)
+      * startUpCurrentLevel \<int8u> \(server)
+  * responseCode
 
 
 #### levelControl.moveToLevel
@@ -1759,6 +2763,43 @@ var meterIdentificationCluster = zcl.clusters.MeterIdentification({
   endpoint: <clusterEndpoint>
 });
 ```
+#### meterIdentification.bind
+
+```javascript
+meterIdentificationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### meterIdentification.read
+
+```javascript
+meterIdentificationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * companyName \<char_string> \(server)
+      * meterTypeId \<int16u> \(server)
+      * dataQualityId \<int16u> \(server)
+      * customerName \<char_string> \(server)
+      * model \<octet_string> \(server)
+      * partNumber \<octet_string> \(server)
+      * productRevision \<octet_string> \(server)
+      * softwareRevision \<octet_string> \(server)
+      * utilityName \<char_string> \(server)
+      * pod \<char_string> \(server)
+      * availablePower \<int24s> \(server)
+      * powerThreshold \<int24s> \(server)
+  * responseCode
 
 
 
@@ -1774,6 +2815,39 @@ var occupancySensingCluster = zcl.clusters.OccupancySensing({
   endpoint: <clusterEndpoint>
 });
 ```
+#### occupancySensing.bind
+
+```javascript
+occupancySensingCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### occupancySensing.read
+
+```javascript
+occupancySensingCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * occupancy \<bitmap8> \(server)
+      * occupancySensorType \<enum8> \(server)
+      * pirOccupiedToUnoccupiedDelay \<int16u> \(server)
+      * pirUnoccupiedToOccupiedDelay \<int16u> \(server)
+      * pirUnoccupiedToOccupiedThreshold \<int8u> \(server)
+      * ultrasonicOccupiedToUnoccupiedDelay \<int16u> \(server)
+      * ultrasonicUnoccupiedToOccupiedDelay \<int16u> \(server)
+      * ultrasonicUnoccupiedToOccupiedThreshold \<int8u> \(server)
+  * responseCode
 
 
 
@@ -1789,6 +2863,33 @@ var onOffCluster = zcl.clusters.OnOff({
   endpoint: <clusterEndpoint>
 });
 ```
+#### onOff.bind
+
+```javascript
+onOffCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### onOff.read
+
+```javascript
+onOffCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * onOff \<boolean> \(server)
+      * startUpOnOff \<enum8> \(server)
+  * responseCode
 
 
 #### onOff.off
@@ -1840,6 +2941,33 @@ var onOffSwitchConfigurationCluster = zcl.clusters.OnOffSwitchConfiguration({
   endpoint: <clusterEndpoint>
 });
 ```
+#### onOffSwitchConfiguration.bind
+
+```javascript
+onOffSwitchConfigurationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### onOffSwitchConfiguration.read
+
+```javascript
+onOffSwitchConfigurationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * switchType \<enum8> \(server)
+      * switchActions \<enum8> \(server)
+  * responseCode
 
 
 
@@ -1855,6 +2983,44 @@ var overTheAirBootloadingCluster = zcl.clusters.OverTheAirBootloading({
   endpoint: <clusterEndpoint>
 });
 ```
+#### overTheAirBootloading.bind
+
+```javascript
+overTheAirBootloadingCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### overTheAirBootloading.read
+
+```javascript
+overTheAirBootloadingCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * otaUpgradeServerId \<ieee_address> \(client)
+      * offsetAddressIntoTheFile \<int32u> \(client)
+      * otaCurrentFileVersion \<int32u> \(client)
+      * otaCurrentZigBeeStackVersion \<int16u> \(client)
+      * otaDownloadedFileVersion \<int32u> \(client)
+      * otaDownloadedZigBeeStackVersion \<int16u> \(client)
+      * otaUpgradeStatus \<enum8> \(client)
+      * manufacturerId \<int16u> \(client)
+      * imageTypeId \<int16u> \(client)
+      * minimumBlockRequestPeriod \<int16u> \(client)
+      * imageStamp \<int32u> \(client)
+      * upgradeActivationPolicy \<enum8> \(client)
+      * upgradeTimeoutPolicy \<enum8> \(client)
+  * responseCode
 
 
 #### overTheAirBootloading.imageNotify
@@ -2047,6 +3213,38 @@ var pollControlCluster = zcl.clusters.PollControl({
   endpoint: <clusterEndpoint>
 });
 ```
+#### pollControl.bind
+
+```javascript
+pollControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### pollControl.read
+
+```javascript
+pollControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * checkInInterval \<int32u> \(server)
+      * longPollInterval \<int32u> \(server)
+      * shortPollInterval \<int16u> \(server)
+      * fastPollTimeout \<int16u> \(server)
+      * checkInIntervalMin \<int32u> \(server)
+      * longPollIntervalMin \<int32u> \(server)
+      * fastPollTimeoutMax \<int16u> \(server)
+  * responseCode
 
 
 #### pollControl.checkInResponse
@@ -2114,6 +3312,88 @@ var powerConfigurationCluster = zcl.clusters.PowerConfiguration({
   endpoint: <clusterEndpoint>
 });
 ```
+#### powerConfiguration.bind
+
+```javascript
+powerConfigurationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### powerConfiguration.read
+
+```javascript
+powerConfigurationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * mainsVoltage \<int16u> \(server)
+      * mainsFrequency \<int8u> \(server)
+      * mainsAlarmMask \<bitmap8> \(server)
+      * mainsVoltageMinThreshold \<int16u> \(server)
+      * mainsVoltageMaxThreshold \<int16u> \(server)
+      * mainsVoltageDwellTrip \<int16u> \(server)
+      * batteryVoltage \<int8u> \(server)
+      * batteryPercentageRemaining \<int8u> \(server)
+      * batteryManufacturer \<char_string> \(server)
+      * batterySize \<enum8> \(server)
+      * batteryAhrRating \<int16u> \(server)
+      * batteryQuantity \<int8u> \(server)
+      * batteryRatedVoltage \<int8u> \(server)
+      * batteryAlarmMask \<bitmap8> \(server)
+      * batteryVoltageMinThreshold \<int8u> \(server)
+      * batteryVoltageThreshold1 \<int8u> \(server)
+      * batteryVoltageThreshold2 \<int8u> \(server)
+      * batteryVoltageThreshold3 \<int8u> \(server)
+      * batteryPercentageMinThreshold \<int8u> \(server)
+      * batteryPercentageThreshold1 \<int8u> \(server)
+      * batteryPercentageThreshold2 \<int8u> \(server)
+      * batteryPercentageThreshold3 \<int8u> \(server)
+      * batteryAlarmState \<bitmap32> \(server)
+      * battery2Voltage \<int8u> \(server)
+      * battery2PercentageRemaining \<int8u> \(server)
+      * battery2Manufacturer \<char_string> \(server)
+      * battery2Size \<enum8> \(server)
+      * battery2AhrRating \<int16u> \(server)
+      * battery2Quantity \<int8u> \(server)
+      * battery2RatedVoltage \<int8u> \(server)
+      * battery2AlarmMask \<bitmap8> \(server)
+      * battery2VoltageMinThreshold \<int8u> \(server)
+      * battery2VoltageThreshold1 \<int8u> \(server)
+      * battery2VoltageThreshold2 \<int8u> \(server)
+      * battery2VoltageThreshold3 \<int8u> \(server)
+      * battery2PercentageMinThreshold \<int8u> \(server)
+      * battery2PercentageThreshold1 \<int8u> \(server)
+      * battery2PercentageThreshold2 \<int8u> \(server)
+      * battery2PercentageThreshold3 \<int8u> \(server)
+      * battery2AlarmState \<bitmap32> \(server)
+      * battery3Voltage \<int8u> \(server)
+      * battery3PercentageRemaining \<int8u> \(server)
+      * battery3Manufacturer \<char_string> \(server)
+      * battery3Size \<enum8> \(server)
+      * battery3AhrRating \<int16u> \(server)
+      * battery3Quantity \<int8u> \(server)
+      * battery3RatedVoltage \<int8u> \(server)
+      * battery3AlarmMask \<bitmap8> \(server)
+      * battery3VoltageMinThreshold \<int8u> \(server)
+      * battery3VoltageThreshold1 \<int8u> \(server)
+      * battery3VoltageThreshold2 \<int8u> \(server)
+      * battery3VoltageThreshold3 \<int8u> \(server)
+      * battery3PercentageMinThreshold \<int8u> \(server)
+      * battery3PercentageThreshold1 \<int8u> \(server)
+      * battery3PercentageThreshold2 \<int8u> \(server)
+      * battery3PercentageThreshold3 \<int8u> \(server)
+      * battery3AlarmState \<bitmap32> \(server)
+  * responseCode
 
 
 
@@ -2129,6 +3409,36 @@ var powerProfileCluster = zcl.clusters.PowerProfile({
   endpoint: <clusterEndpoint>
 });
 ```
+#### powerProfile.bind
+
+```javascript
+powerProfileCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### powerProfile.read
+
+```javascript
+powerProfileCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * totalProfileNum \<int8u> \(server)
+      * multipleScheduling \<boolean> \(server)
+      * energyFormatting \<bitmap8> \(server)
+      * energyRemote \<boolean> \(server)
+      * scheduleMode \<bitmap8> \(server)
+  * responseCode
 
 
 #### powerProfile.getPowerProfilePriceExtended
@@ -2286,6 +3596,40 @@ var pressureMeasurementCluster = zcl.clusters.PressureMeasurement({
   endpoint: <clusterEndpoint>
 });
 ```
+#### pressureMeasurement.bind
+
+```javascript
+pressureMeasurementCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### pressureMeasurement.read
+
+```javascript
+pressureMeasurementCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * measuredValue \<int16s> \(server)
+      * minMeasuredValue \<int16s> \(server)
+      * maxMeasuredValue \<int16s> \(server)
+      * tolerance \<int16u> \(server)
+      * scaledValue \<int16s> \(server)
+      * minScaledValue \<int16s> \(server)
+      * maxScaledValue \<int16s> \(server)
+      * scaledTolerance \<int16s> \(server)
+      * scale \<int8s> \(server)
+  * responseCode
 
 
 
@@ -2301,6 +3645,55 @@ var pumpConfigurationAndControlCluster = zcl.clusters.PumpConfigurationAndContro
   endpoint: <clusterEndpoint>
 });
 ```
+#### pumpConfigurationAndControl.bind
+
+```javascript
+pumpConfigurationAndControlCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### pumpConfigurationAndControl.read
+
+```javascript
+pumpConfigurationAndControlCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * maxPressure \<int16s> \(server)
+      * maxSpeed \<int16u> \(server)
+      * maxFlow \<int16u> \(server)
+      * minConstPressure \<int16s> \(server)
+      * maxConstPressure \<int16s> \(server)
+      * minCompPressure \<int16s> \(server)
+      * maxCompPressure \<int16s> \(server)
+      * minConstSpeed \<int16u> \(server)
+      * maxConstSpeed \<int16u> \(server)
+      * minConstFlow \<int16u> \(server)
+      * maxConstFlow \<int16u> \(server)
+      * minConstTemp \<int16s> \(server)
+      * maxConstTemp \<int16s> \(server)
+      * pumpStatus \<bitmap16> \(server)
+      * effectiveOperationMode \<enum8> \(server)
+      * effectiveControlMode \<enum8> \(server)
+      * capacity \<int16s> \(server)
+      * speed \<int16u> \(server)
+      * lifetimeRunningHours \<int24u> \(server)
+      * power \<int24u> \(server)
+      * lifetimeEnergyConsumed \<int32u> \(server)
+      * operationMode \<enum8> \(server)
+      * controlMode \<enum8> \(server)
+      * alarmMask \<bitmap16> \(server)
+  * responseCode
 
 
 
@@ -2316,6 +3709,35 @@ var relativeHumidityMeasurementCluster = zcl.clusters.RelativeHumidityMeasuremen
   endpoint: <clusterEndpoint>
 });
 ```
+#### relativeHumidityMeasurement.bind
+
+```javascript
+relativeHumidityMeasurementCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### relativeHumidityMeasurement.read
+
+```javascript
+relativeHumidityMeasurementCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * measuredValue \<int16u> \(server)
+      * minMeasuredValue \<int16u> \(server)
+      * maxMeasuredValue \<int16u> \(server)
+      * tolerance \<int16u> \(server)
+  * responseCode
 
 
 
@@ -2331,6 +3753,44 @@ var rssiLocationCluster = zcl.clusters.RssiLocation({
   endpoint: <clusterEndpoint>
 });
 ```
+#### rssiLocation.bind
+
+```javascript
+rssiLocationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### rssiLocation.read
+
+```javascript
+rssiLocationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * locationType \<data8> \(server)
+      * locationMethod \<enum8> \(server)
+      * locationAge \<int16u> \(server)
+      * qualityMeasure \<int8u> \(server)
+      * numberOfDevices \<int8u> \(server)
+      * coordinate1 \<int16s> \(server)
+      * coordinate2 \<int16s> \(server)
+      * coordinate3 \<int16s> \(server)
+      * power \<int16s> \(server)
+      * pathLossExponent \<int16u> \(server)
+      * reportingPeriod \<int16u> \(server)
+      * calculationPeriod \<int16u> \(server)
+      * numberRssiMeasurements \<int8u> \(server)
+  * responseCode
 
 
 #### rssiLocation.deviceConfigurationResponse
@@ -2478,6 +3938,37 @@ var scenesCluster = zcl.clusters.Scenes({
   endpoint: <clusterEndpoint>
 });
 ```
+#### scenes.bind
+
+```javascript
+scenesCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### scenes.read
+
+```javascript
+scenesCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * sceneCount \<int8u> \(server)
+      * currentScene \<int8u> \(server)
+      * currentGroup \<int16u> \(server)
+      * sceneValid \<boolean> \(server)
+      * nameSupport \<bitmap8> \(server)
+      * lastConfiguredBy \<ieee_address> \(server)
+  * responseCode
 
 
 #### scenes.addSceneResponse
@@ -2601,6 +4092,36 @@ var shadeConfigurationCluster = zcl.clusters.ShadeConfiguration({
   endpoint: <clusterEndpoint>
 });
 ```
+#### shadeConfiguration.bind
+
+```javascript
+shadeConfigurationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### shadeConfiguration.read
+
+```javascript
+shadeConfigurationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * physicalClosedLimit \<int16u> \(server)
+      * motorStepSize \<int8u> \(server)
+      * status \<bitmap8> \(server)
+      * closedLimit \<int16u> \(server)
+      * mode \<enum8> \(server)
+  * responseCode
 
 
 
@@ -2616,6 +4137,35 @@ var temperatureMeasurementCluster = zcl.clusters.TemperatureMeasurement({
   endpoint: <clusterEndpoint>
 });
 ```
+#### temperatureMeasurement.bind
+
+```javascript
+temperatureMeasurementCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### temperatureMeasurement.read
+
+```javascript
+temperatureMeasurementCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * measuredValue \<int16s> \(server)
+      * minMeasuredValue \<int16s> \(server)
+      * maxMeasuredValue \<int16s> \(server)
+      * tolerance \<int16u> \(server)
+  * responseCode
 
 
 
@@ -2631,6 +4181,74 @@ var thermostatCluster = zcl.clusters.Thermostat({
   endpoint: <clusterEndpoint>
 });
 ```
+#### thermostat.bind
+
+```javascript
+thermostatCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### thermostat.read
+
+```javascript
+thermostatCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * localTemperature \<int16s> \(server)
+      * outdoorTemperature \<int16s> \(server)
+      * occupancy \<bitmap8> \(server)
+      * absMinHeatSetpointLimit \<int16s> \(server)
+      * absMaxHeatSetpointLimit \<int16s> \(server)
+      * absMinCoolSetpointLimit \<int16s> \(server)
+      * absMaxCoolSetpointLimit \<int16s> \(server)
+      * piCoolingDemand \<int8u> \(server)
+      * piHeatingDemand \<int8u> \(server)
+      * hvacSystemTypeConfiguration \<bitmap8> \(server)
+      * localTemperatureCalibration \<int8s> \(server)
+      * occupiedCoolingSetpoint \<int16s> \(server)
+      * occupiedHeatingSetpoint \<int16s> \(server)
+      * unoccupiedCoolingSetpoint \<int16s> \(server)
+      * unoccupiedHeatingSetpoint \<int16s> \(server)
+      * minHeatSetpointLimit \<int16s> \(server)
+      * maxHeatSetpointLimit \<int16s> \(server)
+      * minCoolSetpointLimit \<int16s> \(server)
+      * maxCoolSetpointLimit \<int16s> \(server)
+      * minSetpointDeadBand \<int8s> \(server)
+      * remoteSensing \<bitmap8> \(server)
+      * controlSequenceOfOperation \<enum8> \(server)
+      * systemMode \<enum8> \(server)
+      * alarmMask \<bitmap8> \(server)
+      * thermostatRunningMode \<enum8> \(server)
+      * startOfWeek \<enum8> \(server)
+      * numberOfWeeklyTransitions \<int8u> \(server)
+      * numberOfDailyTransitions \<int8u> \(server)
+      * temperatureSetpointHold \<enum8> \(server)
+      * temperatureSetpointHoldDuration \<int16u> \(server)
+      * thermostatProgrammingOperationMode \<bitmap8> \(server)
+      * hvacRelayState \<bitmap16> \(server)
+      * setpointChangeSource \<enum8> \(server)
+      * setpointChangeAmount \<int16s> \(server)
+      * setpointChangeSourceTimestamp \<utc_time> \(server)
+      * acType \<enum8> \(server)
+      * acCapacity \<int16u> \(server)
+      * acRefrigerantType \<enum8> \(server)
+      * acCompressor \<enum8> \(server)
+      * acErrorCode \<bitmap32> \(server)
+      * acLouverPosition \<enum8> \(server)
+      * acCoilTemperature \<int16s> \(server)
+      * acCapacityFormat \<enum8> \(server)
+  * responseCode
 
 
 #### thermostat.currentWeeklySchedule
@@ -2718,6 +4336,34 @@ var thermostatUserInterfaceConfigurationCluster = zcl.clusters.ThermostatUserInt
   endpoint: <clusterEndpoint>
 });
 ```
+#### thermostatUserInterfaceConfiguration.bind
+
+```javascript
+thermostatUserInterfaceConfigurationCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### thermostatUserInterfaceConfiguration.read
+
+```javascript
+thermostatUserInterfaceConfigurationCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * temperatureDisplayMode \<enum8> \(server)
+      * keypadLockout \<enum8> \(server)
+      * scheduleProgrammingVisibility \<enum8> \(server)
+  * responseCode
 
 
 
@@ -2733,6 +4379,41 @@ var timeCluster = zcl.clusters.Time({
   endpoint: <clusterEndpoint>
 });
 ```
+#### time.bind
+
+```javascript
+timeCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### time.read
+
+```javascript
+timeCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * time \<utc_time> \(server)
+      * timeStatus \<bitmap8> \(server)
+      * timeZone \<int32s> \(server)
+      * dstStart \<int32u> \(server)
+      * dstEnd \<int32u> \(server)
+      * dstShift \<int32s> \(server)
+      * standardTime \<int32u> \(server)
+      * localTime \<int32u> \(server)
+      * lastSetTime \<utc_time> \(server)
+      * validUntilTime \<utc_time> \(server)
+  * responseCode
 
 
 
@@ -2748,6 +4429,51 @@ var windowCoveringCluster = zcl.clusters.WindowCovering({
   endpoint: <clusterEndpoint>
 });
 ```
+#### windowCovering.bind
+
+```javascript
+windowCoveringCluster.bind(args, callback);
+```
+* args
+  * uid
+  * ip
+  * port
+  * endpoint
+* callback
+  * err
+  * response
+  * responseCode
+
+#### windowCovering.read
+
+```javascript
+windowCoveringCluster.read(args, callback);
+```
+* args - None
+* callback
+  * err
+  * response
+      * windowCoveringType \<enum8> \(server)
+      * physicalClosedLimitLift \<int16u> \(server)
+      * physicalClosedLimitTilt \<int16u> \(server)
+      * currentPositionLift \<int16u> \(server)
+      * currentPositionTilt \<int16u> \(server)
+      * numberOfActuationsLift \<int16u> \(server)
+      * numberOfActuationsTilt \<int16u> \(server)
+      * configStatus \<bitmap8> \(server)
+      * currentPositionLiftPercentage \<int8u> \(server)
+      * currentPositionTiltPercentage \<int8u> \(server)
+      * installedOpenLimitLift \<int16u> \(server)
+      * installedClosedLimitLift \<int16u> \(server)
+      * installedOpenLimitTilt \<int16u> \(server)
+      * installedClosedLimitTilt \<int16u> \(server)
+      * velocityLift \<int16u> \(server)
+      * accelerationTimeLift \<int16u> \(server)
+      * decelerationTimeLift \<int16u> \(server)
+      * mode \<bitmap8> \(server)
+      * intermediateSetpointsLift \<octet_string> \(server)
+      * intermediateSetpointsTilt \<octet_string> \(server)
+  * responseCode
 
 
 #### windowCovering.windowCoveringUpOpen
@@ -2838,6 +4564,58 @@ windowCovering.windowCoveringGoToTiltPercentage(args, callback);
   * responseCode
 
 
+
+<a name="api-discover"></a>
+
+### zclip.discover
+
+```javascript
+zclip.discover(args, callback);
+```
+
+* args
+  * uid
+  * clusterId
+  * clusterSide
+* callback
+  * err
+  * response - Array
+     * uid
+     * ip
+     * name
+     * cluster
+     * clusterSide
+  * responseCode
+
+<a name="api-rd"></a>
+
+### zclip.RD
+
+```javascript
+var rd = zcl.RD({
+  ip: rdIp,
+  port: rdPort
+});
+```
+
+#### rd.lookup
+
+```javascript
+rd.lookup(args, callback);
+```
+* args
+  * uid
+  * clusterId
+  * clusterSide
+* callback
+  * err
+  * response - Array
+     * uid
+     * ip
+     * name
+     * cluster
+     * clusterSide
+  * responseCode
 
 <a name="clusters"></a>
 ## Supported clusters
