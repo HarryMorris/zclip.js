@@ -32,6 +32,16 @@ describe('RD', () => {
     expect(coap.lastRequest.params.port).toEqual(5683);
   });
 
+  test('lookup query with paging params', () => {
+    var query = { page: '1', count: '5' }
+
+    var rd = RD({ ip: RD_IP, port: RD_PORT }, coap);
+    rd.lookup(query, () => {});
+
+    expect(coap.lastRequest).toBeDefined();
+    expect(coap.lastRequest.params.query).toEqual('rt=urn:zcl:c.*&page=1&count=5');
+  });
+
   test('lookup query with uid param', () => {
     var query = { uid: 'ABC123' }
 
