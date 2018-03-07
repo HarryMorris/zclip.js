@@ -4585,6 +4585,8 @@ zclip.discover(args, callback);
      * name
      * cluster
      * clusterSide
+     * page
+     * count
   * responseCode
 
 <a name="api-rd"></a>
@@ -4615,6 +4617,8 @@ rd.lookup(args, callback);
      * name
      * cluster
      * clusterSide
+     * page
+     * count
   * responseCode
 
 <a name="clusters"></a>
